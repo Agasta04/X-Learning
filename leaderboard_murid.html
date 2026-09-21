@@ -1,0 +1,1204 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard Kelas - KomputasiKita</title>
+    <meta
+      name="description"
+      content="Papan peringkat keaktifan siswa kelas - KomputasiKita SMA Fase E. Lihat peringkat kelas secara real-time tanpa perlu login."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["'Plus Jakarta Sans'", "sans-serif"] },
+          },
+        },
+        corePlugins: { container: false },
+      };
+    </script>
+
+    <style>
+      :root {
+        --primary: #5842e3;
+        --primary-gradient: linear-gradient(
+          135deg,
+          #635bff 0%,
+          #4f46e5 50%,
+          #4338ca 100%
+        );
+        --primary-light: #eef2ff;
+        --accent-yellow: #fde047;
+        --accent-yellow-hover: #facc15;
+        --bg-page: #f8fafc;
+        --text-dark: #0f172a;
+        --text-muted: #64748b;
+        --border-color: #e2e8f0;
+        --shadow-sm: 0 4px 12px rgba(99, 102, 241, 0.05);
+        --shadow-md: 0 12px 30px rgba(99, 102, 241, 0.08);
+        --shadow-lg: 0 20px 40px rgba(79, 70, 229, 0.14);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: var(--bg-page);
+        color: var(--text-dark);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .kk-container {
+        max-width: 1240px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 24px;
+        padding-right: 24px;
+        width: 100%;
+      }
+
+      /* ===== NAVBAR ===== */
+      .navbar {
+        background: #ffffff;
+        padding: 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--border-color);
+        backdrop-filter: blur(12px);
+      }
+      .navbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: var(--text-dark);
+      }
+      .brand-icon {
+        background: var(--primary-gradient);
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+        flex-shrink: 0;
+      }
+      .navbar-brand .highlight {
+        color: var(--primary);
+      }
+      .navbar-menu {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .navbar-menu a {
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+        padding: 8px 14px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .navbar-menu a:hover,
+      .navbar-menu a.active {
+        color: var(--primary);
+        background: var(--primary-light);
+      }
+      .navbar-menu a.active {
+        font-weight: 800;
+      }
+      .navbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .navbar-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 10px;
+        transition: background 0.2s;
+      }
+      .navbar-toggle:hover {
+        background: var(--primary-light);
+      }
+      .btn-guru {
+        background: #f8fafc;
+        color: var(--primary);
+        border: 1.5px solid var(--border-color);
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        border-radius: 50px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      .btn-guru:hover {
+        background: var(--primary-light);
+        border-color: #c7d2fe;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(88, 66, 227, 0.12);
+      }
+
+      /* ===== MAIN ===== */
+      .main-content {
+        flex: 1;
+        padding: 32px 0 60px;
+      }
+
+      /* ===== HERO CARD ===== */
+      .hero-card {
+        background: var(--primary-gradient);
+        border-radius: 36px;
+        padding: 48px 56px;
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        margin-bottom: 40px;
+      }
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        top: -120px;
+        right: -100px;
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        pointer-events: none;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(10px);
+        padding: 8px 16px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+      }
+      .hero-title {
+        font-size: 2.75rem;
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 14px;
+        letter-spacing: -0.5px;
+        text-transform: uppercase;
+      }
+      .hero-title .yellow-text {
+        color: var(--accent-yellow);
+      }
+      .hero-desc {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 620px;
+        margin-bottom: 28px;
+      }
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .stat-chip {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 12px 20px;
+        border-radius: 16px;
+        transition: all 0.2s;
+      }
+      .stat-chip:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      .stat-chip .stat-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .stat-chip strong {
+        font-size: 1.4rem;
+        font-weight: 800;
+        display: block;
+        line-height: 1.1;
+      }
+      .stat-chip span {
+        font-size: 0.78rem;
+        font-weight: 600;
+        opacity: 0.9;
+        letter-spacing: 0.3px;
+      }
+
+      /* ===== SECTION HEADER ===== */
+      .section-header-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        color: var(--primary);
+        font-size: 1.25rem;
+      }
+      .section-title h2 {
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        letter-spacing: -0.3px;
+      }
+      .btn-refresh {
+        background: #ffffff;
+        border: 1.5px solid var(--border-color);
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 0.88rem;
+        padding: 9px 18px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .btn-refresh:hover {
+        background: var(--primary-light);
+        border-color: #c7d2fe;
+        transform: translateY(-1px);
+      }
+
+      /* ===== PODIUM ===== */
+      .podium-section {
+        margin-bottom: 44px;
+      }
+      .podium-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr 1fr;
+        gap: 24px;
+        align-items: flex-end;
+        max-width: 940px;
+        margin: 0 auto;
+      }
+      @media (max-width: 768px) {
+        .podium-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          max-width: 440px;
+        }
+      }
+      .podium-card {
+        background: #ffffff;
+        border-radius: 28px;
+        padding: 30px 24px;
+        text-align: center;
+        border: 2px solid var(--border-color);
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      }
+      .podium-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+      }
+      .podium-card.rank-1 {
+        border-color: var(--accent-yellow);
+        background: linear-gradient(180deg, #fffef0 0%, #ffffff 100%);
+        padding: 44px 24px 34px;
+        order: 2;
+        box-shadow: 0 12px 36px rgba(253, 224, 71, 0.28);
+      }
+      .podium-card.rank-2 {
+        border-color: #cbd5e1;
+        background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+        order: 1;
+        margin-bottom: 16px;
+      }
+      .podium-card.rank-3 {
+        border-color: #fed7aa;
+        background: linear-gradient(180deg, #fff7ed 0%, #ffffff 100%);
+        order: 3;
+        margin-bottom: 16px;
+      }
+      @media (max-width: 768px) {
+        .podium-card.rank-1 {
+          order: 1;
+          margin-bottom: 0;
+        }
+        .podium-card.rank-2 {
+          order: 2;
+          margin-bottom: 0;
+        }
+        .podium-card.rank-3 {
+          order: 3;
+          margin-bottom: 0;
+        }
+      }
+      .podium-crown {
+        position: absolute;
+        top: -22px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2.3rem;
+        color: #eab308;
+        filter: drop-shadow(0 4px 10px rgba(234, 179, 8, 0.4));
+      }
+      .podium-avatar {
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        margin: 0 auto 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #ffffff;
+        border: 4px solid #ffffff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      }
+      .podium-card.rank-1 .podium-avatar {
+        width: 94px;
+        height: 94px;
+        font-size: 2.2rem;
+      }
+      .avatar-gold {
+        background: linear-gradient(135deg, #eab308, #ca8a04);
+      }
+      .avatar-silver {
+        background: linear-gradient(135deg, #94a3b8, #64748b);
+      }
+      .avatar-bronze {
+        background: linear-gradient(135deg, #f97316, #c2410c);
+      }
+      .podium-medal {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-weight: 800;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+      .podium-medal.gold {
+        background: var(--accent-yellow);
+        color: #713f12;
+      }
+      .podium-medal.silver {
+        background: #e2e8f0;
+        color: #334155;
+      }
+      .podium-medal.bronze {
+        background: #ffedd5;
+        color: #9a3412;
+      }
+      .podium-name {
+        font-weight: 800;
+        color: var(--text-dark);
+        font-size: 1.12rem;
+        margin-bottom: 4px;
+        word-break: break-word;
+      }
+      .podium-score {
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: var(--primary);
+        margin-top: 6px;
+      }
+      .podium-card.rank-1 .podium-score {
+        font-size: 2.2rem;
+        color: #b45309;
+      }
+      .podium-score-label {
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+      }
+
+      /* ===== TABLE ===== */
+      .table-section {
+        margin-bottom: 40px;
+      }
+      .table-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+      .search-box {
+        position: relative;
+        min-width: 260px;
+        max-width: 360px;
+        width: 100%;
+      }
+      .search-box input {
+        width: 100%;
+        padding: 11px 16px 11px 40px;
+        border-radius: 14px;
+        border: 1.5px solid var(--border-color);
+        font-size: 0.9rem;
+        background: #ffffff;
+        outline: none;
+        transition: all 0.2s;
+        font-family: inherit;
+        color: var(--text-dark);
+      }
+      .search-box input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(88, 66, 227, 0.12);
+      }
+      .search-box i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        pointer-events: none;
+      }
+
+      .table-wrapper {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+      }
+      .leaderboard-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .leaderboard-table thead {
+        background: #f8fafc;
+      }
+      .leaderboard-table th {
+        text-align: left;
+        padding: 18px 24px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .leaderboard-table td {
+        padding: 16px 24px;
+        border-bottom: 1px solid #f1f5f9;
+        font-size: 0.95rem;
+        color: var(--text-dark);
+      }
+      .leaderboard-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .leaderboard-table tbody tr {
+        transition: background 0.15s ease;
+      }
+      .leaderboard-table tbody tr:hover {
+        background: #f8fafc;
+      }
+
+      .rank-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        font-weight: 800;
+        font-size: 0.9rem;
+        background: #f1f5f9;
+        color: #475569;
+      }
+      .rank-badge.top-1 {
+        background: var(--accent-yellow);
+        color: #713f12;
+        box-shadow: 0 4px 10px rgba(253, 224, 71, 0.4);
+      }
+      .rank-badge.top-2 {
+        background: #e2e8f0;
+        color: #334155;
+      }
+      .rank-badge.top-3 {
+        background: #ffedd5;
+        color: #9a3412;
+      }
+
+      .row-name {
+        font-weight: 700;
+        color: var(--text-dark);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .row-nis {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        margin-top: 2px;
+      }
+      .point-cell {
+        font-weight: 800;
+        color: var(--primary);
+        font-size: 1.2rem;
+      }
+
+      /* ===== EMPTY / LOADING STATE ===== */
+      .state-box {
+        text-align: center;
+        padding: 60px 20px;
+        color: var(--text-muted);
+        display: none;
+      }
+      .state-box i {
+        font-size: 2.8rem;
+        color: #cbd5e1;
+        margin-bottom: 16px;
+      }
+      .state-box h3 {
+        font-size: 1.2rem;
+        color: var(--text-dark);
+        margin-bottom: 6px;
+        font-weight: 800;
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background: #ffffff;
+        border-top: 1px solid var(--border-color);
+        padding: 60px 0 30px;
+        margin-top: auto;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .footer-brand p {
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+        max-width: 340px;
+        margin-top: 12px;
+      }
+      .footer-col h5 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 16px;
+      }
+      .footer-col a {
+        display: block;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        transition:
+          color 0.2s,
+          transform 0.2s;
+      }
+      .footer-col a:hover {
+        color: var(--primary);
+        transform: translateX(3px);
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 24px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-muted);
+        font-size: 0.88rem;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 992px) {
+        .hero-card {
+          padding: 40px 32px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .kk-container {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        .navbar-menu {
+          display: none;
+        }
+        .navbar-toggle {
+          display: block;
+        }
+        .navbar-menu.active {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: #fff;
+          padding: 16px;
+          border-bottom: 1px solid var(--border-color);
+          box-shadow: var(--shadow-md);
+          gap: 4px;
+        }
+        .navbar-menu.active a {
+          width: 100%;
+        }
+        .navbar-actions .btn-guru span {
+          display: none;
+        }
+        .hero-card {
+          padding: 32px 22px;
+          border-radius: 28px;
+        }
+        .hero-title {
+          font-size: 1.85rem;
+        }
+        .hero-desc {
+          font-size: 0.95rem;
+        }
+        .leaderboard-table th,
+        .leaderboard-table td {
+          padding: 14px 16px;
+        }
+        .leaderboard-table th:nth-child(3),
+        .leaderboard-table td:nth-child(3) {
+          text-align: right;
+        }
+        .footer {
+          padding: 40px 0 24px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .footer-col a:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="text-slate-800">
+    <!-- ========== NAVBAR ========== -->
+    <header class="navbar">
+      <div class="kk-container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon"><i class="fas fa-brain"></i></div>
+          <span>Komputasi<span class="highlight">Kita</span></span>
+        </a>
+
+        <nav class="navbar-menu" id="navbarMenu">
+          <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+          <a href="materi_murid.html"
+            ><i class="fas fa-book-open"></i> Materi</a
+          >
+          <a href="leaderboard_murid.html" class="active"
+            ><i class="fas fa-trophy"></i> Leaderboard</a
+          >
+        </nav>
+
+        <div class="navbar-actions">
+          <a
+            href="dashboard_guru.html"
+            class="btn-guru"
+            title="Masuk ke Panel Guru"
+          >
+            <i class="fas fa-chalkboard-user"></i> <span>Portal Guru</span>
+          </a>
+        </div>
+
+        <button
+          class="navbar-toggle"
+          id="navbarToggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- ========== KONTEN UTAMA ========== -->
+    <main class="main-content">
+      <div class="kk-container">
+        <!-- HERO -->
+        <div class="hero-card">
+          <div class="relative z-10">
+            <span class="hero-badge mb-6 inline-flex">
+              <i class="fas fa-trophy"></i> Leaderboard • Fase E
+            </span>
+
+            <h1 class="hero-title">
+              Papan <span class="yellow-text">Peringkat</span> Kelas
+            </h1>
+            <p class="hero-desc">
+              Lihat peringkat keaktifan seluruh siswa di kelas. Poin didapat
+              dari latihan, LKPD, kuis, dan partisipasi diskusi. Data
+              ditampilkan terbuka tanpa perlu login.
+            </p>
+
+            <div class="hero-stats">
+              <div class="stat-chip">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div>
+                  <strong id="statTotal">0</strong>
+                  <span>Total Siswa</span>
+                </div>
+              </div>
+              <div class="stat-chip">
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div>
+                  <strong id="statPoin">0</strong>
+                  <span>Total Poin</span>
+                </div>
+              </div>
+              <div class="stat-chip">
+                <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                <div>
+                  <strong id="statAvg">0</strong>
+                  <span>Rata-rata Poin</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PODIUM TOP 3 -->
+        <section class="podium-section">
+          <div class="section-header-wrap">
+            <div class="section-title">
+              <i class="fas fa-crown"></i>
+              <h2>3 Besar Peringkat Teratas</h2>
+            </div>
+            <button
+              class="btn-refresh"
+              id="btnRefresh"
+              onclick="loadLeaderboard()"
+            >
+              <i class="fas fa-rotate-right" id="refreshIcon"></i> Segarkan Data
+            </button>
+          </div>
+          <div class="podium-grid" id="podiumGrid">
+            <!-- Diisi oleh JavaScript -->
+          </div>
+        </section>
+
+        <!-- TABEL PERINGKAT -->
+        <section class="table-section">
+          <div class="table-controls">
+            <div class="section-title">
+              <i class="fas fa-list-ol"></i>
+              <h2>Peringkat Lengkap Siswa</h2>
+            </div>
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari nama atau NIS siswa..."
+                oninput="filterLeaderboard()"
+              />
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="leaderboard-table">
+              <thead>
+                <tr>
+                  <th style="width: 110px; text-align: center">Peringkat</th>
+                  <th>Nama Siswa</th>
+                  <th style="text-align: right; width: 200px">
+                    Poin Keaktifan
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="leaderboardBody">
+                <!-- Diisi oleh JavaScript -->
+              </tbody>
+            </table>
+
+            <div class="state-box" id="stateBox">
+              <i class="fas fa-inbox"></i>
+              <h3 id="stateTitle">Belum ada data peringkat</h3>
+              <p id="stateDesc">
+                Data peringkat akan muncul setelah siswa aktif berpartisipasi.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="kk-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a
+              href="index.html"
+              class="navbar-brand"
+              style="margin-bottom: 12px"
+            >
+              <div class="brand-icon"><i class="fas fa-brain"></i></div>
+              <span>Komputasi<span class="highlight">Kita</span></span>
+            </a>
+            <p>
+              Platform pembelajaran Berpikir Komputasional berbasis web untuk
+              siswa SMA Fase E Kurikulum Merdeka.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h5>Materi Pembelajaran</h5>
+            <a href="sub_materi_1.html">Fondasi Sistem Komputasi</a>
+            <a href="sub_materi_2.html">Pengolahan &amp; Struktur Data</a>
+            <a href="sub_materi_3.html">Algoritma Pencarian &amp; Pengurutan</a>
+            <a href="sub_materi_4.html">Simulasi &amp; Pemrograman</a>
+          </div>
+
+          <div class="footer-col">
+            <h5>Navigasi</h5>
+            <a href="index.html">Beranda</a>
+            <a href="materi_murid.html">Daftar Materi</a>
+            <a href="leaderboard_murid.html">Leaderboard Siswa</a>
+            <a href="dashboard_guru.html">Portal Guru</a>
+          </div>
+
+          <div class="footer-col">
+            <h5>Informasi</h5>
+            <a href="#">Kurikulum Merdeka SMA Fase E</a>
+            <a href="#">Pedoman Pembelajaran CT</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 KomputasiKita. Dibuat untuk pembelajaran interaktif
+            kelas SMA.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const APPS_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbwlVEXCtHBRgf1ZBfpYgb2qCGAm_Pyj68O4PvL3ffeW6m8h9mTS9zRTCNnl5CZ8pbSpdw/exec";
+
+      // Navbar toggle
+      (function () {
+        const toggle = document.getElementById("navbarToggle");
+        const menu = document.getElementById("navbarMenu");
+        if (toggle && menu) {
+          toggle.addEventListener("click", function () {
+            const isOpen = menu.classList.toggle("active");
+            toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          });
+          menu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", function () {
+              menu.classList.remove("active");
+              toggle.setAttribute("aria-expanded", "false");
+            });
+          });
+        }
+      })();
+
+      // Data mock cadangan (jika Apps Script belum siap)
+      const mockData = [
+        { nis: "102301", name: "Salsabila Rahma", points: 24 },
+        { nis: "102302", name: "Bagas Pratama", points: 21 },
+        { nis: "102303", name: "Nadia Kurniawati", points: 19 },
+        { nis: "102304", name: "Andi Wijaya", points: 18 },
+        { nis: "102305", name: "Rizky Firmansyah", points: 16 },
+        { nis: "102306", name: "Putri Amelia", points: 15 },
+        { nis: "102307", name: "Dimas Saputra", points: 14 },
+        { nis: "102308", name: "Intan Permatasari", points: 12 },
+        { nis: "102309", name: "Farhan Ramadhan", points: 11 },
+        { nis: "102310", name: "Citra Lestari", points: 9 },
+        { nis: "102311", name: "Yoga Aditya", points: 8 },
+        { nis: "102312", name: "Alya Safira", points: 6 },
+      ];
+
+      let allStudents = [];
+
+      function getInitials(name) {
+        if (!name) return "🎓";
+        const parts = name.trim().split(/\s+/);
+        if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
+        return name.substring(0, 2).toUpperCase();
+      }
+
+      function updateStats(list) {
+        const totalSiswa = list.length;
+        const totalPoin = list.reduce((sum, s) => sum + (s.points || 0), 0);
+        const rataRata =
+          totalSiswa > 0 ? Math.round((totalPoin / totalSiswa) * 10) / 10 : 0;
+
+        const elTotal = document.getElementById("statTotal");
+        const elPoin = document.getElementById("statPoin");
+        const elAvg = document.getElementById("statAvg");
+
+        if (elTotal) elTotal.textContent = totalSiswa;
+        if (elPoin) elPoin.textContent = totalPoin;
+        if (elAvg) elAvg.textContent = rataRata;
+      }
+
+      function renderPodium(data) {
+        const podium = document.getElementById("podiumGrid");
+        if (!podium) return;
+        podium.innerHTML = "";
+
+        if (data.length < 3) {
+          podium.innerHTML =
+            '<div style="grid-column: 1 / -1; text-align: center; color: #94a3b8; padding: 32px; background: #fff; border-radius: 20px; border: 1px dashed #cbd5e1;">Poin kelas masih dalam pengumpulan untuk menampilkan podium 3 besar.</div>';
+          return;
+        }
+
+        const podiumOrder = [
+          {
+            rank: 2,
+            data: data[1],
+            medalClass: "silver",
+            avatarClass: "avatar-silver",
+            cardClass: "rank-2",
+          },
+          {
+            rank: 1,
+            data: data[0],
+            medalClass: "gold",
+            avatarClass: "avatar-gold",
+            cardClass: "rank-1",
+          },
+          {
+            rank: 3,
+            data: data[2],
+            medalClass: "bronze",
+            avatarClass: "avatar-bronze",
+            cardClass: "rank-3",
+          },
+        ];
+
+        podiumOrder.forEach((item) => {
+          const div = document.createElement("div");
+          div.className = `podium-card ${item.cardClass}`;
+
+          const crownHtml =
+            item.rank === 1 ? '<i class="fas fa-crown podium-crown"></i>' : "";
+
+          div.innerHTML = `
+          ${crownHtml}
+          <div class="podium-avatar ${item.avatarClass}">${getInitials(item.data.name)}</div>
+          <div class="podium-medal ${item.medalClass}">#${item.rank}</div>
+          <div class="podium-name">${item.data.name}</div>
+          <div class="podium-score">${item.data.points}</div>
+          <div class="podium-score-label">Poin Keaktifan</div>
+        `;
+          podium.appendChild(div);
+        });
+      }
+
+      function renderTable(data) {
+        const tbody = document.getElementById("leaderboardBody");
+        const stateBox = document.getElementById("stateBox");
+        if (!tbody) return;
+        tbody.innerHTML = "";
+
+        if (data.length === 0) {
+          if (stateBox) {
+            stateBox.style.display = "block";
+            document.getElementById("stateTitle").textContent =
+              "Tidak ada hasil";
+            document.getElementById("stateDesc").textContent =
+              "Tidak ditemukan siswa yang sesuai dengan pencarian.";
+          }
+          return;
+        }
+        if (stateBox) stateBox.style.display = "none";
+
+        data.forEach((siswa, index) => {
+          const rank = index + 1;
+          const tr = document.createElement("tr");
+
+          let rankBadgeClass = "";
+          if (rank === 1) rankBadgeClass = "top-1";
+          else if (rank === 2) rankBadgeClass = "top-2";
+          else if (rank === 3) rankBadgeClass = "top-3";
+
+          tr.innerHTML = `
+          <td style="text-align: center;">
+            <span class="rank-badge ${rankBadgeClass}">${rank}</span>
+          </td>
+          <td>
+            <div class="row-name">${siswa.name}</div>
+            ${siswa.nis ? `<div class="row-nis">NIS: ${siswa.nis}</div>` : ""}
+          </td>
+          <td style="text-align: right;">
+            <span class="point-cell">${siswa.points}</span>
+            <span style="font-size: 0.85rem; color: #64748b; font-weight: 600;"> Poin</span>
+          </td>
+        `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      function filterLeaderboard() {
+        const query = (document.getElementById("searchInput")?.value || "")
+          .toLowerCase()
+          .trim();
+        if (!query) {
+          renderTable(allStudents);
+          return;
+        }
+        const filtered = allStudents.filter(
+          (s) =>
+            s.name.toLowerCase().includes(query) ||
+            (s.nis && s.nis.toLowerCase().includes(query)),
+        );
+        renderTable(filtered);
+      }
+
+      async function loadLeaderboard() {
+        const refreshIcon = document.getElementById("refreshIcon");
+        if (refreshIcon) refreshIcon.classList.add("fa-spin");
+
+        let list = [];
+
+        if (APPS_SCRIPT_URL && !APPS_SCRIPT_URL.includes("GANTI_DENGAN_URL")) {
+          try {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 10000);
+            const res = await fetch(
+              `${APPS_SCRIPT_URL}?action=get_leaderboard`,
+              { signal: controller.signal },
+            );
+            clearTimeout(timer);
+            const json = await res.json();
+            if (json && json.success && Array.isArray(json.data)) {
+              list = json.data.map((item) => ({
+                nis: (item.nis || "").toString().trim(),
+                name: item.nama || item.name || item.Nama_Siswa || "Siswa",
+                points: parseInt(
+                  item.poin || item.points || item.Poin_Keaktifan || 0,
+                ),
+              }));
+            }
+          } catch (err) {
+            console.warn(
+              "Gagal fetch leaderboard Apps Script, menggunakan fallback:",
+              err,
+            );
+          }
+        }
+
+        if (list.length === 0) {
+          list = [...mockData];
+        }
+
+        allStudents = list
+          .map((item) => ({
+            nis: (item.nis || "").toString().trim(),
+            name: item.name || "Siswa",
+            points: parseInt(item.points) || 0,
+          }))
+          .sort((a, b) => b.points - a.points);
+
+        updateStats(allStudents);
+        renderPodium(allStudents);
+        renderTable(allStudents);
+
+        if (refreshIcon) {
+          setTimeout(() => refreshIcon.classList.remove("fa-spin"), 500);
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        loadLeaderboard();
+      });
+    </script>
+  </body>
+</html>

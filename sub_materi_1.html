@@ -1,0 +1,4488 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Sub-Bab 1: Fondasi Sistem Komputasi & Berpikir - KomputasiKita
+    </title>
+    <meta
+      name="description"
+      content="Materi Sub-Bab 1: Fondasi Sistem Komputasi & Berpikir Komputasional - SMA Fase E Kurikulum Merdeka."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["'Plus Jakarta Sans'", "sans-serif"] },
+            colors: {
+              primary: "#5842e3",
+              "primary-dark": "#4530c9",
+              "primary-light": "#eef2ff",
+              secondary: "#fde047",
+              "secondary-dark": "#facc15",
+              dark: "#0f172a",
+              light: "#f8fafc",
+            },
+          },
+        },
+        corePlugins: { container: false },
+      };
+    </script>
+
+    <style>
+      :root {
+        --primary: #5842e3;
+        --primary-gradient: linear-gradient(
+          135deg,
+          #635bff 0%,
+          #4f46e5 50%,
+          #4338ca 100%
+        );
+        --primary-light: #eef2ff;
+        --accent-yellow: #fde047;
+        --accent-yellow-hover: #facc15;
+        --bg-page: #f8fafc;
+        --text-dark: #0f172a;
+        --text-muted: #64748b;
+        --border-color: #e2e8f0;
+        --shadow-sm: 0 4px 12px rgba(99, 102, 241, 0.05);
+        --shadow-md: 0 12px 30px rgba(99, 102, 241, 0.08);
+        --shadow-lg: 0 20px 40px rgba(79, 70, 229, 0.14);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: var(--bg-page);
+        color: var(--text-dark);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .kk-container {
+        max-width: 1240px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 24px;
+        padding-right: 24px;
+        width: 100%;
+      }
+      .navbar {
+        background: #ffffff;
+        padding: 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--border-color);
+        backdrop-filter: blur(12px);
+      }
+      .navbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.35rem;
+        font-weight: 800;
+        color: var(--text-dark);
+      }
+      .brand-icon {
+        background: var(--primary-gradient);
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+        flex-shrink: 0;
+      }
+      .navbar-brand .highlight {
+        color: var(--primary);
+      }
+      .navbar-menu {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .navbar-menu a {
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+        padding: 8px 14px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .navbar-menu a:hover,
+      .navbar-menu a.active {
+        color: var(--primary);
+        background: var(--primary-light);
+      }
+      .navbar-menu a.active {
+        font-weight: 800;
+      }
+      .navbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .navbar-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 10px;
+        transition: background 0.2s;
+      }
+      .navbar-toggle:hover {
+        background: var(--primary-light);
+      }
+      .btn-guru {
+        background: #f8fafc;
+        color: var(--primary);
+        border: 1.5px solid var(--border-color);
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        border-radius: 50px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      .btn-guru:hover {
+        background: var(--primary-light);
+        border-color: #c7d2fe;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(88, 66, 227, 0.12);
+      }
+      .page-section {
+        display: none;
+        animation: fadeIn 0.4s ease-in-out;
+      }
+      .page-section.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .btn-yellow {
+        background: var(--accent-yellow);
+        color: #1e1b4b;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 1rem;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.4);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        border: none;
+      }
+      .btn-yellow:hover {
+        background: var(--accent-yellow-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 26px rgba(250, 204, 21, 0.5);
+      }
+      .btn-outline-white {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: all 0.25s;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        backdrop-filter: blur(6px);
+      }
+      .btn-outline-white:hover {
+        background: rgba(255, 255, 255, 0.28);
+        border-color: #fff;
+        transform: translateY(-2px);
+      }
+      .hero-card {
+        background: var(--primary-gradient);
+        border-radius: 36px;
+        padding: 56px 60px;
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+      }
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        top: -120px;
+        right: -100px;
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.18) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        pointer-events: none;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(10px);
+        padding: 8px 16px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+      }
+      .info-card {
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 22px;
+      }
+      .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .info-list li {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.9rem;
+        color: #475569;
+      }
+      .info-list li:last-child {
+        border-bottom: none;
+      }
+      .info-list li span:last-child {
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+      .colored-card {
+        border-radius: 28px;
+        padding: 26px;
+        color: white;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        border: none;
+        text-align: left;
+        font-family: inherit;
+      }
+      .colored-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+      }
+      .colored-card .tag {
+        display: inline-flex;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        backdrop-filter: blur(4px);
+        color: #ffffff;
+      }
+      .colored-card h3 {
+        font-size: 1.25rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        letter-spacing: -0.3px;
+      }
+      .colored-card p {
+        font-size: 0.88rem;
+        opacity: 0.92;
+        line-height: 1.55;
+        flex-grow: 1;
+        margin-bottom: 18px;
+      }
+      .colored-card .action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        font-size: 0.88rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+        padding-top: 14px;
+      }
+      .colored-card .deco-icon {
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        font-size: 5rem;
+        opacity: 0.15;
+        transform: rotate(15deg);
+        color: #ffffff;
+        pointer-events: none;
+      }
+      .materi-tab {
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .materi-tab.active-tab {
+        background-color: var(--primary);
+        color: white;
+      }
+      .pilar-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+      }
+      .pilar-card {
+        background: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 24px;
+        transition: all 0.25s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      }
+      .pilar-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(88, 66, 227, 0.1);
+        border-color: var(--primary);
+      }
+      .pilar-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+      }
+      .vn-diagram {
+        background: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 28px;
+        padding: 28px;
+        margin: 24px 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      }
+      .vn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .vn-box {
+        background: #f8fafc;
+        border: 2px solid var(--border-color);
+        border-radius: 20px;
+        padding: 16px 20px;
+        text-align: center;
+        min-width: 130px;
+        transition: all 0.3s;
+      }
+      .vn-box .icon {
+        font-size: 1.6rem;
+        color: var(--text-dark);
+        margin-bottom: 6px;
+      }
+      .vn-box .label {
+        font-size: 0.85rem;
+        font-weight: 800;
+        color: var(--text-dark);
+      }
+      .vn-box .sub {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+      .vn-arrow {
+        font-size: 1.5rem;
+        color: var(--primary);
+      }
+      .ipo-container {
+        background: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 28px;
+        padding: 32px;
+        box-shadow: var(--shadow-sm);
+      }
+      .ipo-flow {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        gap: 16px;
+        align-items: center;
+      }
+      @media (max-width: 768px) {
+        .ipo-flow {
+          grid-template-columns: 1fr;
+        }
+        .ipo-arrow {
+          transform: rotate(90deg);
+          justify-self: center;
+        }
+      }
+      .ipo-stage {
+        background: #f8fafc;
+        border: 2px solid var(--border-color);
+        border-radius: 24px;
+        padding: 20px;
+        text-align: center;
+        min-height: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: all 0.3s;
+      }
+      .ipo-stage.active {
+        border-color: var(--accent-yellow);
+        box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.2);
+        transform: scale(1.02);
+      }
+      .ipo-stage.done {
+        border-color: #10b981;
+        background: #ecfdf5;
+      }
+      .ipo-stage .stage-label {
+        font-size: 0.72rem;
+        font-weight: 800;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 8px;
+      }
+      .ipo-stage .stage-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+        color: var(--text-dark);
+      }
+      .ipo-stage .stage-value {
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--text-dark);
+        word-break: break-word;
+      }
+      .ipo-stage .stage-sub {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+      .ipo-arrow {
+        font-size: 1.8rem;
+        color: #cbd5e1;
+        transition: color 0.3s;
+      }
+      .ipo-arrow.active {
+        color: var(--primary);
+      }
+      .layer-onion {
+        max-width: 460px;
+        margin: 0 auto;
+        position: relative;
+        aspect-ratio: 1;
+      }
+      .onion-layer {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid;
+      }
+      .onion-layer:hover {
+        transform: translate(-50%, -50%) scale(1.03);
+      }
+      .onion-layer.active {
+        box-shadow: 0 0 0 4px rgba(88, 66, 227, 0.35);
+        z-index: 20;
+      }
+      .onion-layer .layer-label {
+        position: absolute;
+        font-size: 0.72rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 4px 10px;
+        border-radius: 20px;
+        white-space: nowrap;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .layer-info-panel {
+        background: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 24px;
+        min-height: 200px;
+        transition: all 0.3s;
+        box-shadow: var(--shadow-sm);
+      }
+      .latihan-card {
+        background: #fff;
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 18px;
+        transition: all 0.2s;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      }
+      .latihan-card.correct {
+        border-color: #10b981;
+        background: #ecfdf5;
+      }
+      .latihan-card.wrong {
+        border-color: #ef4444;
+        background: #fef2f2;
+      }
+      .match-btn {
+        display: inline-block;
+        padding: 10px 16px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        border: 2px solid var(--border-color);
+        background: #fff;
+        color: var(--text-dark);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .match-btn:hover {
+        border-color: var(--primary);
+      }
+      .match-btn.selected {
+        background: var(--accent-yellow);
+        border-color: var(--accent-yellow);
+        color: #1e1b4b;
+      }
+      .match-btn.matched {
+        background: #10b981;
+        border-color: #10b981;
+        color: #fff;
+        cursor: default;
+      }
+      .asesmen-card {
+        background: white;
+        border-radius: 24px;
+        padding: 24px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        transition: border-color 0.2s;
+      }
+      .asesmen-card:hover {
+        border-color: var(--primary);
+      }
+      .asesmen-card .option-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
+        transition: all 0.15s;
+        cursor: pointer;
+      }
+      .asesmen-card .option-label:hover {
+        background: var(--primary-light);
+        border-color: var(--primary);
+      }
+      .asesmen-card .option-label input[type="radio"] {
+        accent-color: var(--primary);
+        width: 1.2rem;
+        height: 1.2rem;
+        flex-shrink: 0;
+      }
+      .tab-asesmen-active {
+        background: var(--primary);
+        color: white;
+        border: 2px solid var(--primary);
+      }
+      .tab-asesmen-inactive {
+        background: white;
+        color: var(--text-muted);
+        border: 2px solid var(--border-color);
+      }
+      .tab-asesmen-inactive:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      .status-success {
+        color: #16a34a;
+        font-weight: bold;
+      }
+      .status-error {
+        color: #dc2626;
+        font-weight: bold;
+      }
+      .status-loading {
+        color: #ca8a04;
+        font-weight: bold;
+      }
+      .footer {
+        background: #ffffff;
+        border-top: 1px solid var(--border-color);
+        padding: 60px 0 30px;
+        margin-top: auto;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .footer-brand p {
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+        max-width: 340px;
+        margin-top: 12px;
+      }
+      .footer-col h5 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 16px;
+      }
+      .footer-col a {
+        display: block;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        transition:
+          color 0.2s,
+          transform 0.2s;
+      }
+      .footer-col a:hover {
+        color: var(--primary);
+        transform: translateX(3px);
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 24px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-muted);
+        font-size: 0.88rem;
+      }
+      .history-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 14px;
+        background: #f8fafc;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        font-family: "JetBrains Mono", monospace, sans-serif;
+      }
+      @media (max-width: 992px) {
+        .hero-card {
+          padding: 40px 30px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .kk-container {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        .navbar-menu {
+          display: none;
+        }
+        .navbar-toggle {
+          display: block;
+        }
+        .navbar-menu.active {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: #fff;
+          padding: 16px;
+          border-bottom: 1px solid var(--border-color);
+          box-shadow: var(--shadow-md);
+          gap: 4px;
+        }
+        .navbar-menu.active a {
+          width: 100%;
+        }
+        .navbar-actions .btn-guru span {
+          display: none;
+        }
+        .hero-card {
+          padding: 32px 22px;
+          border-radius: 28px;
+        }
+        .footer {
+          padding: 40px 0 24px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .footer-col a:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="text-slate-800">
+    <header class="navbar">
+      <div class="kk-container navbar-inner">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon"><i class="fas fa-brain"></i></div>
+          <span>Komputasi<span class="highlight">Kita</span></span>
+        </a>
+        <nav class="navbar-menu" id="navbarMenu">
+          <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+          <a href="materi_murid.html" class="active"
+            ><i class="fas fa-book-open"></i> Materi</a
+          >
+          <a href="leaderboard_murid.html"
+            ><i class="fas fa-trophy"></i> Leaderboard</a
+          >
+        </nav>
+        <div class="navbar-actions">
+          <a
+            href="dashboard_guru.html"
+            class="btn-guru"
+            title="Masuk ke Panel Guru"
+          >
+            <i class="fas fa-chalkboard-user"></i> <span>Portal Guru</span>
+          </a>
+        </div>
+        <button
+          class="navbar-toggle"
+          id="navbarToggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="flex-grow kk-container py-8">
+      <!-- ================= BERANDA ================= -->
+      <section id="beranda" class="page-section active">
+        <div class="hero-card mb-12">
+          <div class="relative z-10">
+            <span class="hero-badge mb-6 inline-flex">
+              <i class="fas fa-layer-group"></i> Sub-Bab 1 • Fase E
+            </span>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mt-4"
+            >
+              <div>
+                <h1
+                  class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.08] mb-6 uppercase tracking-tight"
+                >
+                  Fondasi
+                  <span class="text-secondary">Sistem Komputasi</span> &amp;
+                  Berpikir
+                </h1>
+                <p
+                  class="mb-8 font-medium text-lg text-white/90 leading-relaxed max-w-lg"
+                >
+                  Mulai perjalanan berpikir komputasionalmu! Pelajari 4 pilar
+                  CT, cara kerja komputer model Von Neumann, alur
+                  Input-Proses-Output, serta peran Sistem Operasi dalam
+                  komputer.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                  <button onclick="nav('materi')" class="btn-yellow">
+                    MULAI BELAJAR <i class="fas fa-arrow-right"></i>
+                  </button>
+                  <button onclick="nav('simulasi')" class="btn-outline-white">
+                    <i class="fas fa-microchip"></i> COBA SIMULASI
+                  </button>
+                </div>
+              </div>
+              <div
+                class="relative hidden md:flex justify-center items-center h-full min-h-[280px]"
+              >
+                <div
+                  class="absolute w-72 h-72 bg-white/10 rounded-full blur-3xl"
+                ></div>
+                <i
+                  class="fas fa-user-astronaut text-[160px] lg:text-[200px] text-white/95 drop-shadow-2xl relative z-10 transform hover:scale-105 transition duration-500"
+                ></i>
+                <div
+                  class="absolute top-0 right-10 bg-white text-dark font-black py-3 px-5 rounded-2xl rounded-br-none shadow-xl rotate-3"
+                >
+                  Siap Belajar? 🚀
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-12">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-1 info-card">
+              <h3
+                class="text-base font-black text-dark mb-4 flex items-center gap-2"
+              >
+                <i class="fas fa-circle-info text-primary"></i> Informasi
+                Pembelajaran
+              </h3>
+              <ul class="info-list">
+                <li><span>Mata Pelajaran</span><span>Informatika</span></li>
+                <li><span>Fase / Kelas</span><span>E / X (SMA)</span></li>
+                <li><span>Elemen</span><span>Berpikir Komputasional</span></li>
+                <li>
+                  <span>Materi</span><span>Fondasi Sistem Komputasi</span>
+                </li>
+                <li><span>Estimasi Waktu</span><span>4 JP</span></li>
+              </ul>
+            </div>
+            <div
+              class="lg:col-span-2 bg-white border border-slate-100 rounded-3xl p-6 md:p-8 flex flex-col justify-center shadow-sm"
+            >
+              <div class="flex items-start gap-4 mb-4">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-primary text-xl flex-shrink-0"
+                >
+                  <i class="fas fa-bullseye"></i>
+                </div>
+                <div>
+                  <h3 class="font-black text-dark mb-2">Tujuan Pembelajaran</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed">
+                    Setelah mengikuti sub-bab ini, murid mampu memahami cara
+                    kerja sistem komputer, menerapkan 4 pilar berpikir
+                    komputasional untuk memecahkan masalah, serta menjelaskan
+                    peran Sistem Operasi sebagai jembatan antara pengguna dan
+                    perangkat keras.
+                  </p>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div
+                  class="bg-slate-50 rounded-2xl p-3 border border-slate-100 flex gap-3 items-center"
+                >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-black text-sm flex-shrink-0"
+                  >
+                    1
+                  </div>
+                  <strong class="text-dark text-sm">Memahami 4 Pilar CT</strong>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-3 border border-slate-100 flex gap-3 items-center"
+                >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-black text-sm flex-shrink-0"
+                  >
+                    2
+                  </div>
+                  <strong class="text-dark text-sm">Model Von Neumann</strong>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-3 border border-slate-100 flex gap-3 items-center"
+                >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-black text-sm flex-shrink-0"
+                  >
+                    3
+                  </div>
+                  <strong class="text-dark text-sm">Simulasi Siklus IPO</strong>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-3 border border-slate-100 flex gap-3 items-center"
+                >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-black text-sm flex-shrink-0"
+                  >
+                    4
+                  </div>
+                  <strong class="text-dark text-sm"
+                    >Peran Sistem Operasi</strong
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-12">
+          <div class="text-center mb-10">
+            <h2
+              class="text-2xl md:text-3xl font-black text-dark uppercase tracking-tight"
+            >
+              Pilih Alur Belajarmu
+            </h2>
+            <p class="text-slate-500 mt-2 font-medium">
+              Ikuti langkah-langkah di bawah ini secara terstruktur.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <button
+              onclick="nav('asesmen', 'awal')"
+              class="colored-card"
+              style="background: #ef4444"
+            >
+              <i class="fas fa-clipboard-question deco-icon"></i>
+              <div>
+                <span class="tag"><i class="fas fa-star mr-2"></i>Tahap 1</span>
+              </div>
+              <h3>Pre-Test</h3>
+              <p>
+                Asesmen diagnostik: 10 soal PG untuk mengukur pemahaman awalmu
+                tentang komputer dan CT.
+              </p>
+              <div class="action">
+                <span>5 Menit</span><span>Mulai &rarr;</span>
+              </div>
+            </button>
+            <button
+              onclick="nav('materi')"
+              class="colored-card"
+              style="background: #ff6b4a"
+            >
+              <i class="fas fa-book-open deco-icon"></i>
+              <div>
+                <span class="tag"><i class="fas fa-book mr-2"></i>Tahap 2</span>
+              </div>
+              <h3>Materi Inti</h3>
+              <p>
+                Pahami 4 pilar CT, arsitektur Von Neumann, konsep IPO, dan
+                Sistem Operasi.
+              </p>
+              <div class="action">
+                <span>25 Menit</span><span>Baca &rarr;</span>
+              </div>
+            </button>
+            <button
+              onclick="nav('simulasi')"
+              class="colored-card"
+              style="background: #8b5cf6"
+            >
+              <i class="fas fa-microchip deco-icon"></i>
+              <div>
+                <span class="tag"><i class="fas fa-play mr-2"></i>Tahap 3</span>
+              </div>
+              <h3>Simulasi IPO</h3>
+              <p>
+                Simulasikan alur Input &rarr; Proses di CPU &rarr; Output secara
+                visual interaktif.
+              </p>
+              <div class="action">
+                <span>Interaktif</span><span>Coba &rarr;</span>
+              </div>
+            </button>
+            <button
+              onclick="nav('simulasi-os')"
+              class="colored-card"
+              style="background: #10b981"
+            >
+              <i class="fas fa-layer-group deco-icon"></i>
+              <div>
+                <span class="tag"
+                  ><i class="fas fa-layer-group mr-2"></i>Tahap 4</span
+                >
+              </div>
+              <h3>Lapisan OS</h3>
+              <p>
+                Klik setiap lapisan Sistem Operasi pada simulasi bawang untuk
+                membongkar fungsinya.
+              </p>
+              <div class="action">
+                <span>Interaktif</span><span>Buka &rarr;</span>
+              </div>
+            </button>
+            <button
+              onclick="nav('latihan')"
+              class="colored-card"
+              style="background: #06b6d4"
+            >
+              <i class="fas fa-gamepad deco-icon"></i>
+              <div>
+                <span class="tag"
+                  ><i class="fas fa-pencil mr-2"></i>Tahap 5</span
+                >
+              </div>
+              <h3>Latihan Bebas</h3>
+              <p>
+                Mainkan mini-game untuk menguji pemahamanmu tentang CT dan
+                lapisan OS.
+              </p>
+              <div class="action">
+                <span>Game Based</span><span>Main &rarr;</span>
+              </div>
+            </button>
+            <button
+              onclick="nav('lkpd')"
+              class="colored-card"
+              style="background: #facc15; color: #1e1b4b"
+            >
+              <i
+                class="fas fa-clipboard-list deco-icon"
+                style="color: #000"
+              ></i>
+              <div>
+                <span
+                  class="tag"
+                  style="background: rgba(0, 0, 0, 0.1); color: #1e1b4b"
+                  ><i class="fas fa-file-alt mr-2"></i>Tahap 6</span
+                >
+              </div>
+              <h3>LKPD Digital</h3>
+              <p>
+                Kerjakan lembar kerja ini sebagai portofolio belajar, lalu
+                simpan jadi PDF.
+              </p>
+              <div class="action" style="border-top-color: rgba(0, 0, 0, 0.1)">
+                <span>Tugas Mandiri</span><span>Kerjakan &rarr;</span>
+              </div>
+            </button>
+            <button
+              onclick="nav('asesmen', 'akhir')"
+              class="colored-card"
+              style="background: #5842e3"
+            >
+              <i class="fas fa-award deco-icon"></i>
+              <div>
+                <span class="tag"
+                  ><i class="fas fa-trophy mr-2"></i>Tahap 7</span
+                >
+              </div>
+              <h3>Post-Test &amp; Tes Tertulis</h3>
+              <p>
+                Ukur ketercapaian TP melalui Post-Test dan Tes Tertulis (PG +
+                Esai).
+              </p>
+              <div class="action">
+                <span>Evaluasi</span><span>Kerjakan &rarr;</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= MATERI ================= -->
+      <section id="materi" class="page-section">
+        <div class="mb-8 flex items-center">
+          <button
+            onclick="nav('beranda')"
+            class="mr-4 text-slate-500 hover:text-primary transition bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <div>
+            <h2 class="text-3xl font-black text-dark uppercase tracking-tight">
+              Materi Pembelajaran
+            </h2>
+            <p class="text-slate-500 mt-1 font-medium">
+              Pilih sub-topik di samping untuk mulai membaca.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8">
+          <div class="w-full md:w-72 flex-shrink-0">
+            <div
+              class="bg-white rounded-3xl shadow-sm border border-slate-100 p-3 sticky top-24"
+            >
+              <button
+                onclick="showMateri('pilar')"
+                id="tab-pilar"
+                class="materi-tab active-tab w-full text-left px-5 py-4 rounded-2xl font-bold mb-2 transition"
+              >
+                <i class="fas fa-cubes mr-2"></i> A. 4 Pilar CT
+              </button>
+              <button
+                onclick="showMateri('vonneumann')"
+                id="tab-vonneumann"
+                class="materi-tab w-full text-left px-5 py-4 rounded-2xl font-bold text-slate-600 hover:bg-slate-50 mb-2 transition"
+              >
+                <i class="fas fa-microchip mr-2"></i> B. Von Neumann &amp; IPO
+              </button>
+              <button
+                onclick="showMateri('os')"
+                id="tab-os"
+                class="materi-tab w-full text-left px-5 py-4 rounded-2xl font-bold text-slate-600 hover:bg-slate-50 mb-2 transition"
+              >
+                <i class="fas fa-layer-group mr-2"></i> C. Sistem Operasi
+              </button>
+              <button
+                onclick="showMateri('sejarah')"
+                id="tab-sejarah"
+                class="materi-tab w-full text-left px-5 py-4 rounded-2xl font-bold text-slate-600 hover:bg-slate-50 mb-2 transition"
+              >
+                <i class="fas fa-clock-rotate-left mr-2"></i> D. Sejarah &amp;
+                Jenis Komputer
+              </button>
+              <button
+                onclick="showMateri('ospopuler')"
+                id="tab-ospopuler"
+                class="materi-tab w-full text-left px-5 py-4 rounded-2xl font-bold text-slate-600 hover:bg-slate-50 mb-2 transition"
+              >
+                <i class="fas fa-window-restore mr-2"></i> E. OS Populer
+              </button>
+              <button
+                onclick="showMateri('istilah1')"
+                id="tab-istilah1"
+                class="materi-tab w-full text-left px-5 py-4 rounded-2xl font-bold text-slate-600 hover:bg-slate-50 transition"
+              >
+                <i class="fas fa-book mr-2"></i> F. Istilah Penting
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="flex-grow min-w-0 bg-white rounded-3xl shadow-sm border border-slate-100 p-6 md:p-10"
+          >
+            <!-- A. 4 PILAR CT -->
+            <div id="materi-pilar" class="materi-content block">
+              <h3
+                class="text-2xl font-black text-dark mb-6 border-b-2 border-slate-100 pb-4 uppercase"
+              >
+                A. Fondasi Berpikir Komputasional
+              </h3>
+              <div
+                class="bg-indigo-50 border-l-4 border-primary p-6 rounded-2xl mb-8"
+              >
+                <p class="text-lg text-slate-700 font-medium italic">
+                  "Berpikir komputasional adalah cara berpikir untuk memecahkan
+                  masalah secara efektif, efisien, dan sistematis — seperti cara
+                  kerja seorang programmer, tetapi dapat diterapkan pada masalah
+                  apa pun."
+                </p>
+              </div>
+              <h4 class="font-bold text-dark mt-8 mb-4 text-lg">
+                <i class="fa-solid fa-cubes text-primary mr-2"></i> 4 Pilar
+                Berpikir Komputasional:
+              </h4>
+              <div class="pilar-grid">
+                <div class="pilar-card">
+                  <div class="pilar-icon bg-blue-100 text-blue-600">
+                    <i class="fas fa-puzzle-piece"></i>
+                  </div>
+                  <h4 class="font-bold text-lg mb-2">1. Dekomposisi</h4>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Memecah masalah besar yang kompleks menjadi bagian-bagian
+                    kecil yang lebih mudah diselesaikan.
+                  </p>
+                  <div
+                    class="text-xs bg-slate-50 p-3 rounded-xl border border-slate-100 italic text-slate-500"
+                  >
+                    <strong>Contoh:</strong> Membuat game &rarr; dipecah jadi
+                    desain karakter, aturan main, sistem skor.
+                  </div>
+                </div>
+                <div class="pilar-card">
+                  <div class="pilar-icon bg-indigo-100 text-primary">
+                    <i class="fas fa-search"></i>
+                  </div>
+                  <h4 class="font-bold text-lg mb-2">2. Pengenalan Pola</h4>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Mencari kesamaan atau pola berulang dari masalah yang pernah
+                    dihadapi sebelumnya.
+                  </p>
+                  <div
+                    class="text-xs bg-slate-50 p-3 rounded-xl border border-slate-100 italic text-slate-500"
+                  >
+                    <strong>Contoh:</strong> Mengenali pola soal ujian yang
+                    mirip dengan soal latihan sebelumnya.
+                  </div>
+                </div>
+                <div class="pilar-card">
+                  <div class="pilar-icon bg-emerald-100 text-emerald-600">
+                    <i class="fas fa-filter"></i>
+                  </div>
+                  <h4 class="font-bold text-lg mb-2">3. Abstraksi</h4>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Menyaring informasi penting dan mengabaikan detail yang
+                    tidak relevan untuk fokus pada inti masalah.
+                  </p>
+                  <div
+                    class="text-xs bg-slate-50 p-3 rounded-xl border border-slate-100 italic text-slate-500"
+                  >
+                    <strong>Contoh:</strong> Peta hanya menampilkan jalan utama,
+                    bukan setiap pohon atau tiang listrik.
+                  </div>
+                </div>
+                <div class="pilar-card">
+                  <div class="pilar-icon bg-amber-100 text-amber-600">
+                    <i class="fas fa-list-ol"></i>
+                  </div>
+                  <h4 class="font-bold text-lg mb-2">
+                    4. Perancangan Algoritma
+                  </h4>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Menyusun langkah-langkah penyelesaian masalah secara
+                    berurutan dan logis agar dapat dijalankan.
+                  </p>
+                  <div
+                    class="text-xs bg-slate-50 p-3 rounded-xl border border-slate-100 italic text-slate-500"
+                  >
+                    <strong>Contoh:</strong> Resep masakan — urutan langkah dari
+                    menyiapkan bahan hingga menyajikan.
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mt-10 bg-slate-50 border border-slate-100 rounded-3xl p-6"
+              >
+                <h4
+                  class="font-black text-dark mb-4 text-base uppercase tracking-tight"
+                >
+                  <i class="fas fa-lightbulb text-secondary-dark mr-2"></i>Studi
+                  Kasus: Mengatur Ulang Kamar
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                  <div class="bg-white rounded-2xl p-4 border border-slate-100">
+                    <strong class="text-primary">Dekomposisi:</strong> Bagi
+                    pekerjaan jadi menyortir barang, menyapu, menata meja.
+                  </div>
+                  <div class="bg-white rounded-2xl p-4 border border-slate-100">
+                    <strong class="text-primary">Pola:</strong> Ingat pola
+                    penataan kamar teman yang tampak rapi.
+                  </div>
+                  <div class="bg-white rounded-2xl p-4 border border-slate-100">
+                    <strong class="text-primary">Abstraksi:</strong> Abaikan
+                    warna buku — cukup kelompokkan berdasarkan ukuran.
+                  </div>
+                  <div class="bg-white rounded-2xl p-4 border border-slate-100">
+                    <strong class="text-primary">Algoritma:</strong> Susun
+                    urutan: bersihkan dulu, baru tata barang.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- B. VON NEUMANN -->
+            <div id="materi-vonneumann" class="materi-content hidden">
+              <h3
+                class="text-2xl font-black text-dark mb-6 border-b-2 border-slate-100 pb-4 uppercase"
+              >
+                B. Model Komputer Von Neumann &amp; IPO
+              </h3>
+              <p class="text-slate-600 mb-6 leading-relaxed">
+                <strong>John von Neumann</strong> (1945) memperkenalkan
+                arsitektur komputer modern yang hingga kini menjadi dasar hampir
+                semua komputer. Gagasan utamanya:
+                <em>program dan data disimpan di memori yang sama</em>, sehingga
+                komputer dapat menjalankan instruksi secara otomatis.
+              </p>
+              <h4 class="font-bold text-dark mt-8 mb-4 text-lg">
+                <i class="fa-solid fa-sitemap text-primary mr-2"></i> Komponen
+                Utama Von Neumann:
+              </h4>
+              <div class="vn-diagram">
+                <div class="vn-row">
+                  <div class="vn-box">
+                    <div class="icon"><i class="fas fa-keyboard"></i></div>
+                    <div class="label">INPUT</div>
+                    <div class="sub mt-1">Keyboard, Mouse</div>
+                  </div>
+                  <div class="vn-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div
+                    class="vn-box"
+                    style="border-color: #fde047; background: #fffdf5"
+                  >
+                    <div class="icon" style="color: #e6c645">
+                      <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="label">CPU</div>
+                    <div class="sub mt-1">Control Unit &amp; ALU</div>
+                  </div>
+                  <div class="vn-arrow"><i class="fas fa-arrow-right"></i></div>
+                  <div class="vn-box">
+                    <div class="icon"><i class="fas fa-desktop"></i></div>
+                    <div class="label">OUTPUT</div>
+                    <div class="sub mt-1">Monitor, Printer</div>
+                  </div>
+                </div>
+                <div class="vn-row mt-6">
+                  <div
+                    class="vn-box"
+                    style="
+                      min-width: 100%;
+                      border-color: #5842e3;
+                      background: #f3f0ff;
+                    "
+                  >
+                    <div class="icon" style="color: #5842e3">
+                      <i class="fas fa-memory"></i>
+                    </div>
+                    <div class="label" style="color: #5842e3">MEMORI (RAM)</div>
+                    <div class="sub mt-1">
+                      Menyimpan data &amp; program yang sedang berjalan
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="font-bold text-dark mt-8 mb-4 text-lg">
+                <i class="fa-solid fa-rotate text-primary mr-2"></i> Dinamika
+                Input &rarr; Proses &rarr; Output (IPO):
+              </h4>
+              <ol
+                class="list-decimal pl-6 space-y-3 text-slate-600 mb-8 font-medium"
+              >
+                <li>
+                  <strong class="text-dark">Input</strong> — Data masuk melalui
+                  perangkat input (misal: kamu mengetik angka 5 dan 3).
+                </li>
+                <li>
+                  <strong class="text-dark">Proses</strong> — CPU mengambil
+                  instruksi dari memori, memproses data di ALU (misal: 5 + 3).
+                </li>
+                <li>
+                  <strong class="text-dark">Output</strong> — Hasil dikirim ke
+                  perangkat output (misal: monitor menampilkan angka 8).
+                </li>
+              </ol>
+              <div
+                class="bg-amber-50 border-l-4 border-secondary p-5 rounded-r-2xl"
+              >
+                <p class="text-sm text-amber-900 font-medium">
+                  <strong
+                    ><i class="fas fa-lightbulb mr-1 text-secondary-dark"></i>
+                    Intinya:</strong
+                  >
+                  Semua komputer modern bekerja dengan pola yang sama — menerima
+                  input, memprosesnya berdasarkan instruksi program, lalu
+                  menghasilkan output.
+                </p>
+              </div>
+            </div>
+
+            <!-- C. SISTEM OPERASI -->
+            <div id="materi-os" class="materi-content hidden">
+              <h3
+                class="text-2xl font-black text-dark mb-6 border-b-2 border-slate-100 pb-4 uppercase"
+              >
+                C. Sistem Operasi — Model Bawang
+              </h3>
+              <p class="text-slate-600 mb-6 leading-relaxed">
+                <strong>Sistem Operasi (OS)</strong> adalah perangkat lunak
+                utama yang mengelola seluruh sumber daya komputer dan
+                menjembatani antara pengguna dengan perangkat keras.
+              </p>
+              <h4 class="font-bold text-dark mt-8 mb-4 text-lg">
+                <i class="fa-solid fa-layer-group text-primary mr-2"></i> Model
+                Lapisan Bawang (Layered Structure):
+              </h4>
+              <p class="text-sm text-slate-600 mb-6 font-medium">
+                OS dapat dibayangkan seperti lapisan bawang. Lapisan paling
+                dalam berinteraksi dengan <em>hardware</em>, sedangkan lapisan
+                paling luar berinteraksi dengan <em>pengguna</em>.
+              </p>
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-8"
+              >
+                <div
+                  class="bg-slate-50 rounded-3xl p-4 flex justify-center"
+                  style="min-height: 340px"
+                >
+                  <div class="relative" style="width: 300px; height: 300px">
+                    <div
+                      class="onion-layer"
+                      style="
+                        width: 300px;
+                        height: 300px;
+                        background: rgba(139, 92, 246, 0.05);
+                        border-color: #8b5cf6;
+                      "
+                    >
+                      <span
+                        class="layer-label"
+                        style="top: 8px; left: 50%; transform: translateX(-50%)"
+                        >L5: Antarmuka</span
+                      >
+                    </div>
+                    <div
+                      class="onion-layer"
+                      style="
+                        width: 250px;
+                        height: 250px;
+                        background: rgba(59, 130, 246, 0.08);
+                        border-color: #3b82f6;
+                      "
+                    >
+                      <span
+                        class="layer-label"
+                        style="top: 8px; left: 50%; transform: translateX(-50%)"
+                        >L4: Program</span
+                      >
+                    </div>
+                    <div
+                      class="onion-layer"
+                      style="
+                        width: 200px;
+                        height: 200px;
+                        background: rgba(16, 185, 129, 0.08);
+                        border-color: #10b981;
+                      "
+                    >
+                      <span
+                        class="layer-label"
+                        style="top: 8px; left: 50%; transform: translateX(-50%)"
+                        >L3: I/O</span
+                      >
+                    </div>
+                    <div
+                      class="onion-layer"
+                      style="
+                        width: 150px;
+                        height: 150px;
+                        background: rgba(245, 166, 35, 0.1);
+                        border-color: #f5a623;
+                      "
+                    >
+                      <span
+                        class="layer-label"
+                        style="top: 8px; left: 50%; transform: translateX(-50%)"
+                        >L2: Komunikasi</span
+                      >
+                    </div>
+                    <div
+                      class="onion-layer"
+                      style="
+                        width: 100px;
+                        height: 100px;
+                        background: rgba(239, 68, 68, 0.08);
+                        border-color: #ef4444;
+                      "
+                    >
+                      <span
+                        class="layer-label"
+                        style="top: 6px; left: 50%; transform: translateX(-50%)"
+                        >L1: Memori</span
+                      >
+                    </div>
+                    <div
+                      class="onion-layer"
+                      style="
+                        width: 52px;
+                        height: 52px;
+                        background: #5842e3;
+                        border-color: #5842e3;
+                      "
+                    >
+                      <i class="fas fa-microchip text-white"></i>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-indigo-50 border border-indigo-100 rounded-3xl p-6 flex flex-col justify-center"
+                >
+                  <h4 class="font-black text-primary mb-3 text-lg">
+                    <i class="fas fa-lightbulb text-secondary-dark mr-2"></i
+                    >Pahami Konsepnya
+                  </h4>
+                  <p class="text-sm text-slate-600 leading-relaxed font-medium">
+                    Setiap lapisan hanya berkomunikasi dengan lapisan tepat di
+                    atas dan di bawahnya. Hal ini membuat sistem lebih aman dan
+                    mudah diperbaiki jika ada kerusakan pada satu lapisan tanpa
+                    mengganggu lapisan lain.
+                  </p>
+                  <button
+                    onclick="nav('simulasi-os')"
+                    class="mt-5 self-start inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary-dark transition"
+                  >
+                    <i class="fas fa-play"></i> Buka Simulasi Penuh
+                  </button>
+                </div>
+              </div>
+              <h4 class="font-bold text-dark mt-10 mb-4 text-lg">
+                <i class="fa-solid fa-gears text-primary mr-2"></i> Fungsi &amp;
+                Peran Sistem Operasi:
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div
+                  class="bg-white shadow-sm p-5 rounded-2xl border border-slate-100"
+                >
+                  <div class="font-bold text-dark mb-2 text-base">
+                    <i class="fas fa-memory text-primary mr-2"></i>Pengelolaan
+                    Memori
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    Mengatur alokasi RAM untuk setiap program agar tidak saling
+                    bertabrakan.
+                  </p>
+                </div>
+                <div
+                  class="bg-white shadow-sm p-5 rounded-2xl border border-slate-100"
+                >
+                  <div class="font-bold text-dark mb-2 text-base">
+                    <i class="fas fa-tasks text-primary mr-2"></i>Pengelolaan
+                    Proses
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    Menjadwalkan CPU untuk banyak proses berjalan bersamaan
+                    (multitasking).
+                  </p>
+                </div>
+                <div
+                  class="bg-white shadow-sm p-5 rounded-2xl border border-slate-100"
+                >
+                  <div class="font-bold text-dark mb-2 text-base">
+                    <i class="fas fa-plug text-primary mr-2"></i>Antarmuka
+                    Hardware
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    Menjadi jembatan antara aplikasi dan perangkat keras melalui
+                    <em>device driver</em>.
+                  </p>
+                </div>
+                <div
+                  class="bg-white shadow-sm p-5 rounded-2xl border border-slate-100"
+                >
+                  <div class="font-bold text-dark mb-2 text-base">
+                    <i class="fas fa-user text-primary mr-2"></i>Interaksi
+                    Pengguna
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    Menyediakan antarmuka GUI atau CLI untuk berkomunikasi
+                    dengan komputer.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="mt-8 bg-slate-50 border border-slate-100 rounded-3xl p-6"
+              >
+                <h4
+                  class="font-black text-dark mb-3 text-base uppercase tracking-tight"
+                >
+                  <i class="fas fa-utensils text-primary mr-2"></i> Analogi:
+                  Restoran
+                </h4>
+                <p class="text-sm text-slate-600 leading-relaxed font-medium">
+                  Bayangkan komputer seperti sebuah restoran.
+                  <strong>Pelanggan</strong> adalah pengguna,
+                  <strong>koki</strong> adalah CPU,
+                  <strong>bahan di dapur</strong> adalah RAM, dan
+                  <strong>pelayan</strong> adalah Sistem Operasi.
+                </p>
+              </div>
+            </div>
+
+            <!-- D. SEJARAH -->
+            <div id="materi-sejarah" class="materi-content hidden">
+              <h3
+                class="text-2xl font-black text-dark mb-6 border-b-2 border-slate-100 pb-4 uppercase"
+              >
+                D. Sejarah &amp; Jenis Komputer
+              </h3>
+              <h4 class="font-bold text-dark mb-4 text-lg">
+                <i class="fa-solid fa-clock-rotate-left text-primary mr-2"></i>
+                5 Generasi Komputer:
+              </h4>
+              <div class="space-y-3 mb-8">
+                <div
+                  class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex gap-4"
+                >
+                  <div
+                    class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-black flex-shrink-0"
+                  >
+                    1
+                  </div>
+                  <div>
+                    <strong class="text-dark"
+                      >Generasi 1 (1940–1956): Tabung Vakum</strong
+                    >
+                    <p class="text-sm text-slate-600">
+                      Komputer raksasa seperti ENIAC. Menggunakan tabung vakum,
+                      sangat panas dan cepat rusak.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex gap-4"
+                >
+                  <div
+                    class="w-12 h-12 rounded-xl bg-indigo-100 text-primary flex items-center justify-center font-black flex-shrink-0"
+                  >
+                    2
+                  </div>
+                  <div>
+                    <strong class="text-dark"
+                      >Generasi 2 (1956–1963): Transistor</strong
+                    >
+                    <p class="text-sm text-slate-600">
+                      Ukuran jauh lebih kecil, lebih cepat, dan lebih hemat
+                      energi dibanding generasi sebelumnya.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex gap-4"
+                >
+                  <div
+                    class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black flex-shrink-0"
+                  >
+                    3
+                  </div>
+                  <div>
+                    <strong class="text-dark"
+                      >Generasi 3 (1964–1971): Integrated Circuit (IC)</strong
+                    >
+                    <p class="text-sm text-slate-600">
+                      Banyak transistor dalam satu chip. Mulai muncul sistem
+                      operasi.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex gap-4"
+                >
+                  <div
+                    class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-black flex-shrink-0"
+                  >
+                    4
+                  </div>
+                  <div>
+                    <strong class="text-dark"
+                      >Generasi 4 (1971–Sekarang): Microprocessor</strong
+                    >
+                    <p class="text-sm text-slate-600">
+                      Era PC (Personal Computer). Muncul Apple, IBM PC, dan
+                      Windows.
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex gap-4"
+                >
+                  <div
+                    class="w-12 h-12 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black flex-shrink-0"
+                  >
+                    5
+                  </div>
+                  <div>
+                    <strong class="text-dark"
+                      >Generasi 5 (Sekarang–Masa Depan): AI &amp;
+                      Quantum</strong
+                    >
+                    <p class="text-sm text-slate-600">
+                      Komputer cerdas dengan AI, machine learning, dan komputasi
+                      kuantum.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <h4 class="font-bold text-dark mb-4 text-lg">
+                <i class="fa-solid fa-computer text-primary mr-2"></i> Jenis
+                Komputer Berdasarkan Skala:
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-white border border-slate-200 rounded-2xl p-5">
+                  <div class="flex items-center gap-3 mb-2">
+                    <i class="fas fa-server text-primary text-xl"></i
+                    ><strong class="text-dark">Superkomputer</strong>
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    Untuk riset cuaca, simulasi nuklir, genomik. Contoh: Fugaku,
+                    Frontier.
+                  </p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-5">
+                  <div class="flex items-center gap-3 mb-2">
+                    <i class="fas fa-database text-primary text-xl"></i
+                    ><strong class="text-dark">Mainframe</strong>
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    Untuk bank, penerbangan, dengan ribuan pengguna bersamaan.
+                  </p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-5">
+                  <div class="flex items-center gap-3 mb-2">
+                    <i class="fas fa-desktop text-primary text-xl"></i
+                    ><strong class="text-dark">PC &amp; Laptop</strong>
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    Komputer pribadi untuk kerja, belajar, dan hiburan
+                    sehari-hari.
+                  </p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-5">
+                  <div class="flex items-center gap-3 mb-2">
+                    <i class="fas fa-mobile-screen text-primary text-xl"></i
+                    ><strong class="text-dark">Mobile &amp; Embedded</strong>
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    Smartphone, smartwatch, IoT, mikrokontroler di alat rumah
+                    tangga.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- E. OS POPULER -->
+            <div id="materi-ospopuler" class="materi-content hidden">
+              <h3
+                class="text-2xl font-black text-dark mb-6 border-b-2 border-slate-100 pb-4 uppercase"
+              >
+                E. Sistem Operasi Populer
+              </h3>
+              <p class="text-slate-600 mb-6 leading-relaxed">
+                Setiap perangkat memiliki Sistem Operasi yang berbeda,
+                disesuaikan dengan kebutuhan penggunanya.
+              </p>
+              <div
+                class="overflow-x-auto rounded-2xl border border-slate-200 mb-8"
+              >
+                <table class="min-w-full text-sm">
+                  <thead class="bg-slate-50">
+                    <tr>
+                      <th class="px-4 py-3 text-left font-black text-dark">
+                        OS
+                      </th>
+                      <th
+                        class="px-4 py-3 text-left font-black text-dark border-l border-slate-200"
+                      >
+                        Dikembangkan
+                      </th>
+                      <th
+                        class="px-4 py-3 text-left font-black text-dark border-l border-slate-200"
+                      >
+                        Banyak Dipakai di
+                      </th>
+                      <th
+                        class="px-4 py-3 text-left font-black text-dark border-l border-slate-200"
+                      >
+                        Ciri Khas
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white">
+                    <tr>
+                      <td class="px-4 py-3 font-bold text-dark">
+                        <i class="fab fa-windows text-blue-500 mr-2"></i>Windows
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        Microsoft
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        PC &amp; Laptop
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        Paling banyak dipakai, banyak software
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-bold text-dark">
+                        <i class="fab fa-apple text-slate-800 mr-2"></i>macOS
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">Apple</td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        MacBook &amp; iMac
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        Desain rapi, eksklusif di perangkat Apple
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-bold text-dark">
+                        <i class="fab fa-linux text-orange-600 mr-2"></i>Linux
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        Komunitas Global
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        Server, Developer, PC
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        Gratis, open-source, banyak varian (Ubuntu, Debian)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-bold text-dark">
+                        <i class="fab fa-android text-green-600 mr-2"></i
+                        >Android
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">Google</td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        Smartphone &amp; Tablet
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        Terbuka, banyak merek HP memakainya
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-bold text-dark">
+                        <i class="fab fa-apple text-slate-800 mr-2"></i>iOS
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">Apple</td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        iPhone &amp; iPad
+                      </td>
+                      <td class="px-4 py-3 border-l text-slate-600">
+                        Aman, hanya untuk perangkat Apple
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="bg-indigo-50 border-l-4 border-primary p-5 rounded-r-2xl"
+              >
+                <p class="text-sm text-slate-700 font-medium">
+                  <strong
+                    ><i class="fas fa-circle-info text-primary mr-1"></i>
+                    Fakta:</strong
+                  >
+                  Komputer yang kamu pakai di sekolah, HP di kantongmu, dan
+                  server Google — semuanya menjalankan Sistem Operasi.
+                </p>
+              </div>
+            </div>
+
+            <!-- F. ISTILAH -->
+            <div id="materi-istilah1" class="materi-content hidden">
+              <h3
+                class="text-2xl font-black text-dark mb-6 border-b-2 border-slate-100 pb-4 uppercase"
+              >
+                F. Kamus / Istilah Penting
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">Berpikir Komputasional</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Cara berpikir sistematis untuk memecahkan masalah dengan
+                    pendekatan terstruktur.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">Dekomposisi</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Memecah masalah besar menjadi bagian-bagian kecil yang lebih
+                    mudah dikelola.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">Abstraksi</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Menyaring detail yang tidak perlu untuk fokus pada inti
+                    masalah.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">Von Neumann</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Arsitektur komputer modern yang menyimpan data dan program
+                    di memori yang sama.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">
+                    IPO (Input-Proses-Output)
+                  </dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Alur dasar kerja komputer: menerima input, memproses, lalu
+                    menghasilkan output.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">CPU</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Central Processing Unit — otak komputer yang menjalankan
+                    instruksi program.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">RAM</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Memori sementara tempat program dan data aktif disimpan.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">Kernel</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Inti dari sistem operasi yang berkomunikasi langsung dengan
+                    hardware.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">Driver</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Perangkat lunak kecil yang membantu OS berkomunikasi dengan
+                    perangkat keras tertentu.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">Sistem Operasi</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Perangkat lunak utama yang mengelola sumber daya komputer
+                    dan menjembatani pengguna dengan hardware.
+                  </dd>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SIMULASI IPO ================= -->
+      <section id="simulasi" class="page-section">
+        <div class="flex items-center mb-8">
+          <button
+            onclick="nav('beranda')"
+            class="mr-4 text-slate-500 hover:text-primary transition bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <div>
+            <h2 class="text-3xl font-black text-dark uppercase tracking-tight">
+              Simulasi IPO
+            </h2>
+            <p class="text-slate-500 mt-1 font-medium">
+              Masukkan dua angka, pilih operasi, dan saksikan prosesnya!
+            </p>
+          </div>
+        </div>
+        <div class="ipo-container mb-6">
+          <div class="mb-8">
+            <label class="block text-sm font-bold text-dark mb-3"
+              >Pilih Operasi &amp; Masukkan Dua Angka:</label
+            >
+            <div class="flex flex-wrap gap-4 items-center">
+              <input
+                type="number"
+                id="ipoAngka1"
+                value="5"
+                class="w-24 px-4 py-3 border-2 border-slate-200 rounded-2xl focus:border-primary outline-none font-black text-xl text-center bg-slate-50 focus:bg-white transition"
+              />
+              <select
+                id="ipoOperator"
+                class="px-4 py-3 border-2 border-slate-200 rounded-2xl focus:border-primary outline-none font-black text-xl text-center bg-slate-50 focus:bg-white transition cursor-pointer"
+              >
+                <option value="+">+</option>
+                <option value="-">−</option>
+                <option value="x">×</option>
+                <option value="/">÷</option>
+              </select>
+              <input
+                type="number"
+                id="ipoAngka2"
+                value="3"
+                class="w-24 px-4 py-3 border-2 border-slate-200 rounded-2xl focus:border-primary outline-none font-black text-xl text-center bg-slate-50 focus:bg-white transition"
+              />
+              <button
+                onclick="jalankanIPO()"
+                id="btnIpoRun"
+                class="px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-primary-dark transition shadow-lg shadow-primary/30"
+              >
+                <i class="fas fa-play mr-2"></i> Jalankan
+              </button>
+              <button
+                onclick="resetIPO()"
+                class="px-6 py-3 border-2 border-slate-200 text-slate-600 font-bold rounded-full hover:bg-slate-50 transition"
+              >
+                <i class="fas fa-rotate-left mr-2"></i> Reset
+              </button>
+            </div>
+          </div>
+          <div class="ipo-flow">
+            <div class="ipo-stage" id="stage-input">
+              <div class="stage-label">Tahap 1 — Input</div>
+              <div class="stage-icon"><i class="fas fa-keyboard"></i></div>
+              <div class="stage-value" id="inputVal">-</div>
+              <div class="stage-sub">Dikirim ke CPU</div>
+            </div>
+            <div class="ipo-arrow" id="arrow1">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="ipo-stage" id="stage-proses">
+              <div class="stage-label">Tahap 2 — Proses (CPU)</div>
+              <div class="stage-icon"><i class="fas fa-microchip"></i></div>
+              <div class="stage-value" id="prosesVal">-</div>
+              <div class="stage-sub" id="prosesSub">ALU memproses</div>
+            </div>
+            <div class="ipo-arrow" id="arrow2">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="ipo-stage" id="stage-output">
+              <div class="stage-label">Tahap 3 — Output</div>
+              <div class="stage-icon"><i class="fas fa-desktop"></i></div>
+              <div class="stage-value" id="outputVal">-</div>
+              <div class="stage-sub">Ditampilkan ke layar</div>
+            </div>
+          </div>
+          <div
+            id="ipoLog"
+            class="mt-8 bg-slate-900 rounded-2xl p-6 text-sm text-green-400 font-mono shadow-inner"
+            style="display: none"
+          >
+            <div
+              class="font-bold text-white mb-3 text-base flex items-center gap-2"
+            >
+              <i class="fas fa-terminal"></i> Log Proses Sistem:
+            </div>
+            <div id="ipoLogContent" class="space-y-2 opacity-90"></div>
+          </div>
+          <div id="ipoHistoryWrapper" class="mt-6 hidden">
+            <h4
+              class="text-sm font-black text-dark mb-3 uppercase tracking-wide"
+            >
+              <i class="fas fa-clock-rotate-left text-primary mr-2"></i> Riwayat
+              Percobaanmu:
+            </h4>
+            <div
+              id="ipoHistory"
+              class="space-y-2 max-h-48 overflow-y-auto pr-1"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SIMULASI LAPISAN BAWANG ================= -->
+      <section id="simulasi-os" class="page-section">
+        <div class="flex items-center mb-8">
+          <button
+            onclick="nav('beranda')"
+            class="mr-4 text-slate-500 hover:text-primary transition bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <div>
+            <h2 class="text-3xl font-black text-dark uppercase tracking-tight">
+              Simulasi Lapisan Bawang
+            </h2>
+            <p class="text-slate-500 mt-1 font-medium">
+              Klik setiap lapisan untuk melihat fungsi OS pada lapisan tersebut.
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div
+            class="bg-white rounded-3xl border border-slate-100 p-8 shadow-sm flex flex-col items-center justify-center"
+          >
+            <div
+              class="layer-onion"
+              style="height: 460px; width: 100%; max-width: 460px"
+            >
+              <div
+                class="onion-layer"
+                data-layer="5"
+                style="
+                  width: 440px;
+                  height: 440px;
+                  background: rgba(139, 92, 246, 0.05);
+                  border-color: #8b5cf6;
+                "
+              >
+                <span
+                  class="layer-label"
+                  style="top: 12px; left: 50%; transform: translateX(-50%)"
+                  >L5 — Antarmuka Pengguna</span
+                >
+              </div>
+              <div
+                class="onion-layer"
+                data-layer="4"
+                style="
+                  width: 365px;
+                  height: 365px;
+                  background: rgba(59, 130, 246, 0.08);
+                  border-color: #3b82f6;
+                "
+              >
+                <span
+                  class="layer-label"
+                  style="top: 12px; left: 50%; transform: translateX(-50%)"
+                  >L4 — Program Pengguna</span
+                >
+              </div>
+              <div
+                class="onion-layer"
+                data-layer="3"
+                style="
+                  width: 290px;
+                  height: 290px;
+                  background: rgba(16, 185, 129, 0.08);
+                  border-color: #10b981;
+                "
+              >
+                <span
+                  class="layer-label"
+                  style="top: 12px; left: 50%; transform: translateX(-50%)"
+                  >L3 — Manajemen I/O</span
+                >
+              </div>
+              <div
+                class="onion-layer"
+                data-layer="2"
+                style="
+                  width: 215px;
+                  height: 215px;
+                  background: rgba(245, 166, 35, 0.1);
+                  border-color: #f5a623;
+                "
+              >
+                <span
+                  class="layer-label"
+                  style="top: 12px; left: 50%; transform: translateX(-50%)"
+                  >L2 — Komunikasi</span
+                >
+              </div>
+              <div
+                class="onion-layer"
+                data-layer="1"
+                style="
+                  width: 140px;
+                  height: 140px;
+                  background: rgba(239, 68, 68, 0.08);
+                  border-color: #ef4444;
+                "
+              >
+                <span
+                  class="layer-label"
+                  style="top: 8px; left: 50%; transform: translateX(-50%)"
+                  >L1 — Memori</span
+                >
+              </div>
+              <div
+                class="onion-layer"
+                data-layer="0"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  background: #5842e3;
+                  border-color: #5842e3;
+                "
+              >
+                <i
+                  class="fas fa-microchip text-white"
+                  style="font-size: 1.8rem"
+                ></i>
+              </div>
+            </div>
+            <button
+              onclick="autoTourOnion()"
+              id="btnAutoTour"
+              class="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white font-bold text-sm hover:bg-primary-dark transition"
+            >
+              <i class="fas fa-play"></i> Tur Otomatis L5 &rarr; L0
+            </button>
+          </div>
+          <div class="flex flex-col gap-6">
+            <div
+              class="layer-info-panel bg-white shadow-sm"
+              id="layerInfoPanel2"
+            >
+              <h4 class="text-xl font-black text-dark mb-3">
+                <i class="fas fa-hand-pointer text-primary mr-2"></i> Klik
+                Lapisan di Samping
+              </h4>
+              <p class="text-slate-600 font-medium leading-relaxed">
+                Setiap lapisan pada model bawang memiliki peran spesifik. Klik
+                salah satu lingkaran pada diagram di samping untuk membongkar
+                rahasianya!
+              </p>
+              <div
+                class="mt-6 bg-slate-50 border-l-4 border-slate-300 p-4 rounded-r-xl"
+              >
+                <p class="text-sm text-slate-500">
+                  <strong>Tips:</strong> Lapisan terdalam (L0) adalah wujud
+                  fisik mesin (hardware). Lapisan terluar (L5) adalah aplikasi
+                  yang biasa kamu sentuh dan lihat.
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-indigo-50 rounded-3xl p-6 border border-indigo-100 flex-grow"
+            >
+              <h4
+                class="font-black text-primary mb-4 text-lg flex items-center gap-2"
+              >
+                <i class="fas fa-list-check"></i> Daftar Urutan Lapisan:
+              </h4>
+              <ol class="space-y-3 text-sm text-slate-700 font-medium pl-2">
+                <li>
+                  <strong class="text-dark">L0 — Hardware:</strong> Perangkat
+                  fisik (CPU, RAM, disk).
+                </li>
+                <li>
+                  <strong class="text-dark">L1 — Manajemen Memori:</strong>
+                  Alokasi RAM proses.
+                </li>
+                <li>
+                  <strong class="text-dark"
+                    >L2 — Komunikasi Antar-Proses:</strong
+                  >
+                  Pertukaran data.
+                </li>
+                <li>
+                  <strong class="text-dark">L3 — Manajemen I/O:</strong> Driver
+                  perangkat.
+                </li>
+                <li>
+                  <strong class="text-dark">L4 — Program Pengguna:</strong>
+                  Aplikasi browser, game.
+                </li>
+                <li>
+                  <strong class="text-dark">L5 — Antarmuka Pengguna:</strong>
+                  Tampilan visual (GUI).
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= LATIHAN ================= -->
+      <section id="latihan" class="page-section">
+        <div class="flex items-center mb-8">
+          <button
+            onclick="nav('beranda')"
+            class="mr-4 text-slate-500 hover:text-primary transition bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <div>
+            <h2
+              class="text-3xl font-black text-dark uppercase tracking-tight flex items-center"
+            >
+              <i class="fas fa-gamepad text-secondary-dark mr-3"></i> Latihan
+              Bebas
+            </h2>
+            <p class="text-slate-500 mt-1 font-medium">
+              Tantangan seru berbasis game untuk uji ingatanmu!
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div
+            class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8"
+          >
+            <h3
+              class="font-black text-xl text-dark mb-3 flex items-center uppercase tracking-tight"
+            >
+              <i class="fas fa-cubes text-primary mr-3"></i> 1. Pasangkan Pilar
+            </h3>
+            <p class="text-sm text-slate-500 mb-6 font-medium">
+              Klik tombol <strong>pilar</strong> lalu klik
+              <strong>kotak contoh kasus</strong> yang benar.
+            </p>
+            <div id="matchPilar" class="grid grid-cols-2 gap-3 mb-8">
+              <button
+                class="match-btn py-3"
+                data-pilar="dekomposisi"
+                onclick="pilihPilar(this)"
+              >
+                🧩 Dekomposisi
+              </button>
+              <button
+                class="match-btn py-3"
+                data-pilar="pola"
+                onclick="pilihPilar(this)"
+              >
+                🔍 Pola
+              </button>
+              <button
+                class="match-btn py-3"
+                data-pilar="abstraksi"
+                onclick="pilihPilar(this)"
+              >
+                🎯 Abstraksi
+              </button>
+              <button
+                class="match-btn py-3"
+                data-pilar="algoritma"
+                onclick="pilihPilar(this)"
+              >
+                📋 Algoritma
+              </button>
+            </div>
+            <div id="matchCases" class="space-y-3">
+              <div
+                class="latihan-card cursor-pointer hover:border-primary"
+                data-pilar="pola"
+                onclick="pilihKasus(this)"
+              >
+                <p class="text-sm text-slate-700 font-medium">
+                  "Setelah mengerjakan banyak soal, Andi menyadari soal tipe A
+                  selalu diselesaikan dengan cara yang sama."
+                </p>
+              </div>
+              <div
+                class="latihan-card cursor-pointer hover:border-primary"
+                data-pilar="dekomposisi"
+                onclick="pilihKasus(this)"
+              >
+                <p class="text-sm text-slate-700 font-medium">
+                  "Bu Rina ingin membuat aplikasi kasir. Ia memecahnya jadi:
+                  login, input, dan struk."
+                </p>
+              </div>
+              <div
+                class="latihan-card cursor-pointer hover:border-primary"
+                data-pilar="abstraksi"
+                onclick="pilihKasus(this)"
+              >
+                <p class="text-sm text-slate-700 font-medium">
+                  "Peta MRT hanya menampilkan stasiun dan jalur kereta, tanpa
+                  menggambar bangunan sekitar."
+                </p>
+              </div>
+              <div
+                class="latihan-card cursor-pointer hover:border-primary"
+                data-pilar="algoritma"
+                onclick="pilihKasus(this)"
+              >
+                <p class="text-sm text-slate-700 font-medium">
+                  "Resep rendang: haluskan bumbu &rarr; tumis &rarr; masukkan
+                  daging &rarr; santan &rarr; masak 3 jam."
+                </p>
+              </div>
+            </div>
+            <div
+              class="mt-6 flex items-center justify-between border-t border-slate-100 pt-4"
+            >
+              <div id="matchStatus" class="text-sm font-bold"></div>
+              <button
+                onclick="resetPilarMatch()"
+                class="text-sm font-bold text-slate-400 hover:text-primary transition bg-slate-50 px-4 py-2 rounded-full"
+              >
+                <i class="fas fa-rotate-left mr-1"></i> Ulangi
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-3xl shadow-sm border border-slate-100 p-8"
+          >
+            <h3
+              class="font-black text-xl text-dark mb-3 flex items-center uppercase tracking-tight"
+            >
+              <i class="fas fa-layer-group text-emerald-500 mr-3"></i> 2. Susun
+              Bawang OS
+            </h3>
+            <p class="text-sm text-slate-500 mb-6 font-medium">
+              Susun dari yang <strong>paling dalam (L0)</strong> ke luar. Klik
+              kartu berurutan!
+            </p>
+            <div id="shuffledLayers" class="flex flex-wrap gap-2 mb-8"></div>
+            <div
+              class="bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 p-5"
+            >
+              <p
+                class="text-xs font-black text-slate-400 uppercase tracking-widest mb-3"
+              >
+                Kotak Jawaban Kamu:
+              </p>
+              <div
+                id="userSequence"
+                class="min-h-[80px] flex flex-wrap gap-2"
+              ></div>
+            </div>
+            <div
+              class="mt-6 flex items-center justify-between border-t border-slate-100 pt-4"
+            >
+              <div id="susunStatus" class="text-sm font-bold"></div>
+              <button
+                onclick="resetSusunOS()"
+                class="text-sm font-bold text-slate-400 hover:text-primary transition bg-slate-50 px-4 py-2 rounded-full"
+              >
+                <i class="fas fa-rotate-left mr-1"></i> Ulangi
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= LKPD ================= -->
+      <section id="lkpd" class="page-section">
+        <div class="flex items-center mb-6">
+          <button
+            onclick="nav('beranda')"
+            class="mr-4 text-slate-500 hover:text-primary transition bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+        <div
+          class="bg-white rounded-[32px] shadow-sm border border-slate-100 p-6 md:p-12 max-w-4xl mx-auto mb-10"
+        >
+          <div class="text-center mb-10 border-b-2 border-slate-100 pb-8">
+            <h1
+              class="text-2xl md:text-4xl font-black text-dark mb-3 uppercase tracking-tight"
+            >
+              Lembar Kerja Murid (LKPD)
+            </h1>
+            <h2
+              class="text-lg md:text-xl font-bold text-primary mb-4 uppercase"
+            >
+              Eksplorasi Sistem Komputasi &amp; CT
+            </h2>
+            <div
+              class="flex flex-wrap justify-center gap-3 text-sm font-medium text-slate-600"
+            >
+              <span
+                class="bg-slate-50 px-4 py-1.5 rounded-full border border-slate-200"
+                >Mapel: <b>Informatika</b></span
+              >
+              <span
+                class="bg-slate-50 px-4 py-1.5 rounded-full border border-slate-200"
+                >Fase: <b>E / X</b></span
+              >
+              <span
+                class="bg-slate-50 px-4 py-1.5 rounded-full border border-slate-200"
+                >Materi: <b>OS &amp; CT</b></span
+              >
+            </div>
+          </div>
+          <div class="mb-10">
+            <h3 class="font-black text-xl text-dark mb-4 flex items-center">
+              <span
+                class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-sm mr-3"
+                >A</span
+              >
+              Identitas
+            </h3>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-5 bg-slate-50 p-6 rounded-2xl border border-slate-100"
+            >
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >Nama Lengkap</label
+                >
+                <input
+                  type="text"
+                  id="lkpd1-nama"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none transition font-medium bg-white"
+                  placeholder="Ketik namamu..."
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >NIS</label
+                >
+                <input
+                  type="text"
+                  id="lkpd1-nis"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none transition font-medium bg-white"
+                  placeholder="Nomor absen..."
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >Kelas</label
+                >
+                <input
+                  type="text"
+                  id="lkpd1-kelas"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none transition font-medium bg-white"
+                  placeholder="Ketik kelasmu..."
+                />
+              </div>
+            </div>
+          </div>
+          <div class="mb-10">
+            <h3 class="font-black text-xl text-dark mb-4 flex items-center">
+              <span
+                class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-sm mr-3"
+                >B</span
+              >
+              4 Pilar CT
+            </h3>
+            <p class="text-sm text-slate-500 mb-4 font-medium pl-11">
+              Tuliskan 1 contoh nyata dalam kehidupan sehari-hari (bukan yang
+              ada di materi).
+            </p>
+            <div class="space-y-4 pl-11">
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >🧩 Dekomposisi</label
+                ><textarea
+                  id="lkpd1-dekomposisi"
+                  rows="2"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary transition font-medium bg-slate-50 focus:bg-white"
+                ></textarea>
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >🔍 Pengenalan Pola</label
+                ><textarea
+                  id="lkpd1-pola"
+                  rows="2"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary transition font-medium bg-slate-50 focus:bg-white"
+                ></textarea>
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >🎯 Abstraksi</label
+                ><textarea
+                  id="lkpd1-abstraksi"
+                  rows="2"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary transition font-medium bg-slate-50 focus:bg-white"
+                ></textarea>
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >📋 Algoritma</label
+                ><textarea
+                  id="lkpd1-algoritma"
+                  rows="2"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary transition font-medium bg-slate-50 focus:bg-white"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="mb-10">
+            <h3 class="font-black text-xl text-dark mb-4 flex items-center">
+              <span
+                class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-sm mr-3"
+                >C</span
+              >
+              Simulasi IPO
+            </h3>
+            <div class="pl-11">
+              <p class="text-sm text-slate-500 mb-4 font-medium">
+                Buka Simulasi IPO. Masukkan angka <strong>12</strong> dan
+                <strong>8</strong>. Catat hasil di tabel.
+              </p>
+              <div
+                class="overflow-hidden rounded-2xl border border-slate-200 mb-5"
+              >
+                <table class="min-w-full text-sm text-left">
+                  <thead class="bg-slate-50 text-dark font-black">
+                    <tr>
+                      <th class="px-5 py-3 w-1/3">Tahapan</th>
+                      <th class="px-5 py-3 border-l border-slate-200">
+                        Isi / Nilai Angka
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white">
+                    <tr>
+                      <td class="px-5 py-3 font-bold text-slate-600">Input</td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd1-ipo-input"
+                          class="lkpd-input w-full h-full px-5 py-3 outline-none focus:bg-indigo-50 font-medium"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-5 py-3 font-bold text-slate-600">Proses</td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd1-ipo-proses"
+                          class="lkpd-input w-full h-full px-5 py-3 outline-none focus:bg-indigo-50 font-medium"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-5 py-3 font-bold text-slate-600">Output</td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd1-ipo-output"
+                          class="lkpd-input w-full h-full px-5 py-3 outline-none focus:bg-indigo-50 font-medium"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <label class="block text-sm font-bold text-slate-700 mb-2"
+                >Apa yang terjadi di dalam CPU?</label
+              >
+              <textarea
+                id="lkpd1-ipo-refleksi"
+                rows="2"
+                class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary transition font-medium bg-slate-50 focus:bg-white"
+              ></textarea>
+            </div>
+          </div>
+          <div class="mb-10">
+            <h3 class="font-black text-xl text-dark mb-4 flex items-center">
+              <span
+                class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-sm mr-3"
+                >D</span
+              >
+              Lapisan OS
+            </h3>
+            <div class="pl-11">
+              <p class="text-sm text-slate-500 mb-4 font-medium">
+                Sebutkan fungsi singkat setiap lapisan sesuai simulasi.
+              </p>
+              <div class="overflow-hidden rounded-2xl border border-slate-200">
+                <table class="min-w-full text-sm text-left">
+                  <thead class="bg-slate-50 text-dark font-black">
+                    <tr>
+                      <th class="px-5 py-3 w-2/5">Nama Lapisan</th>
+                      <th class="px-5 py-3 border-l border-slate-200">
+                        Fungsi Ringkas
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200 bg-white">
+                    <tr>
+                      <td class="px-5 py-3 font-bold text-slate-600">
+                        L0 — Hardware
+                      </td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd1-os-l0"
+                          class="lkpd-input w-full h-full px-5 py-3 outline-none focus:bg-indigo-50 font-medium"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-5 py-3 font-bold text-slate-600">
+                        L1 — Manajemen Memori
+                      </td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd1-os-l1"
+                          class="lkpd-input w-full h-full px-5 py-3 outline-none focus:bg-indigo-50 font-medium"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-5 py-3 font-bold text-slate-600">
+                        L2 — Komunikasi
+                      </td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd1-os-l2"
+                          class="lkpd-input w-full h-full px-5 py-3 outline-none focus:bg-indigo-50 font-medium"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-5 py-3 font-bold text-slate-600">
+                        L3 — Manajemen I/O
+                      </td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd1-os-l3"
+                          class="lkpd-input w-full h-full px-5 py-3 outline-none focus:bg-indigo-50 font-medium"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-5 py-3 font-bold text-slate-600">
+                        L4 — Program Pengguna
+                      </td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd1-os-l4"
+                          class="lkpd-input w-full h-full px-5 py-3 outline-none focus:bg-indigo-50 font-medium"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-5 py-3 font-bold text-slate-600">
+                        L5 — Antarmuka Pengguna
+                      </td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd1-os-l5"
+                          class="lkpd-input w-full h-full px-5 py-3 outline-none focus:bg-indigo-50 font-medium"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="mb-10">
+            <h3 class="font-black text-xl text-dark mb-4 flex items-center">
+              <span
+                class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-sm mr-3"
+                >E</span
+              >
+              Refleksi
+            </h3>
+            <div class="space-y-5 pl-11">
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >1. Apa hal baru yang kamu pelajari?</label
+                ><textarea
+                  id="lkpd1-ref-1"
+                  rows="2"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary transition font-medium bg-slate-50 focus:bg-white"
+                ></textarea>
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >2. Dari 4 pilar CT, pilar mana yang paling sering kamu
+                  lakukan sehari-hari?</label
+                ><textarea
+                  id="lkpd1-ref-2"
+                  rows="2"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary transition font-medium bg-slate-50 focus:bg-white"
+                ></textarea>
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >3. Mengapa Sistem Operasi itu penting?</label
+                ><textarea
+                  id="lkpd1-ref-3"
+                  rows="2"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary transition font-medium bg-slate-50 focus:bg-white"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-t border-slate-100 pt-8 flex flex-wrap gap-4 items-center justify-between"
+          >
+            <div
+              id="lkpd1-save-status"
+              class="text-sm font-bold text-green-600 flex items-center hidden bg-green-50 px-4 py-2 rounded-full"
+            >
+              <i class="fa-solid fa-check mr-2"></i> Otomatis Tersimpan
+            </div>
+            <div class="flex flex-wrap gap-4 ml-auto">
+              <button
+                onclick="resetLKPD1()"
+                class="px-6 py-3 rounded-full font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 transition"
+              >
+                Reset
+              </button>
+              <button
+                onclick="uploadLkpdToDrive()"
+                id="btn-lkpd-drive"
+                class="px-6 py-3 rounded-full font-bold text-white bg-primary hover:bg-primary-dark transition shadow-lg shadow-primary/30 flex items-center gap-2"
+              >
+                <i class="fa-solid fa-cloud-arrow-up"></i> Simpan ke Drive
+              </button>
+              <button
+                onclick="exportPDF1(false)"
+                class="px-8 py-3 rounded-full font-bold text-dark bg-secondary hover:bg-secondary-dark transition shadow-lg shadow-secondary/40 flex items-center gap-2"
+              >
+                <i class="fa-solid fa-file-pdf"></i> Unduh PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ASESMEN ================= -->
+      <section id="asesmen" class="page-section">
+        <div class="flex items-center mb-6">
+          <button
+            onclick="nav('beranda')"
+            class="mr-4 text-slate-500 hover:text-primary transition bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-10 border-b border-slate-100 pb-8">
+            <h2
+              class="text-3xl md:text-4xl font-black text-dark mb-3 uppercase tracking-tight"
+            >
+              Asesmen Pembelajaran
+            </h2>
+            <p class="text-slate-500 font-medium">
+              Informatika • Fase E / Kelas X • Sistem Komputasi
+            </p>
+          </div>
+
+          <!-- Tabs diisi dinamis oleh nav() -->
+          <div
+            id="asesmen-tabs"
+            class="flex flex-wrap justify-center gap-4 mb-10"
+          ></div>
+
+          <!-- PRE-TEST -->
+          <div id="content-asesmen-awal" class="asesmen-content">
+            <div
+              class="bg-red-50 border border-red-100 rounded-2xl p-6 mb-8 text-center"
+            >
+              <h3 class="font-black text-red-700 mb-2 text-lg">
+                Asesmen Awal (Pre-Test)
+              </h3>
+              <p class="text-sm text-slate-600 font-medium">
+                10 soal pilihan ganda • 5 menit • Dikerjakan sebelum
+                pembelajaran
+              </p>
+              <p class="text-xs text-slate-500 mt-1 font-medium">
+                Mengukur pemahaman awal tentang komputer dan berpikir
+                komputasional
+              </p>
+            </div>
+            <div
+              class="bg-white shadow-sm rounded-3xl p-6 md:p-8 mb-8 border border-slate-100 space-y-4"
+            >
+              <h4
+                class="font-bold text-dark border-b border-slate-100 pb-3 mb-4 uppercase"
+              >
+                Data Diri
+              </h4>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Nama Murid</label
+                >
+                <input
+                  type="text"
+                  id="nama-awal"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Nama lengkap..."
+                />
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Absen / NIS</label
+                >
+                <input
+                  type="text"
+                  id="nis-awal"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Nomor absen..."
+                />
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Kelas</label
+                >
+                <input
+                  type="text"
+                  id="kelas-awal"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Contoh: X-5"
+                />
+              </div>
+            </div>
+            <div id="soal-awal-container" class="space-y-6"></div>
+            <div
+              class="mt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-100 pt-8"
+            >
+              <div
+                id="status-awal"
+                class="text-sm hidden text-center w-full md:w-auto"
+              ></div>
+              <div class="flex gap-4 w-full md:w-auto ml-auto">
+                <button
+                  onclick="resetAsesmen('awal')"
+                  class="flex-1 md:flex-none px-6 py-3 rounded-full font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 transition"
+                >
+                  Reset
+                </button>
+                <button
+                  onclick="kirimAsesmen('awal')"
+                  id="btn-kirim-awal"
+                  class="flex-1 md:flex-none px-8 py-3 rounded-full font-bold text-white bg-primary hover:bg-primary-dark transition shadow-lg shadow-primary/30"
+                >
+                  Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- POST-TEST -->
+          <div id="content-asesmen-akhir" class="asesmen-content hidden">
+            <div
+              class="bg-blue-50 border border-blue-100 rounded-2xl p-6 mb-8 text-center"
+            >
+              <h3 class="font-black text-blue-700 mb-2 text-lg">
+                Asesmen Akhir (Post-Test)
+              </h3>
+              <p class="text-sm text-slate-600 font-medium">
+                10 soal pilihan ganda • 5 menit • Dikerjakan setelah
+                pembelajaran
+              </p>
+            </div>
+            <div
+              class="bg-white shadow-sm rounded-3xl p-6 md:p-8 mb-8 border border-slate-100 space-y-4"
+            >
+              <h4
+                class="font-bold text-dark border-b border-slate-100 pb-3 mb-4 uppercase"
+              >
+                Data Diri
+              </h4>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Nama Murid</label
+                >
+                <input
+                  type="text"
+                  id="nama-akhir"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Nama lengkap..."
+                />
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Absen / NIS</label
+                >
+                <input
+                  type="text"
+                  id="nis-akhir"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Nomor absen..."
+                />
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Kelas</label
+                >
+                <input
+                  type="text"
+                  id="kelas-akhir"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Contoh: X-5"
+                />
+              </div>
+            </div>
+            <div id="soal-akhir-container" class="space-y-6"></div>
+            <div
+              class="mt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-100 pt-8"
+            >
+              <div
+                id="status-akhir"
+                class="text-sm hidden text-center w-full md:w-auto"
+              ></div>
+              <div class="flex gap-4 w-full md:w-auto ml-auto">
+                <button
+                  onclick="resetAsesmen('akhir')"
+                  class="flex-1 md:flex-none px-6 py-3 rounded-full font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 transition"
+                >
+                  Reset
+                </button>
+                <button
+                  onclick="kirimAsesmen('akhir')"
+                  id="btn-kirim-akhir"
+                  class="flex-1 md:flex-none px-8 py-3 rounded-full font-bold text-white bg-primary hover:bg-primary-dark transition shadow-lg shadow-primary/30"
+                >
+                  Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TES TERTULIS -->
+          <div id="content-asesmen-tertulis" class="asesmen-content hidden">
+            <div
+              class="bg-amber-50 border border-amber-100 rounded-2xl p-6 mb-8 text-center"
+            >
+              <h3 class="font-black text-amber-700 mb-2 text-lg">
+                Tes Tertulis (Sumatif)
+              </h3>
+              <p class="text-sm text-slate-600 font-medium">
+                10 Soal Pilihan Ganda + 2 Soal Esai • Alokasi 20 menit
+              </p>
+              <p class="text-xs text-slate-500 mt-2 font-medium">
+                Pedoman Skor: PG maksimal 50 + Esai maksimal 50 = 100
+              </p>
+            </div>
+            <div
+              class="bg-white shadow-sm rounded-3xl p-6 md:p-8 mb-8 border border-slate-100 space-y-4"
+            >
+              <h4
+                class="font-bold text-dark border-b border-slate-100 pb-3 mb-4 uppercase"
+              >
+                Data Diri
+              </h4>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Nama Murid</label
+                >
+                <input
+                  type="text"
+                  id="nama-tertulis"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Nama lengkap..."
+                />
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Absen / NIS</label
+                >
+                <input
+                  type="text"
+                  id="nis-tertulis"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Nomor absen..."
+                />
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Kelas</label
+                >
+                <input
+                  type="text"
+                  id="kelas-tertulis"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Contoh: X-5"
+                />
+              </div>
+            </div>
+            <div id="soal-tertulis-container" class="space-y-6"></div>
+            <div
+              class="mt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-100 pt-8"
+            >
+              <div
+                id="status-tertulis"
+                class="text-sm hidden text-center w-full md:w-auto"
+              ></div>
+              <div class="flex gap-4 w-full md:w-auto ml-auto">
+                <button
+                  onclick="resetAsesmen('tertulis')"
+                  class="flex-1 md:flex-none px-6 py-3 rounded-full font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 transition"
+                >
+                  Reset
+                </button>
+                <button
+                  onclick="kirimAsesmen('tertulis')"
+                  id="btn-kirim-tertulis"
+                  class="flex-1 md:flex-none px-8 py-3 rounded-full font-bold text-white bg-primary hover:bg-primary-dark transition shadow-lg shadow-primary/30"
+                >
+                  Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="kk-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a
+              href="index.html"
+              class="navbar-brand"
+              style="margin-bottom: 12px"
+            >
+              <div class="brand-icon"><i class="fas fa-brain"></i></div>
+              <span>Komputasi<span class="highlight">Kita</span></span>
+            </a>
+            <p>
+              Platform pembelajaran Berpikir Komputasional berbasis web untuk
+              siswa SMA Fase E Kurikulum Merdeka.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h5>Materi Pembelajaran</h5>
+            <a href="sub_materi_1.html">Fondasi Sistem Komputasi</a>
+            <a href="sub_materi_2.html">Pengolahan &amp; Struktur Data</a>
+            <a href="sub_materi_3.html">Algoritma Pencarian &amp; Pengurutan</a>
+            <a href="sub_materi_4.html">Simulasi &amp; Pemrograman</a>
+          </div>
+          <div class="footer-col">
+            <h5>Navigasi</h5>
+            <a href="index.html">Beranda</a>
+            <a href="materi_murid.html">Daftar Materi</a>
+            <a href="leaderboard_murid.html">Leaderboard Siswa</a>
+            <a href="dashboard_guru.html">Portal Guru</a>
+          </div>
+          <div class="footer-col">
+            <h5>Informasi</h5>
+            <a href="#">Kurikulum Merdeka SMA Fase E</a>
+            <a href="#">Pedoman Pembelajaran CT</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2026 KomputasiKita. Dibuat untuk pembelajaran interaktif
+            kelas SMA.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ===== NAVBAR TOGGLE =====
+      (function () {
+        const toggle = document.getElementById("navbarToggle");
+        const menu = document.getElementById("navbarMenu");
+        if (toggle && menu) {
+          toggle.addEventListener("click", function () {
+            const isOpen = menu.classList.toggle("active");
+            toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          });
+          menu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", function () {
+              menu.classList.remove("active");
+              toggle.setAttribute("aria-expanded", "false");
+            });
+          });
+        }
+      })();
+
+      // ===== NAVIGASI dengan KONTEKS (samakan persis dengan sub_materi_4) =====
+      function nav(sectionId, context) {
+        document
+          .querySelectorAll(".page-section")
+          .forEach((el) => el.classList.remove("active"));
+        document.getElementById(sectionId).classList.add("active");
+        window.scrollTo(0, 0);
+        const menu = document.getElementById("navbarMenu");
+        if (menu) menu.classList.remove("active");
+
+        if (sectionId === "asesmen") {
+          const tabsEl = document.getElementById("asesmen-tabs");
+          const contentAwal = document.getElementById("content-asesmen-awal");
+          const contentAkhir = document.getElementById("content-asesmen-akhir");
+          const contentTertulis = document.getElementById(
+            "content-asesmen-tertulis",
+          );
+          const ctx = context || "awal";
+
+          if (ctx === "awal") {
+            tabsEl.innerHTML = "";
+            contentAwal.classList.remove("hidden");
+            contentAkhir.classList.add("hidden");
+            contentTertulis.classList.add("hidden");
+          } else {
+            tabsEl.innerHTML = `
+              <button onclick="switchAsesmen('akhir')" id="tab-asesmen-akhir" class="px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-active shadow-md"><i class="fa-solid fa-check-double mr-2"></i> Post-Test</button>
+              <button onclick="switchAsesmen('tertulis')" id="tab-asesmen-tertulis" class="px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-inactive"><i class="fa-solid fa-file-pen mr-2"></i> Tes Tertulis</button>
+            `;
+            contentAwal.classList.add("hidden");
+            contentAkhir.classList.remove("hidden");
+            contentTertulis.classList.add("hidden");
+          }
+        }
+      }
+
+      // ===== MATERI TABS =====
+      function showMateri(id) {
+        document
+          .querySelectorAll(".materi-content")
+          .forEach((el) => el.classList.add("hidden"));
+        const target = document.getElementById(`materi-${id}`);
+        if (target) target.classList.remove("hidden");
+        document.querySelectorAll(".materi-tab").forEach((el) => {
+          el.classList.remove("active-tab");
+          el.classList.add("text-slate-600", "hover:bg-slate-50");
+        });
+        const activeTab = document.getElementById(`tab-${id}`);
+        if (activeTab) {
+          activeTab.classList.remove("text-slate-600", "hover:bg-slate-50");
+          activeTab.classList.add("active-tab");
+        }
+      }
+
+      // ===== SIMULASI IPO =====
+      let ipoRunning = false;
+      const ipoHistory = [];
+      function hitungOperasi(a, b, op) {
+        switch (op) {
+          case "+":
+            return a + b;
+          case "-":
+            return a - b;
+          case "x":
+            return a * b;
+          case "/":
+            return b === 0 ? null : Math.round((a / b) * 100) / 100;
+          default:
+            return a + b;
+        }
+      }
+      function simbolOperasi(op) {
+        return { "+": "+", "-": "−", x: "×", "/": "÷" }[op] || "+";
+      }
+      function jalankanIPO() {
+        if (ipoRunning) return;
+        const a1 = parseInt(document.getElementById("ipoAngka1").value);
+        const a2 = parseInt(document.getElementById("ipoAngka2").value);
+        const op = document.getElementById("ipoOperator").value;
+        if (isNaN(a1) || isNaN(a2)) {
+          alert("Masukkan dua angka terlebih dahulu!");
+          return;
+        }
+        if (op === "/" && a2 === 0) {
+          alert("Tidak bisa membagi dengan nol!");
+          return;
+        }
+        ipoRunning = true;
+        const btn = document.getElementById("btnIpoRun");
+        btn.disabled = true;
+        btn.innerHTML =
+          '<i class="fas fa-spinner fa-spin mr-2"></i> Memproses...';
+        const stageInput = document.getElementById("stage-input");
+        const stageProses = document.getElementById("stage-proses");
+        const stageOutput = document.getElementById("stage-output");
+        const arrow1 = document.getElementById("arrow1");
+        const arrow2 = document.getElementById("arrow2");
+        const logBox = document.getElementById("ipoLog");
+        const logContent = document.getElementById("ipoLogContent");
+        stageInput.className = "ipo-stage";
+        stageProses.className = "ipo-stage";
+        stageOutput.className = "ipo-stage";
+        arrow1.classList.remove("active");
+        arrow2.classList.remove("active");
+        logContent.innerHTML = "";
+        logBox.style.display = "block";
+        const hasil = hitungOperasi(a1, a2, op);
+        const ts = () =>
+          new Date().toLocaleTimeString("id-ID", { hour12: false });
+        setTimeout(() => {
+          stageInput.classList.add("active");
+          document.getElementById("inputVal").innerText =
+            `${a1} ${simbolOperasi(op)} ${a2}`;
+          logContent.innerHTML += `<div>[${ts()}] ▶ [INPUT] Menerima data: ${a1} dan ${a2}...</div>`;
+        }, 300);
+        setTimeout(() => {
+          stageInput.classList.remove("active");
+          stageInput.classList.add("done");
+          arrow1.classList.add("active");
+          stageProses.classList.add("active");
+          document.getElementById("prosesVal").innerText =
+            `${a1} ${simbolOperasi(op)} ${a2} = ?`;
+          logContent.innerHTML += `<div>[${ts()}] ▶ [CPU] Mengambil instruksi dari memori...</div>`;
+        }, 1200);
+        setTimeout(() => {
+          logContent.innerHTML += `<div>[${ts()}] ▶ [ALU] Menghitung ${a1} ${simbolOperasi(op)} ${a2} = ${hasil}</div>`;
+        }, 1800);
+        setTimeout(() => {
+          stageProses.classList.remove("active");
+          stageProses.classList.add("done");
+          document.getElementById("prosesVal").innerText =
+            `${a1} ${simbolOperasi(op)} ${a2} = ${hasil}`;
+          arrow2.classList.add("active");
+          stageOutput.classList.add("active");
+          document.getElementById("outputVal").innerText = hasil;
+          logContent.innerHTML += `<div>[${ts()}] ▶ [OUTPUT] Mengirim hasil (${hasil}) ke monitor...</div>`;
+        }, 2600);
+        setTimeout(() => {
+          stageOutput.classList.remove("active");
+          stageOutput.classList.add("done");
+          logContent.innerHTML += `<div style="color:#4ade80;font-weight:bold;">[${ts()}] ✔ Proses selesai!</div>`;
+          ipoRunning = false;
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-play mr-2"></i> Jalankan';
+          ipoHistory.unshift({
+            ekspresi: `${a1} ${simbolOperasi(op)} ${a2}`,
+            hasil,
+          });
+          if (ipoHistory.length > 8) ipoHistory.pop();
+          renderIpoHistory();
+        }, 3600);
+      }
+      function renderIpoHistory() {
+        const wrapper = document.getElementById("ipoHistoryWrapper");
+        const list = document.getElementById("ipoHistory");
+        if (!wrapper || !list) return;
+        if (ipoHistory.length === 0) {
+          wrapper.classList.add("hidden");
+          return;
+        }
+        wrapper.classList.remove("hidden");
+        list.innerHTML = ipoHistory
+          .map(
+            (h, i) => `
+          <div class="history-item">
+            <span class="font-mono text-slate-700">
+              <span class="inline-flex items-center justify-center w-5 h-5 mr-2 rounded-full bg-primary-light text-primary text-xs font-black">${i + 1}</span>
+              ${h.ekspresi}
+            </span>
+            <span class="font-black text-primary">= ${h.hasil}</span>
+          </div>`,
+          )
+          .join("");
+      }
+      function resetIPO() {
+        ipoRunning = false;
+        document.getElementById("stage-input").className = "ipo-stage";
+        document.getElementById("stage-proses").className = "ipo-stage";
+        document.getElementById("stage-output").className = "ipo-stage";
+        document.getElementById("arrow1").classList.remove("active");
+        document.getElementById("arrow2").classList.remove("active");
+        document.getElementById("inputVal").innerText = "-";
+        document.getElementById("prosesVal").innerText = "-";
+        document.getElementById("outputVal").innerText = "-";
+        document.getElementById("ipoLog").style.display = "none";
+        const btn = document.getElementById("btnIpoRun");
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-play mr-2"></i> Jalankan';
+      }
+
+      // ===== SIMULASI LAPISAN BAWANG =====
+      const layerData = {
+        0: {
+          name: "L0 — Hardware",
+          icon: "fa-microchip",
+          color: "#0f172a",
+          desc: "Lapisan paling dasar berupa perangkat keras fisik: CPU, RAM, hard disk, keyboard, monitor, dan perangkat lainnya.",
+        },
+        1: {
+          name: "L1 — Manajemen Memori",
+          icon: "fa-memory",
+          color: "#ef4444",
+          desc: "Mengelola alokasi RAM untuk setiap proses yang berjalan.",
+        },
+        2: {
+          name: "L2 — Komunikasi Antar-Proses",
+          icon: "fa-comments",
+          color: "#f5a623",
+          desc: "Memungkinkan proses-proses yang berbeda untuk saling berkomunikasi dan bertukar data dengan aman.",
+        },
+        3: {
+          name: "L3 — Manajemen I/O",
+          icon: "fa-plug",
+          color: "#10b981",
+          desc: "Menyederhanakan akses ke perangkat Input/Output bagi lapisan di atasnya.",
+        },
+        4: {
+          name: "L4 — Program Pengguna",
+          icon: "fa-window-maximize",
+          color: "#3b82f6",
+          desc: "Tempat program aplikasi pengguna berjalan: browser, game, editor teks.",
+        },
+        5: {
+          name: "L5 — Antarmuka Pengguna",
+          icon: "fa-user",
+          color: "#8b5cf6",
+          desc: "Lapisan terluar yang berinteraksi langsung dengan pengguna. GUI atau CLI.",
+        },
+      };
+      function showLayerInfo(layerNum, panelId) {
+        const data = layerData[layerNum];
+        const panel = document.getElementById(panelId);
+        if (!panel || !data) return;
+        panel.innerHTML = `
+          <h4 style="color:${data.color};font-weight:900;font-size:1.2rem;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
+            <i class="fas ${data.icon}"></i> ${data.name}
+          </h4>
+          <p style="color:#475569;line-height:1.6;font-weight:500;">${data.desc}</p>
+          <div style="margin-top:20px;padding:12px 16px;background:#f8fafc;border-left:4px solid ${data.color};border-radius:12px;font-size:0.85rem;color:#334155;font-weight:700;">
+            <strong>Posisi:</strong> ${layerNum == 0 ? "Paling dalam (Inti Hardware)" : layerNum == 5 ? "Paling luar (Interaksi Manusia)" : `Lapisan ke-${layerNum} dari dalam`}
+          </div>`;
+      }
+      document.querySelectorAll(".onion-layer").forEach((layer) => {
+        layer.addEventListener("click", function () {
+          document
+            .querySelectorAll(".onion-layer")
+            .forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+          showLayerInfo(this.dataset.layer, "layerInfoPanel2");
+        });
+      });
+      function autoTourOnion() {
+        const btn = document.getElementById("btnAutoTour");
+        if (btn.disabled) return;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menjelajah...';
+        const order = [5, 4, 3, 2, 1, 0];
+        order.forEach((num, i) => {
+          setTimeout(() => {
+            document
+              .querySelectorAll(".onion-layer")
+              .forEach((l) => l.classList.remove("active"));
+            const el = document.querySelector(
+              `.onion-layer[data-layer="${num}"]`,
+            );
+            if (el) el.classList.add("active");
+            showLayerInfo(String(num), "layerInfoPanel2");
+            if (i === order.length - 1) {
+              btn.disabled = false;
+              btn.innerHTML =
+                '<i class="fas fa-play"></i> Tur Otomatis L5 → L0';
+            }
+          }, i * 1400);
+        });
+      }
+
+      // ===== LATIHAN 1: MATCHING =====
+      let selectedPilar = null;
+      let matchedCount = 0;
+      function pilihPilar(btn) {
+        if (btn.classList.contains("matched")) return;
+        document
+          .querySelectorAll("#matchPilar .match-btn")
+          .forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        selectedPilar = btn;
+      }
+      function pilihKasus(card) {
+        const statusEl = document.getElementById("matchStatus");
+        if (!selectedPilar) {
+          statusEl.innerText = "⚠️ Pilih pilar terlebih dahulu!";
+          statusEl.className = "text-sm text-amber-600 font-bold";
+          return;
+        }
+        if (
+          card.classList.contains("correct") ||
+          card.classList.contains("wrong")
+        )
+          return;
+        const pilar = selectedPilar.dataset.pilar;
+        const kasus = card.dataset.pilar;
+        if (pilar === kasus) {
+          card.classList.add("correct");
+          selectedPilar.classList.remove("selected");
+          selectedPilar.classList.add("matched");
+          selectedPilar = null;
+          matchedCount++;
+          statusEl.innerText = `✅ Benar! (${matchedCount}/4)`;
+          statusEl.className = "text-sm text-green-600 font-bold";
+          if (matchedCount === 4) {
+            statusEl.innerText = "🎉 Semua pasangan benar! Hebat!";
+            kirimHasilLatihan(1, 4, 4, 2);
+          }
+        } else {
+          card.classList.add("wrong");
+          setTimeout(() => card.classList.remove("wrong"), 800);
+          statusEl.innerText = "❌ Belum tepat. Coba lagi!";
+          statusEl.className = "text-sm text-red-600 font-bold";
+        }
+      }
+      function resetPilarMatch() {
+        selectedPilar = null;
+        matchedCount = 0;
+        document
+          .querySelectorAll("#matchPilar .match-btn")
+          .forEach((b) => b.classList.remove("selected", "matched"));
+        document
+          .querySelectorAll("#matchCases .latihan-card")
+          .forEach((c) => c.classList.remove("correct", "wrong"));
+        document.getElementById("matchStatus").innerText = "";
+      }
+
+      // ===== LATIHAN 2: SUSUN LAPISAN OS =====
+      const layerNames = [
+        { id: 0, label: "L0 — Hardware" },
+        { id: 1, label: "L1 — Memori" },
+        { id: 2, label: "L2 — Komunikasi" },
+        { id: 3, label: "L3 — I/O" },
+        { id: 4, label: "L4 — Program" },
+        { id: 5, label: "L5 — Antarmuka" },
+      ];
+      let userSeq = [];
+      function renderShuffledLayers() {
+        userSeq = [];
+        document.getElementById("userSequence").innerHTML = "";
+        document.getElementById("susunStatus").innerText = "";
+        const shuffled = [...layerNames].sort(() => Math.random() - 0.5);
+        const container = document.getElementById("shuffledLayers");
+        container.innerHTML = "";
+        shuffled.forEach((layer) => {
+          const btn = document.createElement("button");
+          btn.className = "match-btn";
+          btn.dataset.id = layer.id;
+          btn.innerText = layer.label;
+          btn.onclick = () => pickLayer(layer.id, btn);
+          container.appendChild(btn);
+        });
+      }
+      function pickLayer(id, btn) {
+        if (btn.classList.contains("matched")) return;
+        userSeq.push(id);
+        btn.classList.add("matched");
+        const seqDiv = document.getElementById("userSequence");
+        const chip = document.createElement("div");
+        chip.className =
+          "px-4 py-2 bg-primary text-white text-xs font-bold rounded-full shadow-sm";
+        chip.innerHTML = `${userSeq.length}. ${layerNames.find((l) => l.id === id).label}`;
+        seqDiv.appendChild(chip);
+        if (userSeq.length === 6) cekSusunan();
+      }
+      function cekSusunan() {
+        const correct =
+          JSON.stringify(userSeq) === JSON.stringify([0, 1, 2, 3, 4, 5]);
+        const statusEl = document.getElementById("susunStatus");
+        if (correct) {
+          statusEl.innerText =
+            "🎉 Tepat! Susunan lapisan dari dalam ke luar sudah benar!";
+          statusEl.className = "text-sm text-green-600 font-bold";
+          kirimHasilLatihan(1, 6, 6, 2);
+        } else {
+          statusEl.innerText =
+            "❌ Urutan masih salah. Klik Ulangi untuk mencoba lagi.";
+          statusEl.className = "text-sm text-red-600 font-bold";
+        }
+      }
+      function resetSusunOS() {
+        renderShuffledLayers();
+      }
+
+      // ===== LKPD =====
+      function saveLKPD1() {
+        const inputs = document.querySelectorAll(".lkpd-input");
+        const data = {};
+        inputs.forEach((input) => {
+          data[input.id] = input.value;
+        });
+        localStorage.setItem("algoLearn_LKPD1", JSON.stringify(data));
+        const s = document.getElementById("lkpd1-save-status");
+        if (s) {
+          s.classList.remove("hidden");
+          setTimeout(() => s.classList.add("hidden"), 2000);
+        }
+      }
+      function loadLKPD1() {
+        const saved = localStorage.getItem("algoLearn_LKPD1");
+        if (saved) {
+          const data = JSON.parse(saved);
+          for (const key in data) {
+            const el = document.getElementById(key);
+            if (el) el.value = data[key];
+          }
+        }
+      }
+      function resetLKPD1() {
+        if (confirm("Yakin ingin mereset seluruh isian LKPD Sub-Bab 1?")) {
+          localStorage.removeItem("algoLearn_LKPD1");
+          document.querySelectorAll(".lkpd-input").forEach((input) => {
+            input.value = "";
+          });
+        }
+      }
+
+      // ====== APPS SCRIPT URL ======
+      const APPS_SCRIPT_URL =
+        localStorage.getItem("apps_script_url") ||
+        "https://script.google.com/macros/s/AKfycbwlVEXCtHBRgf1ZBfpYgb2qCGAm_Pyj68O4PvL3ffeW6m8h9mTS9zRTCNnl5CZ8pbSpdw/exec";
+
+      // ====== KIRIM HASIL LATIHAN ======
+      async function kirimHasilLatihan(
+        subbabNum,
+        jumlahSoal,
+        jumlahBenar,
+        durasiMenit,
+      ) {
+        const nama = localStorage.getItem("currentUser") || "";
+        const nis = localStorage.getItem("userNis") || "";
+        const kelas = localStorage.getItem("userClass") || "X-5";
+        if (!nama || !nis) return;
+        const skor = Math.round((jumlahBenar / jumlahSoal) * 100);
+        try {
+          localStorage.setItem(`latihan_sb${subbabNum}_score`, skor);
+        } catch (e) {}
+        if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes("GANTI_DENGAN_URL"))
+          return;
+        try {
+          await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              type: "save_latihan",
+              nis,
+              nama,
+              kelas,
+              subbab: `Sub-Bab ${subbabNum}`,
+              jumlah_soal: jumlahSoal,
+              jumlah_benar: jumlahBenar,
+              skor,
+              durasi_menit: durasiMenit || 1,
+            }),
+          });
+        } catch (e) {
+          console.warn("Gagal simpan latihan:", e);
+        }
+      }
+
+      // ====== LKPD: EXPORT PDF + UPLOAD DRIVE ======
+      function exportPDF1(returnBase64) {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF("p", "mm", "a4");
+        const val = (id) => {
+          const el = document.getElementById(id);
+          return el ? el.value.trim() || "-" : "-";
+        };
+        const primaryColor = [88, 66, 227];
+        let yPos = 35;
+        const drawHeader = () => {
+          doc.setFillColor(...primaryColor);
+          doc.rect(0, 0, 210, 24, "F");
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(14);
+          doc.setTextColor(255, 255, 255);
+          doc.text("LKPD - FONDASI SISTEM KOMPUTASI", 14, 11);
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(9);
+          doc.text("Informatika Kelas X | Berpikir Komputasional", 14, 17);
+        };
+        const checkPageBreak = (h) => {
+          if (yPos + h > 280) {
+            doc.addPage();
+            drawHeader();
+            yPos = 35;
+          }
+        };
+        const addTitle = (t) => {
+          checkPageBreak(15);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(11);
+          doc.setTextColor(15, 23, 42);
+          doc.text(t, 14, yPos);
+          yPos += 7;
+        };
+        const addQA = (q, a) => {
+          checkPageBreak(25);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(10);
+          doc.setTextColor(...primaryColor);
+          const qLines = doc.splitTextToSize(q, 182);
+          doc.text(qLines, 14, yPos);
+          yPos += qLines.length * 4.5 + 2;
+          doc.setFont("helvetica", "normal");
+          doc.setTextColor(50, 50, 50);
+          const aLines = doc.splitTextToSize(a, 178);
+          doc.setFillColor(248, 250, 252);
+          doc.setDrawColor(226, 232, 240);
+          const boxH = aLines.length * 5 + 6;
+          doc.rect(14, yPos, 182, boxH, "FD");
+          doc.text(aLines, 16, yPos + 6);
+          yPos += boxH + 8;
+        };
+        drawHeader();
+        addTitle("A. Identitas");
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(10);
+        doc.setTextColor(0, 0, 0);
+        doc.text(`Nama Murid : ${val("lkpd1-nama")}`, 14, yPos);
+        yPos += 6;
+        doc.text(`NIS        : ${val("lkpd1-nis")}`, 14, yPos);
+        yPos += 6;
+        doc.text(`Kelas      : ${val("lkpd1-kelas")}`, 14, yPos);
+        yPos += 8;
+        addTitle("B. Aktivitas 1 — 4 Pilar CT");
+        addQA("Dekomposisi:", val("lkpd1-dekomposisi"));
+        addQA("Pengenalan Pola:", val("lkpd1-pola"));
+        addQA("Abstraksi:", val("lkpd1-abstraksi"));
+        addQA("Perancangan Algoritma:", val("lkpd1-algoritma"));
+        addTitle("C. Aktivitas 2 — Simulasi IPO");
+        checkPageBreak(45);
+        doc.autoTable({
+          startY: yPos,
+          head: [["Tahap", "Isi / Nilai"]],
+          body: [
+            ["Input", val("lkpd1-ipo-input")],
+            ["Proses", val("lkpd1-ipo-proses")],
+            ["Output", val("lkpd1-ipo-output")],
+          ],
+          theme: "grid",
+          headStyles: { fillColor: primaryColor },
+          margin: { left: 14, right: 14 },
+        });
+        yPos = doc.lastAutoTable.finalY + 8;
+        addQA(
+          "Apa yang terjadi pada CPU saat proses berlangsung?",
+          val("lkpd1-ipo-refleksi"),
+        );
+        addTitle("D. Aktivitas 3 — Lapisan OS");
+        checkPageBreak(60);
+        doc.autoTable({
+          startY: yPos,
+          head: [["Lapisan", "Fungsi"]],
+          body: [
+            ["L0 — Hardware", val("lkpd1-os-l0")],
+            ["L1 — Manajemen Memori", val("lkpd1-os-l1")],
+            ["L2 — Komunikasi", val("lkpd1-os-l2")],
+            ["L3 — Manajemen I/O", val("lkpd1-os-l3")],
+            ["L4 — Program Pengguna", val("lkpd1-os-l4")],
+            ["L5 — Antarmuka Pengguna", val("lkpd1-os-l5")],
+          ],
+          theme: "grid",
+          headStyles: { fillColor: primaryColor },
+          margin: { left: 14, right: 14 },
+        });
+        yPos = doc.lastAutoTable.finalY + 8;
+        addTitle("E. Aktivitas 4 — Refleksi");
+        addQA(
+          "1. Apa hal baru yang saya pahami dari Sub-Bab ini?",
+          val("lkpd1-ref-1"),
+        );
+        addQA(
+          "2. Dari 4 pilar CT, pilar mana yang paling sering saya gunakan sehari-hari?",
+          val("lkpd1-ref-2"),
+        );
+        addQA(
+          "3. Mengapa Sistem Operasi penting bagi sebuah komputer?",
+          val("lkpd1-ref-3"),
+        );
+        if (returnBase64) return doc.output("datauristring");
+        doc.save(`LKPD_MATERI1_${Date.now()}.pdf`);
+      }
+
+      async function uploadLkpdToDrive() {
+        const nama =
+          document.getElementById("lkpd1-nama")?.value.trim() ||
+          localStorage.getItem("currentUser") ||
+          "";
+        const nis =
+          document.getElementById("lkpd1-nis")?.value.trim() ||
+          localStorage.getItem("userNis") ||
+          "-";
+        const kelas =
+          document.getElementById("lkpd1-kelas")?.value.trim() ||
+          localStorage.getItem("userClass") ||
+          "X";
+        if (!nama) {
+          alert("Mohon isi Nama terlebih dahulu di bagian Identitas LKPD.");
+          return;
+        }
+        const btn = document.getElementById("btn-lkpd-drive");
+        const oldHTML = btn ? btn.innerHTML : "";
+        if (btn) {
+          btn.disabled = true;
+          btn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
+        }
+        try {
+          const pdfDataUrl = exportPDF1(true);
+          if (!pdfDataUrl || pdfDataUrl.indexOf("base64,") === -1)
+            throw new Error("Gagal generate PDF");
+          const safeName = nama.replace(/\s+/g, "_");
+          const filename = `LKPD_MATERI1_${nis}_${safeName}_${Date.now()}.pdf`;
+          const payload = {
+            type: "lkpd",
+            subbab: "subbab_1",
+            subbab_num: 1,
+            folder: "LKPD_MATERI1",
+            fileName: filename,
+            nama,
+            nis,
+            kelas,
+            timestamp: new Date().toISOString(),
+            pdfBase64: pdfDataUrl,
+          };
+          await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (btn) {
+            btn.innerHTML =
+              '<i class="fa-solid fa-check"></i> Terkirim ke Drive';
+            setTimeout(() => {
+              btn.disabled = false;
+              btn.innerHTML = oldHTML;
+            }, 2500);
+          }
+        } catch (e) {
+          console.error(e);
+          alert("Gagal mengirim LKPD: " + e.message);
+          if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = oldHTML;
+          }
+        }
+      }
+
+      // ==================================================
+      // ===== ASESMEN (Pre-Test, Post-Test, Tes Tertulis) =====
+      // ==================================================
+      const SUBBAB_NUM = 1;
+
+      // ----- PRE-TEST: 10 PG (diagnostik, tidak auto-score) -----
+      const soalAwal = [
+        {
+          no: 1,
+          teks: "Menurutmu, komputer adalah ....",
+          pilihan: [
+            "Mesin yang dapat menerima input, memprosesnya, dan menghasilkan output",
+            "Alat untuk bermain game saja",
+            "Kotak ajaib tanpa aturan kerja",
+            "Perangkat yang tidak bisa dipelajari",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 2,
+          teks: "Pernahkah kamu mendengar istilah 'Berpikir Komputasional' sebelumnya?",
+          pilihan: [
+            "Sering dan cukup memahami",
+            "Pernah beberapa kali",
+            "Pernah mendengar tetapi belum memahami",
+            "Belum pernah",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 3,
+          teks: "Saat menghadapi masalah besar, saya biasanya ....",
+          pilihan: [
+            "Memecahnya menjadi bagian kecil",
+            "Menyelesaikan secara keseluruhan sekaligus",
+            "Menyerah sebelum mencoba",
+            "Menunggu bantuan teman",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 4,
+          teks: "Saya pernah menggunakan komputer atau laptop untuk ....",
+          pilihan: [
+            "Mengetik dokumen",
+            "Bermain game",
+            "Menonton video",
+            "Belajar coding atau aplikasi",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 5,
+          teks: "Menurutmu, apa yang membuat komputer dapat menjalankan banyak aplikasi sekaligus?",
+          pilihan: [
+            "Karena ada Sistem Operasi yang mengaturnya",
+            "Karena komputer sangat cepat",
+            "Karena aplikasi pintar sendiri",
+            "Belum tahu",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 6,
+          teks: "Saya tertarik mempelajari cara kerja komputer.",
+          pilihan: ["Sangat setuju", "Setuju", "Kurang setuju", "Tidak setuju"],
+          kunci: "A",
+        },
+        {
+          no: 7,
+          teks: "Saat belajar hal baru, saya lebih suka ....",
+          pilihan: [
+            "Melihat contoh dan visualisasi",
+            "Mencoba langsung",
+            "Berdiskusi kelompok",
+            "Membaca materi",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 8,
+          teks: "Seberapa siap kamu mengikuti pembelajaran tentang komputer dan Sistem Operasi?",
+          pilihan: ["Sangat siap", "Siap", "Kurang siap", "Belum siap"],
+          kunci: "A",
+        },
+        {
+          no: 9,
+          teks: "Seberapa percaya diri kamu dalam memahami konsep berpikir sistematis?",
+          pilihan: [
+            "Sangat percaya diri",
+            "Cukup percaya diri",
+            "Kurang percaya diri",
+            "Belum percaya diri",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 10,
+          teks: "Ketika belum memahami materi, saya biasanya ....",
+          pilihan: [
+            "Mencoba kembali sendiri",
+            "Bertanya kepada teman",
+            "Bertanya kepada guru",
+            "Menunggu penjelasan berikutnya",
+          ],
+          kunci: "A",
+        },
+      ];
+
+      // ----- POST-TEST: 10 PG (auto-score) -----
+      const soalAkhir = [
+        {
+          no: 1,
+          teks: "Berpikir komputasional adalah ....",
+          pilihan: [
+            "Cara berpikir untuk memecahkan masalah secara efektif, efisien, dan sistematis",
+            "Cara menggunakan komputer untuk bermain game",
+            "Cara menghafal rumus matematika",
+            "Cara membuat program dengan cepat",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 2,
+          teks: "Empat pilar berpikir komputasional adalah ....",
+          pilihan: [
+            "Dekomposisi, Pengenalan Pola, Abstraksi, Algoritma",
+            "Input, Proses, Output, Simpan",
+            "Baca, Tulis, Hitung, Simpan",
+            "CPU, RAM, Hard Disk, Monitor",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 3,
+          teks: "Memecah masalah besar menjadi bagian kecil disebut ....",
+          pilihan: ["Dekomposisi", "Abstraksi", "Algoritma", "Pengenalan Pola"],
+          kunci: "A",
+        },
+        {
+          no: 4,
+          teks: "Peta yang hanya menampilkan jalan utama adalah contoh dari ....",
+          pilihan: ["Abstraksi", "Dekomposisi", "Algoritma", "Pengenalan Pola"],
+          kunci: "A",
+        },
+        {
+          no: 5,
+          teks: "Komponen utama arsitektur Von Neumann yang menyimpan program dan data adalah ....",
+          pilihan: ["Memori (RAM)", "Monitor", "Mouse", "Speaker"],
+          kunci: "A",
+        },
+        {
+          no: 6,
+          teks: "Urutan siklus kerja komputer adalah ....",
+          pilihan: [
+            "Input → Proses → Output",
+            "Output → Proses → Input",
+            "Proses → Input → Output",
+            "Input → Output → Proses",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 7,
+          teks: "Bagian CPU yang melakukan operasi aritmatika dan logika adalah ....",
+          pilihan: [
+            "ALU (Arithmetic Logic Unit)",
+            "Control Unit",
+            "RAM",
+            "Register",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 8,
+          teks: "Sistem Operasi berfungsi sebagai ....",
+          pilihan: [
+            "Jembatan antara pengguna dengan perangkat keras",
+            "Perangkat keras utama komputer",
+            "Bahasa pemrograman komputer",
+            "Program untuk bermain game saja",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 9,
+          teks: "Model 'lapisan bawang' pada Sistem Operasi menunjukkan ....",
+          pilihan: [
+            "Struktur OS yang berlapis dari hardware hingga antarmuka pengguna",
+            "Bentuk fisik dari OS",
+            "Nama lain dari Sistem Operasi",
+            "Cara memasak bawang dengan komputer",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 10,
+          teks: "Contoh Sistem Operasi pada smartphone adalah ....",
+          pilihan: [
+            "Android",
+            "Microsoft Word",
+            "Google Chrome",
+            "Mozilla Firefox",
+          ],
+          kunci: "A",
+        },
+      ];
+
+      // ----- TES TERTULIS: 10 PG + 2 Esai -----
+      const soalTertulis = [
+        {
+          no: 1,
+          teks: "Berikut yang BUKAN merupakan pilar berpikir komputasional adalah ....",
+          pilihan: ["Dekomposisi", "Abstraksi", "Kompresi", "Pengenalan Pola"],
+          kunci: "C",
+        },
+        {
+          no: 2,
+          teks: "Mengabaikan detail yang tidak relevan untuk fokus pada inti masalah disebut ....",
+          pilihan: ["Dekomposisi", "Abstraksi", "Algoritma", "Pola"],
+          kunci: "B",
+        },
+        {
+          no: 3,
+          teks: "John von Neumann pada tahun 1945 memperkenalkan ....",
+          pilihan: [
+            "Arsitektur komputer modern yang menyimpan program dan data di memori yang sama",
+            "Bahasa pemrograman pertama",
+            "Sistem Operasi pertama",
+            "Mouse dan keyboard",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 4,
+          teks: "Komponen berikut yang TIDAK termasuk dalam arsitektur Von Neumann adalah ....",
+          pilihan: ["CPU", "Memori", "Perangkat Input", "Cloud Storage"],
+          kunci: "D",
+        },
+        {
+          no: 5,
+          teks: "Bagian CPU yang mengontrol dan mengatur instruksi yang dijalankan adalah ....",
+          pilihan: ["ALU", "Control Unit", "RAM", "Cache"],
+          kunci: "B",
+        },
+        {
+          no: 6,
+          teks: "Fungsi utama Sistem Operasi adalah ....",
+          pilihan: [
+            "Mengelola sumber daya komputer",
+            "Menampilkan gambar dan video",
+            "Menghubungkan ke printer",
+            "Menyimpan file",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 7,
+          teks: "Multitasking pada komputer memungkinkan ....",
+          pilihan: [
+            "Menjalankan beberapa program secara bersamaan",
+            "Menjalankan satu program saja",
+            "Mempercepat internet",
+            "Mengurangi ukuran RAM",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 8,
+          teks: "Model lapisan bawang pada Sistem Operasi memiliki ....",
+          pilihan: [
+            "5–6 lapisan dari hardware sampai antarmuka pengguna",
+            "Hanya 1 lapisan",
+            "Tidak memiliki lapisan",
+            "3 lapisan saja",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 9,
+          teks: "Contoh Sistem Operasi open-source adalah ....",
+          pilihan: ["Linux", "Windows 11", "macOS", "iOS"],
+          kunci: "A",
+        },
+        {
+          no: 10,
+          teks: "Algoritma round-robin pada Sistem Operasi digunakan untuk ....",
+          pilihan: [
+            "Penjadwalan proses multitasking",
+            "Menghubungkan printer",
+            "Menyimpan file di hard disk",
+            "Mengatur warna pada monitor",
+          ],
+          kunci: "A",
+        },
+      ];
+
+      const esaiTertulis = [
+        {
+          no: 1,
+          teks: "Jelaskan apa yang dimaksud dengan berpikir komputasional dan sebutkan 4 pilarnya. Berikan masing-masing 1 contoh penerapan dalam kehidupan sehari-hari.",
+        },
+        {
+          no: 2,
+          teks: "Jelaskan alur kerja siklus Input → Proses → Output pada komputer model Von Neumann. Sebutkan komponen utama yang terlibat dan fungsinya masing-masing.",
+        },
+      ];
+
+      function renderSoalAwal() {
+        const container = document.getElementById("soal-awal-container");
+        if (!container) return;
+        container.innerHTML = "";
+        soalAwal.forEach((soal) => {
+          const card = document.createElement("div");
+          card.className = "asesmen-card";
+          card.innerHTML = `
+            <p class="font-bold text-dark mb-4 text-base">${soal.no}. ${soal.teks}</p>
+            <div class="space-y-2">
+              ${soal.pilihan
+                .map(
+                  (p, i) => `
+                <label class="option-label">
+                  <input type="radio" name="jawaban_awal_${soal.no}" value="${String.fromCharCode(65 + i)}" />
+                  <span class="text-sm text-slate-700 font-medium">${String.fromCharCode(65 + i)}. ${p}</span>
+                </label>`,
+                )
+                .join("")}
+            </div>`;
+          container.appendChild(card);
+        });
+      }
+
+      function renderSoalAkhir() {
+        const container = document.getElementById("soal-akhir-container");
+        if (!container) return;
+        container.innerHTML = "";
+        soalAkhir.forEach((soal) => {
+          const card = document.createElement("div");
+          card.className = "asesmen-card";
+          card.innerHTML = `
+            <p class="font-bold text-dark mb-4 text-base">${soal.no}. ${soal.teks}</p>
+            <div class="space-y-2">
+              ${soal.pilihan
+                .map(
+                  (p, i) => `
+                <label class="option-label">
+                  <input type="radio" name="jawaban_akhir_${soal.no}" value="${String.fromCharCode(65 + i)}" />
+                  <span class="text-sm text-slate-700 font-medium">${String.fromCharCode(65 + i)}. ${p}</span>
+                </label>`,
+                )
+                .join("")}
+            </div>`;
+          container.appendChild(card);
+        });
+      }
+
+      function renderSoalTertulis() {
+        const container = document.getElementById("soal-tertulis-container");
+        if (!container) return;
+        container.innerHTML = "";
+        soalTertulis.forEach((soal) => {
+          const card = document.createElement("div");
+          card.className = "asesmen-card";
+          card.innerHTML = `
+            <p class="font-bold text-dark mb-4 text-base">${soal.no}. ${soal.teks}</p>
+            <div class="space-y-2">
+              ${soal.pilihan
+                .map(
+                  (p, i) => `
+                <label class="option-label">
+                  <input type="radio" name="jawaban_tertulis_${soal.no}" value="${String.fromCharCode(65 + i)}" />
+                  <span class="text-sm text-slate-700 font-medium">${String.fromCharCode(65 + i)}. ${p}</span>
+                </label>`,
+                )
+                .join("")}
+            </div>`;
+          container.appendChild(card);
+        });
+        esaiTertulis.forEach((soal) => {
+          const card = document.createElement("div");
+          card.className = "asesmen-card";
+          card.innerHTML = `
+            <p class="font-bold text-dark mb-3 text-base">Esai ${soal.no}. ${soal.teks}</p>
+            <textarea id="jawaban_tertulis_esai_${soal.no}" rows="6"
+              class="w-full p-4 border border-slate-200 rounded-xl bg-slate-50 focus:border-primary outline-none focus:bg-white transition text-sm"
+              placeholder="Tuliskan jawaban esai di sini..."></textarea>`;
+          container.appendChild(card);
+        });
+      }
+
+      // switchAsesmen persis seperti sub_materi_4
+      function switchAsesmen(type) {
+        const tabs = {
+          akhir: "tab-asesmen-akhir",
+          tertulis: "tab-asesmen-tertulis",
+        };
+        const contents = {
+          awal: "content-asesmen-awal",
+          akhir: "content-asesmen-akhir",
+          tertulis: "content-asesmen-tertulis",
+        };
+        Object.keys(tabs).forEach((k) => {
+          const el = document.getElementById(tabs[k]);
+          if (!el) return;
+          el.className =
+            k === type
+              ? "px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-active shadow-md"
+              : "px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-inactive";
+        });
+        Object.values(contents).forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.add("hidden");
+        });
+        const target = document.getElementById(contents[type]);
+        if (target) target.classList.remove("hidden");
+        ["awal", "akhir", "tertulis"].forEach((t) => {
+          const el = document.getElementById(`status-${t}`);
+          if (el) el.classList.add("hidden");
+        });
+      }
+
+      function resetAsesmen(type) {
+        if (!confirm(`Reset semua jawaban Asesmen ${type}?`)) return;
+        const container = document.getElementById(`content-asesmen-${type}`);
+        if (!container) return;
+        container.querySelectorAll("input, textarea").forEach((el) => {
+          if (el.type === "radio") el.checked = false;
+          else el.value = "";
+        });
+        const statusEl = document.getElementById(`status-${type}`);
+        if (statusEl) statusEl.classList.add("hidden");
+      }
+
+      async function kirimAsesmen(type) {
+        const prefix = type;
+        const statusEl = document.getElementById(`status-${prefix}`);
+        const btn = document.getElementById(`btn-kirim-${prefix}`);
+        if (!btn || !statusEl) return;
+        btn.disabled = true;
+        btn.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Mengirim...';
+        statusEl.className = "text-sm status-loading w-full md:w-auto";
+        statusEl.classList.remove("hidden");
+        statusEl.innerText = "⏳ Mengirim data...";
+
+        const nama = document.getElementById(`nama-${prefix}`).value.trim();
+        const nis = document.getElementById(`nis-${prefix}`).value.trim();
+        const kelas = document.getElementById(`kelas-${prefix}`).value.trim();
+
+        if (nama) localStorage.setItem("currentUser", nama);
+        if (nis) localStorage.setItem("userNis", nis);
+        if (kelas) localStorage.setItem("userClass", kelas);
+
+        if (!nama || !nis || !kelas) {
+          statusEl.className = "text-sm status-error w-full md:w-auto";
+          statusEl.innerText = "❌ Mohon isi Nama, NIS, dan Kelas.";
+          btn.disabled = false;
+          btn.innerHTML =
+            'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
+          return;
+        }
+
+        let jawaban = [];
+        let typeBackend = "";
+        let soalSet = [];
+
+        if (type === "awal") {
+          typeBackend = "asesmen_awal";
+          soalSet = soalAwal;
+          for (let i = 1; i <= 10; i++) {
+            const radio = document.querySelector(
+              `input[name="jawaban_awal_${i}"]:checked`,
+            );
+            jawaban.push(radio ? radio.value : "");
+          }
+        } else if (type === "akhir") {
+          typeBackend = "asesmen_akhir";
+          soalSet = soalAkhir;
+          for (let i = 1; i <= 10; i++) {
+            const radio = document.querySelector(
+              `input[name="jawaban_akhir_${i}"]:checked`,
+            );
+            jawaban.push(radio ? radio.value : "");
+          }
+        } else if (type === "tertulis") {
+          typeBackend = "asesmen_tertulis";
+          for (let i = 1; i <= 10; i++) {
+            const radio = document.querySelector(
+              `input[name="jawaban_tertulis_${i}"]:checked`,
+            );
+            jawaban.push(radio ? radio.value : "");
+          }
+          for (let i = 1; i <= 2; i++) {
+            const ta = document.getElementById(`jawaban_tertulis_esai_${i}`);
+            jawaban.push(ta ? ta.value.trim() : "");
+          }
+        }
+
+        if (jawaban.some((j) => j === "")) {
+          statusEl.className = "text-sm status-error w-full md:w-auto";
+          statusEl.innerText = "❌ Semua soal harus dijawab.";
+          btn.disabled = false;
+          btn.innerHTML =
+            'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
+          return;
+        }
+
+        // Auto-score lokal untuk feedback
+        let skorLokal = 0;
+        if (type === "awal" || type === "akhir") {
+          for (let i = 0; i < 10; i++) {
+            if (jawaban[i] === soalSet[i].kunci) skorLokal += 10;
+          }
+        } else if (type === "tertulis") {
+          for (let i = 0; i < 10; i++) {
+            if (jawaban[i] === soalTertulis[i].kunci) skorLokal += 5;
+          }
+        }
+
+        const payload = {
+          type: typeBackend,
+          subbab: `subbab_${SUBBAB_NUM}`,
+          subbab_num: SUBBAB_NUM,
+          nama,
+          nis,
+          kelas,
+          jawaban,
+        };
+
+        try {
+          if (
+            APPS_SCRIPT_URL &&
+            !APPS_SCRIPT_URL.includes("GANTI_DENGAN_URL")
+          ) {
+            await fetch(APPS_SCRIPT_URL, {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+          }
+          if (type === "tertulis") {
+            statusEl.className = "text-sm status-success w-full md:w-auto";
+            statusEl.innerText = `✅ Terkirim! Skor PG: ${skorLokal}/50 (Esai akan dinilai guru)`;
+          } else {
+            statusEl.className = "text-sm status-success w-full md:w-auto";
+            statusEl.innerText = `✅ Terkirim! Nilai: ${skorLokal}/100`;
+          }
+        } catch (error) {
+          console.error(error);
+          statusEl.className = "text-sm status-error w-full md:w-auto";
+          statusEl.innerText =
+            "❌ Gagal mengirim. Coba lagi atau hubungi guru.";
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML =
+            'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
+        }
+      }
+
+      // ===== INIT =====
+      document.querySelectorAll(".lkpd-input").forEach((input) => {
+        input.addEventListener("input", saveLKPD1);
+      });
+
+      function autofillStudentData() {
+        const nama = localStorage.getItem("currentUser") || "";
+        const nis = localStorage.getItem("userNis") || "";
+        const kelas = localStorage.getItem("userClass") || "";
+        if (nama) {
+          ["lkpd1-nama", "nama-awal", "nama-akhir", "nama-tertulis"].forEach(
+            (id) => {
+              const el = document.getElementById(id);
+              if (el && !el.value) el.value = nama;
+            },
+          );
+        }
+        if (nis) {
+          ["lkpd1-nis", "nis-awal", "nis-akhir", "nis-tertulis"].forEach(
+            (id) => {
+              const el = document.getElementById(id);
+              if (el && !el.value) el.value = nis;
+            },
+          );
+        }
+        if (kelas) {
+          [
+            "lkpd1-kelas",
+            "kelas-awal",
+            "kelas-akhir",
+            "kelas-tertulis",
+          ].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el && !el.value) el.value = kelas;
+          });
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        loadLKPD1();
+        renderSoalAwal();
+        renderSoalAkhir();
+        renderSoalTertulis();
+        renderShuffledLayers();
+        resetIPO();
+        autofillStudentData();
+        renderIpoHistory();
+      });
+    </script>
+  </body>
+</html>
