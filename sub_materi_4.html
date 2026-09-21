@@ -2,7 +2,11 @@
 <html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#5842e3" />
     <title>Sub-Bab 4: Algoritma, Flowchart & Pseudocode - KomputasiKita</title>
     <meta
       name="description"
@@ -68,6 +72,7 @@
       }
       html {
         scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
       }
       body {
         background-color: var(--bg-page);
@@ -78,6 +83,7 @@
         flex-direction: column;
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
       }
       a {
         text-decoration: none;
@@ -86,6 +92,13 @@
       img {
         max-width: 100%;
         display: block;
+      }
+      button,
+      input,
+      textarea,
+      select {
+        font-family: inherit;
+        -webkit-tap-highlight-color: transparent;
       }
       .kk-container {
         max-width: 1240px;
@@ -110,6 +123,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 20px;
+        position: relative;
       }
       .navbar-brand {
         display: flex;
@@ -310,6 +324,7 @@
         border-bottom: 1px solid var(--border-color);
         font-size: 0.9rem;
         color: #475569;
+        gap: 12px;
       }
       .info-list li:last-child {
         border-bottom: none;
@@ -317,6 +332,7 @@
       .info-list li span:last-child {
         font-weight: 700;
         color: var(--text-dark);
+        text-align: right;
       }
 
       /* COLORED CARDS */
@@ -404,6 +420,11 @@
         line-height: 1.7;
         overflow-x: auto;
         position: relative;
+        -webkit-overflow-scrolling: touch;
+      }
+      .code-block pre {
+        white-space: pre;
+        font-family: "Courier New", monospace;
       }
       .code-block .kw {
         color: #a78bfa;
@@ -488,10 +509,12 @@
         justify-content: center;
         align-items: center;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
       .fc-visual svg {
         max-width: 100%;
         height: auto;
+        flex-shrink: 0;
       }
 
       /* FLOWCHART BUILDER */
@@ -504,6 +527,7 @@
       @media (max-width: 1000px) {
         .fcb-wrap {
           grid-template-columns: 1fr;
+          min-height: auto;
         }
       }
       .fcb-sidebar {
@@ -513,6 +537,11 @@
         height: fit-content;
         position: sticky;
         top: 90px;
+      }
+      @media (max-width: 1000px) {
+        .fcb-sidebar {
+          position: static;
+        }
       }
       .fcb-panel {
         background: #fff;
@@ -592,6 +621,7 @@
         border: 1.5px solid transparent;
         font-family: inherit;
         margin-bottom: 6px;
+        justify-content: center;
       }
       .fcb-tool-btn:last-child {
         margin-bottom: 0;
@@ -675,6 +705,11 @@
         overflow: hidden;
         min-height: 700px;
       }
+      @media (max-width: 1000px) {
+        .fcb-canvas-wrap {
+          min-height: 520px;
+        }
+      }
       .fcb-canvas-header {
         padding: 12px 18px;
         border-bottom: 1px solid var(--border-color);
@@ -721,6 +756,13 @@
         overflow: auto;
         cursor: default;
         user-select: none;
+        -webkit-user-select: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      @media (max-width: 1000px) {
+        .fcb-canvas {
+          min-height: 480px;
+        }
       }
       .fcb-canvas.connect-mode {
         background-color: #f0fdf4;
@@ -778,6 +820,7 @@
         z-index: 5;
         width: fit-content;
         height: fit-content;
+        touch-action: none;
       }
       .fcb-node.dragging {
         cursor: grabbing;
@@ -831,7 +874,8 @@
         z-index: 20;
         line-height: 1;
       }
-      .fcb-node:hover .fcb-node-del {
+      .fcb-node:hover .fcb-node-del,
+      .fcb-node:active .fcb-node-del {
         display: flex;
       }
       .fcb-node.connect-source {
@@ -870,6 +914,8 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s;
+        max-width: 90vw;
+        text-align: center;
       }
       .fcb-toast.show {
         opacity: 1;
@@ -885,6 +931,7 @@
         z-index: 10000;
         display: none;
         border: 1px solid var(--border-color);
+        max-width: calc(100vw - 24px);
       }
       .fcb-branch-chooser.show {
         display: block;
@@ -914,7 +961,7 @@
         gap: 6px;
       }
       .fcb-branch-btn {
-        padding: 8px 16px;
+        padding: 10px 16px;
         border-radius: 10px;
         font-weight: 800;
         font-size: 0.82rem;
@@ -1041,8 +1088,10 @@
         background-size: 20px 20px;
         overflow: auto;
         user-select: none;
+        -webkit-user-select: none;
         cursor: default;
         transition: background-color 0.2s;
+        -webkit-overflow-scrolling: touch;
       }
       .mini-fcb-canvas.connect-mode {
         background-color: #f0fdf4;
@@ -1053,6 +1102,7 @@
       }
       .mini-fcb-canvas .fcb-node {
         cursor: grab;
+        touch-action: none;
       }
       .mini-canvas-empty {
         position: absolute;
@@ -1095,6 +1145,9 @@
         display: none;
         pointer-events: none;
         white-space: nowrap;
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .mini-fcb-canvas.connect-mode .mini-connect-hint {
         display: block;
@@ -1131,6 +1184,7 @@
         color: #334155;
         cursor: pointer;
         transition: all 0.2s;
+        word-break: break-word;
       }
       .pc-line:hover {
         border-color: var(--primary);
@@ -1159,6 +1213,7 @@
         min-height: 42px;
         display: flex;
         align-items: center;
+        word-break: break-word;
       }
       .pc-slot.filled {
         background: #fff;
@@ -1334,46 +1389,379 @@
           grid-template-columns: 1fr 1fr;
         }
       }
+
+      /* ================================================== */
+      /* ===== RESPONSIVE ENHANCEMENTS FOR MOBILE ======== */
+      /* ================================================== */
       @media (max-width: 768px) {
         .kk-container {
-          padding-left: 18px;
-          padding-right: 18px;
+          padding-left: 14px;
+          padding-right: 14px;
+        }
+
+        /* Navbar */
+        .navbar {
+          padding: 12px 0;
+        }
+        .navbar-brand {
+          font-size: 1.05rem;
+          gap: 8px;
+        }
+        .brand-icon {
+          width: 34px;
+          height: 34px;
+          font-size: 1rem;
+          border-radius: 10px;
         }
         .navbar-menu {
           display: none;
         }
         .navbar-toggle {
           display: block;
+          font-size: 1.3rem;
+          padding: 6px 10px;
         }
         .navbar-menu.active {
           display: flex;
           flex-direction: column;
           position: absolute;
-          top: 100%;
+          top: calc(100% + 12px);
           left: 0;
           right: 0;
           background: #fff;
-          padding: 16px;
-          border-bottom: 1px solid var(--border-color);
+          padding: 12px;
+          border: 1px solid var(--border-color);
+          border-radius: 16px;
           gap: 4px;
+          box-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
+          z-index: 200;
         }
         .navbar-menu.active a {
           width: 100%;
+          padding: 12px 16px;
+          font-size: 0.92rem;
+        }
+        .btn-guru {
+          padding: 8px 12px;
+          font-size: 0.82rem;
         }
         .navbar-actions .btn-guru span {
           display: none;
         }
-        .hero-card {
-          padding: 32px 22px;
-          border-radius: 28px;
+        .navbar-actions .btn-guru i {
+          font-size: 0.95rem;
         }
+
+        /* Hero */
+        .hero-card {
+          padding: 28px 18px;
+          border-radius: 22px;
+        }
+        .hero-card h1,
+        .hero-card .text-4xl {
+          font-size: 1.65rem !important;
+          line-height: 1.15 !important;
+          letter-spacing: -0.02em;
+        }
+        .hero-card p {
+          font-size: 0.92rem !important;
+          line-height: 1.55 !important;
+        }
+        .hero-badge {
+          font-size: 0.7rem;
+          padding: 6px 12px;
+        }
+        .btn-yellow,
+        .btn-outline-white {
+          padding: 12px 18px;
+          font-size: 0.85rem;
+          width: 100%;
+          justify-content: center;
+        }
+        .hero-card .flex.flex-wrap.gap-4 {
+          gap: 10px;
+        }
+
+        /* Info & colored cards */
+        .info-card {
+          padding: 16px;
+          border-radius: 16px;
+        }
+        .colored-card {
+          padding: 20px;
+          border-radius: 22px;
+        }
+        .colored-card h3 {
+          font-size: 1.05rem;
+        }
+        .colored-card p {
+          font-size: 0.82rem;
+        }
+        .colored-card .deco-icon {
+          font-size: 4rem;
+        }
+
+        /* Headings scale down */
+        h1 {
+          word-break: break-word;
+        }
+        h2 {
+          font-size: 1.35rem !important;
+        }
+        h3 {
+          font-size: 1.05rem !important;
+        }
+
+        /* Materi tabs */
+        .materi-tab {
+          padding: 12px 16px !important;
+          font-size: 0.85rem;
+        }
+
+        /* Code block */
+        .code-block {
+          padding: 14px;
+          font-size: 0.75rem;
+          border-radius: 10px;
+        }
+        .code-block pre {
+          white-space: pre;
+          font-size: 0.75rem;
+        }
+        .code-label {
+          font-size: 0.62rem;
+        }
+
+        /* Flowchart visual */
+        .fc-visual {
+          padding: 12px;
+          border-radius: 12px;
+        }
+        .fc-visual svg {
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+        }
+
+        /* FCB main */
+        .fcb-canvas-wrap {
+          min-height: 460px;
+          border-radius: 16px;
+        }
+        .fcb-canvas {
+          min-height: 420px;
+          background-size: 16px 16px;
+        }
+        .fcb-canvas-header {
+          padding: 10px 12px;
+        }
+        .fcb-canvas-header .title {
+          font-size: 0.82rem;
+        }
+        .fcb-mode-badge {
+          font-size: 0.6rem;
+          padding: 5px 10px;
+        }
+        .fcb-panel {
+          padding: 12px;
+          border-radius: 16px;
+        }
+        .fcb-shape-btn {
+          padding: 8px;
+          gap: 8px;
+        }
+        .fcb-shape-btn .shape-icon {
+          width: 32px;
+          height: 24px;
+        }
+        .fcb-shape-btn .info strong {
+          font-size: 0.76rem;
+        }
+        .fcb-shape-btn .info span {
+          font-size: 0.62rem;
+        }
+        .fcb-node-text {
+          font-size: 0.7rem;
+          max-width: 180px;
+        }
+        .fcb-tool-btn {
+          font-size: 0.75rem;
+          padding: 9px 10px;
+        }
+        .fcb-hint {
+          font-size: 0.7rem;
+          padding: 10px 12px;
+        }
+        .fcb-toast {
+          bottom: 16px;
+          padding: 10px 18px;
+          font-size: 0.78rem;
+        }
+
+        /* Mini FCB - palette scroll horizontally */
+        .mini-fcb-palette {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          padding: 8px;
+          gap: 5px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
+        }
+        .mini-fcb-palette::-webkit-scrollbar {
+          height: 4px;
+        }
+        .mini-fcb-palette::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 4px;
+        }
+        .mini-fcb-palette button {
+          font-size: 0.68rem;
+          padding: 6px 9px;
+          flex-shrink: 0;
+        }
+        .mini-fcb-palette button.mini-connect-btn {
+          margin-left: 8px;
+        }
+        .mini-fcb-canvas {
+          height: 420px;
+          min-height: 380px;
+          background-size: 16px 16px;
+        }
+
+        /* Pseudocode game */
+        .pc-workspace {
+          padding: 12px;
+          min-height: 220px;
+          border-radius: 12px;
+        }
+        .pc-pool {
+          padding: 12px;
+          min-height: 140px;
+          border-radius: 12px;
+        }
+        .pc-line,
+        .pc-slot {
+          font-size: 0.72rem;
+          padding: 10px 12px;
+          min-height: 38px;
+        }
+
+        /* Tables */
+        .compare-table {
+          font-size: 0.76rem;
+        }
+        .compare-table th,
+        .compare-table td {
+          padding: 8px 10px;
+        }
+        .sym-cell svg {
+          width: 44px;
+          height: 30px;
+        }
+
+        /* LKPD */
+        .lkpd-tab {
+          padding: 10px 16px !important;
+          font-size: 0.75rem !important;
+        }
+        .lkpd-input {
+          font-size: 0.85rem;
+          padding: 10px 12px;
+        }
+
+        /* Tables with inputs inside LKPD — make scrollable */
+        .overflow-hidden.rounded-2xl.border.border-slate-200 {
+          overflow-x: auto !important;
+          -webkit-overflow-scrolling: touch;
+        }
+        .overflow-hidden.rounded-2xl.border.border-slate-200 > table {
+          min-width: 560px;
+        }
+        .overflow-hidden.rounded-2xl.border.border-slate-200 input.lkpd-input {
+          font-size: 0.8rem;
+          padding: 8px 10px;
+          min-width: 120px;
+        }
+
+        /* Asesmen */
+        .asesmen-card {
+          padding: 16px;
+          border-radius: 16px;
+        }
+        .asesmen-card p {
+          font-size: 0.9rem !important;
+          line-height: 1.5;
+        }
+        .asesmen-card .option-label {
+          padding: 9px 12px;
+          gap: 8px;
+        }
+        .asesmen-card .option-label span {
+          font-size: 0.82rem !important;
+          line-height: 1.4;
+        }
+        .asesmen-card .option-label input[type="radio"] {
+          width: 1.05rem;
+          height: 1.05rem;
+        }
+
+        /* Footer */
         .footer {
-          padding: 40px 0 24px;
+          padding: 36px 0 24px;
         }
         .footer-grid {
           grid-template-columns: 1fr;
-          gap: 28px;
+          gap: 24px;
         }
+        .footer-brand p {
+          max-width: 100%;
+          font-size: 0.85rem;
+        }
+        .footer-bottom {
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-card h1,
+        .hero-card .text-4xl {
+          font-size: 1.4rem !important;
+        }
+        .hero-card p {
+          font-size: 0.85rem !important;
+        }
+        .fcb-canvas {
+          min-height: 380px;
+        }
+        .mini-fcb-canvas {
+          height: 360px;
+          min-height: 320px;
+        }
+        .pc-line,
+        .pc-slot {
+          font-size: 0.68rem;
+          padding: 8px 10px;
+        }
+        .lkpd-tab {
+          padding: 9px 12px !important;
+          font-size: 0.7rem !important;
+        }
+        .colored-card h3 {
+          font-size: 1rem;
+        }
+        .colored-card p {
+          font-size: 0.78rem;
+        }
+      }
+
+      /* Prevent horizontal overflow */
+      img,
+      svg,
+      video {
+        max-width: 100%;
+      }
+      .overflow-x-auto {
+        -webkit-overflow-scrolling: touch;
       }
     </style>
   </head>
@@ -1408,6 +1796,7 @@
           class="navbar-toggle"
           id="navbarToggle"
           aria-label="Toggle menu"
+          aria-expanded="false"
         >
           <i class="fas fa-bars"></i>
         </button>
@@ -1702,7 +2091,7 @@
         <div class="mb-8 flex items-center">
           <button
             onclick="nav('beranda')"
-            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200 flex-shrink-0"
           >
             <i class="fa-solid fa-arrow-left"></i>
           </button>
@@ -1718,7 +2107,7 @@
         <div class="flex flex-col md:flex-row gap-8">
           <div class="w-full md:w-72 flex-shrink-0">
             <div
-              class="bg-white rounded-3xl shadow-sm border border-slate-100 p-3 sticky top-24"
+              class="bg-white rounded-3xl shadow-sm border border-slate-100 p-3 md:sticky md:top-24"
             >
               <button
                 onclick="showMateri('alur')"
@@ -3668,7 +4057,7 @@ luas ← sisi * sisi
         <div class="flex items-center mb-8">
           <button
             onclick="nav('beranda')"
-            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200 flex-shrink-0"
           >
             <i class="fa-solid fa-arrow-left"></i>
           </button>
@@ -3921,7 +4310,7 @@ luas ← sisi * sisi
         <div class="flex items-center mb-8">
           <button
             onclick="nav('beranda')"
-            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200 flex-shrink-0"
           >
             <i class="fa-solid fa-arrow-left"></i>
           </button>
@@ -4032,7 +4421,7 @@ luas ← sisi * sisi
         <div class="flex items-center mb-6">
           <button
             onclick="nav('beranda')"
-            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200 flex-shrink-0"
           >
             <i class="fa-solid fa-arrow-left"></i>
           </button>
@@ -4732,7 +5121,7 @@ luas ← sisi * sisi
                 Lengkapi pseudocode berikut (isi bagian bertitik-titik).
               </p>
               <div
-                class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-3 font-mono text-xs text-slate-700 leading-relaxed"
+                class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-3 font-mono text-xs text-slate-700 leading-relaxed overflow-x-auto"
               >
                 Algoritma Menghitung Luas Persegi<br />
                 Input: Nilai Panjang Sisi Persegi<br />
@@ -4775,7 +5164,7 @@ luas ← sisi * sisi
                 Mengikuti Pseudocode Sederhana
               </h4>
               <div
-                class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-3 font-mono text-xs text-slate-700 leading-relaxed"
+                class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-3 font-mono text-xs text-slate-700 leading-relaxed overflow-x-auto"
               >
                 input sisi<br />
                 luas ← sisi * sisi<br />
@@ -4877,7 +5266,7 @@ luas ← sisi * sisi
         <div class="flex items-center mb-6">
           <button
             onclick="nav('beranda')"
-            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200"
+            class="mr-4 text-slate-500 bg-white w-10 h-10 rounded-full shadow-sm flex items-center justify-center border border-slate-200 flex-shrink-0"
           >
             <i class="fa-solid fa-arrow-left"></i>
           </button>
@@ -5239,6 +5628,13 @@ luas ← sisi * sisi
               toggle.setAttribute("aria-expanded", "false");
             });
           });
+          // Close menu when clicking outside
+          document.addEventListener("click", function (e) {
+            if (!menu.classList.contains("active")) return;
+            if (menu.contains(e.target) || toggle.contains(e.target)) return;
+            menu.classList.remove("active");
+            toggle.setAttribute("aria-expanded", "false");
+          });
         }
       })();
 
@@ -5251,6 +5647,8 @@ luas ← sisi * sisi
         window.scrollTo(0, 0);
         const menu = document.getElementById("navbarMenu");
         if (menu) menu.classList.remove("active");
+        const navToggle = document.getElementById("navbarToggle");
+        if (navToggle) navToggle.setAttribute("aria-expanded", "false");
 
         if (sectionId === "asesmen") {
           const tabsEl = document.getElementById("asesmen-tabs");
@@ -5471,12 +5869,22 @@ luas ← sisi * sisi
             e.stopPropagation();
             fcbRemoveNode(node.id);
           };
-          el.addEventListener("mousedown", (e) => {
+
+          // ---------- Drag Handler (mouse + touch) ----------
+          function beginDrag(e) {
             if (fcbConnectMode) return;
             if (e.target === textEl || e.target.isContentEditable) return;
             if (e.target === delBtn) return;
-            fcbStartDrag(e, node, el);
-          });
+            if (e.type === "touchstart") {
+              e.preventDefault();
+              fcbStartDrag(e, node, el, true);
+            } else {
+              fcbStartDrag(e, node, el, false);
+            }
+          }
+          el.addEventListener("mousedown", beginDrag);
+          el.addEventListener("touchstart", beginDrag, { passive: false });
+
           el.addEventListener("click", (e) => {
             if (!fcbConnectMode) return;
             if (e.target.isContentEditable) return;
@@ -5490,18 +5898,30 @@ luas ← sisi * sisi
         fcbUpdateEmptyState();
       }
 
-      function fcbStartDrag(e, node, el) {
-        e.preventDefault();
+      function fcbStartDrag(e, node, el, isTouch) {
         const canvas = document.getElementById("fcbCanvas");
         const rect = canvas.getBoundingClientRect();
-        const startMouseX = e.clientX;
-        const startMouseY = e.clientY;
+        const touch = isTouch && e.touches && e.touches[0] ? e.touches[0] : e;
+        const startMouseX = touch.clientX;
+        const startMouseY = touch.clientY;
         const startNodeX = node.x;
         const startNodeY = node.y;
         el.classList.add("dragging");
+
+        function getPoint(ev) {
+          if (isTouch) {
+            if (ev.touches && ev.touches[0]) return ev.touches[0];
+            if (ev.changedTouches && ev.changedTouches[0])
+              return ev.changedTouches[0];
+          }
+          return ev;
+        }
+
         function onMove(ev) {
-          const dx = ev.clientX - startMouseX;
-          const dy = ev.clientY - startMouseY;
+          if (isTouch) ev.preventDefault();
+          const pt = getPoint(ev);
+          const dx = pt.clientX - startMouseX;
+          const dy = pt.clientY - startMouseY;
           let newX = Math.round((startNodeX + dx) / 10) * 10;
           let newY = Math.round((startNodeY + dy) / 10) * 10;
           newX = Math.max(0, Math.min(rect.width - node.w, newX));
@@ -5514,11 +5934,23 @@ luas ← sisi * sisi
         }
         function onUp() {
           el.classList.remove("dragging");
-          document.removeEventListener("mousemove", onMove);
-          document.removeEventListener("mouseup", onUp);
+          if (isTouch) {
+            document.removeEventListener("touchmove", onMove);
+            document.removeEventListener("touchend", onUp);
+            document.removeEventListener("touchcancel", onUp);
+          } else {
+            document.removeEventListener("mousemove", onMove);
+            document.removeEventListener("mouseup", onUp);
+          }
         }
-        document.addEventListener("mousemove", onMove);
-        document.addEventListener("mouseup", onUp);
+        if (isTouch) {
+          document.addEventListener("touchmove", onMove, { passive: false });
+          document.addEventListener("touchend", onUp);
+          document.addEventListener("touchcancel", onUp);
+        } else {
+          document.addEventListener("mousemove", onMove);
+          document.addEventListener("mouseup", onUp);
+        }
       }
 
       // ---- Routing helpers (rounded orthogonal) ----
@@ -5785,8 +6217,19 @@ luas ← sisi * sisi
       function fcbShowBranchChooser(x, y, callback) {
         fcbBranchCallback = callback || null;
         const popup = document.getElementById("fcbBranchChooser");
-        popup.style.left = Math.min(window.innerWidth - 180, x) + "px";
-        popup.style.top = Math.min(window.innerHeight - 200, y) + "px";
+        // Mobile-friendly positioning: keep within viewport
+        const popupW = 170;
+        const popupH = 190;
+        const left = Math.max(
+          8,
+          Math.min(window.innerWidth - popupW - 8, x - popupW / 2),
+        );
+        const top = Math.max(
+          8,
+          Math.min(window.innerHeight - popupH - 8, y - popupH / 2),
+        );
+        popup.style.left = left + "px";
+        popup.style.top = top + "px";
         popup.classList.add("show");
       }
 
@@ -6418,7 +6861,8 @@ luas ← sisi * sisi
               render();
               save();
             };
-            el.addEventListener("mousedown", (e) => {
+
+            function beginDrag(e) {
               if (state.connectMode) return;
               if (
                 e.target === tEl ||
@@ -6426,8 +6870,16 @@ luas ← sisi * sisi
                 e.target.classList.contains("fcb-node-del")
               )
                 return;
-              startDrag(e, node, el);
-            });
+              if (e.type === "touchstart") {
+                e.preventDefault();
+                startDrag(e, node, el, true);
+              } else {
+                startDrag(e, node, el, false);
+              }
+            }
+            el.addEventListener("mousedown", beginDrag);
+            el.addEventListener("touchstart", beginDrag, { passive: false });
+
             el.addEventListener("click", (e) => {
               if (!state.connectMode) return;
               if (e.target.isContentEditable) return;
@@ -6565,16 +7017,27 @@ luas ← sisi * sisi
           emptyEl.style.display = state.nodes.length === 0 ? "flex" : "none";
         }
 
-        function startDrag(e, node, el) {
-          e.preventDefault();
-          const smx = e.clientX,
-            smy = e.clientY;
+        function startDrag(e, node, el, isTouch) {
+          const touch = isTouch && e.touches && e.touches[0] ? e.touches[0] : e;
+          const smx = touch.clientX,
+            smy = touch.clientY;
           const snx = node.x,
             sny = node.y;
           el.classList.add("dragging");
+
+          function getPoint(ev) {
+            if (isTouch) {
+              if (ev.touches && ev.touches[0]) return ev.touches[0];
+              if (ev.changedTouches && ev.changedTouches[0])
+                return ev.changedTouches[0];
+            }
+            return ev;
+          }
           function onMove(ev) {
-            const dx = ev.clientX - smx,
-              dy = ev.clientY - smy;
+            if (isTouch) ev.preventDefault();
+            const pt = getPoint(ev);
+            const dx = pt.clientX - smx,
+              dy = pt.clientY - smy;
             let nx = Math.round((snx + dx) / 10) * 10;
             let ny = Math.round((sny + dy) / 10) * 10;
             nx = Math.max(0, nx);
@@ -6587,12 +7050,24 @@ luas ← sisi * sisi
           }
           function onUp() {
             el.classList.remove("dragging");
-            document.removeEventListener("mousemove", onMove);
-            document.removeEventListener("mouseup", onUp);
+            if (isTouch) {
+              document.removeEventListener("touchmove", onMove);
+              document.removeEventListener("touchend", onUp);
+              document.removeEventListener("touchcancel", onUp);
+            } else {
+              document.removeEventListener("mousemove", onMove);
+              document.removeEventListener("mouseup", onUp);
+            }
             save();
           }
-          document.addEventListener("mousemove", onMove);
-          document.addEventListener("mouseup", onUp);
+          if (isTouch) {
+            document.addEventListener("touchmove", onMove, { passive: false });
+            document.addEventListener("touchend", onUp);
+            document.addEventListener("touchcancel", onUp);
+          } else {
+            document.addEventListener("mousemove", onMove);
+            document.addEventListener("mouseup", onUp);
+          }
         }
 
         function handleConnect(node, event) {
@@ -7172,12 +7647,9 @@ luas ← sisi * sisi
         }
 
         try {
-          // Pastikan tab LKPD yang benar sedang aktif agar data yang di-generate sesuai
           switchLkpd(`p${lkpdPertemuan}`);
-          // Tunggu sebentar agar DOM siap & chart ter-render
           await new Promise((r) => setTimeout(r, 150));
 
-          // Generate PDF sebagai base64 (tanpa otomatis download)
           const pdfDataUrl = exportPDFLKPD(true);
           if (!pdfDataUrl || pdfDataUrl.indexOf("base64,") === -1) {
             throw new Error("Gagal generate PDF dari halaman LKPD.");
@@ -7201,7 +7673,7 @@ luas ← sisi * sisi
             nis: nis,
             kelas: kelas,
             timestamp: timestamp,
-            pdfBase64: pdfDataUrl, // ← hanya PDF yang dikirim
+            pdfBase64: pdfDataUrl,
           };
 
           const url =
@@ -7336,7 +7808,6 @@ luas ← sisi * sisi
           });
           yPos = doc.lastAutoTable.finalY + 6;
 
-          // Gambar flowchart jika ada
           const mini1 = document.getElementById("mini-fcb-1");
           if (mini1 && mini1._miniFcb && !mini1._miniFcb.isEmpty()) {
             try {
@@ -7429,7 +7900,6 @@ luas ← sisi * sisi
           );
         }
 
-        // Jika diminta base64 (untuk dikirim ke Drive), kembalikan data URL
         if (returnBase64) {
           return doc.output("datauristring");
         }
