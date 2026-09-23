@@ -2525,7 +2525,7 @@
               Identitas
             </h3>
             <div
-              class="grid grid-cols-1 md:grid-cols-2 gap-5 bg-slate-50 p-6 rounded-2xl border border-slate-100"
+              class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-slate-50 p-6 rounded-2xl border border-slate-100"
             >
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2"
@@ -2557,7 +2557,7 @@
                   type="text"
                   id="lkpd1-kelas"
                   class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none transition font-medium bg-white"
-                  placeholder="Ketik kelasmu..."
+                  placeholder="Contoh: X-5"
                 />
               </div>
             </div>
@@ -2821,11 +2821,12 @@
               </div>
             </div>
           </div>
+          <!-- Tombol LKPD: Konsisten dengan SB2 & SB4 -->
           <div
             class="border-t border-slate-100 pt-8 flex flex-wrap gap-4 items-center justify-between"
           >
             <div
-              id="lkpd1-save-status"
+              id="lkpd-save-status"
               class="text-sm font-bold text-green-600 flex items-center hidden bg-green-50 px-4 py-2 rounded-full"
             >
               <i class="fa-solid fa-check mr-2"></i> Otomatis Tersimpan
@@ -2838,14 +2839,14 @@
                 Reset
               </button>
               <button
-                onclick="uploadLkpdToDrive()"
-                id="btn-lkpd-drive"
+                onclick="submitLKPDToDrive(1)"
+                id="btn-save-drive-1"
                 class="px-6 py-3 rounded-full font-bold text-white bg-primary hover:bg-primary-dark transition shadow-lg shadow-primary/30 flex items-center gap-2"
               >
                 <i class="fa-solid fa-cloud-arrow-up"></i> Simpan ke Drive
               </button>
               <button
-                onclick="exportPDF1(false)"
+                onclick="exportPDFLKPD(false)"
                 class="px-8 py-3 rounded-full font-bold text-dark bg-secondary hover:bg-secondary-dark transition shadow-lg shadow-secondary/40 flex items-center gap-2"
               >
                 <i class="fa-solid fa-file-pdf"></i> Unduh PDF
@@ -2877,7 +2878,6 @@
             </p>
           </div>
 
-          <!-- Tabs diisi dinamis oleh nav() -->
           <div
             id="asesmen-tabs"
             class="flex flex-wrap justify-center gap-4 mb-10"
@@ -3219,7 +3219,7 @@
         }
       })();
 
-      // ===== NAVIGASI dengan KONTEKS (samakan persis dengan sub_materi_4) =====
+      // ===== NAVIGASI dengan KONTEKS (Konsisten SB2 & SB4) =====
       function nav(sectionId, context) {
         document
           .querySelectorAll(".page-section")
@@ -3228,6 +3228,8 @@
         window.scrollTo(0, 0);
         const menu = document.getElementById("navbarMenu");
         if (menu) menu.classList.remove("active");
+        const navToggle = document.getElementById("navbarToggle");
+        if (navToggle) navToggle.setAttribute("aria-expanded", "false");
 
         if (sectionId === "asesmen") {
           const tabsEl = document.getElementById("asesmen-tabs");
@@ -3608,7 +3610,7 @@
         renderShuffledLayers();
       }
 
-      // ===== LKPD =====
+      // ===== LKPD: SAVE / LOAD / RESET =====
       function saveLKPD1() {
         const inputs = document.querySelectorAll(".lkpd-input");
         const data = {};
@@ -3616,7 +3618,7 @@
           data[input.id] = input.value;
         });
         localStorage.setItem("algoLearn_LKPD1", JSON.stringify(data));
-        const s = document.getElementById("lkpd1-save-status");
+        const s = document.getElementById("lkpd-save-status");
         if (s) {
           s.classList.remove("hidden");
           setTimeout(() => s.classList.add("hidden"), 2000);
@@ -3644,7 +3646,7 @@
       // ====== APPS SCRIPT URL ======
       const APPS_SCRIPT_URL =
         localStorage.getItem("apps_script_url") ||
-        "https://script.google.com/macros/s/AKfycbwlVEXCtHBRgf1ZBfpYgb2qCGAm_Pyj68O4PvL3ffeW6m8h9mTS9zRTCNnl5CZ8pbSpdw/exec";
+        "https://script.google.com/macros/s/AKfycbxkKl5A9wo9owmvO1Xv0nRK22qUEK9FCVpdl7YK9sFYgWvbPSauuK9rolCYbVCQUKa7bw/exec";
 
       // ====== KIRIM HASIL LATIHAN ======
       async function kirimHasilLatihan(
@@ -3667,7 +3669,7 @@
           await fetch(APPS_SCRIPT_URL, {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
             body: JSON.stringify({
               type: "save_latihan",
               nis,
@@ -3685,8 +3687,8 @@
         }
       }
 
-      // ====== LKPD: EXPORT PDF + UPLOAD DRIVE ======
-      function exportPDF1(returnBase64) {
+      // ====== LKPD: EXPORT PDF (Konsisten SB2 & SB4) ======
+      function exportPDFLKPD(returnBase64) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF("p", "mm", "a4");
         const val = (id) => {
@@ -3809,7 +3811,9 @@
         doc.save(`LKPD_MATERI1_${Date.now()}.pdf`);
       }
 
-      async function uploadLkpdToDrive() {
+      // ====== LKPD: SUBMIT KE DRIVE (Konsisten SB2 & SB4) ======
+      async function submitLKPDToDrive(pertemuan) {
+        const p = pertemuan || 1;
         const nama =
           document.getElementById("lkpd1-nama")?.value.trim() ||
           localStorage.getItem("currentUser") ||
@@ -3822,27 +3826,40 @@
           document.getElementById("lkpd1-kelas")?.value.trim() ||
           localStorage.getItem("userClass") ||
           "X";
+
         if (!nama) {
           alert("Mohon isi Nama terlebih dahulu di bagian Identitas LKPD.");
           return;
         }
-        const btn = document.getElementById("btn-lkpd-drive");
+
+        const btn = document.getElementById(`btn-save-drive-${p}`);
         const oldHTML = btn ? btn.innerHTML : "";
         if (btn) {
           btn.disabled = true;
           btn.innerHTML =
-            '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
+            '<i class="fa-solid fa-spinner fa-spin"></i> Membuat PDF...';
         }
+
         try {
-          const pdfDataUrl = exportPDF1(true);
-          if (!pdfDataUrl || pdfDataUrl.indexOf("base64,") === -1)
-            throw new Error("Gagal generate PDF");
+          await new Promise((r) => setTimeout(r, 150));
+
+          const pdfDataUrl = exportPDFLKPD(true);
+          if (!pdfDataUrl || pdfDataUrl.indexOf("base64,") === -1) {
+            throw new Error("Gagal generate PDF dari halaman LKPD.");
+          }
+
+          if (btn) {
+            btn.innerHTML =
+              '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim ke Drive...';
+          }
+
           const safeName = nama.replace(/\s+/g, "_");
-          const filename = `LKPD_MATERI1_${nis}_${safeName}_${Date.now()}.pdf`;
+          const filename = `LKPD_MATERI1_P${p}_${nis}_${safeName}_${Date.now()}.pdf`;
           const payload = {
             type: "lkpd",
             subbab: "subbab_1",
             subbab_num: 1,
+            pertemuan: p,
             folder: "LKPD_MATERI1",
             fileName: filename,
             nama,
@@ -3851,12 +3868,27 @@
             timestamp: new Date().toISOString(),
             pdfBase64: pdfDataUrl,
           };
-          await fetch(APPS_SCRIPT_URL, {
+
+          const url =
+            localStorage.getItem("apps_script_url") || APPS_SCRIPT_URL;
+          if (!url || url.includes("GANTI_DENGAN_URL")) {
+            alert(
+              "URL Google Apps Script belum dikonfigurasi. Silakan hubungi guru.",
+            );
+            if (btn) {
+              btn.disabled = false;
+              btn.innerHTML = oldHTML;
+            }
+            return;
+          }
+
+          await fetch(url, {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
             body: JSON.stringify(payload),
           });
+
           if (btn) {
             btn.innerHTML =
               '<i class="fa-solid fa-check"></i> Terkirim ke Drive';
@@ -3867,7 +3899,7 @@
           }
         } catch (e) {
           console.error(e);
-          alert("Gagal mengirim LKPD: " + e.message);
+          alert("Gagal mengirim LKPD ke Drive: " + e.message);
           if (btn) {
             btn.disabled = false;
             btn.innerHTML = oldHTML;
@@ -3880,7 +3912,6 @@
       // ==================================================
       const SUBBAB_NUM = 1;
 
-      // ----- PRE-TEST: 10 PG (diagnostik, tidak auto-score) -----
       const soalAwal = [
         {
           no: 1,
@@ -3984,7 +4015,6 @@
         },
       ];
 
-      // ----- POST-TEST: 10 PG (auto-score) -----
       const soalAkhir = [
         {
           no: 1,
@@ -4083,7 +4113,6 @@
         },
       ];
 
-      // ----- TES TERTULIS: 10 PG + 2 Esai -----
       const soalTertulis = [
         {
           no: 1,
@@ -4265,7 +4294,6 @@
         });
       }
 
-      // switchAsesmen persis seperti sub_materi_4
       function switchAsesmen(type) {
         const tabs = {
           akhir: "tab-asesmen-akhir",
@@ -4382,7 +4410,6 @@
           return;
         }
 
-        // Auto-score lokal untuk feedback
         let skorLokal = 0;
         if (type === "awal" || type === "akhir") {
           for (let i = 0; i < 10; i++) {
@@ -4412,7 +4439,7 @@
             await fetch(APPS_SCRIPT_URL, {
               method: "POST",
               mode: "no-cors",
-              headers: { "Content-Type": "application/json" },
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
               body: JSON.stringify(payload),
             });
           }

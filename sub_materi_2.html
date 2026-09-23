@@ -1050,7 +1050,7 @@
           </div>
         </div>
 
-        <!-- ====== ALUR BELAJAR — DIPERBAIKI sesuai SB1 & SB4 ====== -->
+        <!-- ====== ALUR BELAJAR ====== -->
         <div class="mb-12">
           <div class="text-center mb-10">
             <h2
@@ -1139,7 +1139,28 @@
                 <span>Interaktif</span><span>Coba &rarr;</span>
               </div>
             </button>
-            <!-- Tahap 5: LKPD -->
+            <!-- Tahap 5: Latihan Bebas -->
+            <button
+              onclick="nav('latihan')"
+              class="colored-card"
+              style="background: #06b6d4"
+            >
+              <i class="fas fa-gamepad deco-icon"></i>
+              <div>
+                <span class="tag"
+                  ><i class="fas fa-pencil mr-2"></i>Tahap 5</span
+                >
+              </div>
+              <h3>Latihan Bebas</h3>
+              <p>
+                Uji pemahamanmu tentang Stack &amp; Queue lewat dua mini-game
+                interaktif.
+              </p>
+              <div class="action">
+                <span>Game Based</span><span>Main &rarr;</span>
+              </div>
+            </button>
+            <!-- Tahap 6: LKPD -->
             <button
               onclick="nav('lkpd')"
               class="colored-card"
@@ -1153,7 +1174,7 @@
                 <span
                   class="tag"
                   style="background: rgba(0, 0, 0, 0.1); color: #1e1b4b"
-                  ><i class="fas fa-pencil mr-2"></i>Tahap 5</span
+                  ><i class="fas fa-pencil mr-2"></i>Tahap 6</span
                 >
               </div>
               <h3>LKPD Digital</h3>
@@ -1165,7 +1186,7 @@
                 <span>Lembar Kerja</span><span>Buka &rarr;</span>
               </div>
             </button>
-            <!-- Tahap 6: Post-Test & Tes Tertulis -->
+            <!-- Tahap 7: Post-Test & Tes Tertulis -->
             <button
               onclick="nav('asesmen', 'akhir')"
               class="colored-card"
@@ -1174,7 +1195,7 @@
               <i class="fas fa-award deco-icon"></i>
               <div>
                 <span class="tag"
-                  ><i class="fas fa-trophy mr-2"></i>Tahap 6</span
+                  ><i class="fas fa-trophy mr-2"></i>Tahap 7</span
                 >
               </div>
               <h3>Post-Test &amp; Tes Tertulis</h3>
@@ -1190,7 +1211,7 @@
         </div>
       </section>
 
-      <!-- ================= MATERI (TIDAK DIUBAH) ================= -->
+      <!-- ================= MATERI ================= -->
       <section id="materi" class="page-section">
         <div class="mb-8 flex items-center">
           <button
@@ -2478,7 +2499,7 @@
               Identitas
             </h3>
             <div
-              class="grid grid-cols-1 md:grid-cols-2 gap-5 bg-slate-50 p-6 rounded-2xl border border-slate-100"
+              class="grid grid-cols-1 md:grid-cols-3 gap-5 bg-slate-50 p-6 rounded-2xl border border-slate-100"
             >
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2"
@@ -2493,13 +2514,24 @@
               </div>
               <div>
                 <label class="block text-sm font-bold text-slate-700 mb-2"
-                  >Kelas / Absen</label
+                  >NIS</label
+                >
+                <input
+                  type="text"
+                  id="lkpd2-nis"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none transition font-medium bg-white"
+                  placeholder="Nomor absen..."
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-700 mb-2"
+                  >Kelas</label
                 >
                 <input
                   type="text"
                   id="lkpd2-kelas"
                   class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none transition font-medium bg-white"
-                  placeholder="Ketik kelasmu..."
+                  placeholder="Contoh: X-5"
                 />
               </div>
             </div>
@@ -2853,12 +2885,12 @@
             </div>
           </div>
 
-          <!-- TOMBOL LKPD: tambah Save ke Drive -->
+          <!-- TOMBOL LKPD: Konsisten dengan SB4 -->
           <div
             class="border-t border-slate-100 pt-8 flex flex-wrap gap-4 items-center justify-between"
           >
             <div
-              id="lkpd2-save-status"
+              id="lkpd-save-status"
               class="text-sm font-bold text-green-600 flex items-center hidden bg-green-50 px-4 py-2 rounded-full"
             >
               <i class="fa-solid fa-check mr-2"></i> Otomatis Tersimpan
@@ -2871,14 +2903,14 @@
                 Reset
               </button>
               <button
-                onclick="uploadLkpd2ToDrive()"
-                id="btn-lkpd2-drive"
+                onclick="submitLKPDToDrive(1)"
+                id="btn-save-drive-1"
                 class="px-6 py-3 rounded-full font-bold text-white bg-primary hover:bg-primary-dark transition shadow-lg shadow-primary/30 flex items-center gap-2"
               >
                 <i class="fa-solid fa-cloud-arrow-up"></i> Simpan ke Drive
               </button>
               <button
-                onclick="exportPDF2()"
+                onclick="exportPDFLKPD(false)"
                 class="px-8 py-3 rounded-full font-bold text-dark bg-secondary hover:bg-secondary-dark transition shadow-lg shadow-secondary/40 flex items-center gap-2"
               >
                 <i class="fa-solid fa-file-pdf"></i> Unduh PDF
@@ -2888,7 +2920,7 @@
         </div>
       </section>
 
-      <!-- ================= ASESMEN — STRUKTUR BARU (mirip SB1 & SB4) ================= -->
+      <!-- ================= ASESMEN ================= -->
       <section id="asesmen" class="page-section">
         <div class="flex items-center mb-6">
           <button
@@ -3253,7 +3285,7 @@
         }
       })();
 
-      // ===== NAVIGASI dengan KONTEKS (SAMA persis dengan SB1 & SB4) =====
+      // ===== NAVIGASI dengan KONTEKS (Konsisten SB1 & SB4) =====
       function nav(sectionId, context) {
         document
           .querySelectorAll(".page-section")
@@ -3262,6 +3294,8 @@
         window.scrollTo(0, 0);
         const menu = document.getElementById("navbarMenu");
         if (menu) menu.classList.remove("active");
+        const navToggle = document.getElementById("navbarToggle");
+        if (navToggle) navToggle.setAttribute("aria-expanded", "false");
 
         if (sectionId === "asesmen") {
           const tabsEl = document.getElementById("asesmen-tabs");
@@ -3273,13 +3307,11 @@
           const ctx = context || "awal";
 
           if (ctx === "awal") {
-            // Pre-Test: tampilkan hanya Asesmen Awal, tanpa tab
             tabsEl.innerHTML = "";
             contentAwal.classList.remove("hidden");
             contentAkhir.classList.add("hidden");
             contentTertulis.classList.add("hidden");
           } else {
-            // Post-Test + Tes Tertulis: tampilkan 2 tab
             tabsEl.innerHTML = `
               <button onclick="switchAsesmen('akhir')" id="tab-asesmen-akhir" class="px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-active shadow-md"><i class="fa-solid fa-check-double mr-2"></i> Post-Test</button>
               <button onclick="switchAsesmen('tertulis')" id="tab-asesmen-tertulis" class="px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-inactive"><i class="fa-solid fa-file-pen mr-2"></i> Tes Tertulis</button>
@@ -3599,7 +3631,7 @@
           data[input.id] = input.value;
         });
         localStorage.setItem("algoLearn_LKPD2", JSON.stringify(data));
-        const s = document.getElementById("lkpd2-save-status");
+        const s = document.getElementById("lkpd-save-status");
         if (s) {
           s.classList.remove("hidden");
           setTimeout(() => s.classList.add("hidden"), 2000);
@@ -3625,9 +3657,9 @@
       }
 
       // ==================================================
-      // ===== LKPD: EXPORT PDF (returnBase64 didukung) =====
+      // ===== LKPD: EXPORT PDF (Konsisten SB4) =====
       // ==================================================
-      function exportPDF2(returnBase64) {
+      function exportPDFLKPD(returnBase64) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF("p", "mm", "a4");
         const val = (id) => {
@@ -3689,7 +3721,9 @@
         doc.setTextColor(0, 0, 0);
         doc.text(`Nama Murid : ${val("lkpd2-nama")}`, 14, yPos);
         yPos += 6;
-        doc.text(`Kelas/Absen: ${val("lkpd2-kelas")}`, 14, yPos);
+        doc.text(`NIS        : ${val("lkpd2-nis")}`, 14, yPos);
+        yPos += 6;
+        doc.text(`Kelas      : ${val("lkpd2-kelas")}`, 14, yPos);
         yPos += 8;
 
         addTitle("B. Aktivitas 1 — Data Mentah vs Informasi");
@@ -3781,9 +3815,10 @@
       }
 
       // ==================================================
-      // ===== LKPD: UPLOAD KE GOOGLE DRIVE =====
+      // ===== LKPD: SUBMIT KE GOOGLE DRIVE (Konsisten SB4) =====
       // ==================================================
-      async function uploadLkpd2ToDrive() {
+      async function submitLKPDToDrive(pertemuan) {
+        const p = pertemuan || 1;
         const nama =
           document.getElementById("lkpd2-nama")?.value.trim() ||
           localStorage.getItem("currentUser") ||
@@ -3796,27 +3831,40 @@
           document.getElementById("lkpd2-kelas")?.value.trim() ||
           localStorage.getItem("userClass") ||
           "X";
+
         if (!nama) {
           alert("Mohon isi Nama terlebih dahulu di bagian Identitas LKPD.");
           return;
         }
-        const btn = document.getElementById("btn-lkpd2-drive");
+
+        const btn = document.getElementById(`btn-save-drive-${p}`);
         const oldHTML = btn ? btn.innerHTML : "";
         if (btn) {
           btn.disabled = true;
           btn.innerHTML =
-            '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
+            '<i class="fa-solid fa-spinner fa-spin"></i> Membuat PDF...';
         }
+
         try {
-          const pdfDataUrl = exportPDF2(true);
-          if (!pdfDataUrl || pdfDataUrl.indexOf("base64,") === -1)
-            throw new Error("Gagal generate PDF");
+          await new Promise((r) => setTimeout(r, 150));
+
+          const pdfDataUrl = exportPDFLKPD(true);
+          if (!pdfDataUrl || pdfDataUrl.indexOf("base64,") === -1) {
+            throw new Error("Gagal generate PDF dari halaman LKPD.");
+          }
+
+          if (btn) {
+            btn.innerHTML =
+              '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim ke Drive...';
+          }
+
           const safeName = nama.replace(/\s+/g, "_");
-          const filename = `LKPD_MATERI2_${nis}_${safeName}_${Date.now()}.pdf`;
+          const filename = `LKPD_MATERI2_P${p}_${nis}_${safeName}_${Date.now()}.pdf`;
           const payload = {
             type: "lkpd",
             subbab: "subbab_2",
             subbab_num: 2,
+            pertemuan: p,
             folder: "LKPD_MATERI2",
             fileName: filename,
             nama,
@@ -3825,12 +3873,27 @@
             timestamp: new Date().toISOString(),
             pdfBase64: pdfDataUrl,
           };
-          await fetch(APPS_SCRIPT_URL, {
+
+          const url =
+            localStorage.getItem("apps_script_url") || APPS_SCRIPT_URL;
+          if (!url || url.includes("GANTI_DENGAN_URL")) {
+            alert(
+              "URL Google Apps Script belum dikonfigurasi. Silakan hubungi guru.",
+            );
+            if (btn) {
+              btn.disabled = false;
+              btn.innerHTML = oldHTML;
+            }
+            return;
+          }
+
+          await fetch(url, {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
             body: JSON.stringify(payload),
           });
+
           if (btn) {
             btn.innerHTML =
               '<i class="fa-solid fa-check"></i> Terkirim ke Drive';
@@ -3841,7 +3904,7 @@
           }
         } catch (e) {
           console.error(e);
-          alert("Gagal mengirim LKPD: " + e.message);
+          alert("Gagal mengirim LKPD ke Drive: " + e.message);
           if (btn) {
             btn.disabled = false;
             btn.innerHTML = oldHTML;
@@ -3854,11 +3917,11 @@
       // ==================================================
       const APPS_SCRIPT_URL =
         localStorage.getItem("apps_script_url") ||
-        "https://script.google.com/macros/s/AKfycbwlVEXCtHBRgf1ZBfpYgb2qCGAm_Pyj68O4PvL3ffeW6m8h9mTS9zRTCNnl5CZ8pbSpdw/exec";
+        "https://script.google.com/macros/s/AKfycbxkKl5A9wo9owmvO1Xv0nRK22qUEK9FCVpdl7YK9sFYgWvbPSauuK9rolCYbVCQUKa7bw/exec";
 
       const SUBBAB_NUM = 2;
 
-      // ----- PRE-TEST: 10 PG (diagnostik, tidak auto-score) -----
+      // ----- PRE-TEST: 10 PG (diagnostik) -----
       const soalAwal = [
         {
           no: 1,
@@ -4207,7 +4270,7 @@
         });
       }
 
-      // ----- SWITCH ASESMEN (sama seperti SB1 & SB4) -----
+      // ----- SWITCH ASESMEN -----
       function switchAsesmen(type) {
         const tabs = {
           akhir: "tab-asesmen-akhir",
@@ -4250,7 +4313,7 @@
         if (statusEl) statusEl.classList.add("hidden");
       }
 
-      // ----- KIRIM ASESMEN (handle 3 tipe) -----
+      // ----- KIRIM ASESMEN -----
       async function kirimAsesmen(type) {
         const prefix = type;
         const statusEl = document.getElementById(`status-${prefix}`);
@@ -4325,7 +4388,7 @@
           return;
         }
 
-        // Auto-score lokal
+        // Auto-score lokal untuk feedback
         let skorLokal = 0;
         if (type === "awal" || type === "akhir") {
           for (let i = 0; i < 10; i++) {
@@ -4355,7 +4418,7 @@
             await fetch(APPS_SCRIPT_URL, {
               method: "POST",
               mode: "no-cors",
-              headers: { "Content-Type": "application/json" },
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
               body: JSON.stringify(payload),
             });
           }
@@ -4378,7 +4441,7 @@
         }
       }
 
-      // ----- KIRIM HASIL LATIHAN (bebas) -----
+      // ----- KIRIM HASIL LATIHAN -----
       async function kirimHasilLatihan(
         subbabNum,
         jumlahSoal,
@@ -4399,7 +4462,7 @@
           await fetch(APPS_SCRIPT_URL, {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
             body: JSON.stringify({
               type: "save_latihan",
               nis,
@@ -4435,10 +4498,12 @@
           );
         }
         if (nis) {
-          ["nis-awal", "nis-akhir", "nis-tertulis"].forEach((id) => {
-            const el = document.getElementById(id);
-            if (el && !el.value) el.value = nis;
-          });
+          ["lkpd2-nis", "nis-awal", "nis-akhir", "nis-tertulis"].forEach(
+            (id) => {
+              const el = document.getElementById(id);
+              if (el && !el.value) el.value = nis;
+            },
+          );
         }
         if (kelas) {
           [

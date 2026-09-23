@@ -64,7 +64,6 @@
         --shadow-md: 0 12px 30px rgba(99, 102, 241, 0.08);
         --shadow-lg: 0 20px 40px rgba(79, 70, 229, 0.14);
       }
-
       * {
         margin: 0;
         padding: 0;
@@ -92,7 +91,6 @@
         max-width: 100%;
         display: block;
       }
-
       .kk-container {
         max-width: 1240px;
         margin-left: auto;
@@ -102,7 +100,6 @@
         width: 100%;
       }
 
-      /* ===== NAVBAR ===== */
       .navbar {
         background: #ffffff;
         padding: 16px 0;
@@ -206,7 +203,6 @@
         box-shadow: 0 4px 12px rgba(88, 66, 227, 0.12);
       }
 
-      /* ===== PAGE SECTION ===== */
       .page-section {
         display: none;
         animation: fadeIn 0.4s ease-in-out;
@@ -239,7 +235,6 @@
         }
       }
 
-      /* ===== HERO CARD ===== */
       .hero-card {
         background: var(--primary-gradient);
         border-radius: 36px;
@@ -317,7 +312,6 @@
         transform: translateY(-2px);
       }
 
-      /* ===== INFO CARDS ===== */
       .info-card {
         background: #ffffff;
         border: 1px solid var(--border-color);
@@ -345,7 +339,6 @@
         color: var(--text-dark);
       }
 
-      /* ===== COLORED PATH CARDS (identik dengan sub_materi_2) ===== */
       .colored-card {
         border-radius: 28px;
         padding: 26px;
@@ -410,7 +403,6 @@
         pointer-events: none;
       }
 
-      /* ===== SIMULASI VISUAL ===== */
       .sim-container {
         position: relative;
         min-height: 250px;
@@ -787,7 +779,6 @@
       .block-default .bar-pillar {
         background: linear-gradient(180deg, #60a5fa 0%, #2563eb 100%);
       }
-
       .sim-item.block-comparing {
         transform: scale(1.08);
         z-index: 25;
@@ -812,7 +803,6 @@
         background: linear-gradient(180deg, #fde047 0%, #ca8a04 100%);
         box-shadow: 0 8px 20px rgba(234, 179, 8, 0.4);
       }
-
       .sim-item.block-key-lifted {
         transform: translateY(-44px) scale(1.1);
         z-index: 35;
@@ -837,7 +827,6 @@
         background: linear-gradient(180deg, #a5b4fc 0%, #4f46e5 100%);
         box-shadow: 0 8px 24px rgba(99, 102, 241, 0.45);
       }
-
       .sim-item.block-target {
         transform: scale(1.05);
         z-index: 20;
@@ -855,7 +844,6 @@
       .block-target .bar-pillar {
         background: linear-gradient(180deg, #60a5fa 0%, #1d4ed8 100%);
       }
-
       .sim-item.block-found,
       .sim-item.block-sorted {
         z-index: 10;
@@ -884,7 +872,6 @@
         background: linear-gradient(180deg, #34d399 0%, #059669 100%);
         box-shadow: 0 8px 18px rgba(16, 185, 129, 0.35);
       }
-
       .sim-item.block-wrong {
         opacity: 0.6;
       }
@@ -901,7 +888,6 @@
       .block-wrong .bar-pillar {
         background: linear-gradient(180deg, #f87171 0%, #dc2626 100%);
       }
-
       .sim-item.block-inactive {
         opacity: 0.25;
         filter: grayscale(0.9);
@@ -925,7 +911,6 @@
         transition: all 0.35s ease-in-out;
       }
 
-      /* ===== MATERI TABS ===== */
       .materi-tab {
         transition: all 0.2s;
         font-family: inherit;
@@ -935,7 +920,6 @@
         color: white;
       }
 
-      /* ===== ASESMEN ===== */
       .asesmen-card {
         background: white;
         border-radius: 20px;
@@ -994,42 +978,7 @@
         color: #ca8a04;
         font-weight: bold;
       }
-      .btn-primary-asesmen {
-        background: var(--primary);
-        color: white;
-        font-weight: 700;
-        padding: 0.6rem 1.5rem;
-        border-radius: 9999px;
-        transition: all 0.2s;
-        border: none;
-        cursor: pointer;
-        font-size: 0.95rem;
-      }
-      .btn-primary-asesmen:hover {
-        background: var(--primary-dark);
-        box-shadow: 0 4px 12px rgba(88, 66, 227, 0.3);
-      }
-      .btn-primary-asesmen:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-      .btn-outline-asesmen {
-        background: transparent;
-        color: var(--primary);
-        border: 2px solid var(--primary);
-        font-weight: 600;
-        padding: 0.5rem 1.25rem;
-        border-radius: 9999px;
-        transition: all 0.2s;
-        cursor: pointer;
-        font-size: 0.9rem;
-      }
-      .btn-outline-asesmen:hover {
-        background: var(--primary);
-        color: white;
-      }
 
-      /* ===== FOOTER ===== */
       .footer {
         background: #ffffff;
         border-top: 1px solid var(--border-color);
@@ -1076,7 +1025,6 @@
         font-size: 0.88rem;
       }
 
-      /* ===== RESPONSIVE ===== */
       @media (max-width: 992px) {
         .hero-card {
           padding: 40px 30px;
@@ -1175,9 +1123,8 @@
     </header>
 
     <main class="flex-grow kk-container py-8">
-      <!-- ========== BERANDA / LANDING PAGE SUB-BAB 3 ========== -->
+      <!-- ========== BERANDA ========== -->
       <section id="beranda" class="page-section active">
-        <!-- HERO -->
         <div class="hero-card mb-12">
           <div class="relative z-10">
             <span class="hero-badge mb-6 inline-flex">
@@ -1202,8 +1149,8 @@
                   <strong
                     >Linear Search, Binary Search, Bubble Sort, Insertion
                     Sort</strong
-                  >, dan <strong>Selection Sort</strong> melalui simulasi
-                  interaktif.
+                  >, dan <strong>Selection Sort</strong>
+                  melalui simulasi interaktif.
                 </p>
                 <div class="flex flex-wrap gap-4">
                   <button onclick="nav('materi')" class="btn-yellow">
@@ -1241,7 +1188,6 @@
           </div>
         </div>
 
-        <!-- INFO PEMBELAJARAN -->
         <div class="mb-12">
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div class="lg:col-span-1 info-card">
@@ -1333,7 +1279,6 @@
           </div>
         </div>
 
-        <!-- ===== ALUR BELAJAR (COLORED CARDS - konsisten dgn sub_materi_2) ===== -->
         <div class="mb-12">
           <div class="text-center mb-10">
             <h2
@@ -1347,12 +1292,8 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- 1. Asesmen Awal (Merah) -->
             <button
-              onclick="
-                nav('asesmen');
-                switchAsesmen('awal');
-              "
+              onclick="nav('asesmen', 'awal')"
               class="colored-card"
               style="background: #ef4444"
             >
@@ -1360,17 +1301,16 @@
               <div>
                 <span class="tag"><i class="fas fa-star mr-2"></i>Tahap 1</span>
               </div>
-              <h3>Asesmen Awal</h3>
+              <h3>Pre-Test</h3>
               <p>
-                Ukur pemahaman awalmu tentang algoritma, searching, dan sorting
-                sebelum mulai belajar.
+                Asesmen diagnostik: 10 soal PG untuk mengukur pemahaman awal
+                tentang algoritma, searching, dan sorting.
               </p>
               <div class="action">
                 <span>5 Menit</span><span>Mulai &rarr;</span>
               </div>
             </button>
 
-            <!-- 2. Materi Inti (Oranye) -->
             <button
               onclick="nav('materi')"
               class="colored-card"
@@ -1390,7 +1330,6 @@
               </div>
             </button>
 
-            <!-- 3. Simulasi Searching (Violet) -->
             <button
               onclick="nav('searching')"
               class="colored-card"
@@ -1410,7 +1349,6 @@
               </div>
             </button>
 
-            <!-- 4. Simulasi Sorting (Hijau) -->
             <button
               onclick="nav('sorting')"
               class="colored-card"
@@ -1430,7 +1368,6 @@
               </div>
             </button>
 
-            <!-- 5. Latihan Bebas (Cyan) -->
             <button
               onclick="nav('latihan')"
               class="colored-card"
@@ -1452,7 +1389,6 @@
               </div>
             </button>
 
-            <!-- 6. LKPD (Kuning) -->
             <button
               onclick="nav('lkpd')"
               class="colored-card"
@@ -1479,12 +1415,8 @@
               </div>
             </button>
 
-            <!-- 7. Asesmen Akhir (Primary) -->
             <button
-              onclick="
-                nav('asesmen');
-                switchAsesmen('akhir');
-              "
+              onclick="nav('asesmen', 'akhir')"
               class="colored-card"
               style="background: #5842e3"
             >
@@ -1494,10 +1426,10 @@
                   ><i class="fas fa-trophy mr-2"></i>Tahap 7</span
                 >
               </div>
-              <h3>Asesmen Akhir</h3>
+              <h3>Post-Test &amp; Tes Tertulis</h3>
               <p>
-                Uji pemahaman komprehensifmu setelah menyelesaikan seluruh
-                aktivitas belajar.
+                Ukur ketercapaian TP melalui Post-Test dan Tes Tertulis (PG +
+                Esai).
               </p>
               <div class="action">
                 <span>Evaluasi</span><span>Kerjakan &rarr;</span>
@@ -2026,9 +1958,8 @@
                   </div>
                   <p class="text-sm text-slate-600">
                     Skor pemain yang terus masuk harus diurutkan real-time.
-                    Sistem biasanya pakai
-                    <strong>Insertion Sort</strong> karena data hampir selalu
-                    terurut.
+                    Sistem biasanya pakai <strong>Insertion Sort</strong> karena
+                    data hampir selalu terurut.
                   </p>
                 </div>
                 <div
@@ -3154,8 +3085,9 @@ END PROCEDURE</code></pre>
           <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8">
             <strong
               class="text-amber-800 flex items-center gap-2 text-sm uppercase"
-              ><i class="fa-solid fa-lightbulb"></i> Petunjuk</strong
             >
+              <i class="fa-solid fa-lightbulb"></i> Petunjuk
+            </strong>
             <p class="text-sm text-amber-700 mt-2 font-medium">
               Jalankan simulasi di halaman Searching dan Sorting. Amati
               prosesnya, lalu isi tabel dan pertanyaan di bawah ini. Jawaban
@@ -3569,6 +3501,7 @@ END PROCEDURE</code></pre>
             </div>
           </div>
 
+          <!-- TOMBOL LKPD (Konsisten SB1, SB2, SB4) -->
           <div
             class="border-t border-slate-100 pt-8 flex flex-wrap gap-4 items-center justify-between"
           >
@@ -3586,7 +3519,14 @@ END PROCEDURE</code></pre>
                 Reset
               </button>
               <button
-                onclick="exportPDF()"
+                onclick="submitLKPDToDrive(1)"
+                id="btn-save-drive-1"
+                class="px-6 py-3 rounded-full font-bold text-white bg-primary hover:bg-primary-dark transition shadow-lg shadow-primary/30 flex items-center gap-2"
+              >
+                <i class="fa-solid fa-cloud-arrow-up"></i> Simpan ke Drive
+              </button>
+              <button
+                onclick="exportPDFLKPD(false)"
                 class="px-8 py-3 rounded-full font-bold text-dark bg-secondary hover:bg-secondary-dark transition shadow-lg shadow-secondary/40 flex items-center gap-2"
               >
                 <i class="fa-solid fa-file-pdf"></i> Unduh PDF
@@ -3614,40 +3554,33 @@ END PROCEDURE</code></pre>
               Asesmen Pembelajaran
             </h2>
             <p class="text-slate-500 font-medium">
-              Informatika • Fase E / Kelas X • Algoritma Standar
+              Informatika • Fase E / Kelas X • Algoritma Pencarian &amp;
+              Pengurutan
             </p>
           </div>
 
-          <div class="flex flex-wrap justify-center gap-4 mb-10">
-            <button
-              onclick="switchAsesmen('awal')"
-              id="tab-asesmen-awal"
-              class="px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-active shadow-md"
-            >
-              <i class="fa-solid fa-pencil mr-2"></i> Asesmen Awal
-            </button>
-            <button
-              onclick="switchAsesmen('akhir')"
-              id="tab-asesmen-akhir"
-              class="px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-inactive"
-            >
-              <i class="fa-solid fa-check-double mr-2"></i> Asesmen Akhir
-            </button>
-          </div>
+          <div
+            id="asesmen-tabs"
+            class="flex flex-wrap justify-center gap-4 mb-10"
+          ></div>
 
+          <!-- PRE-TEST -->
           <div id="content-asesmen-awal" class="asesmen-content">
             <div
-              class="bg-indigo-50 border border-indigo-100 rounded-2xl p-6 mb-8 text-center"
+              class="bg-red-50 border border-red-100 rounded-2xl p-6 mb-8 text-center"
             >
-              <h3 class="font-black text-primary mb-2 text-lg">
-                Tujuan Asesmen Awal
+              <h3 class="font-black text-red-700 mb-2 text-lg">
+                Asesmen Awal (Pre-Test)
               </h3>
               <p class="text-sm text-slate-600 font-medium">
-                Angket ini memetakan pemahaman awalmu tentang algoritma,
-                searching, dan sorting.
+                10 soal pilihan ganda • 5 menit • Dikerjakan sebelum
+                pembelajaran
+              </p>
+              <p class="text-xs text-slate-500 mt-1 font-medium">
+                Mengukur pemahaman awal tentang algoritma, searching, dan
+                sorting
               </p>
             </div>
-
             <div
               class="bg-white shadow-sm rounded-3xl p-6 md:p-8 mb-8 border border-slate-100 space-y-4"
             >
@@ -3696,9 +3629,7 @@ END PROCEDURE</code></pre>
                 />
               </div>
             </div>
-
             <div id="soal-awal-container" class="space-y-6"></div>
-
             <div
               class="mt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-100 pt-8"
             >
@@ -3706,7 +3637,7 @@ END PROCEDURE</code></pre>
                 id="status-awal"
                 class="text-sm hidden text-center w-full md:w-auto"
               ></div>
-              <div class="flex gap-4 w-full md:w-auto">
+              <div class="flex gap-4 w-full md:w-auto ml-auto">
                 <button
                   onclick="resetAsesmen('awal')"
                   class="flex-1 md:flex-none px-6 py-3 rounded-full font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 transition"
@@ -3724,18 +3655,19 @@ END PROCEDURE</code></pre>
             </div>
           </div>
 
+          <!-- POST-TEST -->
           <div id="content-asesmen-akhir" class="asesmen-content hidden">
             <div
-              class="bg-amber-50 border border-amber-100 rounded-2xl p-6 mb-8 text-center"
+              class="bg-blue-50 border border-blue-100 rounded-2xl p-6 mb-8 text-center"
             >
-              <h3 class="font-black text-secondary-dark mb-2 text-lg">
-                Tes Evaluasi Akhir
+              <h3 class="font-black text-blue-700 mb-2 text-lg">
+                Asesmen Akhir (Post-Test)
               </h3>
-              <p class="text-sm text-amber-800 font-medium">
-                Jawablah pertanyaan esai di bawah ini dengan jelas.
+              <p class="text-sm text-slate-600 font-medium">
+                10 soal pilihan ganda • 5 menit • Dikerjakan setelah
+                pembelajaran
               </p>
             </div>
-
             <div
               class="bg-white shadow-sm rounded-3xl p-6 md:p-8 mb-8 border border-slate-100 space-y-4"
             >
@@ -3784,9 +3716,7 @@ END PROCEDURE</code></pre>
                 />
               </div>
             </div>
-
             <div id="soal-akhir-container" class="space-y-6"></div>
-
             <div
               class="mt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-100 pt-8"
             >
@@ -3794,7 +3724,7 @@ END PROCEDURE</code></pre>
                 id="status-akhir"
                 class="text-sm hidden text-center w-full md:w-auto"
               ></div>
-              <div class="flex gap-4 w-full md:w-auto">
+              <div class="flex gap-4 w-full md:w-auto ml-auto">
                 <button
                   onclick="resetAsesmen('akhir')"
                   class="flex-1 md:flex-none px-6 py-3 rounded-full font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 transition"
@@ -3804,6 +3734,95 @@ END PROCEDURE</code></pre>
                 <button
                   onclick="kirimAsesmen('akhir')"
                   id="btn-kirim-akhir"
+                  class="flex-1 md:flex-none px-8 py-3 rounded-full font-bold text-white bg-primary hover:bg-primary-dark transition shadow-lg shadow-primary/30"
+                >
+                  Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TES TERTULIS -->
+          <div id="content-asesmen-tertulis" class="asesmen-content hidden">
+            <div
+              class="bg-amber-50 border border-amber-100 rounded-2xl p-6 mb-8 text-center"
+            >
+              <h3 class="font-black text-amber-700 mb-2 text-lg">
+                Tes Tertulis (Sumatif)
+              </h3>
+              <p class="text-sm text-slate-600 font-medium">
+                10 Soal Pilihan Ganda + 2 Soal Esai • Alokasi 20 menit
+              </p>
+              <p class="text-xs text-slate-500 mt-2 font-medium">
+                Pedoman Skor: PG maksimal 50 + Esai maksimal 50 = 100
+              </p>
+            </div>
+            <div
+              class="bg-white shadow-sm rounded-3xl p-6 md:p-8 mb-8 border border-slate-100 space-y-4"
+            >
+              <h4
+                class="font-bold text-dark border-b border-slate-100 pb-3 mb-4 uppercase"
+              >
+                Data Diri
+              </h4>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Nama Murid</label
+                >
+                <input
+                  type="text"
+                  id="nama-tertulis"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Nama lengkap..."
+                />
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Absen / NIS</label
+                >
+                <input
+                  type="text"
+                  id="nis-tertulis"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Nomor absen..."
+                />
+              </div>
+              <div
+                class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4"
+              >
+                <label class="sm:w-32 font-bold text-slate-700 text-sm"
+                  >Kelas</label
+                >
+                <input
+                  type="text"
+                  id="kelas-tertulis"
+                  class="flex-1 px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-slate-50 focus:bg-white transition"
+                  placeholder="Contoh: X-5"
+                />
+              </div>
+            </div>
+            <div id="soal-tertulis-container" class="space-y-6"></div>
+            <div
+              class="mt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-100 pt-8"
+            >
+              <div
+                id="status-tertulis"
+                class="text-sm hidden text-center w-full md:w-auto"
+              ></div>
+              <div class="flex gap-4 w-full md:w-auto ml-auto">
+                <button
+                  onclick="resetAsesmen('tertulis')"
+                  class="flex-1 md:flex-none px-6 py-3 rounded-full font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 transition"
+                >
+                  Reset
+                </button>
+                <button
+                  onclick="kirimAsesmen('tertulis')"
+                  id="btn-kirim-tertulis"
                   class="flex-1 md:flex-none px-8 py-3 rounded-full font-bold text-white bg-primary hover:bg-primary-dark transition shadow-lg shadow-primary/30"
                 >
                   Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>
@@ -3915,8 +3934,8 @@ END PROCEDURE</code></pre>
         }
       })();
 
-      // ===== NAVIGASI =====
-      function nav(sectionId) {
+      // ===== NAVIGASI dengan KONTEKS (Konsisten SB1, SB2, SB4) =====
+      function nav(sectionId, context) {
         document
           .querySelectorAll(".page-section")
           .forEach((el) => el.classList.remove("active"));
@@ -3924,6 +3943,33 @@ END PROCEDURE</code></pre>
         window.scrollTo(0, 0);
         const menu = document.getElementById("navbarMenu");
         if (menu) menu.classList.remove("active");
+        const navToggle = document.getElementById("navbarToggle");
+        if (navToggle) navToggle.setAttribute("aria-expanded", "false");
+
+        if (sectionId === "asesmen") {
+          const tabsEl = document.getElementById("asesmen-tabs");
+          const contentAwal = document.getElementById("content-asesmen-awal");
+          const contentAkhir = document.getElementById("content-asesmen-akhir");
+          const contentTertulis = document.getElementById(
+            "content-asesmen-tertulis",
+          );
+          const ctx = context || "awal";
+
+          if (ctx === "awal") {
+            tabsEl.innerHTML = "";
+            contentAwal.classList.remove("hidden");
+            contentAkhir.classList.add("hidden");
+            contentTertulis.classList.add("hidden");
+          } else {
+            tabsEl.innerHTML = `
+              <button onclick="switchAsesmen('akhir')" id="tab-asesmen-akhir" class="px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-active shadow-md"><i class="fa-solid fa-check-double mr-2"></i> Post-Test</button>
+              <button onclick="switchAsesmen('tertulis')" id="tab-asesmen-tertulis" class="px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-inactive"><i class="fa-solid fa-file-pen mr-2"></i> Tes Tertulis</button>
+            `;
+            contentAwal.classList.add("hidden");
+            contentAkhir.classList.remove("hidden");
+            contentTertulis.classList.add("hidden");
+          }
+        }
       }
 
       // ===== MATERI TABS =====
@@ -4052,7 +4098,7 @@ END PROCEDURE</code></pre>
         }
       }
 
-      // Base Render Function
+      // ===== BASE RENDER =====
       function renderSimulationCanvas(
         containerId,
         dataArray,
@@ -4118,42 +4164,41 @@ END PROCEDURE</code></pre>
             const suitColorClass = isRedSuit
               ? "text-red-500"
               : "text-slate-800";
-
             let displayVal = val;
             if (stateClass === "block-hidden") displayVal = "?";
 
             item.innerHTML = `
-            ${keyBadgeHtml}
-            <div class="card-inner">
-              <div class="card-corner-top font-mono ${displayVal === "?" ? "text-slate-400" : suitColorClass}"><span>${displayVal}</span><span class="ml-0.5 text-xs">${displayVal === "?" ? "" : suit}</span></div>
-              <div class="card-center">
-                <span class="card-suit-large ${displayVal === "?" ? "text-slate-400" : suitColorClass}">${displayVal === "?" ? "" : suit}</span>
-                <span class="card-number" style="${displayVal === "?" ? "color: #94a3b8; font-size:2rem;" : ""}">${displayVal}</span>
+              ${keyBadgeHtml}
+              <div class="card-inner">
+                <div class="card-corner-top font-mono ${displayVal === "?" ? "text-slate-400" : suitColorClass}"><span>${displayVal}</span><span class="ml-0.5 text-xs">${displayVal === "?" ? "" : suit}</span></div>
+                <div class="card-center">
+                  <span class="card-suit-large ${displayVal === "?" ? "text-slate-400" : suitColorClass}">${displayVal === "?" ? "" : suit}</span>
+                  <span class="card-number" style="${displayVal === "?" ? "color: #94a3b8; font-size:2rem;" : ""}">${displayVal}</span>
+                </div>
+                <div class="card-corner-bottom font-mono ${displayVal === "?" ? "text-slate-400" : suitColorClass}"><span>${displayVal}</span><span class="ml-0.5 text-xs">${displayVal === "?" ? "" : suit}</span></div>
               </div>
-              <div class="card-corner-bottom font-mono ${displayVal === "?" ? "text-slate-400" : suitColorClass}"><span>${displayVal}</span><span class="ml-0.5 text-xs">${displayVal === "?" ? "" : suit}</span></div>
-            </div>
-            <div class="sim-index-badge">idx: ${i}</div>
-          `;
+              <div class="sim-index-badge">idx: ${i}</div>
+            `;
           } else if (theme === "bottle") {
             const liquidPercent = Math.max(
               18,
               Math.min(94, Math.round((Number(val) / maxVal) * 90)),
             );
             item.innerHTML = `
-            ${keyBadgeHtml}
-            <div class="bottle-top-cap"></div>
-            <div class="bottle-flask">
-              <div class="bottle-measure-lines"><span class="line line-3"></span><span class="line line-2"></span><span class="line line-1"></span></div>
-              <div class="bottle-liquid" style="height: ${liquidPercent}%;">
-                <div class="liquid-surface"></div>
-                <div class="liquid-bubble b1"></div>
-                <div class="liquid-bubble b2"></div>
-                <span class="bottle-val-inside">${val}</span>
+              ${keyBadgeHtml}
+              <div class="bottle-top-cap"></div>
+              <div class="bottle-flask">
+                <div class="bottle-measure-lines"><span class="line line-3"></span><span class="line line-2"></span><span class="line line-1"></span></div>
+                <div class="bottle-liquid" style="height: ${liquidPercent}%;">
+                  <div class="liquid-surface"></div>
+                  <div class="liquid-bubble b1"></div>
+                  <div class="liquid-bubble b2"></div>
+                  <span class="bottle-val-inside">${val}</span>
+                </div>
               </div>
-            </div>
-            <div class="bottle-base-stand"></div>
-            <div class="sim-index-badge">idx: ${i}</div>
-          `;
+              <div class="bottle-base-stand"></div>
+              <div class="sim-index-badge">idx: ${i}</div>
+            `;
           } else if (theme === "balloon") {
             const stringHeight = Math.max(
               25,
@@ -4161,33 +4206,33 @@ END PROCEDURE</code></pre>
             );
             const balloonBg = balloonColors[i % balloonColors.length];
             item.innerHTML = `
-            ${keyBadgeHtml}
-            <div class="balloon-wrapper">
-              <div class="balloon-sphere" style="background: ${balloonBg};">
-                <div class="balloon-shine"></div>
-                <span class="balloon-val">${val}</span>
-                <div class="balloon-knot"></div>
+              ${keyBadgeHtml}
+              <div class="balloon-wrapper">
+                <div class="balloon-sphere" style="background: ${balloonBg};">
+                  <div class="balloon-shine"></div>
+                  <span class="balloon-val">${val}</span>
+                  <div class="balloon-knot"></div>
+                </div>
+                <div class="balloon-string" style="height: ${stringHeight}px;"></div>
               </div>
-              <div class="balloon-string" style="height: ${stringHeight}px;"></div>
-            </div>
-            <div class="balloon-anchor"></div>
-            <div class="sim-index-badge">idx: ${i}</div>
-          `;
+              <div class="balloon-anchor"></div>
+              <div class="sim-index-badge">idx: ${i}</div>
+            `;
           } else {
             const barHeight = Math.max(
               50,
               Math.min(170, Math.round((Number(val) / maxVal) * 160)),
             );
             item.innerHTML = `
-            ${keyBadgeHtml}
-            <div class="bar-val-badge">${val}</div>
-            <div class="bar-pillar" style="height: ${barHeight}px;">
-              <div class="bar-cap"></div>
-              <div class="bar-shine"></div>
-            </div>
-            <div class="bar-pedestal"></div>
-            <div class="sim-index-badge">idx: ${i}</div>
-          `;
+              ${keyBadgeHtml}
+              <div class="bar-val-badge">${val}</div>
+              <div class="bar-pillar" style="height: ${barHeight}px;">
+                <div class="bar-cap"></div>
+                <div class="bar-shine"></div>
+              </div>
+              <div class="bar-pedestal"></div>
+              <div class="sim-index-badge">idx: ${i}</div>
+            `;
           }
 
           container.appendChild(item);
@@ -5053,8 +5098,10 @@ END PROCEDURE</code></pre>
         });
         localStorage.setItem("algoLearn_LKPD3", JSON.stringify(data));
         const status = document.getElementById("lkpd-save-status");
-        status.classList.remove("hidden");
-        setTimeout(() => status.classList.add("hidden"), 2000);
+        if (status) {
+          status.classList.remove("hidden");
+          setTimeout(() => status.classList.add("hidden"), 2000);
+        }
       }
       function loadLKPD() {
         const saved = localStorage.getItem("algoLearn_LKPD3");
@@ -5067,7 +5114,7 @@ END PROCEDURE</code></pre>
         }
       }
       function resetLKPD() {
-        if (confirm("Yakin ingin mereset seluruh isian LKPD?")) {
+        if (confirm("Yakin ingin mereset seluruh isian LKPD Sub-Bab 3?")) {
           localStorage.removeItem("algoLearn_LKPD3");
           document.querySelectorAll(".lkpd-input").forEach((input) => {
             if (input.id !== "lkpd-bub-awal") input.value = "";
@@ -5075,345 +5122,14 @@ END PROCEDURE</code></pre>
         }
       }
 
-      // ===== ASESMEN =====
+      // ===== APPS SCRIPT URL =====
       const APPS_SCRIPT_URL =
         localStorage.getItem("apps_script_url") ||
-        "https://script.google.com/macros/s/AKfycbwlVEXCtHBRgf1ZBfpYgb2qCGAm_Pyj68O4PvL3ffeW6m8h9mTS9zRTCNnl5CZ8pbSpdw/exec";
+        "https://script.google.com/macros/s/AKfycbxkKl5A9wo9owmvO1Xv0nRK22qUEK9FCVpdl7YK9sFYgWvbPSauuK9rolCYbVCQUKa7bw/exec";
 
-      const soalAwal = [
-        {
-          no: 1,
-          teks: "Menurutmu, algoritma adalah ....",
-          pilihan: [
-            "Kumpulan data yang disimpan dalam komputer",
-            "Langkah-langkah logis dan sistematis untuk menyelesaikan masalah",
-            "Perangkat yang digunakan untuk menjalankan program",
-            "Bahasa pemrograman untuk membuat aplikasi",
-          ],
-        },
-        {
-          no: 2,
-          teks: "Pernahkah kamu mendengar istilah searching atau sorting sebelumnya?",
-          pilihan: [
-            "Sering dan cukup memahami",
-            "Pernah beberapa kali",
-            "Pernah mendengar tetapi belum memahami",
-            "Belum pernah",
-          ],
-        },
-        {
-          no: 3,
-          teks: "Jika ingin mencari satu nama dari daftar yang panjang, cara yang biasanya kamu lakukan adalah ....",
-          pilihan: [
-            "Memeriksa nama satu per satu dari awal",
-            "Mencari berdasarkan perkiraan posisi",
-            "Menggunakan fitur pencarian jika tersedia",
-            "Belum mengetahui cara yang digunakan",
-          ],
-        },
-        {
-          no: 4,
-          teks: "Jika terdapat beberapa angka yang masih acak dan ingin diurutkan dari kecil ke besar, biasanya kamu ....",
-          pilihan: [
-            "Membandingkan angka satu per satu",
-            "Mengurutkan berdasarkan perkiraan",
-            "Menggunakan fitur pengurutan pada aplikasi",
-            "Belum mengetahui caranya",
-          ],
-        },
-        {
-          no: 5,
-          teks: "Saat mempelajari materi Informatika, kegiatan yang paling saya sukai adalah ....",
-          pilihan: [
-            "Melihat contoh atau visualisasi",
-            "Mencoba langsung melalui aplikasi atau website",
-            "Berdiskusi dan bertukar pendapat",
-            "Membaca materi dan mengerjakan latihan",
-          ],
-        },
-        {
-          no: 6,
-          teks: "Saya lebih tertarik mempelajari algoritma jika dapat melihat proses kerjanya melalui simulasi interaktif.",
-          pilihan: ["Sangat setuju", "Setuju", "Kurang setuju", "Tidak setuju"],
-        },
-        {
-          no: 7,
-          teks: "Saat mengerjakan tugas pembelajaran, saya lebih nyaman ....",
-          pilihan: [
-            "Mengerjakan sendiri",
-            "Berdiskusi dengan satu atau dua teman",
-            "Bekerja dalam kelompok",
-            "Tidak memiliki preferensi tertentu",
-          ],
-        },
-        {
-          no: 8,
-          teks: "Seberapa siap kamu mengikuti pembelajaran algoritma menggunakan website interaktif?",
-          pilihan: ["Sangat siap", "Siap", "Kurang siap", "Belum siap"],
-        },
-        {
-          no: 9,
-          teks: "Seberapa percaya diri kamu dalam memahami langkah-langkah logis untuk menyelesaikan suatu masalah?",
-          pilihan: [
-            "Sangat percaya diri",
-            "Cukup percaya diri",
-            "Kurang percaya diri",
-            "Belum percaya diri",
-          ],
-        },
-        {
-          no: 10,
-          teks: "Ketika menemukan bagian materi yang belum dipahami, saya biasanya ....",
-          pilihan: [
-            "Mencoba kembali sendiri",
-            "Bertanya kepada teman",
-            "Bertanya kepada guru",
-            "Menunggu penjelasan berikutnya",
-          ],
-        },
-      ];
+      const SUBBAB_NUM = 3;
 
-      const soalAkhir = [
-        {
-          no: 1,
-          teks: "Raka ingin membuat jadwal belajar untuk persiapan ujian. Ia menentukan mata pelajaran yang akan dipelajari, menentukan urutannya, lalu menetapkan waktu belajar untuk setiap mata pelajaran. Berdasarkan situasi tersebut, apa yang dimaksud dengan algoritma? Jelaskan dengan bahasamu sendiri.",
-        },
-        {
-          no: 2,
-          teks: "Guru memiliki daftar nilai berikut: [75, 82, 68, 90, 77]. Guru ingin melakukan dua hal: mencari apakah ada nilai 90; dan mengurutkan seluruh nilai dari terkecil ke terbesar. Manakah kegiatan yang termasuk searching dan manakah yang termasuk sorting? Jelaskan perbedaannya.",
-        },
-        {
-          no: 3,
-          teks: "Dina sedang mencari nama temannya dalam daftar nama siswa. Pada cara pertama, Dina memeriksa nama mulai dari urutan paling atas satu per satu. Pada cara kedua, daftar nama sudah diurutkan dan Dina dapat mempersempit pencarian dari bagian tengah. Apa perbedaan cara kerja Linear Search dan Binary Search berdasarkan situasi tersebut?",
-        },
-        {
-          no: 4,
-          teks: "Petugas kelas ingin mencari nilai 90 dari data berikut: [72, 85, 64, 90, 78]. Gunakan Linear Search. Tuliskan urutan data yang diperiksa sampai nilai 90 ditemukan.",
-        },
-        {
-          no: 5,
-          teks: "Guru ingin mengurutkan nilai berikut dari terkecil ke terbesar: [72, 85, 64, 90, 78]. Gunakan Bubble Sort dan tuliskan perubahan data pada setiap pertukaran yang dilakukan.",
-        },
-      ];
-
-      function renderSoalAwal() {
-        const container = document.getElementById("soal-awal-container");
-        container.innerHTML = "";
-        soalAwal.forEach((soal) => {
-          const card = document.createElement("div");
-          card.className = "asesmen-card";
-          card.innerHTML = `
-          <p class="font-bold text-dark mb-4 text-base">${soal.no}. ${soal.teks}</p>
-          <div class="space-y-2">
-            ${soal.pilihan
-              .map(
-                (p, i) => `
-              <label class="option-label">
-                <input type="radio" name="jawaban_awal_${soal.no}" value="${String.fromCharCode(65 + i)}" />
-                <span class="text-sm text-slate-700 font-medium">${p}</span>
-              </label>`,
-              )
-              .join("")}
-          </div>`;
-          container.appendChild(card);
-        });
-      }
-
-      function renderSoalAkhir() {
-        const container = document.getElementById("soal-akhir-container");
-        container.innerHTML = "";
-        soalAkhir.forEach((soal) => {
-          const card = document.createElement("div");
-          card.className = "asesmen-card";
-          card.innerHTML = `
-          <p class="font-bold text-dark mb-4 text-base">${soal.no}. ${soal.teks}</p>
-          <textarea id="jawaban_akhir_${soal.no}" rows="4" class="w-full p-4 border border-slate-200 rounded-xl bg-slate-50 focus:border-primary outline-none focus:bg-white transition"></textarea>`;
-          container.appendChild(card);
-        });
-      }
-
-      function switchAsesmen(type) {
-        const tabAwal = document.getElementById("tab-asesmen-awal");
-        const tabAkhir = document.getElementById("tab-asesmen-akhir");
-        const contentAwal = document.getElementById("content-asesmen-awal");
-        const contentAkhir = document.getElementById("content-asesmen-akhir");
-        if (type === "awal") {
-          tabAwal.className =
-            "px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-active shadow-md";
-          tabAkhir.className =
-            "px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-inactive";
-          contentAwal.classList.remove("hidden");
-          contentAkhir.classList.add("hidden");
-        } else {
-          tabAkhir.className =
-            "px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-active shadow-md";
-          tabAwal.className =
-            "px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-inactive";
-          contentAkhir.classList.remove("hidden");
-          contentAwal.classList.add("hidden");
-        }
-        document.getElementById("status-awal").classList.add("hidden");
-        document.getElementById("status-akhir").classList.add("hidden");
-      }
-
-      function simpanLocalAsesmen() {
-        const data = {};
-        document
-          .querySelectorAll(
-            "#content-asesmen-awal input, #content-asesmen-awal textarea",
-          )
-          .forEach((el) => {
-            if (el.type === "radio" && el.checked) data[el.name] = el.value;
-            else if (el.type !== "radio") data[el.id] = el.value;
-          });
-        document
-          .querySelectorAll(
-            "#content-asesmen-akhir input, #content-asesmen-akhir textarea",
-          )
-          .forEach((el) => {
-            if (el.type === "radio" && el.checked) data[el.name] = el.value;
-            else if (el.type !== "radio") data[el.id] = el.value;
-          });
-        localStorage.setItem("algoLearn_Asesmen3", JSON.stringify(data));
-      }
-
-      function muatLocalAsesmen() {
-        const saved = localStorage.getItem("algoLearn_Asesmen3");
-        if (!saved) return;
-        const data = JSON.parse(saved);
-        for (const key in data) {
-          const el = document.getElementById(key);
-          if (el) {
-            if (el.type === "radio") {
-              const radio = document.querySelector(
-                `input[name="${key}"][value="${data[key]}"]`,
-              );
-              if (radio) radio.checked = true;
-            } else el.value = data[key];
-          }
-        }
-      }
-
-      function resetAsesmen(type) {
-        if (
-          !confirm(
-            `Reset semua jawaban Asesmen ${type === "awal" ? "Awal" : "Akhir"}?`,
-          )
-        )
-          return;
-        const prefix = type;
-        const container = document.getElementById(`content-asesmen-${prefix}`);
-        container.querySelectorAll("input, textarea").forEach((el) => {
-          if (el.type === "radio") el.checked = false;
-          else el.value = "";
-        });
-        localStorage.removeItem("algoLearn_Asesmen3");
-        document.getElementById(`status-${prefix}`).classList.add("hidden");
-        renderSoalAwal();
-        renderSoalAkhir();
-      }
-
-      async function kirimAsesmen(type) {
-        const prefix = type;
-        const statusEl = document.getElementById(`status-${prefix}`);
-        const btn = document.getElementById(`btn-kirim-${prefix}`);
-        btn.disabled = true;
-        btn.innerHTML =
-          '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Mengirim...';
-        statusEl.className = "text-sm status-loading w-full md:w-auto";
-        statusEl.classList.remove("hidden");
-        statusEl.innerText = "⏳ Mengirim data...";
-
-        const nama = document.getElementById(`nama-${prefix}`).value.trim();
-        const nis = document.getElementById(`nis-${prefix}`).value.trim();
-        const kelas = document.getElementById(`kelas-${prefix}`).value.trim();
-
-        if (nama) localStorage.setItem("currentUser", nama);
-        if (nis) localStorage.setItem("userNis", nis);
-        if (kelas) localStorage.setItem("userClass", kelas);
-
-        if (!nama || !nis || !kelas) {
-          statusEl.className = "text-sm status-error w-full md:w-auto";
-          statusEl.innerText = "❌ Mohon isi Nama, NIS, dan Kelas.";
-          btn.disabled = false;
-          btn.innerHTML =
-            'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
-          return;
-        }
-
-        let jawaban = [];
-        if (type === "awal") {
-          for (let i = 1; i <= 10; i++) {
-            const radio = document.querySelector(
-              `input[name="jawaban_awal_${i}"]:checked`,
-            );
-            const pilihan = radio
-              ? soalAwal[i - 1].pilihan[
-                  ["A", "B", "C", "D"].indexOf(radio.value)
-                ]
-              : "";
-            jawaban.push(radio ? radio.value + ". " + pilihan : "");
-          }
-          if (jawaban.some((j) => j === "")) {
-            statusEl.className = "text-sm status-error w-full md:w-auto";
-            statusEl.innerText = "❌ Semua soal harus dijawab.";
-            btn.disabled = false;
-            btn.innerHTML =
-              'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
-            return;
-          }
-        } else {
-          for (let i = 1; i <= 5; i++) {
-            const textarea = document.getElementById(`jawaban_akhir_${i}`);
-            jawaban.push(textarea ? textarea.value.trim() : "");
-          }
-          if (jawaban.some((j) => j === "")) {
-            statusEl.className = "text-sm status-error w-full md:w-auto";
-            statusEl.innerText = "❌ Semua soal harus diisi.";
-            btn.disabled = false;
-            btn.innerHTML =
-              'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
-            return;
-          }
-        }
-
-        const payload = {
-          type: type === "awal" ? "asesmen_awal" : "asesmen_akhir",
-          subbab: "subbab_3",
-          subbab_num: 3,
-          nama,
-          nis,
-          kelas,
-          jawaban,
-        };
-
-        try {
-          if (
-            APPS_SCRIPT_URL &&
-            !APPS_SCRIPT_URL.includes("GANTI_DENGAN_URL")
-          ) {
-            await fetch(APPS_SCRIPT_URL, {
-              method: "POST",
-              mode: "no-cors",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-            });
-          }
-          statusEl.className = "text-sm status-success w-full md:w-auto";
-          statusEl.innerText = "✅ Asesmen berhasil dikirim!";
-          simpanLocalAsesmen();
-        } catch (error) {
-          console.error(error);
-          statusEl.className = "text-sm status-error w-full md:w-auto";
-          statusEl.innerText =
-            "❌ Gagal mengirim. Coba lagi atau hubungi guru.";
-        } finally {
-          btn.disabled = false;
-          btn.innerHTML =
-            'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
-        }
-      }
-
+      // ===== KIRIM HASIL LATIHAN =====
       async function kirimHasilLatihan(
         subbabNum,
         jumlahSoal,
@@ -5434,7 +5150,7 @@ END PROCEDURE</code></pre>
           await fetch(APPS_SCRIPT_URL, {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
             body: JSON.stringify({
               type: "save_latihan",
               nis,
@@ -5452,8 +5168,8 @@ END PROCEDURE</code></pre>
         }
       }
 
-      // ===== PDF EXPORT =====
-      function exportPDF() {
+      // ===== PDF EXPORT (Konsisten SB1, SB2, SB4) =====
+      function exportPDFLKPD(returnBase64) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF("p", "mm", "a4");
         const val = (id) => {
@@ -5474,67 +5190,67 @@ END PROCEDURE</code></pre>
           doc.setFontSize(9);
           doc.text("Informatika Kelas X | Berpikir Komputasional", 14, 17);
         };
-        const checkPageBreak = (neededHeight) => {
-          if (yPos + neededHeight > 280) {
+        const checkPageBreak = (h) => {
+          if (yPos + h > 280) {
             doc.addPage();
             drawHeader();
             yPos = 35;
           }
         };
-        const addSectionTitle = (title) => {
+        const addTitle = (t) => {
           checkPageBreak(15);
           doc.setFont("helvetica", "bold");
           doc.setFontSize(11);
           doc.setTextColor(...primaryColor);
-          doc.text(title, 14, yPos);
+          doc.text(t, 14, yPos);
           yPos += 7;
         };
-        const addQuestionAnswer = (q, a) => {
+        const addQA = (q, a) => {
           checkPageBreak(25);
           doc.setFont("helvetica", "bold");
           doc.setFontSize(10);
           doc.setTextColor(15, 23, 42);
-          const splitQ = doc.splitTextToSize(q, 182);
-          doc.text(splitQ, 14, yPos);
-          yPos += splitQ.length * 4.5 + 2;
+          const qLines = doc.splitTextToSize(q, 182);
+          doc.text(qLines, 14, yPos);
+          yPos += qLines.length * 4.5 + 2;
           doc.setFont("helvetica", "normal");
-          doc.setFontSize(10);
-          const splitA = doc.splitTextToSize(a, 178);
+          doc.setTextColor(50, 50, 50);
+          const aLines = doc.splitTextToSize(a, 178);
           doc.setFillColor(248, 250, 252);
           doc.setDrawColor(226, 232, 240);
-          const boxHeight = splitA.length * 5 + 6;
-          doc.rect(14, yPos, 182, boxHeight, "FD");
-          doc.text(splitA, 16, yPos + 6);
-          yPos += boxHeight + 8;
+          const boxH = aLines.length * 5 + 6;
+          doc.rect(14, yPos, 182, boxH, "FD");
+          doc.text(aLines, 16, yPos + 6);
+          yPos += boxH + 8;
         };
 
         drawHeader();
-        addSectionTitle("A. Identitas Kelompok");
+        addTitle("A. Identitas Kelompok");
         doc.setFont("helvetica", "normal");
         doc.setFontSize(10);
         doc.setTextColor(0, 0, 0);
         doc.text(`Nama Kelompok : ${val("lkpd-kelompok")}`, 14, yPos);
         yPos += 6;
-        doc.text(`Anggota 1      : ${val("lkpd-anggota1")}`, 14, yPos);
+        doc.text(`Anggota 1     : ${val("lkpd-anggota1")}`, 14, yPos);
         yPos += 6;
-        doc.text(`Anggota 2      : ${val("lkpd-anggota2")}`, 14, yPos);
+        doc.text(`Anggota 2     : ${val("lkpd-anggota2")}`, 14, yPos);
         yPos += 6;
-        doc.text(`Anggota 3      : ${val("lkpd-anggota3")}`, 14, yPos);
+        doc.text(`Anggota 3     : ${val("lkpd-anggota3")}`, 14, yPos);
         yPos += 6;
-        doc.text(`Anggota 4      : ${val("lkpd-anggota4")}`, 14, yPos);
+        doc.text(`Anggota 4     : ${val("lkpd-anggota4")}`, 14, yPos);
         yPos += 8;
 
-        addSectionTitle("B. Aktivitas 1 - Prediksi");
-        addQuestionAnswer(
+        addTitle("B. Aktivitas 1 - Prediksi");
+        addQA(
           "1. Bagaimana cara kalian mencari nilai 90 secara manual?",
           val("lkpd-act1-1"),
         );
-        addQuestionAnswer(
+        addQA(
           "2. Bagaimana cara kalian mengurutkan data dari kecil ke besar secara manual?",
           val("lkpd-act1-2"),
         );
 
-        addSectionTitle("C. Aktivitas 2 - Linear Search (Cari Target 90)");
+        addTitle("C. Aktivitas 2 - Linear Search (Cari Target 90)");
         checkPageBreak(45);
         doc.autoTable({
           startY: yPos,
@@ -5550,16 +5266,13 @@ END PROCEDURE</code></pre>
           margin: { left: 14, right: 14 },
         });
         yPos = doc.lastAutoTable.finalY + 8;
-        addQuestionAnswer(
-          "Pada langkah ke berapa data ditemukan?",
-          val("lkpd-act2-1"),
-        );
-        addQuestionAnswer(
+        addQA("Pada langkah ke berapa data ditemukan?", val("lkpd-act2-1"));
+        addQA(
           "Apa yang kalian amati dari proses tersebut?",
           val("lkpd-act2-2"),
         );
 
-        addSectionTitle("D. Aktivitas 3 - Bubble Sort");
+        addTitle("D. Aktivitas 3 - Bubble Sort");
         checkPageBreak(50);
         doc.autoTable({
           startY: yPos,
@@ -5576,12 +5289,12 @@ END PROCEDURE</code></pre>
           margin: { left: 14, right: 14 },
         });
         yPos = doc.lastAutoTable.finalY + 8;
-        addQuestionAnswer(
+        addQA(
           "Apa yang terjadi ketika membandingkan dua data berdekatan yang tidak berurutan?",
           val("lkpd-act3-1"),
         );
 
-        addSectionTitle("E. Aktivitas 4 - Bandingkan");
+        addTitle("E. Aktivitas 4 - Bandingkan");
         checkPageBreak(40);
         doc.autoTable({
           startY: yPos,
@@ -5609,67 +5322,617 @@ END PROCEDURE</code></pre>
         });
         yPos = doc.lastAutoTable.finalY + 8;
 
-        addSectionTitle("F. Aktivitas 5 - Refleksi");
-        addQuestionAnswer(
-          "1. Apa hal baru yang saya pahami?",
-          val("lkpd-ref-1"),
-        );
-        addQuestionAnswer(
+        addTitle("F. Aktivitas 5 - Refleksi");
+        addQA("1. Apa hal baru yang saya pahami?", val("lkpd-ref-1"));
+        addQA(
           "2. Bagian simulasi mana yang paling membantu?",
           val("lkpd-ref-2"),
         );
-        addQuestionAnswer(
-          "3. Bagian mana yang masih membingungkan?",
-          val("lkpd-ref-3"),
-        );
-        addQuestionAnswer(
+        addQA("3. Bagian mana yang masih membingungkan?", val("lkpd-ref-3"));
+        addQA(
           "4. Proses mirip dalam kehidupan sehari-hari?",
           val("lkpd-ref-4"),
         );
 
-        const studentName = val("lkpd-kelompok") || "Murid";
-        const filename = `LKPD_MATERI3_${studentName.replace(/[^a-zA-Z0-9]/g, "_")}.pdf`;
-        doc.save(filename);
+        if (returnBase64) return doc.output("datauristring");
+        doc.save(`LKPD_MATERI3_${Date.now()}.pdf`);
+      }
+
+      // ===== SUBMIT LKPD KE DRIVE (Konsisten SB1, SB2, SB4) =====
+      async function submitLKPDToDrive(pertemuan) {
+        const p = pertemuan || 1;
+        const nama =
+          document.getElementById("lkpd-kelompok")?.value.trim() ||
+          localStorage.getItem("currentUser") ||
+          "";
+        const nis = localStorage.getItem("userNis") || "-";
+        const kelas = localStorage.getItem("userClass") || "X";
+        if (!nama) {
+          alert(
+            "Mohon isi Nama Kelompok terlebih dahulu di bagian Identitas LKPD.",
+          );
+          return;
+        }
+        const btn = document.getElementById(`btn-save-drive-${p}`);
+        const oldHTML = btn ? btn.innerHTML : "";
+        if (btn) {
+          btn.disabled = true;
+          btn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Membuat PDF...';
+        }
 
         try {
-          const dataUri = doc.output("datauristring");
-          uploadLkpdToDrive(3, studentName, "-", "X", dataUri, filename);
-        } catch (err) {
-          console.warn("Gagal prepare upload Drive:", err);
+          await new Promise((r) => setTimeout(r, 150));
+          const pdfDataUrl = exportPDFLKPD(true);
+          if (!pdfDataUrl || pdfDataUrl.indexOf("base64,") === -1) {
+            throw new Error("Gagal generate PDF dari halaman LKPD.");
+          }
+          if (btn) {
+            btn.innerHTML =
+              '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim ke Drive...';
+          }
+          const safeName = nama.replace(/\s+/g, "_");
+          const filename = `LKPD_MATERI3_P${p}_${nis}_${safeName}_${Date.now()}.pdf`;
+          const payload = {
+            type: "lkpd",
+            subbab: "subbab_3",
+            subbab_num: 3,
+            pertemuan: p,
+            folder: "LKPD_MATERI3",
+            fileName: filename,
+            nama,
+            nis,
+            kelas,
+            timestamp: new Date().toISOString(),
+            pdfBase64: pdfDataUrl,
+          };
+          const url =
+            localStorage.getItem("apps_script_url") || APPS_SCRIPT_URL;
+          if (!url || url.includes("GANTI_DENGAN_URL")) {
+            alert(
+              "URL Google Apps Script belum dikonfigurasi. Silakan hubungi guru.",
+            );
+            if (btn) {
+              btn.disabled = false;
+              btn.innerHTML = oldHTML;
+            }
+            return;
+          }
+          await fetch(url, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload),
+          });
+          if (btn) {
+            btn.innerHTML =
+              '<i class="fa-solid fa-check"></i> Terkirim ke Drive';
+            setTimeout(() => {
+              btn.disabled = false;
+              btn.innerHTML = oldHTML;
+            }, 2500);
+          }
+        } catch (e) {
+          console.error(e);
+          alert("Gagal mengirim LKPD ke Drive: " + e.message);
+          if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = oldHTML;
+          }
         }
       }
 
-      async function uploadLkpdToDrive(
-        subbabNum,
-        nama,
-        nis,
-        kelas,
-        dataUriString,
-        filename,
-      ) {
-        if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes("GANTI_DENGAN_URL"))
+      // ===== SOAL PRE-TEST (10 PG Diagnostik) =====
+      const soalAwal = [
+        {
+          no: 1,
+          teks: "Menurutmu, algoritma adalah ....",
+          pilihan: [
+            "Kumpulan data yang disimpan dalam komputer",
+            "Langkah-langkah logis dan sistematis untuk menyelesaikan masalah",
+            "Perangkat yang digunakan untuk menjalankan program",
+            "Bahasa pemrograman untuk membuat aplikasi",
+          ],
+          kunci: "B",
+        },
+        {
+          no: 2,
+          teks: "Pernahkah kamu mendengar istilah searching atau sorting sebelumnya?",
+          pilihan: [
+            "Sering dan cukup memahami",
+            "Pernah beberapa kali",
+            "Pernah mendengar tetapi belum memahami",
+            "Belum pernah",
+          ],
+          kunci: "C",
+        },
+        {
+          no: 3,
+          teks: "Saat mencari sebuah nama dalam daftar yang panjang, strategi paling sederhana adalah ....",
+          pilihan: [
+            "Memeriksa satu per satu dari awal sampai akhir",
+            "Membaca dari tengah lalu melompat",
+            "Mengurutkan dulu baru mencari",
+            "Menebak posisi berdasarkan abjad",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 4,
+          teks: "Jika ingin mengurutkan tumpukan kartu dari kecil ke besar, cara yang paling mirip dengan 'Insertion Sort' adalah ....",
+          pilihan: [
+            "Menukar dua kartu berdekatan sampai rapi",
+            "Mengambil satu kartu dan menyisipkannya ke posisi yang tepat di bagian yang sudah terurut",
+            "Mencari kartu terkecil dan meletakkannya di depan",
+            "Mengocok ulang sampai kebetulan rapi",
+          ],
+          kunci: "B",
+        },
+        {
+          no: 5,
+          teks: "Pada permainan 'tebak angka 1-100', strategi paling efisien adalah ....",
+          pilihan: [
+            "Menebak mulai dari 1, 2, 3, ...",
+            "Menebak angka secara acak",
+            "Menebak nilai tengah, lalu mempersempit rentang",
+            "Menunggu petunjuk tambahan",
+          ],
+          kunci: "C",
+        },
+        {
+          no: 6,
+          teks: "Saya tertarik mempelajari cara komputer mencari dan mengurutkan data.",
+          pilihan: ["Sangat setuju", "Setuju", "Kurang setuju", "Tidak setuju"],
+          kunci: "A",
+        },
+        {
+          no: 7,
+          teks: "Saat belajar hal baru, saya lebih suka ....",
+          pilihan: [
+            "Melihat contoh visual / animasi",
+            "Mencoba langsung",
+            "Berdiskusi kelompok",
+            "Membaca materi",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 8,
+          teks: "Seberapa siap kamu mengikuti pembelajaran algoritma pencarian & pengurutan?",
+          pilihan: ["Sangat siap", "Siap", "Kurang siap", "Belum siap"],
+          kunci: "A",
+        },
+        {
+          no: 9,
+          teks: "Seberapa percaya diri kamu memahami langkah-langkah logis penyelesaian masalah?",
+          pilihan: [
+            "Sangat percaya diri",
+            "Cukup percaya diri",
+            "Kurang percaya diri",
+            "Belum percaya diri",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 10,
+          teks: "Ketika menemukan soal algoritma yang sulit, saya biasanya ....",
+          pilihan: [
+            "Mencoba kembali dengan cara berbeda",
+            "Bertanya kepada teman",
+            "Bertanya kepada guru",
+            "Menunggu penjelasan berikutnya",
+          ],
+          kunci: "A",
+        },
+      ];
+
+      // ===== SOAL POST-TEST (10 PG Auto-Score) =====
+      const soalAkhir = [
+        {
+          no: 1,
+          teks: "Algoritma adalah ....",
+          pilihan: [
+            "Kumpulan data yang disimpan dalam komputer",
+            "Urutan langkah logis dan sistematis untuk menyelesaikan masalah",
+            "Nama lain dari program komputer",
+            "Bahasa pemrograman tingkat tinggi",
+          ],
+          kunci: "B",
+        },
+        {
+          no: 2,
+          teks: "Berikut yang BUKAN ciri algoritma yang baik menurut Donald E. Knuth adalah ....",
+          pilihan: ["Input", "Output", "Finiteness", "Randomness"],
+          kunci: "D",
+        },
+        {
+          no: 3,
+          teks: "Proses mencari nilai tertentu dari sekumpulan data disebut ....",
+          pilihan: ["Sorting", "Searching", "Looping", "Branching"],
+          kunci: "B",
+        },
+        {
+          no: 4,
+          teks: "Linear Search memeriksa data dengan cara ....",
+          pilihan: [
+            "Membagi area pencarian menjadi dua",
+            "Memeriksa elemen satu per satu secara berurutan",
+            "Mengurutkan data terlebih dahulu",
+            "Melompati elemen dengan pola tertentu",
+          ],
+          kunci: "B",
+        },
+        {
+          no: 5,
+          teks: "Syarat wajib Binary Search adalah ....",
+          pilihan: [
+            "Data dalam keadaan acak",
+            "Data sudah terurut (ascending/descending)",
+            "Data berjumlah genap",
+            "Data berupa bilangan bulat",
+          ],
+          kunci: "B",
+        },
+        {
+          no: 6,
+          teks: "Perhatikan data terurut [10, 20, 30, 40, 50, 60, 70]. Binary Search mencari 60. Elemen tengah pertama yang diperiksa adalah ....",
+          pilihan: ["20", "40", "50", "60"],
+          kunci: "B",
+        },
+        {
+          no: 7,
+          teks: "Algoritma pengurutan yang membandingkan dua elemen berdekatan dan menukarnya jika salah urutan disebut ....",
+          pilihan: [
+            "Insertion Sort",
+            "Selection Sort",
+            "Bubble Sort",
+            "Merge Sort",
+          ],
+          kunci: "C",
+        },
+        {
+          no: 8,
+          teks: "Insertion Sort pada dasarnya bekerja seperti ....",
+          pilihan: [
+            "Menyusun kartu di tangan — ambil satu kartu, sisipkan di posisi yang tepat",
+            "Mengocok dadu hingga terurut",
+            "Membagi data jadi dua bagian lalu mengurutkan satu per satu",
+            "Mencari nilai terkecil, lalu menukar ke posisi paling depan",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 9,
+          teks: "Perhatikan data [7, 3, 5]. Setelah satu putaran Bubble Sort (ascending), urutannya menjadi ....",
+          pilihan: ["[3, 5, 7]", "[3, 7, 5]", "[5, 3, 7]", "[7, 5, 3]"],
+          kunci: "B",
+        },
+        {
+          no: 10,
+          teks: "Kompleksitas waktu rata-rata Binary Search adalah ....",
+          pilihan: ["O(n)", "O(n²)", "O(log n)", "O(1)"],
+          kunci: "C",
+        },
+      ];
+
+      // ===== SOAL TES TERTULIS (10 PG + 2 Esai) =====
+      const soalTertulis = [
+        {
+          no: 1,
+          teks: "Kompleksitas waktu algoritma Linear Search pada kasus terburuk adalah ....",
+          pilihan: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+          kunci: "C",
+        },
+        {
+          no: 2,
+          teks: "Data terurut [5, 10, 15, 20, 25, 30, 35]. Binary Search mencari 25. Urutan elemen yang diperiksa (nilai tengah) adalah ....",
+          pilihan: ["15, 30, 25", "20, 30, 25", "20, 25", "15, 25"],
+          kunci: "B",
+        },
+        {
+          no: 3,
+          teks: "Keunggulan utama Binary Search dibanding Linear Search adalah ....",
+          pilihan: [
+            "Bisa dipakai pada data acak",
+            "Lebih cepat pada data besar",
+            "Lebih sederhana untuk dipahami",
+            "Tidak memerlukan data terurut",
+          ],
+          kunci: "B",
+        },
+        {
+          no: 4,
+          teks: "Perhatikan proses Bubble Sort pada [4, 2, 6, 1]. Setelah satu putaran penuh (pass 1), susunannya menjadi ....",
+          pilihan: [
+            "[2, 4, 1, 6]",
+            "[2, 1, 4, 6]",
+            "[1, 2, 4, 6]",
+            "[4, 2, 1, 6]",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 5,
+          teks: "Algoritma pengurutan yang secara berulang mencari nilai terkecil dari bagian yang belum terurut, lalu menukarnya ke posisi paling depan, adalah ....",
+          pilihan: [
+            "Bubble Sort",
+            "Insertion Sort",
+            "Selection Sort",
+            "Quick Sort",
+          ],
+          kunci: "C",
+        },
+        {
+          no: 6,
+          teks: "Perhatikan proses Insertion Sort pada [3, 1, 4, 2]. Setelah iterasi ke-2 (memproses elemen ke-3), susunannya menjadi ....",
+          pilihan: [
+            "[1, 3, 4, 2]",
+            "[1, 3, 2, 4]",
+            "[1, 3, 4, 2]",
+            "[1, 4, 3, 2]",
+          ],
+          kunci: "A",
+        },
+        {
+          no: 7,
+          teks: "Algoritma sorting yang paling cocok jika data hampir terurut adalah ....",
+          pilihan: [
+            "Selection Sort",
+            "Bubble Sort",
+            "Insertion Sort",
+            "Linear Sort",
+          ],
+          kunci: "C",
+        },
+        {
+          no: 8,
+          teks: "Pada Selection Sort dengan data awal [64, 25, 12, 22], nilai yang dipilih untuk ditukar ke posisi pertama (indeks 0) adalah ....",
+          pilihan: ["64", "25", "22", "12"],
+          kunci: "D",
+        },
+        {
+          no: 9,
+          teks: "Algoritma pencarian yang MEMERLUKAN data terurut terlebih dahulu adalah ....",
+          pilihan: [
+            "Linear Search",
+            "Binary Search",
+            "Searching sekuensial",
+            "Searching sembarang",
+          ],
+          kunci: "B",
+        },
+        {
+          no: 10,
+          teks: "Simulasi 'tebak angka 1-100' pada buku Informatika Kelas X adalah contoh penerapan ....",
+          pilihan: [
+            "Linear Search",
+            "Binary Search",
+            "Insertion Sort",
+            "Bubble Sort",
+          ],
+          kunci: "B",
+        },
+      ];
+
+      const esaiTertulis = [
+        {
+          no: 1,
+          teks: "Jelaskan perbedaan cara kerja Linear Search dan Binary Search. Sebutkan pula kelebihan dan kekurangan masing-masing, serta berikan contoh kasus nyata di mana masing-masing algoritma tersebut lebih cocok digunakan.",
+        },
+        {
+          no: 2,
+          teks: "Perhatikan data berikut: [72, 85, 64, 90, 78]. Urutkan data tersebut menggunakan algoritma Bubble Sort secara ascending. Tuliskan isi data setelah setiap putaran (pass) sampai semua data terurut!",
+        },
+      ];
+
+      // ===== RENDER SOAL =====
+      function renderSoalAwal() {
+        const c = document.getElementById("soal-awal-container");
+        if (!c) return;
+        c.innerHTML = "";
+        soalAwal.forEach((s) => {
+          const card = document.createElement("div");
+          card.className = "asesmen-card";
+          card.innerHTML = `<p class="font-bold text-dark mb-4 text-base">${s.no}. ${s.teks}</p><div class="space-y-2">${s.pilihan.map((p, i) => `<label class="option-label"><input type="radio" name="jawaban_awal_${s.no}" value="${String.fromCharCode(65 + i)}" /><span class="text-sm text-slate-700 font-medium">${String.fromCharCode(65 + i)}. ${p}</span></label>`).join("")}</div>`;
+          c.appendChild(card);
+        });
+      }
+      function renderSoalAkhir() {
+        const c = document.getElementById("soal-akhir-container");
+        if (!c) return;
+        c.innerHTML = "";
+        soalAkhir.forEach((s) => {
+          const card = document.createElement("div");
+          card.className = "asesmen-card";
+          card.innerHTML = `<p class="font-bold text-dark mb-4 text-base">${s.no}. ${s.teks}</p><div class="space-y-2">${s.pilihan.map((p, i) => `<label class="option-label"><input type="radio" name="jawaban_akhir_${s.no}" value="${String.fromCharCode(65 + i)}" /><span class="text-sm text-slate-700 font-medium">${String.fromCharCode(65 + i)}. ${p}</span></label>`).join("")}</div>`;
+          c.appendChild(card);
+        });
+      }
+      function renderSoalTertulis() {
+        const c = document.getElementById("soal-tertulis-container");
+        if (!c) return;
+        c.innerHTML = "";
+        soalTertulis.forEach((s) => {
+          const card = document.createElement("div");
+          card.className = "asesmen-card";
+          card.innerHTML = `<p class="font-bold text-dark mb-4 text-base">${s.no}. ${s.teks}</p><div class="space-y-2">${s.pilihan.map((p, i) => `<label class="option-label"><input type="radio" name="jawaban_tertulis_${s.no}" value="${String.fromCharCode(65 + i)}" /><span class="text-sm text-slate-700 font-medium">${String.fromCharCode(65 + i)}. ${p}</span></label>`).join("")}</div>`;
+          c.appendChild(card);
+        });
+        esaiTertulis.forEach((s) => {
+          const card = document.createElement("div");
+          card.className = "asesmen-card";
+          card.innerHTML = `<p class="font-bold text-dark mb-3 text-base">Esai ${s.no}. ${s.teks}</p><textarea id="jawaban_tertulis_esai_${s.no}" rows="6" class="w-full p-4 border border-slate-200 rounded-xl bg-slate-50 focus:border-primary outline-none focus:bg-white transition text-sm" placeholder="Tuliskan jawaban esai di sini..."></textarea>`;
+          c.appendChild(card);
+        });
+      }
+
+      // ===== SWITCH ASESMEN =====
+      function switchAsesmen(type) {
+        const tabs = {
+          akhir: "tab-asesmen-akhir",
+          tertulis: "tab-asesmen-tertulis",
+        };
+        const contents = {
+          awal: "content-asesmen-awal",
+          akhir: "content-asesmen-akhir",
+          tertulis: "content-asesmen-tertulis",
+        };
+        Object.keys(tabs).forEach((k) => {
+          const el = document.getElementById(tabs[k]);
+          if (!el) return;
+          el.className =
+            k === type
+              ? "px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-active shadow-md"
+              : "px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-inactive";
+        });
+        Object.values(contents).forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.add("hidden");
+        });
+        const target = document.getElementById(contents[type]);
+        if (target) target.classList.remove("hidden");
+        ["awal", "akhir", "tertulis"].forEach((t) => {
+          const el = document.getElementById(`status-${t}`);
+          if (el) el.classList.add("hidden");
+        });
+      }
+
+      function resetAsesmen(type) {
+        if (!confirm(`Reset semua jawaban Asesmen ${type}?`)) return;
+        const container = document.getElementById(`content-asesmen-${type}`);
+        if (!container) return;
+        container.querySelectorAll("input, textarea").forEach((el) => {
+          if (el.type === "radio") el.checked = false;
+          else el.value = "";
+        });
+        const statusEl = document.getElementById(`status-${type}`);
+        if (statusEl) statusEl.classList.add("hidden");
+      }
+
+      // ===== KIRIM ASESMEN =====
+      async function kirimAsesmen(type) {
+        const prefix = type;
+        const statusEl = document.getElementById(`status-${prefix}`);
+        const btn = document.getElementById(`btn-kirim-${prefix}`);
+        if (!btn || !statusEl) return;
+        btn.disabled = true;
+        btn.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Mengirim...';
+        statusEl.className = "text-sm status-loading w-full md:w-auto";
+        statusEl.classList.remove("hidden");
+        statusEl.innerText = "⏳ Mengirim data...";
+
+        const nama = document.getElementById(`nama-${prefix}`).value.trim();
+        const nis = document.getElementById(`nis-${prefix}`).value.trim();
+        const kelas = document.getElementById(`kelas-${prefix}`).value.trim();
+
+        if (nama) localStorage.setItem("currentUser", nama);
+        if (nis) localStorage.setItem("userNis", nis);
+        if (kelas) localStorage.setItem("userClass", kelas);
+
+        if (!nama || !nis || !kelas) {
+          statusEl.className = "text-sm status-error w-full md:w-auto";
+          statusEl.innerText = "❌ Mohon isi Nama, NIS, dan Kelas.";
+          btn.disabled = false;
+          btn.innerHTML =
+            'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
           return;
+        }
+
+        let jawaban = [];
+        let typeBackend = "";
+        let soalSet = [];
+
+        if (type === "awal") {
+          typeBackend = "asesmen_awal";
+          soalSet = soalAwal;
+          for (let i = 1; i <= 10; i++) {
+            const radio = document.querySelector(
+              `input[name="jawaban_awal_${i}"]:checked`,
+            );
+            jawaban.push(radio ? radio.value : "");
+          }
+        } else if (type === "akhir") {
+          typeBackend = "asesmen_akhir";
+          soalSet = soalAkhir;
+          for (let i = 1; i <= 10; i++) {
+            const radio = document.querySelector(
+              `input[name="jawaban_akhir_${i}"]:checked`,
+            );
+            jawaban.push(radio ? radio.value : "");
+          }
+        } else if (type === "tertulis") {
+          typeBackend = "asesmen_tertulis";
+          for (let i = 1; i <= 10; i++) {
+            const radio = document.querySelector(
+              `input[name="jawaban_tertulis_${i}"]:checked`,
+            );
+            jawaban.push(radio ? radio.value : "");
+          }
+          for (let i = 1; i <= 2; i++) {
+            const ta = document.getElementById(`jawaban_tertulis_esai_${i}`);
+            jawaban.push(ta ? ta.value.trim() : "");
+          }
+        }
+
+        if (jawaban.some((j) => j === "")) {
+          statusEl.className = "text-sm status-error w-full md:w-auto";
+          statusEl.innerText = "❌ Semua soal harus dijawab.";
+          btn.disabled = false;
+          btn.innerHTML =
+            'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
+          return;
+        }
+
+        let skorLokal = 0;
+        if (type === "awal" || type === "akhir") {
+          for (let i = 0; i < 10; i++) {
+            if (jawaban[i] === soalSet[i].kunci) skorLokal += 10;
+          }
+        } else if (type === "tertulis") {
+          for (let i = 0; i < 10; i++) {
+            if (jawaban[i] === soalTertulis[i].kunci) skorLokal += 5;
+          }
+        }
+
+        const payload = {
+          type: typeBackend,
+          subbab: `subbab_${SUBBAB_NUM}`,
+          subbab_num: SUBBAB_NUM,
+          nama,
+          nis,
+          kelas,
+          jawaban,
+        };
+
         try {
-          const base64Data =
-            dataUriString.indexOf(",") > -1
-              ? dataUriString.split(",")[1]
-              : dataUriString;
-          await fetch(APPS_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              type: "save_lkpd_drive",
-              subbab: subbabNum,
-              nama: nama || "Murid",
-              nis: nis || "-",
-              kelas: kelas || "X",
-              filename,
-              pdfBase64: base64Data,
-            }),
-          });
-        } catch (err) {
-          console.warn("Gagal auto-upload LKPD ke Drive:", err);
+          if (
+            APPS_SCRIPT_URL &&
+            !APPS_SCRIPT_URL.includes("GANTI_DENGAN_URL")
+          ) {
+            await fetch(APPS_SCRIPT_URL, {
+              method: "POST",
+              mode: "no-cors",
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
+              body: JSON.stringify(payload),
+            });
+          }
+          if (type === "tertulis") {
+            statusEl.className = "text-sm status-success w-full md:w-auto";
+            statusEl.innerText = `✅ Terkirim! Skor PG: ${skorLokal}/50 (Esai akan dinilai guru)`;
+          } else {
+            statusEl.className = "text-sm status-success w-full md:w-auto";
+            statusEl.innerText = `✅ Terkirim! Nilai: ${skorLokal}/100`;
+          }
+        } catch (error) {
+          console.error(error);
+          statusEl.className = "text-sm status-error w-full md:w-auto";
+          statusEl.innerText =
+            "❌ Gagal mengirim. Coba lagi atau hubungi guru.";
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML =
+            'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
         }
       }
 
@@ -5683,19 +5946,19 @@ END PROCEDURE</code></pre>
         const nis = localStorage.getItem("userNis") || "";
         const kelas = localStorage.getItem("userClass") || "";
         if (nama) {
-          ["nama-awal", "nama-akhir"].forEach((id) => {
+          ["nama-awal", "nama-akhir", "nama-tertulis"].forEach((id) => {
             const el = document.getElementById(id);
             if (el && !el.value) el.value = nama;
           });
         }
         if (nis) {
-          ["nis-awal", "nis-akhir"].forEach((id) => {
+          ["nis-awal", "nis-akhir", "nis-tertulis"].forEach((id) => {
             const el = document.getElementById(id);
             if (el && !el.value) el.value = nis;
           });
         }
         if (kelas) {
-          ["kelas-awal", "kelas-akhir"].forEach((id) => {
+          ["kelas-awal", "kelas-akhir", "kelas-tertulis"].forEach((id) => {
             const el = document.getElementById(id);
             if (el && !el.value) el.value = kelas;
           });
@@ -5704,9 +5967,9 @@ END PROCEDURE</code></pre>
 
       window.addEventListener("DOMContentLoaded", () => {
         loadLKPD();
-        muatLocalAsesmen();
         renderSoalAwal();
         renderSoalAkhir();
+        renderSoalTertulis();
         simSearch.reset();
         simSort.reset();
         autofillStudentData();
