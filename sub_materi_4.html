@@ -10,7 +10,7 @@
     <title>Sub-Bab 4: Algoritma, Flowchart & Pseudocode - KomputasiKita</title>
     <meta
       name="description"
-      content="Materi Sub-Bab 4: Dasar Algoritma, Flowchart, Pseudocode C++ Dasar - SMA Fase E."
+      content="Materi Sub-Bab 4: Dasar Algoritma, Flowchart, Pseudocode - SMA Fase E."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1162,7 +1162,36 @@
         font-family: inherit;
       }
 
-      /* PSEUDOCODE GAME */
+      /* PSEUDOCODE GAME - MODE TABS */
+      .pc-mode-tab {
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 800;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 2px solid transparent;
+        font-family: inherit;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .pc-mode-tab.active {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(88, 66, 227, 0.35);
+      }
+      .pc-mode-tab.inactive {
+        background: #fff;
+        color: var(--text-muted);
+        border-color: var(--border-color);
+      }
+      .pc-mode-tab.inactive:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      /* PSEUDOCODE GAME - SUSUN */
       .pc-pool {
         display: flex;
         flex-direction: column;
@@ -1230,6 +1259,115 @@
         background: #fee2e2;
         color: #991b1b;
         border-color: #ef4444;
+      }
+
+      /* PSEUDOCODE GAME - TRACING */
+      .pc-trace-card {
+        background: #0f172a;
+        border-radius: 16px;
+        padding: 20px;
+        font-family: "Courier New", monospace;
+        font-size: 0.85rem;
+        line-height: 1.8;
+        color: #e2e8f0;
+        overflow-x: auto;
+        border: 2px solid #1e293b;
+        position: relative;
+      }
+      .pc-trace-card pre {
+        white-space: pre;
+        font-family: "Courier New", monospace;
+      }
+      .pc-trace-card .kw {
+        color: #a78bfa;
+        font-weight: 700;
+      }
+      .pc-trace-card .str {
+        color: #86efac;
+      }
+      .pc-trace-card .num {
+        color: #93c5fd;
+      }
+      .pc-trace-card .cmt {
+        color: #94a3b8;
+        font-style: italic;
+      }
+      .pc-trace-input {
+        width: 100%;
+        padding: 14px 18px;
+        border: 2px solid #cbd5e1;
+        border-radius: 14px;
+        font-family: "Courier New", monospace;
+        font-size: 1rem;
+        font-weight: 700;
+        outline: none;
+        transition: all 0.2s;
+        background: #f8fafc;
+      }
+      .pc-trace-input:focus {
+        border-color: var(--primary);
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(88, 66, 227, 0.15);
+      }
+      .pc-trace-input.correct {
+        border-color: #10b981;
+        background: #d1fae5;
+        color: #065f46;
+      }
+      .pc-trace-input.wrong {
+        border-color: #ef4444;
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .pc-trace-hint {
+        background: #fefce8;
+        border-left: 4px solid #facc15;
+        padding: 12px 16px;
+        border-radius: 0 12px 12px 0;
+        font-size: 0.82rem;
+        color: #713f12;
+        font-weight: 500;
+        line-height: 1.55;
+      }
+      .pc-trace-hint strong {
+        color: #422006;
+      }
+      .pc-scenario-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .pc-scenario-dot {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 0.8rem;
+        cursor: pointer;
+        border: 2px solid var(--border-color);
+        background: #fff;
+        color: var(--text-muted);
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      .pc-scenario-dot.active {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+        transform: scale(1.1);
+      }
+      .pc-scenario-dot.done {
+        background: #10b981;
+        color: #fff;
+        border-color: #10b981;
+      }
+      .pc-scenario-dot:hover:not(.active) {
+        border-color: var(--primary);
+        color: var(--primary);
       }
 
       /* CONFETTI */
@@ -1399,7 +1537,6 @@
           padding-right: 14px;
         }
 
-        /* Navbar */
         .navbar {
           padding: 12px 0;
         }
@@ -1452,7 +1589,6 @@
           font-size: 0.95rem;
         }
 
-        /* Hero */
         .hero-card {
           padding: 28px 18px;
           border-radius: 22px;
@@ -1482,7 +1618,6 @@
           gap: 10px;
         }
 
-        /* Info & colored cards */
         .info-card {
           padding: 16px;
           border-radius: 16px;
@@ -1501,7 +1636,6 @@
           font-size: 4rem;
         }
 
-        /* Headings scale down */
         h1 {
           word-break: break-word;
         }
@@ -1512,13 +1646,11 @@
           font-size: 1.05rem !important;
         }
 
-        /* Materi tabs */
         .materi-tab {
           padding: 12px 16px !important;
           font-size: 0.85rem;
         }
 
-        /* Code block */
         .code-block {
           padding: 14px;
           font-size: 0.75rem;
@@ -1532,7 +1664,6 @@
           font-size: 0.62rem;
         }
 
-        /* Flowchart visual */
         .fc-visual {
           padding: 12px;
           border-radius: 12px;
@@ -1543,7 +1674,6 @@
           height: auto;
         }
 
-        /* FCB main */
         .fcb-canvas-wrap {
           min-height: 460px;
           border-radius: 16px;
@@ -1598,7 +1728,6 @@
           font-size: 0.78rem;
         }
 
-        /* Mini FCB - palette scroll horizontally */
         .mini-fcb-palette {
           flex-wrap: nowrap;
           overflow-x: auto;
@@ -1628,7 +1757,6 @@
           background-size: 16px 16px;
         }
 
-        /* Pseudocode game */
         .pc-workspace {
           padding: 12px;
           min-height: 220px;
@@ -1645,8 +1773,24 @@
           padding: 10px 12px;
           min-height: 38px;
         }
+        .pc-trace-card {
+          padding: 14px;
+          font-size: 0.72rem;
+        }
+        .pc-trace-input {
+          padding: 12px 14px;
+          font-size: 0.9rem;
+        }
+        .pc-mode-tab {
+          padding: 10px 16px;
+          font-size: 0.78rem;
+        }
+        .pc-scenario-dot {
+          width: 30px;
+          height: 30px;
+          font-size: 0.72rem;
+        }
 
-        /* Tables */
         .compare-table {
           font-size: 0.76rem;
         }
@@ -1659,7 +1803,6 @@
           height: 30px;
         }
 
-        /* LKPD */
         .lkpd-tab {
           padding: 10px 16px !important;
           font-size: 0.75rem !important;
@@ -1669,7 +1812,6 @@
           padding: 10px 12px;
         }
 
-        /* Tables with inputs inside LKPD — make scrollable */
         .overflow-hidden.rounded-2xl.border.border-slate-200 {
           overflow-x: auto !important;
           -webkit-overflow-scrolling: touch;
@@ -1683,7 +1825,6 @@
           min-width: 120px;
         }
 
-        /* Asesmen */
         .asesmen-card {
           padding: 16px;
           border-radius: 16px;
@@ -1705,7 +1846,6 @@
           height: 1.05rem;
         }
 
-        /* Footer */
         .footer {
           padding: 36px 0 24px;
         }
@@ -1754,7 +1894,6 @@
         }
       }
 
-      /* Prevent horizontal overflow */
       img,
       svg,
       video {
@@ -1955,9 +2094,7 @@
                   >
                     3
                   </div>
-                  <strong class="text-dark text-sm"
-                    >Pseudocode Sekuensial</strong
-                  >
+                  <strong class="text-dark text-sm">Pseudocode Lengkap</strong>
                 </div>
                 <div
                   class="bg-slate-50 rounded-2xl p-3 border border-slate-100 flex gap-3 items-center"
@@ -1968,7 +2105,7 @@
                     4
                   </div>
                   <strong class="text-dark text-sm"
-                    >Pengenalan Bahasa C++</strong
+                    >Tracing &amp; Logika</strong
                   >
                 </div>
               </div>
@@ -2011,7 +2148,9 @@
               <i class="fas fa-book-open deco-icon"></i>
               <span class="tag"><i class="fas fa-book mr-2"></i>Tahap 2</span>
               <h3>Materi Inti</h3>
-              <p>Konsep algoritma, flowchart, simbol, dan pseudocode.</p>
+              <p>
+                Konsep algoritma, flowchart, simbol, dan pseudocode lengkap.
+              </p>
               <div class="action">
                 <span>25 Menit</span><span>Baca &rarr;</span>
               </div>
@@ -2040,8 +2179,8 @@
               <span class="tag"
                 ><i class="fas fa-gamepad mr-2"></i>Tahap 4</span
               >
-              <h3>Game: Susun Pseudocode</h3>
-              <p>Susun potongan kode menjadi urutan pseudocode yang benar!</p>
+              <h3>Game Pseudocode</h3>
+              <p>2 mode seru: Susun pseudocode &amp; Tebak output (Tracing)!</p>
               <div class="action">
                 <span>Game</span><span>Main &rarr;</span>
               </div>
@@ -3105,256 +3244,6 @@
               </div>
 
               <h4 class="font-bold text-dark mb-3 text-lg">
-                <i class="fas fa-umbrella text-primary mr-2"></i>Contoh 3:
-                Apakah Hari Ini Hujan?
-              </h4>
-              <div class="fc-visual mb-6">
-                <svg
-                  width="440"
-                  height="340"
-                  viewBox="0 0 440 340"
-                  xmlns="http://www.w3.org/2000/svg"
-                  font-family="Plus Jakarta Sans, sans-serif"
-                >
-                  <defs>
-                    <marker
-                      id="arrowM3"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
-                    </marker>
-                    <marker
-                      id="arrowY3"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981" />
-                    </marker>
-                    <marker
-                      id="arrowT3"
-                      viewBox="0 0 10 10"
-                      refX="9"
-                      refY="5"
-                      markerWidth="6"
-                      markerHeight="6"
-                      orient="auto-start-reverse"
-                    >
-                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444" />
-                    </marker>
-                  </defs>
-                  <rect
-                    x="170"
-                    y="10"
-                    width="100"
-                    height="40"
-                    rx="20"
-                    fill="#fef3c7"
-                    stroke="#f59e0b"
-                    stroke-width="2"
-                  />
-                  <text
-                    x="220"
-                    y="35"
-                    text-anchor="middle"
-                    font-size="13"
-                    font-weight="700"
-                    fill="#1e293b"
-                  >
-                    START
-                  </text>
-                  <line
-                    x1="220"
-                    y1="50"
-                    x2="220"
-                    y2="80"
-                    stroke="#475569"
-                    stroke-width="2"
-                    marker-end="url(#arrowM3)"
-                  />
-                  <polygon
-                    points="220,80 330,130 220,180 110,130"
-                    fill="#e0e7ff"
-                    stroke="#6366f1"
-                    stroke-width="2"
-                  />
-                  <text
-                    x="220"
-                    y="135"
-                    text-anchor="middle"
-                    font-size="12"
-                    font-weight="700"
-                    fill="#1e293b"
-                  >
-                    Apakah hujan?
-                  </text>
-                  <line
-                    x1="110"
-                    y1="130"
-                    x2="60"
-                    y2="130"
-                    stroke="#10b981"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="60"
-                    y1="130"
-                    x2="60"
-                    y2="200"
-                    stroke="#10b981"
-                    stroke-width="2"
-                    marker-end="url(#arrowY3)"
-                  />
-                  <text
-                    x="70"
-                    y="125"
-                    font-size="11"
-                    font-weight="700"
-                    fill="#10b981"
-                  >
-                    YA
-                  </text>
-                  <polygon
-                    points="20,200 100,200 90,240 10,240"
-                    fill="#d1fae5"
-                    stroke="#10b981"
-                    stroke-width="2"
-                  />
-                  <text
-                    x="55"
-                    y="225"
-                    text-anchor="middle"
-                    font-size="12"
-                    font-weight="700"
-                    fill="#065f46"
-                  >
-                    Bawa payung
-                  </text>
-                  <line
-                    x1="330"
-                    y1="130"
-                    x2="380"
-                    y2="130"
-                    stroke="#ef4444"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="380"
-                    y1="130"
-                    x2="380"
-                    y2="200"
-                    stroke="#ef4444"
-                    stroke-width="2"
-                    marker-end="url(#arrowT3)"
-                  />
-                  <text
-                    x="350"
-                    y="125"
-                    font-size="11"
-                    font-weight="700"
-                    fill="#ef4444"
-                  >
-                    TIDAK
-                  </text>
-                  <polygon
-                    points="330,200 430,200 420,240 320,240"
-                    fill="#fee2e2"
-                    stroke="#ef4444"
-                    stroke-width="2"
-                  />
-                  <text
-                    x="375"
-                    y="218"
-                    text-anchor="middle"
-                    font-size="11"
-                    font-weight="700"
-                    fill="#991b1b"
-                  >
-                    Tidak perlu
-                  </text>
-                  <text
-                    x="375"
-                    y="231"
-                    text-anchor="middle"
-                    font-size="11"
-                    font-weight="700"
-                    fill="#991b1b"
-                  >
-                    payung
-                  </text>
-                  <line
-                    x1="55"
-                    y1="240"
-                    x2="55"
-                    y2="280"
-                    stroke="#475569"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="55"
-                    y1="280"
-                    x2="220"
-                    y2="280"
-                    stroke="#475569"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="375"
-                    y1="240"
-                    x2="375"
-                    y2="280"
-                    stroke="#475569"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="375"
-                    y1="280"
-                    x2="220"
-                    y2="280"
-                    stroke="#475569"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="220"
-                    y1="280"
-                    x2="220"
-                    y2="300"
-                    stroke="#475569"
-                    stroke-width="2"
-                    marker-end="url(#arrowM3)"
-                  />
-                  <rect
-                    x="170"
-                    y="300"
-                    width="100"
-                    height="35"
-                    rx="17"
-                    fill="#fef3c7"
-                    stroke="#f59e0b"
-                    stroke-width="2"
-                  />
-                  <text
-                    x="220"
-                    y="322"
-                    text-anchor="middle"
-                    font-size="13"
-                    font-weight="700"
-                    fill="#1e293b"
-                  >
-                    END
-                  </text>
-                </svg>
-              </div>
-
-              <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-search text-primary mr-2"></i>Contoh 4:
                 Menelusuri Flowchart (Tracing)
               </h4>
@@ -3856,58 +3745,335 @@
               >
                 D. Pseudocode (Kode Semu)
               </h3>
+
               <p class="text-slate-700 mb-4 leading-relaxed">
                 <em>Pseudo</em> berarti tiruan, <em>code</em> berarti kode.
                 <strong>Pseudocode</strong> adalah bahasa jembatan antara bahasa
-                manusia dan komputer.
+                manusia dan komputer. Ia belum dapat dijalankan oleh komputer,
+                namun sangat mirip dengan kode asli sehingga mudah
+                diterjemahkan. Dengan pseudocode, kalian dapat menuliskan
+                langkah-langkah penyelesaian masalah secara <em>formal</em>,
+                <em>rapi</em>, dan <em>konsisten</em>.
               </p>
+
               <div
                 class="bg-emerald-50 border-l-4 border-emerald-500 p-5 rounded-r-2xl mb-6"
               >
                 <p class="text-sm text-slate-700 font-medium">
                   <strong
-                    ><i class="fas fa-pencil mr-1 text-emerald-600"></i>Aturan
-                    Penulisan:</strong
+                    ><i class="fas fa-lightbulb mr-1 text-emerald-600"></i
+                    >Analogi:</strong
                   >
+                  Pseudocode seperti
+                  <strong>resep masakan yang ditulis rapi</strong> di buku
+                  resep. Orang lain (atau komputer) bisa mengikuti langkahnya
+                  dengan mudah, meskipun belum tentu bisa langsung dimasak oleh
+                  mesin. Ia adalah <em>jembatan</em> antara flowchart dan
+                  program nyata.
                 </p>
-                <ul
-                  class="list-disc pl-6 mt-2 text-sm text-slate-700 space-y-1"
-                >
-                  <li>
-                    Gunakan kata kunci: <code>INPUT</code>, <code>OUTPUT</code>,
-                    <code>IF</code>, <code>ELSE</code>, <code>WHILE</code>,
-                    <code>FOR</code>.
-                  </li>
-                  <li>Fokus pada logika, bukan tanda baca.</li>
-                  <li>Gunakan indentasi.</li>
-                  <li>Satu baris untuk satu pernyataan.</li>
-                </ul>
               </div>
-              <h4 class="font-bold text-dark mb-3 text-lg">
-                <i class="fas fa-calculator text-primary mr-2"></i>Contoh 1:
-                Menghitung Luas Persegi
+
+              <h4 class="font-bold text-dark mt-6 mb-3 text-lg">
+                <i class="fas fa-pencil-ruler text-primary mr-2"></i>Aturan
+                Penulisan Pseudocode
               </h4>
-              <div class="code-block mb-4">
-                <span class="code-label">Pseudocode</span>
-                <pre><span class="cmt">Algoritma Menghitung Luas Persegi</span>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
+                <div
+                  class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex gap-3 items-start"
+                >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-black text-sm flex-shrink-0"
+                  >
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <p class="text-sm text-slate-700 font-medium">
+                    <strong>Satu baris</strong> untuk satu pernyataan
+                    (<em>statement</em>).
+                  </p>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex gap-3 items-start"
+                >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-black text-sm flex-shrink-0"
+                  >
+                    <i class="fas fa-indent"></i>
+                  </div>
+                  <p class="text-sm text-slate-700 font-medium">
+                    Gunakan <strong>indentasi</strong> untuk menunjukkan
+                    hierarki (blok di dalam <code>if</code> atau
+                    <code>while</code>).
+                  </p>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex gap-3 items-start"
+                >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-black text-sm flex-shrink-0"
+                  >
+                    <i class="fas fa-font"></i>
+                  </div>
+                  <p class="text-sm text-slate-700 font-medium">
+                    Gunakan <strong>kata kunci jelas</strong>:
+                    <code>INPUT</code>, <code>OUTPUT</code>, <code>IF</code>,
+                    <code>ELSE</code>, <code>WHILE</code>, <code>FOR</code>.
+                  </p>
+                </div>
+                <div
+                  class="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex gap-3 items-start"
+                >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-black text-sm flex-shrink-0"
+                  >
+                    <i class="fas fa-brain"></i>
+                  </div>
+                  <p class="text-sm text-slate-700 font-medium">
+                    Fokus pada <strong>logika</strong>, bukan tanda baca.
+                  </p>
+                </div>
+              </div>
+
+              <h4 class="font-bold text-dark mt-6 mb-3 text-lg">
+                <i class="fas fa-icons text-primary mr-2"></i>Notasi Dasar
+                Pseudocode
+              </h4>
+              <div
+                class="overflow-x-auto mb-6 rounded-2xl border border-slate-200"
+              >
+                <table class="compare-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 25%">Notasi</th>
+                      <th>Fungsi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code class="text-primary font-bold">input</code></td>
+                      <td>Membaca data dari pengguna</td>
+                    </tr>
+                    <tr>
+                      <td><code class="text-primary font-bold">print</code></td>
+                      <td>Menampilkan output ke layar</td>
+                    </tr>
+                    <tr>
+                      <td><code class="text-primary font-bold">←</code></td>
+                      <td>Assignment (pemberian nilai ke variabel)</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <code class="text-primary font-bold"
+                          >if...then...else</code
+                        >
+                      </td>
+                      <td>Keputusan / percabangan</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <code class="text-primary font-bold">while...do</code>
+                      </td>
+                      <td>Perulangan (selama kondisi terpenuhi)</td>
+                    </tr>
+                    <tr>
+                      <td><code class="text-primary font-bold">for</code></td>
+                      <td>Perulangan dengan pencacah (counter)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4 class="font-bold text-dark mt-6 mb-3 text-lg">
+                <i class="fas fa-layer-group text-primary mr-2"></i>Struktur
+                Dasar Pseudocode
+              </h4>
+              <div
+                class="overflow-x-auto mb-6 rounded-2xl border border-slate-200"
+              >
+                <table class="compare-table">
+                  <thead>
+                    <tr>
+                      <th>Bagian</th>
+                      <th>Contoh Penulisan</th>
+                      <th>Fungsi Utama</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><b>Judul Program</b></td>
+                      <td>
+                        <code>Algoritma Menghitung Luas Persegi</code>
+                      </td>
+                      <td>Menjelaskan tujuan program</td>
+                    </tr>
+                    <tr>
+                      <td><b>Deklarasi Variabel</b></td>
+                      <td><code>sisi, luas : integer</code></td>
+                      <td>Mendefinisikan variabel</td>
+                    </tr>
+                    <tr>
+                      <td><b>Input</b></td>
+                      <td><code>input sisi</code></td>
+                      <td>Membaca data</td>
+                    </tr>
+                    <tr>
+                      <td><b>Proses</b></td>
+                      <td><code>luas ← sisi * sisi</code></td>
+                      <td>Mengolah data</td>
+                    </tr>
+                    <tr>
+                      <td><b>Output</b></td>
+                      <td><code>print luas</code></td>
+                      <td>Menampilkan hasil</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4 class="font-bold text-dark mt-6 mb-3 text-lg">
+                <i class="fas fa-scale-balanced text-primary mr-2"></i>Perbedaan
+                Flowchart, Pseudocode, dan Program
+              </h4>
+              <div
+                class="overflow-x-auto mb-6 rounded-2xl border border-slate-200"
+              >
+                <table class="compare-table">
+                  <thead>
+                    <tr>
+                      <th>Aspek</th>
+                      <th>Flowchart</th>
+                      <th>Pseudocode</th>
+                      <th>Program</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><b>Bentuk</b></td>
+                      <td>Gambar / diagram</td>
+                      <td>Teks terstruktur</td>
+                      <td>Teks kode siap eksekusi</td>
+                    </tr>
+                    <tr>
+                      <td><b>Dibaca oleh</b></td>
+                      <td>Manusia (visual)</td>
+                      <td>Manusia (logika)</td>
+                      <td>Komputer</td>
+                    </tr>
+                    <tr>
+                      <td><b>Aturan</b></td>
+                      <td>Simbol ANSI/ISO</td>
+                      <td>Informal, fleksibel</td>
+                      <td>Ketat (sintaks)</td>
+                    </tr>
+                    <tr>
+                      <td><b>Dapat dijalankan?</b></td>
+                      <td>Tidak</td>
+                      <td>Tidak</td>
+                      <td>Ya</td>
+                    </tr>
+                    <tr>
+                      <td><b>Kelebihan</b></td>
+                      <td>Mudah dilihat alurnya</td>
+                      <td>Dekat dengan kode asli</td>
+                      <td>Langsung eksekusi</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4
+                class="font-bold text-dark mt-8 mb-3 text-lg flex items-center gap-2"
+              >
+                <i class="fas fa-book-open text-primary"></i>
+                5 Contoh Pseudocode Standar
+              </h4>
+              <p class="text-sm text-slate-600 mb-4 font-medium">
+                Kelima contoh di bawah ini adalah contoh <em>standar</em> yang
+                kalian harus kuasai. Urutannya dari yang paling sederhana
+                (sequence) sampai yang paling kompleks (loop + kondisi).
+              </p>
+
+              <div
+                class="bg-indigo-50 rounded-2xl p-4 mb-4 border border-indigo-100"
+              >
+                <h5
+                  class="font-bold text-primary mb-2 text-sm flex items-center gap-2"
+                >
+                  <span
+                    class="w-6 h-6 rounded-md bg-primary text-white flex items-center justify-center text-xs font-black"
+                    >1</span
+                  >
+                  Menghitung Luas Persegi
+                  <span
+                    class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold"
+                    >Sequence</span
+                  >
+                </h5>
+                <div class="code-block mb-2">
+                  <span class="code-label">Pseudocode</span>
+                  <pre><span class="cmt">Algoritma Menghitung Luas Persegi</span>
 <span class="cmt">Input: Nilai Panjang Sisi Persegi</span>
 <span class="cmt">Output: Luas Persegi tercetak</span>
 
 <span class="kw">input</span> sisi
 luas ← sisi * sisi
 <span class="kw">print</span> luas</pre>
+                </div>
+                <p class="text-xs text-slate-600 font-medium">
+                  Jika <code>sisi = 5</code>, outputnya <b>25</b>.
+                </p>
               </div>
-              <p class="text-sm text-slate-700 font-medium mb-6">
-                Jika sisi = 5, outputnya <b>25</b>.
-              </p>
 
-              <h4 class="font-bold text-dark mb-3 text-lg">
-                <i class="fas fa-code-branch text-primary mr-2"></i>Contoh 2:
-                Membagi Bilangan
-              </h4>
-              <div class="code-block mb-4">
-                <span class="code-label">Pseudocode dengan Kondisi</span>
-                <pre><span class="cmt">Algoritma Membagi Bilangan</span>
+              <div
+                class="bg-indigo-50 rounded-2xl p-4 mb-4 border border-indigo-100"
+              >
+                <h5
+                  class="font-bold text-primary mb-2 text-sm flex items-center gap-2"
+                >
+                  <span
+                    class="w-6 h-6 rounded-md bg-primary text-white flex items-center justify-center text-xs font-black"
+                    >2</span
+                  >
+                  Menghitung Luas Permukaan Kubus
+                  <span
+                    class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold"
+                    >Sequence + Subprogram</span
+                  >
+                </h5>
+                <div class="code-block mb-2">
+                  <span class="code-label">Pseudocode</span>
+                  <pre><span class="cmt">Algoritma Menghitung Luas Permukaan Kubus</span>
+<span class="cmt">Input: Nilai Panjang Sisi Kubus</span>
+<span class="cmt">Output: Luas Permukaan Kubus tercetak</span>
+
+<span class="kw">input</span> sisi
+luas_permukaan ← luas(sisi) * 6
+<span class="kw">print</span> luas_permukaan</pre>
+                </div>
+                <p class="text-xs text-slate-600 font-medium">
+                  Jika <code>sisi = 4</code>, maka <code>luas(sisi) = 16</code>,
+                  outputnya <b>96</b>.
+                </p>
+              </div>
+
+              <div
+                class="bg-indigo-50 rounded-2xl p-4 mb-4 border border-indigo-100"
+              >
+                <h5
+                  class="font-bold text-primary mb-2 text-sm flex items-center gap-2"
+                >
+                  <span
+                    class="w-6 h-6 rounded-md bg-primary text-white flex items-center justify-center text-xs font-black"
+                    >3</span
+                  >
+                  Membagi Bilangan
+                  <span
+                    class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-bold"
+                    >Keputusan (if-else)</span
+                  >
+                </h5>
+                <div class="code-block mb-2">
+                  <span class="code-label">Pseudocode</span>
+                  <pre><span class="cmt">Algoritma Membagi Bilangan</span>
 <span class="cmt">Input: Pembilang dan Penyebut</span>
 <span class="cmt">Output: Hasil Pembagian tercetak</span>
 
@@ -3917,18 +4083,32 @@ luas ← sisi * sisi
 <span class="kw">else</span>
     hasil ← pembilang / penyebut
     <span class="kw">print</span> hasil</pre>
+                </div>
+                <p class="text-xs text-slate-600 font-medium">
+                  Jika <code>penyebut = 0</code>, outputnya
+                  <b>"Penyebut tidak boleh nol"</b>.
+                </p>
               </div>
-              <p class="text-sm text-slate-700 font-medium mb-6">
-                Jika penyebut = 0, outputnya <b>"Penyebut tidak boleh nol"</b>.
-              </p>
 
-              <h4 class="font-bold text-dark mb-3 text-lg">
-                <i class="fas fa-redo text-primary mr-2"></i>Contoh 3:
-                Menghitung Mundur dari N
-              </h4>
-              <div class="code-block mb-4">
-                <span class="code-label">Pseudocode Perulangan</span>
-                <pre><span class="cmt">Algoritma Menghitung Mundur dari N hingga 1</span>
+              <div
+                class="bg-indigo-50 rounded-2xl p-4 mb-4 border border-indigo-100"
+              >
+                <h5
+                  class="font-bold text-primary mb-2 text-sm flex items-center gap-2"
+                >
+                  <span
+                    class="w-6 h-6 rounded-md bg-primary text-white flex items-center justify-center text-xs font-black"
+                    >4</span
+                  >
+                  Menghitung Mundur dari N
+                  <span
+                    class="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-bold"
+                    >Perulangan (while)</span
+                  >
+                </h5>
+                <div class="code-block mb-2">
+                  <span class="code-label">Pseudocode</span>
+                  <pre><span class="cmt">Algoritma Menghitung Mundur dari N hingga 1</span>
 <span class="cmt">Input: Nilai N</span>
 <span class="cmt">Output: Angka hitung mundur dari N sampai 1</span>
 
@@ -3936,10 +4116,159 @@ luas ← sisi * sisi
 <span class="kw">while</span> N > 0
     <span class="kw">print</span> N
     N ← N - 1</pre>
+                </div>
+                <p class="text-xs text-slate-600 font-medium">
+                  Jika <code>N = 5</code>, outputnya <b>5 4 3 2 1</b>.
+                </p>
               </div>
-              <p class="text-sm text-slate-700 font-medium">
-                Jika N = 5, outputnya <b>5 4 3 2 1</b>.
-              </p>
+
+              <div
+                class="bg-indigo-50 rounded-2xl p-4 mb-6 border border-indigo-100"
+              >
+                <h5
+                  class="font-bold text-primary mb-2 text-sm flex items-center gap-2"
+                >
+                  <span
+                    class="w-6 h-6 rounded-md bg-primary text-white flex items-center justify-center text-xs font-black"
+                    >5</span
+                  >
+                  Mencari Bilangan Terbesar
+                  <span
+                    class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full font-bold"
+                    >Loop + Kondisi</span
+                  >
+                </h5>
+                <div class="code-block mb-2">
+                  <span class="code-label">Pseudocode</span>
+                  <pre><span class="cmt">Algoritma Mencari Bilangan Terbesar</span>
+<span class="cmt">Input: Himpunan bilangan L</span>
+<span class="cmt">Output: Bilangan terbesar pada himpunan L</span>
+
+<span class="kw">if</span> size of (L) = 0
+    <span class="kw">return</span> null
+largest ← elemen pertama L
+<span class="kw">for each</span> item <span class="kw">in</span> L, <span class="kw">do</span>
+    <span class="kw">if</span> item > largest, <span class="kw">then</span>
+        largest ← item
+<span class="kw">return</span> largest</pre>
+                </div>
+                <p class="text-xs text-slate-600 font-medium">
+                  Jika <code>L = [3, 7, 2, 9, 5]</code>, outputnya <b>9</b>.
+                </p>
+              </div>
+
+              <h4 class="font-bold text-dark mt-8 mb-3 text-lg">
+                <i class="fas fa-arrows-left-right text-primary mr-2"></i
+                >Padanan Sintaks Pseudocode → C → Python
+              </h4>
+              <div
+                class="overflow-x-auto mb-6 rounded-2xl border border-slate-200"
+              >
+                <table class="compare-table">
+                  <thead>
+                    <tr>
+                      <th>Pseudocode</th>
+                      <th>Bahasa C</th>
+                      <th>Python</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>print x</code></td>
+                      <td><code>printf("%d", x);</code></td>
+                      <td><code>print(x)</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>input x</code></td>
+                      <td><code>scanf("%d", &x);</code></td>
+                      <td><code>x = input()</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>x ← 10</code></td>
+                      <td><code>x = 10;</code></td>
+                      <td><code>x = 10</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>if kondisi then ... else ...</code></td>
+                      <td>
+                        <code>if (kondisi) { ... } else { ... }</code>
+                      </td>
+                      <td><code>if kondisi: ... else: ...</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>while kondisi do ...</code></td>
+                      <td><code>while (kondisi) { ... }</code></td>
+                      <td><code>while kondisi: ...</code></td>
+                    </tr>
+                    <tr>
+                      <td><code>for i ← 0 to n-1 do ...</code></td>
+                      <td><code>for (int i=0;i&lt;n;i++) { ... }</code></td>
+                      <td><code>for i in range(n): ...</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h4 class="font-bold text-dark mt-8 mb-3 text-lg">
+                <i class="fas fa-search text-primary mr-2"></i>Tips Tracing
+                Pseudocode
+              </h4>
+              <div
+                class="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r-2xl mb-6"
+              >
+                <ol
+                  class="list-decimal pl-5 text-sm text-slate-700 space-y-2 font-medium"
+                >
+                  <li>
+                    Buat tabel tiga kolom: <b>Masukan</b>,
+                    <b>Nilai Variabel</b>, dan <b>Keluaran</b>.
+                  </li>
+                  <li>
+                    Baca pseudocode dari atas ke bawah, catat setiap perubahan
+                    nilai variabel.
+                  </li>
+                  <li>
+                    Saat menemukan <code>input</code>, tulis nilai yang
+                    diberikan.
+                  </li>
+                  <li>
+                    Saat menemukan <code>←</code>, hitung dan perbarui nilai
+                    variabel.
+                  </li>
+                  <li>
+                    Saat menemukan <code>print</code>, catat output yang
+                    dihasilkan.
+                  </li>
+                  <li>
+                    Untuk perulangan (<code>while</code> / <code>for</code>),
+                    ulangi langkah 3-5 sampai kondisi berhenti terpenuhi.
+                  </li>
+                  <li>
+                    Pastikan perulangan <b>konvergen</b> (mendekati kondisi
+                    berhenti) agar tidak terjadi <em>infinite loop</em>.
+                  </li>
+                </ol>
+              </div>
+
+              <div
+                class="bg-primary/5 border border-primary/20 rounded-2xl p-5"
+              >
+                <p class="text-sm text-slate-700 font-medium">
+                  <strong
+                    ><i class="fas fa-lightbulb mr-1 text-primary"></i
+                    >Kesimpulan:</strong
+                  >
+                  Pseudocode adalah <em>alat bantu berpikir</em> yang membantu
+                  kita menyusun solusi secara
+                  <b>terstruktur, logis, dan sistematis</b> sebelum
+                  menerapkannya ke dalam kode program. Dengan pseudocode, kita
+                  dapat memeriksa alur dan logika penyelesaian masalah terlebih
+                  dahulu tanpa terikat pada aturan sintaks bahasa pemrograman
+                  tertentu. Semakin jelas dan terstruktur pseudocode yang
+                  dibuat, semakin mudah pula menerjemahkannya ke dalam berbagai
+                  bahasa pemrograman, seperti C, Python, Java, dan lainnya.
+                </p>
+              </div>
             </div>
 
             <!-- E. ISTILAH -->
@@ -3971,7 +4300,8 @@ luas ← sisi * sisi
                 >
                   <dt class="font-bold text-primary">Pseudocode</dt>
                   <dd class="text-sm text-slate-600 mt-2">
-                    Kode semu mirip bahasa pemrograman.
+                    Kode semu mirip bahasa pemrograman, jembatan
+                    manusia-komputer.
                   </dd>
                 </div>
                 <div
@@ -3980,6 +4310,14 @@ luas ← sisi * sisi
                   <dt class="font-bold text-primary">Variabel</dt>
                   <dd class="text-sm text-slate-600 mt-2">
                     Wadah penyimpan nilai.
+                  </dd>
+                </div>
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
+                >
+                  <dt class="font-bold text-primary">Assignment (←)</dt>
+                  <dd class="text-sm text-slate-600 mt-2">
+                    Memberikan nilai ke sebuah variabel.
                   </dd>
                 </div>
                 <div
@@ -4011,7 +4349,7 @@ luas ← sisi * sisi
                 >
                   <dt class="font-bold text-primary">Branching</dt>
                   <dd class="text-sm text-slate-600 mt-2">
-                    Percabangan berdasarkan kondisi.
+                    Percabangan berdasarkan kondisi (if-else).
                   </dd>
                 </div>
                 <div
@@ -4033,17 +4371,9 @@ luas ← sisi * sisi
                 <div
                   class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
                 >
-                  <dt class="font-bold text-primary">Terminator</dt>
+                  <dt class="font-bold text-primary">Indentasi</dt>
                   <dd class="text-sm text-slate-600 mt-2">
-                    Simbol flowchart untuk awal/akhir program.
-                  </dd>
-                </div>
-                <div
-                  class="bg-slate-50 p-4 rounded-2xl border border-slate-100"
-                >
-                  <dt class="font-bold text-primary">Decision</dt>
-                  <dd class="text-sm text-slate-600 mt-2">
-                    Simbol flowchart untuk keputusan kondisi.
+                    Jarak menjorok untuk menunjukkan hierarki/blok pernyataan.
                   </dd>
                 </div>
               </div>
@@ -4316,101 +4646,256 @@ luas ← sisi * sisi
           </button>
           <div>
             <h2 class="text-3xl font-black text-dark uppercase tracking-tight">
-              🎮 Game: Susun Pseudocode
+              🎮 Game Pseudocode
             </h2>
             <p class="text-slate-500 mt-1 font-medium">
-              Klik baris di kolam bawah untuk menyusunnya menjadi pseudocode
-              yang benar!
+              Dua mode seru untuk menguji pemahaman pseudocode-mu!
             </p>
           </div>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div
-            class="lg:col-span-1 bg-white p-6 rounded-3xl shadow-sm border border-slate-100 h-fit"
+
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+          <button
+            onclick="switchPcMode('susun')"
+            id="pc-tab-susun"
+            class="pc-mode-tab active"
           >
-            <h3
-              class="font-black text-lg text-dark mb-4 flex items-center gap-2"
-            >
-              <i class="fas fa-bullseye text-primary"></i> Skenario
-            </h3>
-            <select
-              id="pcScenarioSelect"
-              class="w-full px-4 py-3 border-2 border-slate-200 rounded-2xl focus:border-primary outline-none font-bold bg-slate-50 mb-4 text-sm"
-              onchange="loadPcScenario()"
-            >
-              <option value="luas">Menghitung Luas Persegi</option>
-              <option value="bagi">Membagi Bilangan (dengan Kondisi)</option>
-              <option value="mundur">Menghitung Mundur dari N</option>
-            </select>
+            <i class="fas fa-puzzle-piece"></i> Mode 1: Susun Pseudocode
+          </button>
+          <button
+            onclick="switchPcMode('tracing')"
+            id="pc-tab-tracing"
+            class="pc-mode-tab inactive"
+          >
+            <i class="fas fa-magnifying-glass-chart"></i> Mode 2: Tebak Output
+            (Tracing)
+          </button>
+        </div>
+
+        <div id="pc-mode-susun" class="pc-mode-content block">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div
-              class="p-4 bg-indigo-50 rounded-2xl border border-indigo-100 mb-4"
+              class="lg:col-span-1 bg-white p-6 rounded-3xl shadow-sm border border-slate-100 h-fit"
             >
-              <p class="text-xs font-black text-primary uppercase mb-1">
-                Tujuan
-              </p>
-              <p id="pcGoal" class="text-sm text-slate-700 font-medium">-</p>
-            </div>
-            <div
-              class="p-4 bg-slate-50 rounded-2xl border border-slate-100 mb-4"
-            >
-              <div class="flex justify-between items-center mb-2">
-                <span class="text-xs font-bold text-slate-600 uppercase"
-                  >Skor</span
-                ><span class="text-lg font-black text-primary" id="pcScore"
-                  >0</span
-                >
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-xs font-bold text-slate-600 uppercase"
-                  >Progress</span
-                ><span
-                  class="text-lg font-black text-emerald-600"
-                  id="pcProgress"
-                  >0/0</span
-                >
-              </div>
-            </div>
-            <div class="space-y-2">
-              <button
-                onclick="checkPcGame()"
-                class="w-full py-3 bg-primary text-white font-bold rounded-2xl hover:bg-primary-dark transition shadow-lg shadow-primary/30 text-sm"
+              <h3
+                class="font-black text-lg text-dark mb-4 flex items-center gap-2"
               >
-                <i class="fas fa-check-circle mr-2"></i> Periksa Jawaban
-              </button>
+                <i class="fas fa-bullseye text-primary"></i> Skenario
+              </h3>
+              <select
+                id="pcScenarioSelect"
+                class="w-full px-4 py-3 border-2 border-slate-200 rounded-2xl focus:border-primary outline-none font-bold bg-slate-50 mb-4 text-sm"
+                onchange="loadPcScenario()"
+              >
+                <option value="luas">1. Menghitung Luas Persegi</option>
+                <option value="kubus">2. Luas Permukaan Kubus</option>
+                <option value="bagi">3. Membagi Bilangan (Kondisi)</option>
+                <option value="mundur">4. Menghitung Mundur dari N</option>
+                <option value="terbesar">5. Mencari Bilangan Terbesar</option>
+              </select>
+              <div
+                class="p-4 bg-indigo-50 rounded-2xl border border-indigo-100 mb-4"
+              >
+                <p class="text-xs font-black text-primary uppercase mb-1">
+                  Tujuan
+                </p>
+                <p id="pcGoal" class="text-sm text-slate-700 font-medium">-</p>
+              </div>
+              <div
+                class="p-4 bg-slate-50 rounded-2xl border border-slate-100 mb-4"
+              >
+                <div class="flex justify-between items-center mb-2">
+                  <span class="text-xs font-bold text-slate-600 uppercase"
+                    >Skor</span
+                  ><span class="text-lg font-black text-primary" id="pcScore"
+                    >0</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-xs font-bold text-slate-600 uppercase"
+                    >Progress</span
+                  ><span
+                    class="text-lg font-black text-emerald-600"
+                    id="pcProgress"
+                    >0/0</span
+                  >
+                </div>
+              </div>
+              <div class="space-y-2">
+                <button
+                  onclick="checkPcGame()"
+                  class="w-full py-3 bg-primary text-white font-bold rounded-2xl hover:bg-primary-dark transition shadow-lg shadow-primary/30 text-sm"
+                >
+                  <i class="fas fa-check-circle mr-2"></i> Periksa Jawaban
+                </button>
+                <button
+                  onclick="resetPcGame()"
+                  class="w-full py-2.5 bg-slate-100 text-slate-700 font-bold rounded-2xl hover:bg-slate-200 transition text-sm"
+                >
+                  <i class="fas fa-rotate-left mr-2"></i> Reset
+                </button>
+              </div>
+              <div
+                id="pcFeedback"
+                class="mt-4 hidden p-4 rounded-2xl text-center font-bold text-sm"
+              ></div>
+            </div>
+            <div class="lg:col-span-2 space-y-4">
+              <div
+                class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100"
+              >
+                <h3
+                  class="font-black text-sm text-slate-600 uppercase tracking-wide mb-3"
+                >
+                  <i class="fas fa-layer-group text-primary mr-2"></i> Workspace
+                  (susun di sini)
+                </h3>
+                <div class="pc-workspace" id="pcWorkspace"></div>
+              </div>
+              <div
+                class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100"
+              >
+                <h3
+                  class="font-black text-sm text-slate-600 uppercase tracking-wide mb-3"
+                >
+                  <i class="fas fa-puzzle-piece text-primary mr-2"></i> Kolam
+                  Kode (klik untuk menambah)
+                </h3>
+                <div class="pc-pool" id="pcPool"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="pc-mode-tracing" class="pc-mode-content hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div
+              class="lg:col-span-1 bg-white p-6 rounded-3xl shadow-sm border border-slate-100 h-fit"
+            >
+              <h3
+                class="font-black text-lg text-dark mb-4 flex items-center gap-2"
+              >
+                <i class="fas fa-list-ol text-primary"></i> Pilih Soal
+              </h3>
+              <div id="pcTraceScenarioNav" class="pc-scenario-nav"></div>
+              <div
+                class="p-4 bg-amber-50 rounded-2xl border border-amber-100 mb-4"
+              >
+                <p
+                  class="text-xs font-black text-amber-700 uppercase mb-1 flex items-center gap-1"
+                >
+                  <i class="fas fa-lightbulb"></i> Petunjuk
+                </p>
+                <p
+                  id="pcTraceHint"
+                  class="text-xs text-amber-900 font-medium leading-relaxed"
+                >
+                  Baca pseudocode dengan cermat. Hitung nilai variabel langkah
+                  demi langkah. Tulis output akhir!
+                </p>
+              </div>
+              <div
+                class="p-4 bg-slate-50 rounded-2xl border border-slate-100 mb-4"
+              >
+                <div class="flex justify-between items-center mb-2">
+                  <span class="text-xs font-bold text-slate-600 uppercase"
+                    >Skor Total</span
+                  ><span
+                    class="text-lg font-black text-primary"
+                    id="pcTraceScore"
+                    >0</span
+                  >
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-xs font-bold text-slate-600 uppercase"
+                    >Soal Selesai</span
+                  ><span
+                    class="text-lg font-black text-emerald-600"
+                    id="pcTraceDone"
+                    >0/5</span
+                  >
+                </div>
+              </div>
               <button
-                onclick="resetPcGame()"
+                onclick="resetPcTracing()"
                 class="w-full py-2.5 bg-slate-100 text-slate-700 font-bold rounded-2xl hover:bg-slate-200 transition text-sm"
               >
-                <i class="fas fa-rotate-left mr-2"></i> Reset
+                <i class="fas fa-rotate-left mr-2"></i> Reset Semua
               </button>
             </div>
-            <div
-              id="pcFeedback"
-              class="mt-4 hidden p-4 rounded-2xl text-center font-bold text-sm"
-            ></div>
-          </div>
-          <div class="lg:col-span-2 space-y-4">
-            <div
-              class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100"
-            >
-              <h3
-                class="font-black text-sm text-slate-600 uppercase tracking-wide mb-3"
+            <div class="lg:col-span-2 space-y-4">
+              <div
+                class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100"
               >
-                <i class="fas fa-layer-group text-primary mr-2"></i> Workspace
-                (susun di sini)
-              </h3>
-              <div class="pc-workspace" id="pcWorkspace"></div>
-            </div>
-            <div
-              class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100"
-            >
-              <h3
-                class="font-black text-sm text-slate-600 uppercase tracking-wide mb-3"
-              >
-                <i class="fas fa-puzzle-piece text-primary mr-2"></i> Kolam Kode
-                (klik untuk menambah)
-              </h3>
-              <div class="pc-pool" id="pcPool"></div>
+                <div class="flex items-start justify-between gap-3 mb-4">
+                  <h3
+                    class="font-black text-base text-dark flex items-center gap-2"
+                  >
+                    <i class="fas fa-code text-primary"></i>
+                    <span id="pcTraceTitle">Soal 1: Luas Persegi</span>
+                  </h3>
+                  <span
+                    id="pcTraceBadge"
+                    class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-bold whitespace-nowrap"
+                    >Sequence</span
+                  >
+                </div>
+
+                <div
+                  id="pcTraceDesc"
+                  class="text-sm text-slate-600 font-medium mb-4"
+                >
+                  Hitung output dari pseudocode berikut.
+                </div>
+
+                <div class="pc-trace-card mb-5">
+                  <pre id="pcTraceCode"></pre>
+                </div>
+
+                <div class="mb-4">
+                  <label class="block text-sm font-bold text-slate-700 mb-2"
+                    >Output yang dihasilkan:</label
+                  >
+                  <input
+                    type="text"
+                    id="pcTraceInput"
+                    class="pc-trace-input"
+                    placeholder="Ketik output di sini..."
+                    autocomplete="off"
+                  />
+                </div>
+
+                <div id="pcTraceHintBox" class="pc-trace-hint mb-4 hidden">
+                  <strong><i class="fas fa-lightbulb"></i> Petunjuk:</strong>
+                  <span id="pcTraceHintText">-</span>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                  <button
+                    onclick="checkPcTracing()"
+                    class="flex-1 min-w-[140px] py-3 bg-primary text-white font-bold rounded-2xl hover:bg-primary-dark transition shadow-lg shadow-primary/30 text-sm"
+                  >
+                    <i class="fas fa-check-circle mr-2"></i> Periksa Jawaban
+                  </button>
+                  <button
+                    onclick="showPcTracingHint()"
+                    class="py-3 px-5 bg-amber-100 text-amber-800 font-bold rounded-2xl hover:bg-amber-200 transition text-sm"
+                  >
+                    <i class="fas fa-lightbulb mr-2"></i> Hint
+                  </button>
+                  <button
+                    onclick="nextPcTracing()"
+                    class="py-3 px-5 bg-slate-100 text-slate-700 font-bold rounded-2xl hover:bg-slate-200 transition text-sm"
+                  >
+                    Selanjutnya <i class="fas fa-arrow-right ml-2"></i>
+                  </button>
+                </div>
+
+                <div
+                  id="pcTraceFeedback"
+                  class="mt-4 hidden p-4 rounded-2xl text-center font-bold text-sm"
+                ></div>
+              </div>
             </div>
           </div>
         </div>
@@ -4435,7 +4920,6 @@ luas ← sisi * sisi
           </div>
         </div>
 
-        <!-- LKPD TABS -->
         <div class="flex flex-wrap justify-center gap-4 mb-8">
           <button
             onclick="switchLkpd('p1')"
@@ -4494,14 +4978,43 @@ luas ← sisi * sisi
               <h3
                 class="font-black text-primary mb-2 flex items-center gap-2 text-sm uppercase"
               >
-                <i class="fas fa-bullseye"></i> Petunjuk Pengerjaan
+                <i class="fas fa-bullseye"></i> Tujuan Pembelajaran
               </h3>
               <ol
                 class="list-decimal pl-5 text-sm text-slate-700 space-y-1 font-medium"
               >
                 <li>
-                  Buka website interaktif (Flowchart Builder &amp; Game
-                  Pseudocode) yang telah disediakan guru.
+                  Menjelaskan konsep dasar algoritma, flowchart, dan pseudocode
+                  serta fungsi simbol dan notasi yang digunakan berdasarkan
+                  contoh sederhana dengan tepat. (C2)
+                </li>
+                <li>
+                  Mengikuti alur algoritma sederhana pada flowchart dan
+                  pseudocode untuk menentukan hasil atau output berdasarkan
+                  input yang diberikan. (C3)
+                </li>
+                <li>
+                  Menuliskan solusi rancangan program sederhana dalam format
+                  pseudocode berdasarkan kasus sederhana dengan urutan langkah,
+                  logika, dan notasi yang tepat. (C3)
+                </li>
+              </ol>
+            </div>
+
+            <div
+              class="bg-indigo-50 border border-indigo-100 rounded-2xl p-5 mb-8"
+            >
+              <h3
+                class="font-black text-primary mb-2 flex items-center gap-2 text-sm uppercase"
+              >
+                <i class="fas fa-list-check"></i> Petunjuk Pengerjaan
+              </h3>
+              <ol
+                class="list-decimal pl-5 text-sm text-slate-700 space-y-1 font-medium"
+              >
+                <li>
+                  Buka website interaktif (Flowchart Builder & Game Pseudocode)
+                  yang telah disediakan guru.
                 </li>
                 <li>Bacalah materi ajar tentang flowchart dan pseudocode.</li>
                 <li>Diskusikan hasil pengamatan bersama kelompok.</li>
@@ -4553,12 +5066,32 @@ luas ← sisi * sisi
                 </div>
                 <div>
                   <label class="block text-sm font-bold text-slate-700 mb-2"
+                    >No. Absen 1</label
+                  ><input
+                    type="text"
+                    id="lkpd1-absen1"
+                    class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-white"
+                    placeholder="Contoh: 05"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-slate-700 mb-2"
                     >Anggota 2</label
                   ><input
                     type="text"
                     id="lkpd1-a2"
                     class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-white"
                     placeholder="Nama lengkap..."
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-slate-700 mb-2"
+                    >No. Absen 2</label
+                  ><input
+                    type="text"
+                    id="lkpd1-absen2"
+                    class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-white"
+                    placeholder="Contoh: 12"
                   />
                 </div>
                 <div>
@@ -4573,12 +5106,32 @@ luas ← sisi * sisi
                 </div>
                 <div>
                   <label class="block text-sm font-bold text-slate-700 mb-2"
+                    >No. Absen 3</label
+                  ><input
+                    type="text"
+                    id="lkpd1-absen3"
+                    class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-white"
+                    placeholder="Contoh: 18"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-slate-700 mb-2"
                     >Anggota 4</label
                   ><input
                     type="text"
                     id="lkpd1-a4"
                     class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-white"
                     placeholder="Nama lengkap..."
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-slate-700 mb-2"
+                    >No. Absen 4</label
+                  ><input
+                    type="text"
+                    id="lkpd1-absen4"
+                    class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-white"
+                    placeholder="Contoh: 25"
                   />
                 </div>
               </div>
@@ -4730,7 +5283,6 @@ luas ← sisi * sisi
               </div>
             </div>
 
-            <!-- AKTIVITAS 2: MINI FLOWCHART -->
             <div class="mb-6">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-mug-hot text-primary mr-2"></i>Aktivitas 2:
@@ -4744,7 +5296,6 @@ luas ← sisi * sisi
               <div class="mini-fcb" id="mini-fcb-1"></div>
             </div>
 
-            <!-- AKTIVITAS 3: MINI FLOWCHART -->
             <div class="mb-6">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-umbrella text-primary mr-2"></i>Aktivitas 3:
@@ -4758,7 +5309,6 @@ luas ← sisi * sisi
               <div class="mini-fcb" id="mini-fcb-2"></div>
             </div>
 
-            <!-- AKTIVITAS 4 -->
             <div class="mb-6">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-search text-primary mr-2"></i>Aktivitas 4:
@@ -4783,7 +5333,6 @@ luas ← sisi * sisi
               ></textarea>
             </div>
 
-            <!-- AKTIVITAS 5 -->
             <div class="mb-6">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-lightbulb text-primary mr-2"></i>Aktivitas 5:
@@ -4905,16 +5454,45 @@ luas ← sisi * sisi
               <h3
                 class="font-black text-primary mb-2 flex items-center gap-2 text-sm uppercase"
               >
-                <i class="fas fa-bullseye"></i> Petunjuk Pengerjaan
+                <i class="fas fa-bullseye"></i> Tujuan Pembelajaran
               </h3>
               <ol
                 class="list-decimal pl-5 text-sm text-slate-700 space-y-1 font-medium"
               >
                 <li>
-                  Buka website interaktif (Game Pseudocode) yang telah
-                  disediakan guru.
+                  Menjelaskan konsep dasar algoritma, flowchart, dan pseudocode
+                  serta fungsi simbol dan notasi yang digunakan berdasarkan
+                  contoh sederhana dengan tepat. (C2)
                 </li>
-                <li>Bacalah materi ajar tentang pseudocode.</li>
+                <li>
+                  Mengikuti alur algoritma sederhana pada flowchart dan
+                  pseudocode untuk menentukan hasil atau output berdasarkan
+                  input yang diberikan. (C3)
+                </li>
+                <li>
+                  Menuliskan solusi rancangan program sederhana dalam format
+                  pseudocode berdasarkan kasus sederhana dengan urutan langkah,
+                  logika, dan notasi yang tepat. (C3)
+                </li>
+              </ol>
+            </div>
+
+            <div
+              class="bg-indigo-50 border border-indigo-100 rounded-2xl p-5 mb-8"
+            >
+              <h3
+                class="font-black text-primary mb-2 flex items-center gap-2 text-sm uppercase"
+              >
+                <i class="fas fa-list-check"></i> Petunjuk Pengerjaan
+              </h3>
+              <ol
+                class="list-decimal pl-5 text-sm text-slate-700 space-y-1 font-medium"
+              >
+                <li>
+                  Buka website interaktif (Flowchart Builder & Game Pseudocode)
+                  yang telah disediakan guru.
+                </li>
+                <li>Bacalah materi ajar tentang flowchart dan pseudocode.</li>
                 <li>Diskusikan hasil pengamatan bersama kelompok.</li>
                 <li>Tuliskan jawaban pada kolom yang tersedia.</li>
                 <li>Presentasikan hasil kerja kelompokmu.</li>
@@ -4964,6 +5542,16 @@ luas ← sisi * sisi
                 </div>
                 <div>
                   <label class="block text-sm font-bold text-slate-700 mb-2"
+                    >No. Absen 1</label
+                  ><input
+                    type="text"
+                    id="lkpd2-absen1"
+                    class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-white"
+                    placeholder="Contoh: 05"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-slate-700 mb-2"
                     >Anggota 2</label
                   ><input
                     type="text"
@@ -4974,33 +5562,113 @@ luas ← sisi * sisi
                 </div>
                 <div>
                   <label class="block text-sm font-bold text-slate-700 mb-2"
-                    >Anggota 3</label
+                    >No. Absen 2</label
                   ><input
                     type="text"
-                    id="lkpd2-a3"
+                    id="lkpd2-absen2"
                     class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-white"
-                    placeholder="Nama lengkap..."
-                  />
-                </div>
-                <div>
-                  <label class="block text-sm font-bold text-slate-700 mb-2"
-                    >Anggota 4</label
-                  ><input
-                    type="text"
-                    id="lkpd2-a4"
-                    class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-primary outline-none bg-white"
-                    placeholder="Nama lengkap..."
+                    placeholder="Contoh: 12"
                   />
                 </div>
               </div>
             </div>
 
             <!-- AKTIVITAS 1 -->
-            <div class="mb-6">
+            <div class="mb-8">
               <h4 class="font-bold text-dark mb-3 text-lg">
-                <i class="fas fa-layer-group text-primary mr-2"></i>Aktivitas 1:
-                Struktur Dasar Pseudocode
+                <i class="fas fa-icons text-primary mr-2"></i>Aktivitas 1:
+                Notasi &amp; Struktur Dasar Pseudocode
               </h4>
+              <p class="text-sm text-slate-500 mb-3 font-medium">
+                Lengkapi tabel notasi dan struktur dasar pseudocode berikut!
+              </p>
+
+              <p class="text-xs font-black text-primary uppercase mb-2">
+                1a. Notasi Dasar
+              </p>
+              <div
+                class="overflow-hidden rounded-2xl border border-slate-200 mb-4"
+              >
+                <table class="min-w-full text-sm">
+                  <thead class="bg-slate-50">
+                    <tr>
+                      <th
+                        class="px-4 py-3 font-black text-dark text-left w-1/3"
+                      >
+                        Notasi
+                      </th>
+                      <th
+                        class="px-4 py-3 font-black text-dark text-left border-l border-slate-200"
+                      >
+                        Fungsi
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200">
+                    <tr>
+                      <td class="px-4 py-3 font-mono text-xs">input</td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd2-n1"
+                          class="lkpd-input w-full px-4 py-3 outline-none focus:bg-indigo-50"
+                          placeholder="Fungsi..."
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-mono text-xs">print</td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd2-n2"
+                          class="lkpd-input w-full px-4 py-3 outline-none focus:bg-indigo-50"
+                          placeholder="Fungsi..."
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-mono text-xs">←</td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd2-n3"
+                          class="lkpd-input w-full px-4 py-3 outline-none focus:bg-indigo-50"
+                          placeholder="Fungsi..."
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-mono text-xs">
+                        if ... then ... else
+                      </td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd2-n4"
+                          class="lkpd-input w-full px-4 py-3 outline-none focus:bg-indigo-50"
+                          placeholder="Fungsi..."
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-4 py-3 font-mono text-xs">while ... do</td>
+                      <td class="p-0 border-l border-slate-200">
+                        <input
+                          type="text"
+                          id="lkpd2-n5"
+                          class="lkpd-input w-full px-4 py-3 outline-none focus:bg-indigo-50"
+                          placeholder="Fungsi..."
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="text-xs font-black text-primary uppercase mb-2">
+                1b. Struktur Dasar
+              </p>
               <div class="overflow-hidden rounded-2xl border border-slate-200">
                 <table class="min-w-full text-sm">
                   <thead class="bg-slate-50">
@@ -5112,13 +5780,14 @@ luas ← sisi * sisi
             </div>
 
             <!-- AKTIVITAS 2 -->
-            <div class="mb-6">
+            <div class="mb-8">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-calculator text-primary mr-2"></i>Aktivitas 2:
                 Pseudocode "Menghitung Luas Persegi"
               </h4>
-              <p class="text-sm text-slate-500 mb-3 font-medium">
-                Lengkapi pseudocode berikut (isi bagian bertitik-titik).
+
+              <p class="text-sm text-slate-600 font-bold mb-2">
+                Lengkapi pseudocode berikut (isi bagian bertitik-titik)!
               </p>
               <div
                 class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-3 font-mono text-xs text-slate-700 leading-relaxed overflow-x-auto"
@@ -5131,102 +5800,167 @@ luas ← sisi * sisi
                 <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />
                 print <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
               </div>
+
+              <p class="text-sm text-slate-600 font-bold mb-2 mt-4">
+                Tuliskan versi lengkap pseudocode di sini!
+              </p>
               <textarea
                 id="lkpd2-act2"
-                rows="6"
+                rows="5"
                 class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary font-mono bg-slate-50 focus:bg-white"
                 placeholder="Tuliskan versi lengkap pseudocode di sini..."
               ></textarea>
             </div>
 
             <!-- AKTIVITAS 3 -->
-            <div class="mb-6">
+            <div class="mb-8">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-code-branch text-primary mr-2"></i>Aktivitas 3:
                 Pseudocode "Membagi Bilangan"
               </h4>
-              <p class="text-sm text-slate-500 mb-3 font-medium">
-                Lengkapi pseudocode untuk membagi bilangan (dengan pengecekan
-                penyebut = 0)!
+
+              <p class="text-sm text-slate-600 font-bold mb-2">
+                Lengkapi pseudocode berikut (isi bagian bertitik-titik)!
+              </p>
+              <div
+                class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-3 font-mono text-xs text-slate-700 leading-relaxed overflow-x-auto"
+              >
+                Algoritma Membagi Bilangan<br />
+                Input: Pembilang dan Penyebut<br />
+                Output: Hasil Pembagian tercetak<br /><br />
+                input <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>,
+                <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />
+                if penyebut = <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;print
+                <u
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
+                ><br />
+                else<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;hasil ←
+                <u
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
+                >
+                /
+                <u
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
+                ><br />
+                &nbsp;&nbsp;&nbsp;&nbsp;print
+                <u
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
+                >
+              </div>
+
+              <p class="text-sm text-slate-600 font-bold mb-2 mt-4">
+                Tuliskan versi lengkap pseudocode di sini!
               </p>
               <textarea
                 id="lkpd2-act3"
-                rows="8"
+                rows="9"
                 class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary font-mono bg-slate-50 focus:bg-white"
-                placeholder='Algoritma Membagi Bilangan&#10;Input: Pembilang dan Penyebut&#10;Output: Hasil Pembagian tercetak&#10;&#10;input pembilang, penyebut&#10;if penyebut = 0&#10;    print "..."&#10;else&#10;    hasil ← ... / ...&#10;    print ...'
+                placeholder="Tuliskan versi lengkap pseudocode di sini..."
               ></textarea>
             </div>
 
             <!-- AKTIVITAS 4 -->
-            <div class="mb-6">
+            <div class="mb-8">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-search text-primary mr-2"></i>Aktivitas 4:
-                Mengikuti Pseudocode Sederhana
+                Tracing Pseudocode (Menentukan Output)
               </h4>
-              <div
-                class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-3 font-mono text-xs text-slate-700 leading-relaxed overflow-x-auto"
-              >
-                input sisi<br />
-                luas ← sisi * sisi<br />
-                print luas
-              </div>
-              <p class="text-sm font-bold text-dark mb-2">
-                Jika sisi = 5, berapa output yang dihasilkan? Jelaskan
-                langkah-langkahnya!
+              <p class="text-sm text-slate-500 mb-4 font-medium">
+                Telusuri pseudocode berikut. Tuliskan <b>output</b> dan
+                <b>langkah penelusuran</b>!
               </p>
-              <textarea
-                id="lkpd2-act4"
-                rows="4"
-                class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary font-medium bg-slate-50 focus:bg-white"
-                placeholder="Output = ...&#10;Langkah:&#10;1. input sisi = ...&#10;2. luas = ... × ... = ...&#10;3. print luas → ..."
-              ></textarea>
+
+              <div
+                class="bg-slate-50 rounded-2xl p-4 mb-4 border border-slate-200"
+              >
+                <p class="text-xs font-black text-primary uppercase mb-2">
+                  Kasus a: Luas Persegi
+                </p>
+                <div
+                  class="bg-slate-900 rounded-lg p-3 mb-3 font-mono text-xs text-slate-200 overflow-x-auto"
+                >
+                  input sisi<br />
+                  luas ← sisi * sisi<br />
+                  print luas
+                </div>
+                <p class="text-xs text-slate-600 font-medium mb-2">
+                  Jika <code>sisi = 8</code>, berapa outputnya?
+                </p>
+                <textarea
+                  id="lkpd2-trace-a"
+                  rows="3"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary bg-white"
+                  placeholder="Output = ...&#10;Penelusuran: ..."
+                ></textarea>
+              </div>
+
+              <div
+                class="bg-slate-50 rounded-2xl p-4 mb-4 border border-slate-200"
+              >
+                <p class="text-xs font-black text-primary uppercase mb-2">
+                  Kasus b: Menghitung Mundur
+                </p>
+                <div
+                  class="bg-slate-900 rounded-lg p-3 mb-3 font-mono text-xs text-slate-200 overflow-x-auto"
+                >
+                  input N<br />
+                  while N > 0<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;print N<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;N ← N - 1
+                </div>
+                <p class="text-xs text-slate-600 font-medium mb-2">
+                  Jika <code>N = 3</code>, berapa outputnya?
+                </p>
+                <textarea
+                  id="lkpd2-trace-b"
+                  rows="3"
+                  class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary bg-white"
+                  placeholder="Output = ...&#10;Penelusuran: ..."
+                ></textarea>
+              </div>
             </div>
 
             <!-- AKTIVITAS 5 -->
             <div class="mb-6">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-lightbulb text-primary mr-2"></i>Aktivitas 5:
-                Refleksi Pertemuan 2
+                Refleksi
               </h4>
               <div class="space-y-4">
                 <div>
                   <label class="block text-sm font-bold text-slate-700 mb-2"
-                    >1. Apa perbedaan antara flowchart, pseudocode, dan
-                    program?</label
+                    >1. Apa perbedaan antara flowchart dan pseudocode, dan kapan
+                    kamu menggunakan masing-masing?</label
                   ><textarea
                     id="lkpd2-r1"
-                    rows="2"
+                    rows="3"
                     class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary bg-slate-50 focus:bg-white"
+                    placeholder="Tuliskan jawabanmu..."
                   ></textarea>
                 </div>
                 <div>
                   <label class="block text-sm font-bold text-slate-700 mb-2"
-                    >2. Bagian mana yang paling sulit saat menulis
-                    pseudocode?</label
+                    >2. Apa hal penting yang kamu pahami tentang pseudocode
+                    setelah mengikuti pembelajaran ini?</label
                   ><textarea
                     id="lkpd2-r2"
-                    rows="2"
+                    rows="3"
                     class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary bg-slate-50 focus:bg-white"
+                    placeholder="Tuliskan jawabanmu..."
                   ></textarea>
                 </div>
                 <div>
                   <label class="block text-sm font-bold text-slate-700 mb-2"
-                    >3. Mengapa pseudocode penting sebelum membuat
-                    program?</label
+                    >3. Bagian apa yang masih terasa sulit bagi kamu dalam
+                    memahami atau membuat pseudocode, dan apa yang akan kamu
+                    lakukan untuk mengatasinya?</label
                   ><textarea
                     id="lkpd2-r3"
-                    rows="2"
+                    rows="3"
                     class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary bg-slate-50 focus:bg-white"
-                  ></textarea>
-                </div>
-                <div>
-                  <label class="block text-sm font-bold text-slate-700 mb-2"
-                    >4. Di mana saya dapat menemukan proses penulisan pseudocode
-                    dalam kehidupan sehari-hari?</label
-                  ><textarea
-                    id="lkpd2-r4"
-                    rows="2"
-                    class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary bg-slate-50 focus:bg-white"
+                    placeholder="Tuliskan jawabanmu..."
                   ></textarea>
                 </div>
               </div>
@@ -5289,7 +6023,6 @@ luas ← sisi * sisi
             class="flex flex-wrap justify-center gap-4 mb-10"
           ></div>
 
-          <!-- PRE-TEST -->
           <div id="content-asesmen-awal" class="asesmen-content">
             <div
               class="bg-red-50 border border-red-100 rounded-2xl p-6 mb-8 text-center"
@@ -5377,7 +6110,6 @@ luas ← sisi * sisi
             </div>
           </div>
 
-          <!-- POST-TEST -->
           <div id="content-asesmen-akhir" class="asesmen-content hidden">
             <div
               class="bg-blue-50 border border-blue-100 rounded-2xl p-6 mb-8 text-center"
@@ -5461,7 +6193,6 @@ luas ← sisi * sisi
             </div>
           </div>
 
-          <!-- TES TERTULIS -->
           <div id="content-asesmen-tertulis" class="asesmen-content hidden">
             <div
               class="bg-amber-50 border border-amber-100 rounded-2xl p-6 mb-8 text-center"
@@ -5473,7 +6204,7 @@ luas ← sisi * sisi
                 10 Soal Pilihan Ganda + 2 Soal Esai • Alokasi 20 menit
               </p>
               <p class="text-xs text-slate-500 mt-2 font-medium">
-                Pedoman Skor: PG maksimal 50 + Esai maksimal 50 = 100
+                Pedoman Skor: PG maksimal 60 + Esai maksimal 40 = 100
               </p>
             </div>
             <div
@@ -5628,7 +6359,6 @@ luas ← sisi * sisi
               toggle.setAttribute("aria-expanded", "false");
             });
           });
-          // Close menu when clicking outside
           document.addEventListener("click", function (e) {
             if (!menu.classList.contains("active")) return;
             if (menu.contains(e.target) || toggle.contains(e.target)) return;
@@ -5638,7 +6368,7 @@ luas ← sisi * sisi
         }
       })();
 
-      // ===== NAV dengan konteks =====
+      // ===== NAV =====
       function nav(sectionId, context) {
         document
           .querySelectorAll(".page-section")
@@ -5711,8 +6441,6 @@ luas ← sisi * sisi
             "lkpd-tab px-8 py-3 rounded-full font-bold text-sm transition tab-asesmen-active shadow-md";
         }
         window.scrollTo({ top: 0, behavior: "smooth" });
-
-        // Auto-save flowchart mini saat pindah tab
         ["mini-fcb-1", "mini-fcb-2"].forEach((mid) => {
           const el = document.getElementById(mid);
           if (el && el._miniFcb) {
@@ -5870,7 +6598,6 @@ luas ← sisi * sisi
             fcbRemoveNode(node.id);
           };
 
-          // ---------- Drag Handler (mouse + touch) ----------
           function beginDrag(e) {
             if (fcbConnectMode) return;
             if (e.target === textEl || e.target.isContentEditable) return;
@@ -5953,7 +6680,6 @@ luas ← sisi * sisi
         }
       }
 
-      // ---- Routing helpers (rounded orthogonal) ----
       function fcbRoundedPath(points, radius) {
         if (points.length < 2) return "";
         let d = `M ${points[0][0]} ${points[0][1]}`;
@@ -6217,7 +6943,6 @@ luas ← sisi * sisi
       function fcbShowBranchChooser(x, y, callback) {
         fcbBranchCallback = callback || null;
         const popup = document.getElementById("fcbBranchChooser");
-        // Mobile-friendly positioning: keep within viewport
         const popupW = 170;
         const popupH = 190;
         const left = Math.max(
@@ -6241,7 +6966,6 @@ luas ← sisi * sisi
           cb(branch);
           return;
         }
-        // Fallback
         if (fcbConnectSource && fcbPendingTarget) {
           fcbCreateConnection(fcbConnectSource.id, fcbPendingTarget.id, branch);
           fcbConnectSource = null;
@@ -6660,7 +7384,7 @@ luas ← sisi * sisi
       });
 
       // ==================================================
-      // ===== MINI FCB untuk LKPD (versi diperbaiki) =====
+      // ===== MINI FCB untuk LKPD =====
       // ==================================================
       function initMiniFCB(containerId, storageKey, lkpdLabel) {
         const container = document.getElementById(containerId);
@@ -7208,7 +7932,6 @@ luas ← sisi * sisi
             link.click();
           });
 
-        // Expose
         container._miniFcb = {
           state,
           clear: () => {
@@ -7402,50 +8125,58 @@ luas ← sisi * sisi
       }
 
       // ==================================================
-      // ===== PSEUDOCODE GAME =====
+      // ===== PSEUDOCODE GAME - MODE 1: SUSUN =====
       // ==================================================
       const pcScenarios = {
         luas: {
           goal: "Menghitung luas persegi dari sisi yang diinput pengguna.",
           lines: [
-            "PROGRAM LuasPersegi",
-            "DEKLARASI",
-            "    sisi, luas : integer",
-            "ALGORITMA",
-            "    input(sisi)",
-            "    luas ← sisi × sisi",
-            "    output(luas)",
-            "END PROGRAM",
+            "Algoritma Menghitung Luas Persegi",
+            "input sisi",
+            "luas ← sisi * sisi",
+            "print luas",
+          ],
+        },
+        kubus: {
+          goal: "Menghitung luas permukaan kubus (6 × sisi × sisi).",
+          lines: [
+            "Algoritma Menghitung Luas Permukaan Kubus",
+            "input sisi",
+            "luas_permukaan ← 6 * sisi * sisi",
+            "print luas_permukaan",
           ],
         },
         bagi: {
           goal: "Membagi dua bilangan dengan pengecekan penyebut = 0.",
           lines: [
-            "PROGRAM MembagiBilangan",
-            "DEKLARASI",
-            "    pembilang, penyebut, hasil : integer",
-            "ALGORITMA",
-            "    input(pembilang, penyebut)",
-            "    if (penyebut = 0) then",
-            "        output('Penyebut tidak boleh nol')",
-            "    else",
-            "        hasil ← pembilang / penyebut",
-            "        output(hasil)",
-            "END PROGRAM",
+            "Algoritma Membagi Bilangan",
+            "input pembilang, penyebut",
+            "if penyebut = 0",
+            '    print "Penyebut tidak boleh nol"',
+            "else",
+            "    hasil ← pembilang / penyebut",
+            "    print hasil",
           ],
         },
         mundur: {
           goal: "Menghitung mundur dari N sampai 1 menggunakan while.",
           lines: [
-            "PROGRAM HitungMundur",
-            "DEKLARASI",
-            "    N : integer",
-            "ALGORITMA",
-            "    input(N)",
-            "    while (N > 0) do",
-            "        output(N)",
-            "        N ← N - 1",
-            "END PROGRAM",
+            "Algoritma Menghitung Mundur dari N",
+            "input N",
+            "while N > 0",
+            "    print N",
+            "    N ← N - 1",
+          ],
+        },
+        terbesar: {
+          goal: "Mencari bilangan terbesar dari himpunan L.",
+          lines: [
+            "Algoritma Mencari Bilangan Terbesar",
+            "largest ← elemen pertama L",
+            "for each item in L, do",
+            "    if item > largest, then",
+            "        largest ← item",
+            "return largest",
           ],
         },
       };
@@ -7565,6 +8296,218 @@ luas ← sisi * sisi
         }
       }
 
+      // ==================================================
+      // ===== PSEUDOCODE GAME - MODE 2: TRACING =====
+      // ==================================================
+      const pcTracingScenarios = [
+        {
+          id: 1,
+          title: "Luas Persegi",
+          badge: "Sequence",
+          desc: "Hitung output dari pseudocode berikut jika sisi = 7.",
+          code: `<span class="cmt">Algoritma Luas Persegi</span>
+<span class="kw">input</span> sisi      <span class="cmt">// sisi = 7</span>
+luas ← sisi * sisi
+<span class="kw">print</span> luas`,
+          answer: "49",
+          accept: ["49"],
+          hint: "luas ← 7 × 7. Hitung hasilnya!",
+        },
+        {
+          id: 2,
+          title: "Membagi Bilangan (Normal)",
+          badge: "Kondisi (else)",
+          desc: "Hitung output jika pembilang = 20 dan penyebut = 4.",
+          code: `<span class="cmt">Algoritma Membagi Bilangan</span>
+<span class="kw">input</span> pembilang, penyebut  <span class="cmt">// 20, 4</span>
+<span class="kw">if</span> penyebut = 0
+    <span class="kw">print</span> <span class="str">"Penyebut tidak boleh nol"</span>
+<span class="kw">else</span>
+    hasil ← pembilang / penyebut
+    <span class="kw">print</span> hasil`,
+          answer: "5",
+          accept: ["5"],
+          hint: "penyebut ≠ 0, jadi masuk ke else. hasil ← 20 / 4 = ...",
+        },
+        {
+          id: 3,
+          title: "Membagi Bilangan (Penyebut 0)",
+          badge: "Kondisi (if)",
+          desc: "Hitung output jika pembilang = 10 dan penyebut = 0.",
+          code: `<span class="cmt">Algoritma Membagi Bilangan</span>
+<span class="kw">input</span> pembilang, penyebut  <span class="cmt">// 10, 0</span>
+<span class="kw">if</span> penyebut = 0
+    <span class="kw">print</span> <span class="str">"Penyebut tidak boleh nol"</span>
+<span class="kw">else</span>
+    hasil ← pembilang / penyebut
+    <span class="kw">print</span> hasil`,
+          answer: "Penyebut tidak boleh nol",
+          accept: [
+            "penyebut tidak boleh nol",
+            "penyebut tidak boleh nol.",
+            '"penyebut tidak boleh nol"',
+          ],
+          hint: "Karena penyebut = 0, program masuk ke blok if. Apa yang dicetak?",
+        },
+        {
+          id: 4,
+          title: "Menghitung Mundur",
+          badge: "Perulangan (while)",
+          desc: "Hitung output jika N = 4.",
+          code: `<span class="cmt">Algoritma Menghitung Mundur</span>
+<span class="kw">input</span> N          <span class="cmt">// N = 4</span>
+<span class="kw">while</span> N > 0
+    <span class="kw">print</span> N
+    N ← N - 1`,
+          answer: "4 3 2 1",
+          accept: ["4 3 2 1", "4,3,2,1", "4, 3, 2, 1", "4321"],
+          hint: "Cetak N, lalu kurangi 1. Ulangi sampai N = 0. Urutannya: 4, 3, 2, 1",
+        },
+        {
+          id: 5,
+          title: "Mencari Bilangan Terbesar",
+          badge: "Loop + Kondisi",
+          desc: "Hitung output jika L = [3, 7, 2, 9, 5].",
+          code: `<span class="cmt">Algoritma Mencari Bilangan Terbesar</span>
+<span class="cmt">Input: L = [3, 7, 2, 9, 5]</span>
+largest ← elemen pertama L
+<span class="kw">for each</span> item <span class="kw">in</span> L, <span class="kw">do</span>
+    <span class="kw">if</span> item > largest, <span class="kw">then</span>
+        largest ← item
+<span class="kw">return</span> largest`,
+          answer: "9",
+          accept: ["9"],
+          hint: "Bandingkan setiap item: 3, 7, 2, 9, 5. Mana yang paling besar?",
+        },
+      ];
+      let pcTraceIndex = 0;
+      let pcTraceScore = 0;
+      let pcTraceDone = new Set();
+
+      function initPcTracing() {
+        renderPcTraceNav();
+        loadPcTraceScenario(0);
+        updatePcTraceStats();
+      }
+
+      function renderPcTraceNav() {
+        const nav = document.getElementById("pcTraceScenarioNav");
+        nav.innerHTML = "";
+        pcTracingScenarios.forEach((s, i) => {
+          const btn = document.createElement("button");
+          btn.className = "pc-scenario-dot";
+          btn.textContent = s.id;
+          btn.title = s.title;
+          if (i === pcTraceIndex) btn.classList.add("active");
+          if (pcTraceDone.has(s.id)) btn.classList.add("done");
+          btn.onclick = () => loadPcTraceScenario(i);
+          nav.appendChild(btn);
+        });
+      }
+
+      function loadPcTraceScenario(i) {
+        pcTraceIndex = i;
+        const s = pcTracingScenarios[i];
+        document.getElementById("pcTraceTitle").textContent =
+          `Soal ${s.id}: ${s.title}`;
+        document.getElementById("pcTraceBadge").textContent = s.badge;
+        document.getElementById("pcTraceDesc").textContent = s.desc;
+        document.getElementById("pcTraceCode").innerHTML = s.code;
+        document.getElementById("pcTraceHintText").textContent = s.hint;
+        document.getElementById("pcTraceHintBox").classList.add("hidden");
+        const inp = document.getElementById("pcTraceInput");
+        inp.value = "";
+        inp.classList.remove("correct", "wrong");
+        inp.disabled = false;
+        document.getElementById("pcTraceFeedback").classList.add("hidden");
+        renderPcTraceNav();
+      }
+
+      function checkPcTracing() {
+        const s = pcTracingScenarios[pcTraceIndex];
+        const inp = document.getElementById("pcTraceInput");
+        const val = inp.value.trim().toLowerCase().replace(/["""]/g, "");
+        const fb = document.getElementById("pcTraceFeedback");
+        const isCorrect = s.accept.some(
+          (a) => a.toLowerCase().replace(/["""]/g, "") === val,
+        );
+        if (!val) {
+          fb.className =
+            "mt-4 p-4 rounded-2xl text-center font-bold bg-amber-100 text-amber-800 text-sm";
+          fb.innerText = "⚠️ Tulis jawabanmu terlebih dahulu.";
+          fb.classList.remove("hidden");
+          return;
+        }
+        inp.classList.remove("correct", "wrong");
+        if (isCorrect) {
+          inp.classList.add("correct");
+          fb.className =
+            "mt-4 p-4 rounded-2xl text-center font-bold bg-green-100 text-green-800 text-sm";
+          fb.innerHTML = `🎉 <b>BENAR!</b> Output = ${s.answer}`;
+          fb.classList.remove("hidden");
+          if (!pcTraceDone.has(s.id)) {
+            pcTraceDone.add(s.id);
+            pcTraceScore += 20;
+            updatePcTraceStats();
+            renderPcTraceNav();
+            fireConfetti();
+          }
+        } else {
+          inp.classList.add("wrong");
+          fb.className =
+            "mt-4 p-4 rounded-2xl text-center font-bold bg-red-100 text-red-800 text-sm";
+          fb.innerHTML = `❌ Belum tepat. Coba telusuri lagi, atau klik <b>Hint</b>.`;
+          fb.classList.remove("hidden");
+        }
+      }
+
+      function showPcTracingHint() {
+        document.getElementById("pcTraceHintBox").classList.remove("hidden");
+      }
+
+      function nextPcTracing() {
+        pcTraceIndex = (pcTraceIndex + 1) % pcTracingScenarios.length;
+        loadPcTraceScenario(pcTraceIndex);
+      }
+
+      function resetPcTracing() {
+        pcTraceIndex = 0;
+        pcTraceScore = 0;
+        pcTraceDone.clear();
+        renderPcTraceNav();
+        loadPcTraceScenario(0);
+        updatePcTraceStats();
+      }
+
+      function updatePcTraceStats() {
+        document.getElementById("pcTraceScore").textContent = pcTraceScore;
+        document.getElementById("pcTraceDone").textContent =
+          `${pcTraceDone.size}/${pcTracingScenarios.length}`;
+      }
+
+      // ==================================================
+      // ===== MODE SWITCHING GAME PSEUDOCODE =====
+      // ==================================================
+      function switchPcMode(mode) {
+        document
+          .querySelectorAll(".pc-mode-content")
+          .forEach((el) => el.classList.add("hidden"));
+        document.getElementById(`pc-mode-${mode}`).classList.remove("hidden");
+        document.querySelectorAll(".pc-mode-tab").forEach((el) => {
+          el.classList.remove("active");
+          el.classList.add("inactive");
+        });
+        document.getElementById(`pc-tab-${mode}`).classList.remove("inactive");
+        document.getElementById(`pc-tab-${mode}`).classList.add("active");
+
+        if (mode === "tracing") {
+          initPcTracing();
+        }
+      }
+
+      // ==================================================
+      // ===== CONFETTI =====
+      // ==================================================
       function fireConfetti() {
         const container = document.createElement("div");
         container.className = "confetti-container";
@@ -7714,196 +8657,667 @@ luas ← sisi * sisi
         }
       }
 
+      // ==================================================
+      // ===== EXPORT PDF LKPD — VERSI PROFESIONAL       =====
+      // ===== Simbol ← diganti dengan <- (ASCII-safe)   =====
+      // ==================================================
       function exportPDFLKPD(returnBase64) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF("p", "mm", "a4");
+
+        // ====== SANITASI TEKS UNTUK PDF ======
+        // jsPDF standard fonts tidak mendukung Unicode seperti ← → ≥ ≤ ≠ ×
+        // Karakter tersebut harus diganti dengan padanan ASCII agar tidak garbled.
+        const sanitizePDF = (text) => {
+          if (text === null || text === undefined) return "";
+          return String(text)
+            .replace(/←/g, "<-")
+            .replace(/→/g, "->")
+            .replace(/↔/g, "<->")
+            .replace(/≥/g, ">=")
+            .replace(/≤/g, "<=")
+            .replace(/≠/g, "!=")
+            .replace(/×/g, "x")
+            .replace(/÷/g, "/")
+            .replace(/–/g, "-")
+            .replace(/—/g, "-")
+            .replace(/…/g, "...")
+            .replace(/[""]/g, '"')
+            .replace(/['']/g, "'")
+            .replace(/•/g, "*")
+            .replace(/·/g, ".")
+            .replace(/°/g, "deg");
+        };
+
+        // ====== KONSTANTA ======
+        const PW = 210,
+          PH = 297;
+        const M = 12;
+        const CW = PW - M * 2;
+        const C = {
+          primary: [88, 66, 227],
+          primaryDark: [69, 48, 201],
+          primaryLight: [238, 242, 255],
+          dark: [15, 23, 42],
+          muted: [100, 116, 139],
+          border: [226, 232, 240],
+          bgLight: [248, 250, 252],
+          green: [16, 185, 129],
+          red: [239, 68, 68],
+          white: [255, 255, 255],
+        };
+
+        let yPos = 0;
+        let pageNum = 1;
+
         const val = (id) => {
           const el = document.getElementById(id);
-          return el ? el.value.trim() || "-" : "-";
+          if (!el) return "";
+          return el.value.trim();
         };
-        const primaryColor = [88, 66, 227];
-        let yPos = 35;
+
+        // ====== DRAW HEADER (center, tanpa logo) ======
         const drawHeader = () => {
-          doc.setFillColor(...primaryColor);
-          doc.rect(0, 0, 210, 24, "F");
+          // Bar ungu
+          doc.setFillColor(...C.primary);
+          doc.rect(0, 0, PW, 20, "F");
+
+          // Judul center
+          doc.setTextColor(255, 255, 255);
           doc.setFont("helvetica", "bold");
           doc.setFontSize(14);
-          doc.setTextColor(255, 255, 255);
-          doc.text("LKPD - ALGORITMA, FLOWCHART & PSEUDOCODE", 14, 11);
+          doc.text("KomputasiKita", PW / 2, 9, { align: "center" });
+
           doc.setFont("helvetica", "normal");
-          doc.setFontSize(9);
-          doc.text("Informatika Kelas X | SMA Negeri 4 Yogyakarta", 14, 17);
+          doc.setFontSize(8.5);
+          doc.text(
+            "Lembar Kerja Peserta Didik — Informatika Kelas X",
+            PW / 2,
+            15.5,
+            { align: "center" },
+          );
+
+          // Nomor halaman kanan
+          doc.setFontSize(7.5);
+          doc.text(`Halaman ${pageNum}`, PW - M, 12, { align: "right" });
+
+          yPos = 30;
         };
-        const checkPageBreak = (h) => {
-          if (yPos + h > 280) {
+
+        // ====== DRAW FOOTER ======
+        const drawFooter = () => {
+          doc.setDrawColor(...C.border);
+          doc.setLineWidth(0.3);
+          doc.line(M, PH - 12, PW - M, PH - 12);
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(7);
+          doc.setTextColor(...C.muted);
+          doc.text(
+            "SMA Negeri 4 Yogyakarta  •  Tahun Ajaran 2025/2026  •  Kurikulum Merdeka Fase E",
+            PW / 2,
+            PH - 7,
+            { align: "center" },
+          );
+        };
+
+        // ====== PAGE BREAK ======
+        const checkPageBreak = (needed) => {
+          if (yPos + needed > PH - 18) {
+            drawFooter();
             doc.addPage();
+            pageNum++;
             drawHeader();
-            yPos = 35;
           }
         };
-        const addTitle = (t) => {
-          checkPageBreak(15);
+
+        // ====== BANNER JUDUL ======
+        const addBanner = (title, subtitle) => {
+          doc.setFillColor(...C.primary);
+          doc.roundedRect(M, yPos, CW, 16, 3, 3, "F");
+          doc.setTextColor(255, 255, 255);
           doc.setFont("helvetica", "bold");
-          doc.setFontSize(11);
-          doc.setTextColor(...primaryColor);
-          doc.text(t, 14, yPos);
-          yPos += 7;
+          doc.setFontSize(13);
+          doc.text(sanitizePDF(title), M + 5, yPos + 7);
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(9.5);
+          doc.text(sanitizePDF(subtitle), M + 5, yPos + 12.5);
+          yPos += 22;
         };
-        const addQA = (q, a) => {
-          checkPageBreak(30);
+
+        // ====== SECTION TITLE ======
+        const addSection = (num, title, subtitle) => {
+          checkPageBreak(16);
+          doc.setFillColor(...C.primary);
+          doc.roundedRect(M, yPos, 9, 9, 2, 2, "F");
+          doc.setTextColor(255, 255, 255);
           doc.setFont("helvetica", "bold");
           doc.setFontSize(10);
-          doc.setTextColor(15, 23, 42);
-          const qLines = doc.splitTextToSize(q, 182);
-          doc.text(qLines, 14, yPos);
-          yPos += qLines.length * 4.5 + 2;
-          doc.setFont("courier", "normal");
-          doc.setFontSize(9);
-          doc.setTextColor(50, 50, 50);
-          const aLines = doc.splitTextToSize(a, 178);
-          doc.setFillColor(248, 250, 252);
-          doc.setDrawColor(226, 232, 240);
-          const boxH = aLines.length * 4.5 + 6;
-          doc.rect(14, yPos, 182, boxH, "FD");
-          doc.text(aLines, 16, yPos + 5);
-          yPos += boxH + 8;
+          doc.text(String(num), M + 4.5, yPos + 6.3, { align: "center" });
+
+          doc.setTextColor(...C.dark);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(11.5);
+          doc.text(sanitizePDF(title), M + 12, yPos + 5);
+
+          if (subtitle) {
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(8);
+            doc.setTextColor(...C.muted);
+            const lines = doc.splitTextToSize(sanitizePDF(subtitle), CW - 12);
+            doc.text(lines, M + 12, yPos + 10);
+            yPos += 10 + lines.length * 3.5 + 3;
+          } else {
+            yPos += 13;
+          }
         };
+
+        // ====== NUMBERED LIST ITEMS (untuk TP & Petunjuk) ======
+        const addNumberedList = (items) => {
+          items.forEach((item, i) => {
+            const lines = doc.splitTextToSize(sanitizePDF(item), CW - 12);
+            const needed = lines.length * 4 + 4;
+            checkPageBreak(needed);
+
+            // Number badge
+            doc.setFillColor(...C.primary);
+            doc.circle(M + 3.5, yPos + 2.5, 3, "F");
+            doc.setTextColor(255, 255, 255);
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(7.5);
+            doc.text(String(i + 1), M + 3.5, yPos + 3.5, { align: "center" });
+
+            // Text
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(9);
+            doc.setTextColor(...C.dark);
+            doc.text(lines, M + 10, yPos + 2);
+
+            yPos += lines.length * 4 + 3;
+          });
+          yPos += 3;
+        };
+
+        // ====== IDENTITY TABLE ======
+        const addIdentityTable = (rows) => {
+          checkPageBreak(rows.length * 8 + 4);
+          doc.autoTable({
+            startY: yPos,
+            body: rows.map((r) => [sanitizePDF(r[0]), sanitizePDF(r[1])]),
+            theme: "plain",
+            styles: {
+              fontSize: 9,
+              cellPadding: { top: 2.5, bottom: 2.5, left: 4, right: 4 },
+              textColor: C.dark,
+              lineColor: C.border,
+              lineWidth: 0.3,
+              valign: "middle",
+            },
+            columnStyles: {
+              0: {
+                cellWidth: 45,
+                fontStyle: "bold",
+                textColor: C.muted,
+                fillColor: C.bgLight,
+              },
+              1: { cellWidth: CW - 45 },
+            },
+            margin: { left: M, right: M },
+            tableLineColor: C.border,
+            tableLineWidth: 0.3,
+          });
+          yPos = doc.lastAutoTable.finalY + 5;
+        };
+
+        // ====== ANSWER BOX ======
+        const addAnswerBox = (label, value, minH) => {
+          const h = minH || 18;
+          const safeLabel = label ? sanitizePDF(label) : "";
+          checkPageBreak(h + (safeLabel ? 8 : 4));
+
+          if (safeLabel) {
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(9);
+            doc.setTextColor(...C.dark);
+            const lLines = doc.splitTextToSize(safeLabel, CW);
+            doc.text(lLines, M, yPos + 3.5);
+            yPos += lLines.length * 3.8 + 2;
+          }
+
+          doc.setFillColor(...C.bgLight);
+          doc.setDrawColor(...C.border);
+          doc.setLineWidth(0.3);
+          doc.roundedRect(M, yPos, CW, h, 2, 2, "FD");
+
+          const safeValue = value ? sanitizePDF(value) : "";
+          const content = safeValue.length > 0 ? safeValue : "(belum diisi)";
+          doc.setFont("helvetica", safeValue.length > 0 ? "normal" : "italic");
+          doc.setFontSize(9);
+          doc.setTextColor(
+            ...(safeValue.length > 0 ? [50, 50, 50] : [148, 163, 184]),
+          );
+          const lines = doc.splitTextToSize(content, CW - 6);
+          const maxLines = Math.floor((h - 4) / 4.2);
+          const shown = lines.slice(0, maxLines);
+          if (lines.length > maxLines) {
+            shown[maxLines - 1] = shown[maxLines - 1].substring(0, 60) + "...";
+          }
+          doc.text(shown, M + 3, yPos + 5);
+
+          yPos += h + 4;
+        };
+
+        // ====== CODE BOX ======
+        const addCodeBox = (label, codeText, minH) => {
+          const h = minH || 30;
+          const safeLabel = label ? sanitizePDF(label) : "";
+          checkPageBreak(h + (safeLabel ? 8 : 4));
+
+          if (safeLabel) {
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(9);
+            doc.setTextColor(...C.dark);
+            const lLines = doc.splitTextToSize(safeLabel, CW);
+            doc.text(lLines, M, yPos + 3.5);
+            yPos += lLines.length * 3.8 + 2;
+          }
+
+          doc.setFillColor(15, 23, 42);
+          doc.roundedRect(M, yPos, CW, h, 2, 2, "F");
+
+          doc.setFont("courier", "normal");
+          doc.setFontSize(8.5);
+          doc.setTextColor(226, 232, 240);
+          const safeCode = sanitizePDF(codeText);
+          const lines = doc.splitTextToSize(safeCode, CW - 6);
+          const shown = lines.slice(0, Math.floor((h - 4) / 3.8));
+          doc.text(shown, M + 3, yPos + 5);
+
+          yPos += h + 4;
+        };
+
+        // ====== IMAGE BOX ======
+        const addImageBox = (label, dataUrl, minH) => {
+          const h = minH || 90;
+          const safeLabel = label ? sanitizePDF(label) : "";
+          checkPageBreak(h + (safeLabel ? 8 : 4));
+
+          if (safeLabel) {
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(9);
+            doc.setTextColor(...C.dark);
+            doc.text(safeLabel, M, yPos + 3.5);
+            yPos += 6;
+          }
+
+          doc.setFillColor(...C.bgLight);
+          doc.setDrawColor(...C.border);
+          doc.setLineWidth(0.3);
+          doc.roundedRect(M, yPos, CW, h, 2, 2, "FD");
+
+          try {
+            doc.addImage(dataUrl, "PNG", M + 2, yPos + 2, CW - 4, h - 4);
+          } catch (e) {
+            doc.setFont("helvetica", "italic");
+            doc.setFontSize(9);
+            doc.setTextColor(...C.muted);
+            doc.text("(gambar tidak dapat dimuat)", M + CW / 2, yPos + h / 2, {
+              align: "center",
+            });
+          }
+
+          yPos += h + 4;
+        };
+
+        // ==================================================
+        // ===== MULAI RENDER =====
+        // ==================================================
         drawHeader();
 
         const p1Visible = !document
           .getElementById("lkpd-p1-content")
           .classList.contains("hidden");
-        if (p1Visible) {
-          addTitle("LKPD PERTEMUAN 1 — Algoritma & Flowchart");
-          doc.setFont("helvetica", "normal");
-          doc.setFontSize(10);
-          doc.setTextColor(0, 0, 0);
-          doc.text(`Nama Kelompok : ${val("lkpd1-kelompok")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Kelas         : ${val("lkpd1-kelas")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Anggota 1     : ${val("lkpd1-a1")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Anggota 2     : ${val("lkpd1-a2")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Anggota 3     : ${val("lkpd1-a3")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Anggota 4     : ${val("lkpd1-a4")}`, 14, yPos);
-          yPos += 8;
 
-          addTitle("Aktivitas 1: Memahami Simbol Flowchart");
+        if (p1Visible) {
+          // ========== LKPD PERTEMUAN 1 ==========
+          addBanner("LKPD PERTEMUAN 1", "Algoritma & Flowchart");
+
+          // A. Identitas
+          addSection("A", "Identitas Kelompok");
+          addIdentityTable([
+            ["Nama Kelompok", val("lkpd1-kelompok") || "-"],
+            ["Kelas", val("lkpd1-kelas") || "-"],
+            ["Anggota 1", val("lkpd1-a1") || "-"],
+            ["No. Absen 1", val("lkpd1-absen1") || "-"],
+            ["Anggota 2", val("lkpd1-a2") || "-"],
+            ["No. Absen 2", val("lkpd1-absen2") || "-"],
+            ["Anggota 3", val("lkpd1-a3") || "-"],
+            ["No. Absen 3", val("lkpd1-absen3") || "-"],
+            ["Anggota 4", val("lkpd1-a4") || "-"],
+            ["No. Absen 4", val("lkpd1-absen4") || "-"],
+          ]);
+          yPos += 2;
+
+          // Aktivitas 1
+          addSection(
+            "1",
+            "Memahami Simbol Flowchart",
+            "Lengkapi tabel berikut dengan Nama Simbol dan Deskripsi/Fungsi.",
+          );
           checkPageBreak(60);
           doc.autoTable({
             startY: yPos,
-            head: [["Simbol", "Nama", "Fungsi"]],
+            head: [["No", "Simbol", "Nama Simbol", "Deskripsi / Fungsi"]],
             body: [
-              ["Oval", val("lkpd1-s1"), val("lkpd1-s1f")],
-              ["Persegi Panjang", val("lkpd1-s2"), val("lkpd1-s2f")],
-              ["Belah Ketupat", val("lkpd1-s3"), val("lkpd1-s3f")],
-              ["Jajar Genjang", val("lkpd1-s4"), val("lkpd1-s4f")],
+              [
+                "1",
+                "Oval",
+                sanitizePDF(val("lkpd1-s1") || "-"),
+                sanitizePDF(val("lkpd1-s1f") || "-"),
+              ],
+              [
+                "2",
+                "Persegi Panjang",
+                sanitizePDF(val("lkpd1-s2") || "-"),
+                sanitizePDF(val("lkpd1-s2f") || "-"),
+              ],
+              [
+                "3",
+                "Belah Ketupat",
+                sanitizePDF(val("lkpd1-s3") || "-"),
+                sanitizePDF(val("lkpd1-s3f") || "-"),
+              ],
+              [
+                "4",
+                "Jajar Genjang",
+                sanitizePDF(val("lkpd1-s4") || "-"),
+                sanitizePDF(val("lkpd1-s4f") || "-"),
+              ],
             ],
             theme: "grid",
-            headStyles: { fillColor: primaryColor },
-            margin: { left: 14, right: 14 },
+            headStyles: {
+              fillColor: C.primary,
+              fontSize: 9,
+              fontStyle: "bold",
+              halign: "center",
+              textColor: 255,
+            },
+            bodyStyles: {
+              fontSize: 9,
+              textColor: C.dark,
+              valign: "middle",
+            },
+            columnStyles: {
+              0: { cellWidth: 10, halign: "center" },
+              1: { cellWidth: 32, halign: "center", fontStyle: "bold" },
+              2: { cellWidth: 42 },
+              3: { cellWidth: CW - 84 },
+            },
+            alternateRowStyles: { fillColor: [250, 250, 252] },
+            margin: { left: M, right: M },
           });
           yPos = doc.lastAutoTable.finalY + 6;
 
+          // Aktivitas 2
+          addSection(
+            "2",
+            'Membuat Flowchart "Membuat Mie Instan"',
+            "Buatlah flowchart untuk membuat mie instan pada kanvas berikut.",
+          );
           const mini1 = document.getElementById("mini-fcb-1");
           if (mini1 && mini1._miniFcb && !mini1._miniFcb.isEmpty()) {
             try {
               const img = mini1._miniFcb.getDataURL();
-              checkPageBreak(80);
-              doc.setFont("helvetica", "bold");
-              doc.setFontSize(10);
-              doc.setTextColor(...primaryColor);
-              doc.text("Flowchart Aktivitas 2:", 14, yPos);
-              yPos += 5;
-              const imgW = 180;
-              const imgH = 90;
-              doc.addImage(img, "PNG", 14, yPos, imgW, imgH);
-              yPos += imgH + 8;
-            } catch (e) {}
+              addImageBox(null, img, 100);
+            } catch (e) {
+              addAnswerBox(null, "(gagal memuat gambar)", 25);
+            }
+          } else {
+            addAnswerBox(null, "(Flowchart belum dibuat oleh siswa)", 30);
           }
+
+          // Aktivitas 3
+          addSection(
+            "3",
+            "Membuat Flowchart dengan Keputusan",
+            "Buatlah flowchart untuk menentukan apakah hari ini hujan atau tidak.",
+          );
           const mini2 = document.getElementById("mini-fcb-2");
           if (mini2 && mini2._miniFcb && !mini2._miniFcb.isEmpty()) {
             try {
               const img = mini2._miniFcb.getDataURL();
-              checkPageBreak(80);
-              doc.setFont("helvetica", "bold");
-              doc.setFontSize(10);
-              doc.setTextColor(...primaryColor);
-              doc.text("Flowchart Aktivitas 3:", 14, yPos);
-              yPos += 5;
-              const imgW = 180;
-              const imgH = 90;
-              doc.addImage(img, "PNG", 14, yPos, imgW, imgH);
-              yPos += imgH + 8;
-            } catch (e) {}
+              addImageBox(null, img, 100);
+            } catch (e) {
+              addAnswerBox(null, "(gagal memuat gambar)", 25);
+            }
+          } else {
+            addAnswerBox(null, "(Flowchart belum dibuat oleh siswa)", 30);
           }
 
-          addQA(
-            "Aktivitas 4: Tracing Flowchart (angka = 5)",
+          // Aktivitas 4
+          addSection(
+            "4",
+            "Mengikuti Alur Flowchart Sederhana",
+            "Mulai -> input angka -> hasil <- angka x 2 -> print hasil -> Selesai",
+          );
+          addAnswerBox(
+            "Jika angka = 5, berapa output yang dihasilkan? Jelaskan langkah-langkahnya!",
             val("lkpd1-act4"),
+            32,
           );
-          addQA("Refleksi 1: Apa itu flowchart?", val("lkpd1-r1"));
-          addQA(
-            "Refleksi 2: Bagaimana flowchart menggambarkan alur?",
+
+          // Aktivitas 5
+          addSection("5", "Refleksi Pertemuan 1");
+          addAnswerBox("1. Apa itu flowchart?", val("lkpd1-r1"), 18);
+          addAnswerBox(
+            "2. Bagaimana flowchart menggambarkan alur kegiatan?",
             val("lkpd1-r2"),
+            18,
           );
-          addQA("Refleksi 3: Bagian tersulit?", val("lkpd1-r3"));
-          addQA(
-            "Refleksi 4: Penerapan di kehidupan sehari-hari?",
+          addAnswerBox(
+            "3. Bagian mana yang paling sulit saat membuat flowchart?",
+            val("lkpd1-r3"),
+            18,
+          );
+          addAnswerBox(
+            "4. Di mana saya dapat menemukan penerapan flowchart dalam kehidupan sehari-hari?",
             val("lkpd1-r4"),
+            18,
           );
         } else {
-          addTitle("LKPD PERTEMUAN 2 — Pseudocode");
-          doc.setFont("helvetica", "normal");
-          doc.setFontSize(10);
-          doc.setTextColor(0, 0, 0);
-          doc.text(`Nama Kelompok : ${val("lkpd2-kelompok")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Kelas         : ${val("lkpd2-kelas")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Anggota 1     : ${val("lkpd2-a1")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Anggota 2     : ${val("lkpd2-a2")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Anggota 3     : ${val("lkpd2-a3")}`, 14, yPos);
-          yPos += 6;
-          doc.text(`Anggota 4     : ${val("lkpd2-a4")}`, 14, yPos);
-          yPos += 8;
+          // ========== LKPD PERTEMUAN 2 ==========
+          addBanner("LKPD PERTEMUAN 2", "Pseudocode");
 
-          addTitle("Aktivitas 1: Struktur Dasar Pseudocode");
-          addQA("Fungsi Judul Program", val("lkpd2-a1f"));
-          addQA("Fungsi Deklarasi Variabel", val("lkpd2-a2f"));
-          addQA("Fungsi Input", val("lkpd2-a3f"));
-          addQA("Fungsi Proses", val("lkpd2-a4f"));
-          addQA("Fungsi Output", val("lkpd2-a5f"));
-          addQA("Aktivitas 2: Pseudocode Luas Persegi", val("lkpd2-act2"));
-          addQA("Aktivitas 3: Pseudocode Membagi Bilangan", val("lkpd2-act3"));
-          addQA(
-            "Aktivitas 4: Tracing Pseudocode (sisi = 5)",
-            val("lkpd2-act4"),
+          // A. Identitas
+          addSection("A", "Identitas Kelompok");
+          addIdentityTable([
+            ["Nama Kelompok", val("lkpd2-kelompok") || "-"],
+            ["Kelas", val("lkpd2-kelas") || "-"],
+            ["Anggota 1", val("lkpd2-a1") || "-"],
+            ["No. Absen 1", val("lkpd2-absen1") || "-"],
+            ["Anggota 2", val("lkpd2-a2") || "-"],
+            ["No. Absen 2", val("lkpd2-absen2") || "-"],
+          ]);
+          yPos += 2;
+
+          // Aktivitas 1a
+          addSection(
+            "1a",
+            "Notasi Dasar Pseudocode",
+            "Lengkapi tabel berikut dengan fungsi dari setiap notasi.",
           );
-          addQA(
-            "Refleksi 1: Perbedaan flowchart, pseudocode, program?",
+          checkPageBreak(50);
+          doc.autoTable({
+            startY: yPos,
+            head: [["Notasi", "Fungsi"]],
+            body: [
+              ["input", sanitizePDF(val("lkpd2-n1") || "-")],
+              ["print", sanitizePDF(val("lkpd2-n2") || "-")],
+              ["<- (assignment)", sanitizePDF(val("lkpd2-n3") || "-")],
+              ["if ... then ... else", sanitizePDF(val("lkpd2-n4") || "-")],
+              ["while ... do", sanitizePDF(val("lkpd2-n5") || "-")],
+            ],
+            theme: "grid",
+            headStyles: {
+              fillColor: C.primary,
+              fontSize: 9,
+              fontStyle: "bold",
+              textColor: 255,
+            },
+            bodyStyles: { fontSize: 9, textColor: C.dark, valign: "middle" },
+            columnStyles: {
+              0: {
+                cellWidth: 55,
+                fontStyle: "bold",
+                textColor: C.primary,
+                font: "courier",
+              },
+              1: { cellWidth: CW - 55 },
+            },
+            alternateRowStyles: { fillColor: [250, 250, 252] },
+            margin: { left: M, right: M },
+          });
+          yPos = doc.lastAutoTable.finalY + 6;
+
+          // Aktivitas 1b
+          addSection(
+            "1b",
+            "Struktur Dasar Pseudocode",
+            "Lengkapi fungsi utama dari setiap bagian pseudocode.",
+          );
+          checkPageBreak(60);
+          doc.autoTable({
+            startY: yPos,
+            head: [["Bagian", "Contoh Penulisan", "Fungsi Utama"]],
+            body: [
+              [
+                "Judul Program",
+                "Algoritma Menghitung Luas...",
+                sanitizePDF(val("lkpd2-a1f") || "-"),
+              ],
+              [
+                "Deklarasi Variabel",
+                "sisi, luas : integer",
+                sanitizePDF(val("lkpd2-a2f") || "-"),
+              ],
+              ["Input", "input sisi", sanitizePDF(val("lkpd2-a3f") || "-")],
+              [
+                "Proses",
+                "luas <- sisi * sisi",
+                sanitizePDF(val("lkpd2-a4f") || "-"),
+              ],
+              ["Output", "print luas", sanitizePDF(val("lkpd2-a5f") || "-")],
+            ],
+            theme: "grid",
+            headStyles: {
+              fillColor: C.primary,
+              fontSize: 9,
+              fontStyle: "bold",
+              textColor: 255,
+            },
+            bodyStyles: { fontSize: 8.5, textColor: C.dark, valign: "middle" },
+            columnStyles: {
+              0: { cellWidth: 32, fontStyle: "bold" },
+              1: {
+                cellWidth: 58,
+                font: "courier",
+                textColor: C.primaryDark,
+              },
+              2: { cellWidth: CW - 90 },
+            },
+            alternateRowStyles: { fillColor: [250, 250, 252] },
+            margin: { left: M, right: M },
+          });
+          yPos = doc.lastAutoTable.finalY + 6;
+
+          // Aktivitas 2
+          addSection("2", 'Pseudocode "Menghitung Luas Persegi"');
+
+          addCodeBox(
+            "Lengkapi pseudocode berikut (isi bagian bertitik-titik)!",
+            "Algoritma Menghitung Luas Persegi\n" +
+              "Input: Nilai Panjang Sisi Persegi\n" +
+              "Output: Luas Persegi tercetak\n\n" +
+              "input ___\n" +
+              "luas <- ___ * ___\n" +
+              "print ___",
+            34,
+          );
+
+          addAnswerBox(
+            "Tuliskan versi lengkap pseudocode di sini!",
+            val("lkpd2-act2"),
+            36,
+          );
+
+          // Aktivitas 3
+          addSection("3", 'Pseudocode "Membagi Bilangan"');
+
+          addCodeBox(
+            "Lengkapi pseudocode berikut (isi bagian bertitik-titik)!",
+            "Algoritma Membagi Bilangan\n" +
+              "Input: Pembilang dan Penyebut\n" +
+              "Output: Hasil Pembagian tercetak\n\n" +
+              "input ___, ___\n" +
+              "if penyebut = ___\n" +
+              '    print "__________________"\n' +
+              "else\n" +
+              "    hasil <- ___ / ___\n" +
+              "    print ___",
+            52,
+          );
+
+          addAnswerBox(
+            "Tuliskan versi lengkap pseudocode di sini!",
+            val("lkpd2-act3"),
+            46,
+          );
+
+          // Aktivitas 4
+          addSection("4", "Tracing Pseudocode (Menentukan Output)");
+
+          checkPageBreak(70);
+          addCodeBox(
+            "Kasus a. Luas Persegi -- Jika sisi = 8, berapa outputnya?",
+            "input sisi\nluas <- sisi * sisi\nprint luas",
+            22,
+          );
+          addAnswerBox("Output & penelusuran:", val("lkpd2-trace-a"), 24);
+
+          checkPageBreak(70);
+          addCodeBox(
+            "Kasus b. Menghitung Mundur -- Jika N = 3, berapa outputnya?",
+            "input N\nwhile N > 0\n    print N\n    N <- N - 1",
+            26,
+          );
+          addAnswerBox("Output & penelusuran:", val("lkpd2-trace-b"), 24);
+
+          // Aktivitas 5
+          addSection("5", "Refleksi");
+          addAnswerBox(
+            "1. Apa perbedaan antara flowchart dan pseudocode, dan kapan kamu menggunakan masing-masing?",
             val("lkpd2-r1"),
+            22,
           );
-          addQA(
-            "Refleksi 2: Bagian tersulit menulis pseudocode?",
+          addAnswerBox(
+            "2. Apa hal penting yang kamu pahami tentang pseudocode setelah mengikuti pembelajaran ini?",
             val("lkpd2-r2"),
+            22,
           );
-          addQA("Refleksi 3: Mengapa pseudocode penting?", val("lkpd2-r3"));
-          addQA(
-            "Refleksi 4: Penerapan pseudocode sehari-hari?",
-            val("lkpd2-r4"),
+          addAnswerBox(
+            "3. Bagian apa yang masih terasa sulit bagi kamu dalam memahami atau membuat pseudocode, dan apa yang akan kamu lakukan untuk mengatasinya?",
+            val("lkpd2-r3"),
+            22,
           );
         }
+
+        drawFooter();
 
         if (returnBase64) {
           return doc.output("datauristring");
         }
-        doc.save(`LKPD_Algoritma_${Date.now()}.pdf`);
+
+        const fileName = `LKPD_Informatika_Pertemuan_${p1Visible ? "1" : "2"}_${Date.now()}.pdf`;
+        doc.save(fileName);
       }
 
       // ==================================================
@@ -8313,7 +9727,8 @@ luas ← sisi * sisi
             'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
           return;
         }
-        let jawaban = [];
+        // ====== KUMPULKAN JAWABAN PG (J1..J10 / PG1..PG10) ======
+        let jawabanPG = [];
         let skorPG = 0;
         let soalPG =
           type === "tertulis"
@@ -8326,15 +9741,22 @@ luas ← sisi * sisi
             `input[name="jawaban_${type}_${i}"]:checked`,
           );
           const jawab = radio ? radio.value : "";
-          jawaban.push(jawab);
-          if (jawab === soalPG[i - 1].kunci) skorPG += 5;
+          jawabanPG.push(jawab);
+          if (jawab === soalPG[i - 1].kunci) skorPG += 6;
         }
+
+        // ====== VALIDASI & BUILD PAYLOAD ======
+        let payload;
+
         if (type === "tertulis") {
-          for (let i = 1; i <= 2; i++) {
-            const ta = document.getElementById(`jawaban_tertulis_esai_${i}`);
-            jawaban.push(ta ? ta.value.trim() : "");
-          }
-          if (jawaban.some((j) => j === "")) {
+          const esai1 = (
+            document.getElementById("jawaban_tertulis_esai_1")?.value || ""
+          ).trim();
+          const esai2 = (
+            document.getElementById("jawaban_tertulis_esai_2")?.value || ""
+          ).trim();
+
+          if (jawabanPG.some((j) => j === "") || !esai1 || !esai2) {
             statusEl.className = "text-sm status-error w-full md:w-auto";
             statusEl.innerText = "❌ Semua soal PG dan Esai harus diisi.";
             btn.disabled = false;
@@ -8342,10 +9764,38 @@ luas ← sisi * sisi
               'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
             return;
           }
+
           statusEl.className = "text-sm status-success w-full md:w-auto";
-          statusEl.innerText = `✅ Terkirim! Skor PG: ${skorPG}/50 (Esai akan dinilai guru)`;
+          statusEl.innerText = `✅ Terkirim! Skor PG: ${skorPG}/60 (Esai akan dinilai guru)`;
+
+          // Payload cocok dengan header sheet:
+          // Timestamp | NIS | Nama | Kelas | PG1..PG10 | Skor_PG | Esai1 | Esai2 | Skor_Esai | Skor_Total | Catatan_Guru
+          payload = {
+            type: "asesmen_tertulis",
+            subbab: "subbab_4",
+            nama,
+            nis,
+            kelas,
+            PG1: jawabanPG[0],
+            PG2: jawabanPG[1],
+            PG3: jawabanPG[2],
+            PG4: jawabanPG[3],
+            PG5: jawabanPG[4],
+            PG6: jawabanPG[5],
+            PG7: jawabanPG[6],
+            PG8: jawabanPG[7],
+            PG9: jawabanPG[8],
+            PG10: jawabanPG[9],
+            Skor_PG: skorPG,
+            Esai1: esai1,
+            Esai2: esai2,
+            Skor_Esai: "", // menunggu penilaian guru
+            Skor_Total: skorPG, // sementara hanya PG
+            Catatan_Guru: "",
+          };
         } else {
-          if (jawaban.some((j) => j === "")) {
+          // awal / akhir
+          if (jawabanPG.some((j) => j === "")) {
             statusEl.className = "text-sm status-error w-full md:w-auto";
             statusEl.innerText = "❌ Semua soal harus dijawab.";
             btn.disabled = false;
@@ -8353,10 +9803,35 @@ luas ← sisi * sisi
               'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
             return;
           }
-          const nilai = skorPG * 2;
+
+          const nilai = Math.round((skorPG / 60) * 100);
           statusEl.className = "text-sm status-success w-full md:w-auto";
           statusEl.innerText = `✅ Terkirim! Nilai: ${nilai}/100`;
+
+          // Payload cocok dengan header sheet:
+          // Timestamp | NIS | Nama | Kelas | J1..J10 | Skor | Catatan_Guru
+          payload = {
+            type: `asesmen_${type}`,
+            subbab: "subbab_4",
+            nama,
+            nis,
+            kelas,
+            J1: jawabanPG[0],
+            J2: jawabanPG[1],
+            J3: jawabanPG[2],
+            J4: jawabanPG[3],
+            J5: jawabanPG[4],
+            J6: jawabanPG[5],
+            J7: jawabanPG[6],
+            J8: jawabanPG[7],
+            J9: jawabanPG[8],
+            J10: jawabanPG[9],
+            Skor: nilai,
+            Catatan_Guru: "",
+          };
         }
+
+        // ====== KIRIM KE APPS SCRIPT ======
         try {
           if (
             APPS_SCRIPT_URL &&
@@ -8366,19 +9841,13 @@ luas ← sisi * sisi
               method: "POST",
               mode: "no-cors",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                type: `asesmen_${type}`,
-                subbab: "subbab_4",
-                nama,
-                nis,
-                kelas,
-                jawaban,
-              }),
+              body: JSON.stringify(payload),
             });
           }
         } catch (e) {
           console.error(e);
         }
+
         btn.disabled = false;
         btn.innerHTML =
           'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
@@ -8432,7 +9901,6 @@ luas ← sisi * sisi
         fcbRender();
         fcbUpdateStats();
         fcbUpdateEmptyState();
-        // Inisialisasi mini FCB di LKPD
         initMiniFCB("mini-fcb-1", "miniFcbLkpd1", "Pertemuan 1 - Aktivitas 2");
         initMiniFCB("mini-fcb-2", "miniFcbLkpd2", "Pertemuan 1 - Aktivitas 3");
       });
