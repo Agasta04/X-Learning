@@ -3738,7 +3738,7 @@
               </div>
             </div>
 
-            <!-- D. PSEUDOCODE -->
+            <!-- D. PSEUDOCODE (REVISI DENGAN ANALOGI) -->
             <div id="materi-pseudo" class="materi-content hidden">
               <h3
                 class="text-2xl font-black text-dark mb-6 border-b-2 border-slate-100 pb-4 uppercase"
@@ -3756,22 +3756,75 @@
                 <em>rapi</em>, dan <em>konsisten</em>.
               </p>
 
+              <!-- ANALOGI BARU: MEMBUAT TEH -->
+              <h4 class="font-bold text-dark mt-6 mb-3 text-lg">
+                <i class="fas fa-mug-hot text-primary mr-2"></i>Analogi
+                Kehidupan Sehari-hari: Membuat Teh
+              </h4>
+              <p class="text-sm text-slate-600 mb-4">
+                Perhatikan bagaimana aktivitas sederhana "Membuat Teh" diubah
+                menjadi algoritma, lalu dituliskan dalam bentuk pseudocode yang
+                rapi. Ini adalah inti dari berpikir komputasional!
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <!-- Algoritma -->
+                <div
+                  class="bg-slate-50 p-4 rounded-2xl border border-slate-200"
+                >
+                  <h5
+                    class="font-bold text-primary mb-3 text-sm flex items-center gap-2"
+                  >
+                    <i class="fas fa-list-ol"></i> Algoritma (Langkah-langkah)
+                  </h5>
+                  <ol
+                    class="list-decimal pl-5 text-sm text-slate-700 space-y-2 font-medium"
+                  >
+                    <li>Siapkan gelas</li>
+                    <li>Masukkan teh</li>
+                    <li>Tuangkan air panas</li>
+                    <li>Tambahkan gula</li>
+                    <li>Aduk</li>
+                    <li>Teh siap diminum</li>
+                  </ol>
+                </div>
+                <!-- Pseudocode -->
+                <div
+                  class="bg-slate-900 p-4 rounded-2xl border border-slate-700"
+                >
+                  <h5
+                    class="font-bold text-emerald-400 mb-3 text-sm flex items-center gap-2"
+                  >
+                    <i class="fas fa-file-code"></i> Pseudocode
+                  </h5>
+                  <pre class="text-xs text-slate-300 font-mono leading-relaxed">
+<span class="kw">MULAI</span>
+  Siapkan gelas
+  Masukkan teh
+  Tuangkan air panas
+  Tambahkan gula
+  Aduk
+  Teh siap diminum
+<span class="kw">SELESAI</span></pre>
+                </div>
+              </div>
               <div
-                class="bg-emerald-50 border-l-4 border-emerald-500 p-5 rounded-r-2xl mb-6"
+                class="bg-indigo-50 border-l-4 border-primary p-4 rounded-r-2xl mb-6"
               >
                 <p class="text-sm text-slate-700 font-medium">
                   <strong
-                    ><i class="fas fa-lightbulb mr-1 text-emerald-600"></i
-                    >Analogi:</strong
+                    ><i class="fas fa-lightbulb mr-1 text-primary"></i>Analogi
+                    Variabel:</strong
                   >
-                  Pseudocode seperti
-                  <strong>resep masakan yang ditulis rapi</strong> di buku
-                  resep. Orang lain (atau komputer) bisa mengikuti langkahnya
-                  dengan mudah, meskipun belum tentu bisa langsung dimasak oleh
-                  mesin. Ia adalah <em>jembatan</em> antara flowchart dan
-                  program nyata.
+                  Bayangkan <strong>Variabel</strong> itu seperti
+                  <em>gelas</em> atau <em>kotak penyimpanan</em>. Ketika kita
+                  menulis <code>Gelas <- Teh</code>, artinya kita memasukkan
+                  "Teh" ke dalam "Gelas". Nanti kita bisa memeriksa isi gelas
+                  tersebut atau menambahkannya dengan gula (<code
+                    >Gelas <- Gelas + Gula</code
+                  >).
                 </p>
               </div>
+              <!-- END ANALOGI BARU -->
 
               <h4 class="font-bold text-dark mt-6 mb-3 text-lg">
                 <i class="fas fa-pencil-ruler text-primary mr-2"></i>Aturan
@@ -5414,7 +5467,7 @@ largest ← elemen pertama L
           </div>
         </div>
 
-        <!-- ====== LKPD PERTEMUAN 2 ====== -->
+        <!-- ====== LKPD PERTEMUAN 2 (REVISI: 5 AKTIVITAS) ====== -->
         <div id="lkpd-p2-content" class="lkpd-content hidden">
           <div
             class="bg-white rounded-[32px] shadow-sm border border-slate-100 p-6 md:p-12 max-w-4xl mx-auto mb-10"
@@ -5573,10 +5626,48 @@ largest ← elemen pertama L
               </div>
             </div>
 
-            <!-- AKTIVITAS 1 -->
+            <!-- AKTIVITAS 1: PEMAHAMAN DASAR (2 SOAL) -->
+            <div class="mb-10">
+              <h4 class="font-bold text-dark mb-3 text-lg">
+                <i class="fas fa-brain text-primary mr-2"></i>Aktivitas 1:
+                Pemahaman Dasar Pseudocode &amp; Variabel
+              </h4>
+              <p class="text-sm text-slate-500 mb-4 font-medium">
+                Jawablah 2 pertanyaan berikut berdasarkan pemahamanmu setelah
+                membaca materi!
+              </p>
+
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-bold text-slate-700 mb-2"
+                    >1. Apa yang dimaksud dengan Pseudocode?</label
+                  >
+                  <textarea
+                    id="lkpd2-act1-1"
+                    rows="3"
+                    class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary bg-slate-50 focus:bg-white"
+                    placeholder="Jawaban..."
+                  ></textarea>
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-slate-700 mb-2"
+                    >2. Apa yang dimaksud dengan Variabel dalam pemrograman?
+                    Berikan analogi sederhananya!</label
+                  >
+                  <textarea
+                    id="lkpd2-act1-2"
+                    rows="3"
+                    class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary bg-slate-50 focus:bg-white"
+                    placeholder="Jawaban..."
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- AKTIVITAS 2 -->
             <div class="mb-8">
               <h4 class="font-bold text-dark mb-3 text-lg">
-                <i class="fas fa-icons text-primary mr-2"></i>Aktivitas 1:
+                <i class="fas fa-icons text-primary mr-2"></i>Aktivitas 2:
                 Notasi &amp; Struktur Dasar Pseudocode
               </h4>
               <p class="text-sm text-slate-500 mb-3 font-medium">
@@ -5584,7 +5675,7 @@ largest ← elemen pertama L
               </p>
 
               <p class="text-xs font-black text-primary uppercase mb-2">
-                1a. Notasi Dasar
+                2a. Notasi Dasar
               </p>
               <div
                 class="overflow-hidden rounded-2xl border border-slate-200 mb-4"
@@ -5667,7 +5758,7 @@ largest ← elemen pertama L
               </div>
 
               <p class="text-xs font-black text-primary uppercase mb-2">
-                1b. Struktur Dasar
+                2b. Struktur Dasar
               </p>
               <div class="overflow-hidden rounded-2xl border border-slate-200">
                 <table class="min-w-full text-sm">
@@ -5779,79 +5870,96 @@ largest ← elemen pertama L
               </div>
             </div>
 
-            <!-- AKTIVITAS 2 -->
-            <div class="mb-8">
-              <h4 class="font-bold text-dark mb-3 text-lg">
-                <i class="fas fa-calculator text-primary mr-2"></i>Aktivitas 2:
-                Pseudocode "Menghitung Luas Persegi"
-              </h4>
-
-              <p class="text-sm text-slate-600 font-bold mb-2">
-                Lengkapi pseudocode berikut (isi bagian bertitik-titik)!
-              </p>
-              <div
-                class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-3 font-mono text-xs text-slate-700 leading-relaxed overflow-x-auto"
-              >
-                Algoritma Menghitung Luas Persegi<br />
-                Input: Nilai Panjang Sisi Persegi<br />
-                Output: Luas Persegi tercetak<br /><br />
-                input <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />
-                luas ← <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> *
-                <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />
-                print <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-              </div>
-
-              <p class="text-sm text-slate-600 font-bold mb-2 mt-4">
-                Tuliskan versi lengkap pseudocode di sini!
-              </p>
-              <textarea
-                id="lkpd2-act2"
-                rows="5"
-                class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary font-mono bg-slate-50 focus:bg-white"
-                placeholder="Tuliskan versi lengkap pseudocode di sini..."
-              ></textarea>
-            </div>
-
-            <!-- AKTIVITAS 3 -->
+            <!-- AKTIVITAS 3: STUDI KASUS IF-ELSE (DEKAT KEHIDUPAN SEHARI-HARI) -->
             <div class="mb-8">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-code-branch text-primary mr-2"></i>Aktivitas 3:
-                Pseudocode "Membagi Bilangan"
+                Studi Kasus Percabangan (If-Else)
               </h4>
 
+              <!-- Studi Kasus -->
+              <div
+                class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-4"
+              >
+                <p
+                  class="text-xs font-black text-amber-700 uppercase mb-2 flex items-center gap-2"
+                >
+                  <i class="fas fa-book-open"></i> Studi Kasus
+                </p>
+                <p class="text-sm text-slate-700 font-medium leading-relaxed">
+                  Andi dan adiknya ingin menonton film di bioskop. Di loket
+                  tiket tertulis aturan harga sebagai berikut:
+                </p>
+                <ul
+                  class="list-disc pl-5 text-sm text-slate-700 space-y-1 font-medium mt-2"
+                >
+                  <li>
+                    Penonton berusia <b>17 tahun atau lebih</b> dikenakan harga
+                    tiket <b>Rp50.000</b>.
+                  </li>
+                  <li>
+                    Penonton berusia <b>di bawah 17 tahun</b> dikenakan harga
+                    tiket <b>Rp35.000</b>.
+                  </li>
+                </ul>
+                <p
+                  class="text-sm text-slate-700 font-medium leading-relaxed mt-2"
+                >
+                  Petugas loket ingin membuat pseudocode untuk menentukan
+                  <b>harga tiket</b> berdasarkan <b>umur</b> pembeli.
+                </p>
+              </div>
+
+              <!-- Langkah 1: Urutan langkah -->
               <p class="text-sm text-slate-600 font-bold mb-2">
-                Lengkapi pseudocode berikut (isi bagian bertitik-titik)!
+                Langkah 1 — Tuliskan urutan langkah penyelesaian kasus di atas!
+              </p>
+              <textarea
+                id="lkpd2-act3-langkah"
+                rows="5"
+                class="lkpd-input w-full px-4 py-3 border border-slate-200 rounded-xl outline-none text-sm focus:border-primary bg-slate-50 focus:bg-white mb-4"
+                placeholder="Contoh:&#10;1. Input umur pembeli&#10;2. Periksa apakah umur ≥ 17&#10;3. ..."
+              ></textarea>
+
+              <!-- Langkah 2: Lengkapi pseudocode -->
+              <p class="text-sm text-slate-600 font-bold mb-2">
+                Langkah 2 — Bacalah pseudocode berikut, kemudian tentukan isian
+                yang tepat pada bagian yang masih kosong!
               </p>
               <div
                 class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-3 font-mono text-xs text-slate-700 leading-relaxed overflow-x-auto"
               >
-                Algoritma Membagi Bilangan<br />
-                Input: Pembilang dan Penyebut<br />
-                Output: Hasil Pembagian tercetak<br /><br />
-                input <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>,
-                <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />
-                if penyebut = <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;print
+                Algoritma Menentukan Harga Tiket Bioskop<br />
+                Deklarasi: umur, harga : integer<br />
+                Input: umur<br />
+                Output: harga<br /><br />
+                input
                 <u
-                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
+                ><br />
+                if umur ≥
+                <u
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
+                >
+                then<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;harga ←
+                <u
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
                 ><br />
                 else<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;hasil ←
+                &nbsp;&nbsp;&nbsp;&nbsp;harga ←
                 <u
-                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
-                >
-                /
-                <u
-                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
                 ><br />
-                &nbsp;&nbsp;&nbsp;&nbsp;print
+                print
                 <u
-                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
+                  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u
                 >
               </div>
 
+              <!-- Langkah 3: Tulis pseudocode lengkap -->
               <p class="text-sm text-slate-600 font-bold mb-2 mt-4">
-                Tuliskan versi lengkap pseudocode di sini!
+                Langkah 3 — Tuliskan versi lengkap pseudocode di sini!
               </p>
               <textarea
                 id="lkpd2-act3"
@@ -5861,7 +5969,7 @@ largest ← elemen pertama L
               ></textarea>
             </div>
 
-            <!-- AKTIVITAS 4 -->
+            <!-- AKTIVITAS 4: TRACING -->
             <div class="mb-8">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-search text-primary mr-2"></i>Aktivitas 4:
@@ -5922,7 +6030,7 @@ largest ← elemen pertama L
               </div>
             </div>
 
-            <!-- AKTIVITAS 5 -->
+            <!-- AKTIVITAS 5: REFLEKSI -->
             <div class="mb-6">
               <h4 class="font-bold text-dark mb-3 text-lg">
                 <i class="fas fa-lightbulb text-primary mr-2"></i>Aktivitas 5:
@@ -8658,16 +8766,15 @@ largest ← elemen pertama L
       }
 
       // ==================================================
-      // ===== EXPORT PDF LKPD — VERSI PROFESIONAL       =====
-      // ===== Simbol ← diganti dengan <- (ASCII-safe)   =====
+      // ===== EXPORT PDF LKPD — VERSI SINKRON HTML       =====
+      // ===== Sudah sesuai dengan LKPD P2 revisi:       =====
+      // ===== 5 Aktivitas (If-Else Tiket Bioskop)       =====
       // ==================================================
       function exportPDFLKPD(returnBase64) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF("p", "mm", "a4");
 
         // ====== SANITASI TEKS UNTUK PDF ======
-        // jsPDF standard fonts tidak mendukung Unicode seperti ← → ≥ ≤ ≠ ×
-        // Karakter tersebut harus diganti dengan padanan ASCII agar tidak garbled.
         const sanitizePDF = (text) => {
           if (text === null || text === undefined) return "";
           return String(text)
@@ -8705,6 +8812,10 @@ largest ← elemen pertama L
           green: [16, 185, 129],
           red: [239, 68, 68],
           white: [255, 255, 255],
+          amber: [245, 158, 11],
+          amberLight: [255, 251, 235],
+          amberBorder: [253, 230, 138],
+          amberDark: [120, 53, 15],
         };
 
         let yPos = 0;
@@ -8716,13 +8827,11 @@ largest ← elemen pertama L
           return el.value.trim();
         };
 
-        // ====== DRAW HEADER (center, tanpa logo) ======
+        // ====== DRAW HEADER ======
         const drawHeader = () => {
-          // Bar ungu
           doc.setFillColor(...C.primary);
           doc.rect(0, 0, PW, 20, "F");
 
-          // Judul center
           doc.setTextColor(255, 255, 255);
           doc.setFont("helvetica", "bold");
           doc.setFontSize(14);
@@ -8737,7 +8846,6 @@ largest ← elemen pertama L
             { align: "center" },
           );
 
-          // Nomor halaman kanan
           doc.setFontSize(7.5);
           doc.text(`Halaman ${pageNum}`, PW - M, 12, { align: "right" });
 
@@ -8809,32 +8917,6 @@ largest ← elemen pertama L
           } else {
             yPos += 13;
           }
-        };
-
-        // ====== NUMBERED LIST ITEMS (untuk TP & Petunjuk) ======
-        const addNumberedList = (items) => {
-          items.forEach((item, i) => {
-            const lines = doc.splitTextToSize(sanitizePDF(item), CW - 12);
-            const needed = lines.length * 4 + 4;
-            checkPageBreak(needed);
-
-            // Number badge
-            doc.setFillColor(...C.primary);
-            doc.circle(M + 3.5, yPos + 2.5, 3, "F");
-            doc.setTextColor(255, 255, 255);
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(7.5);
-            doc.text(String(i + 1), M + 3.5, yPos + 3.5, { align: "center" });
-
-            // Text
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(9);
-            doc.setTextColor(...C.dark);
-            doc.text(lines, M + 10, yPos + 2);
-
-            yPos += lines.length * 4 + 3;
-          });
-          yPos += 3;
         };
 
         // ====== IDENTITY TABLE ======
@@ -8935,6 +9017,39 @@ largest ← elemen pertama L
           yPos += h + 4;
         };
 
+        // ====== CASE STUDY BOX (kuning) ======
+        const addCaseStudyBox = (text, minH) => {
+          const h = minH || 30;
+          checkPageBreak(h + 14);
+
+          // Header "STUDI KASUS"
+          doc.setFillColor(...C.amber);
+          doc.roundedRect(M, yPos, CW, 8, 2, 2, "F");
+          doc.setTextColor(...C.amberDark);
+          doc.setFont("helvetica", "bold");
+          doc.setFontSize(9);
+          doc.text("STUDI KASUS", M + 4, yPos + 5.5);
+          yPos += 10;
+
+          // Content
+          doc.setFillColor(...C.amberLight);
+          doc.setDrawColor(...C.amberBorder);
+          doc.setLineWidth(0.3);
+
+          const safeText = sanitizePDF(text);
+          const lines = doc.splitTextToSize(safeText, CW - 8);
+          const contentH = Math.max(h, lines.length * 4 + 6);
+
+          doc.roundedRect(M, yPos, CW, contentH, 2, 2, "FD");
+
+          doc.setFont("helvetica", "normal");
+          doc.setFontSize(9);
+          doc.setTextColor(50, 50, 50);
+          doc.text(lines, M + 4, yPos + 6);
+
+          yPos += contentH + 4;
+        };
+
         // ====== IMAGE BOX ======
         const addImageBox = (label, dataUrl, minH) => {
           const h = minH || 90;
@@ -8981,7 +9096,6 @@ largest ← elemen pertama L
           // ========== LKPD PERTEMUAN 1 ==========
           addBanner("LKPD PERTEMUAN 1", "Algoritma & Flowchart");
 
-          // A. Identitas
           addSection("A", "Identitas Kelompok");
           addIdentityTable([
             ["Nama Kelompok", val("lkpd1-kelompok") || "-"],
@@ -8997,7 +9111,6 @@ largest ← elemen pertama L
           ]);
           yPos += 2;
 
-          // Aktivitas 1
           addSection(
             "1",
             "Memahami Simbol Flowchart",
@@ -9057,7 +9170,6 @@ largest ← elemen pertama L
           });
           yPos = doc.lastAutoTable.finalY + 6;
 
-          // Aktivitas 2
           addSection(
             "2",
             'Membuat Flowchart "Membuat Mie Instan"',
@@ -9075,7 +9187,6 @@ largest ← elemen pertama L
             addAnswerBox(null, "(Flowchart belum dibuat oleh siswa)", 30);
           }
 
-          // Aktivitas 3
           addSection(
             "3",
             "Membuat Flowchart dengan Keputusan",
@@ -9093,7 +9204,6 @@ largest ← elemen pertama L
             addAnswerBox(null, "(Flowchart belum dibuat oleh siswa)", 30);
           }
 
-          // Aktivitas 4
           addSection(
             "4",
             "Mengikuti Alur Flowchart Sederhana",
@@ -9105,7 +9215,6 @@ largest ← elemen pertama L
             32,
           );
 
-          // Aktivitas 5
           addSection("5", "Refleksi Pertemuan 1");
           addAnswerBox("1. Apa itu flowchart?", val("lkpd1-r1"), 18);
           addAnswerBox(
@@ -9124,10 +9233,9 @@ largest ← elemen pertama L
             18,
           );
         } else {
-          // ========== LKPD PERTEMUAN 2 ==========
+          // ========== LKPD PERTEMUAN 2 (REVISI: 5 AKTIVITAS) ==========
           addBanner("LKPD PERTEMUAN 2", "Pseudocode");
 
-          // A. Identitas
           addSection("A", "Identitas Kelompok");
           addIdentityTable([
             ["Nama Kelompok", val("lkpd2-kelompok") || "-"],
@@ -9139,9 +9247,22 @@ largest ← elemen pertama L
           ]);
           yPos += 2;
 
-          // Aktivitas 1a
+          // ===== AKTIVITAS 1: PEMAHAMAN DASAR (2 SOAL) =====
+          addSection("1", "Pemahaman Dasar Pseudocode & Variabel");
+          addAnswerBox(
+            "1. Apa yang dimaksud dengan Pseudocode?",
+            val("lkpd2-act1-1"),
+            18,
+          );
+          addAnswerBox(
+            "2. Apa yang dimaksud dengan Variabel dalam pemrograman? Berikan analogi sederhananya!",
+            val("lkpd2-act1-2"),
+            20,
+          );
+
+          // ===== AKTIVITAS 2a: NOTASI DASAR =====
           addSection(
-            "1a",
+            "2a",
             "Notasi Dasar Pseudocode",
             "Lengkapi tabel berikut dengan fungsi dari setiap notasi.",
           );
@@ -9178,9 +9299,9 @@ largest ← elemen pertama L
           });
           yPos = doc.lastAutoTable.finalY + 6;
 
-          // Aktivitas 1b
+          // ===== AKTIVITAS 2b: STRUKTUR DASAR =====
           addSection(
-            "1b",
+            "2b",
             "Struktur Dasar Pseudocode",
             "Lengkapi fungsi utama dari setiap bagian pseudocode.",
           );
@@ -9229,50 +9350,45 @@ largest ← elemen pertama L
           });
           yPos = doc.lastAutoTable.finalY + 6;
 
-          // Aktivitas 2
-          addSection("2", 'Pseudocode "Menghitung Luas Persegi"');
+          // ===== AKTIVITAS 3: STUDI KASUS IF-ELSE (TIKET BIOSKOP) =====
+          addSection("3", "Studi Kasus Percabangan (If-Else)");
 
-          addCodeBox(
-            "Lengkapi pseudocode berikut (isi bagian bertitik-titik)!",
-            "Algoritma Menghitung Luas Persegi\n" +
-              "Input: Nilai Panjang Sisi Persegi\n" +
-              "Output: Luas Persegi tercetak\n\n" +
-              "input ___\n" +
-              "luas <- ___ * ___\n" +
-              "print ___",
+          addCaseStudyBox(
+            "Andi dan adiknya ingin menonton film di bioskop. Di loket tiket tertulis aturan harga sebagai berikut:\n" +
+              "  - Penonton berusia 17 tahun atau lebih dikenakan harga tiket Rp50.000.\n" +
+              "  - Penonton berusia di bawah 17 tahun dikenakan harga tiket Rp35.000.\n\n" +
+              "Petugas loket ingin membuat pseudocode untuk menentukan harga tiket berdasarkan umur pembeli.",
             34,
           );
 
           addAnswerBox(
-            "Tuliskan versi lengkap pseudocode di sini!",
-            val("lkpd2-act2"),
-            36,
+            "Langkah 1 - Tuliskan urutan langkah penyelesaian kasus di atas!",
+            val("lkpd2-act3-langkah"),
+            30,
           );
 
-          // Aktivitas 3
-          addSection("3", 'Pseudocode "Membagi Bilangan"');
-
           addCodeBox(
-            "Lengkapi pseudocode berikut (isi bagian bertitik-titik)!",
-            "Algoritma Membagi Bilangan\n" +
-              "Input: Pembilang dan Penyebut\n" +
-              "Output: Hasil Pembagian tercetak\n\n" +
-              "input ___, ___\n" +
-              "if penyebut = ___\n" +
-              '    print "__________________"\n' +
+            "Langkah 2 - Lengkapi pseudocode berikut (isi bagian bertitik-titik)!",
+            "Algoritma Menentukan Harga Tiket Bioskop\n" +
+              "Deklarasi: umur, harga : integer\n" +
+              "Input: umur\n" +
+              "Output: harga\n\n" +
+              "input ___\n" +
+              "if umur >= ___ then\n" +
+              "    harga <- ___\n" +
               "else\n" +
-              "    hasil <- ___ / ___\n" +
-              "    print ___",
-            52,
+              "    harga <- ___\n" +
+              "print ___",
+            42,
           );
 
           addAnswerBox(
-            "Tuliskan versi lengkap pseudocode di sini!",
+            "Langkah 3 - Tuliskan versi lengkap pseudocode di sini!",
             val("lkpd2-act3"),
-            46,
+            36,
           );
 
-          // Aktivitas 4
+          // ===== AKTIVITAS 4: TRACING =====
           addSection("4", "Tracing Pseudocode (Menentukan Output)");
 
           checkPageBreak(70);
@@ -9291,7 +9407,7 @@ largest ← elemen pertama L
           );
           addAnswerBox("Output & penelusuran:", val("lkpd2-trace-b"), 24);
 
-          // Aktivitas 5
+          // ===== AKTIVITAS 5: REFLEKSI =====
           addSection("5", "Refleksi");
           addAnswerBox(
             "1. Apa perbedaan antara flowchart dan pseudocode, dan kapan kamu menggunakan masing-masing?",
@@ -9768,8 +9884,6 @@ largest ← elemen pertama L
           statusEl.className = "text-sm status-success w-full md:w-auto";
           statusEl.innerText = `✅ Terkirim! Skor PG: ${skorPG}/60 (Esai akan dinilai guru)`;
 
-          // Payload cocok dengan header sheet:
-          // Timestamp | NIS | Nama | Kelas | PG1..PG10 | Skor_PG | Esai1 | Esai2 | Skor_Esai | Skor_Total | Catatan_Guru
           payload = {
             type: "asesmen_tertulis",
             subbab: "subbab_4",
@@ -9789,8 +9903,8 @@ largest ← elemen pertama L
             Skor_PG: skorPG,
             Esai1: esai1,
             Esai2: esai2,
-            Skor_Esai: "", // menunggu penilaian guru
-            Skor_Total: skorPG, // sementara hanya PG
+            Skor_Esai: "",
+            Skor_Total: skorPG,
             Catatan_Guru: "",
           };
         } else {
@@ -9808,8 +9922,6 @@ largest ← elemen pertama L
           statusEl.className = "text-sm status-success w-full md:w-auto";
           statusEl.innerText = `✅ Terkirim! Nilai: ${nilai}/100`;
 
-          // Payload cocok dengan header sheet:
-          // Timestamp | NIS | Nama | Kelas | J1..J10 | Skor | Catatan_Guru
           payload = {
             type: `asesmen_${type}`,
             subbab: "subbab_4",
