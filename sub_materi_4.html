@@ -2134,7 +2134,8 @@
               <span class="tag"><i class="fas fa-star mr-2"></i>Tahap 1</span>
               <h3>Pre-Test</h3>
               <p>
-                Asesmen diagnostik: 10 soal PG untuk mengukur pemahaman awal.
+                Asesmen diagnostik: 5 soal flowchart + 5 soal pseudocode untuk
+                mengukur pemahaman awal.
               </p>
               <div class="action">
                 <span>5 Menit</span><span>Mulai &rarr;</span>
@@ -2214,8 +2215,8 @@
               <span class="tag"><i class="fas fa-trophy mr-2"></i>Tahap 6</span>
               <h3>Post-Test &amp; Tes Tertulis</h3>
               <p>
-                Ukur ketercapaian TP melalui Post-Test dan Tes Tertulis (PG +
-                Esai).
+                Ukur ketercapaian TP melalui Post-Test dan Tes Tertulis berbasis
+                kasus.
               </p>
               <div class="action">
                 <span>Evaluasi</span><span>Kerjakan &rarr;</span>
@@ -6139,12 +6140,12 @@ largest ← elemen pertama L
                 Asesmen Awal (Pre-Test)
               </h3>
               <p class="text-sm text-slate-600 font-medium">
-                10 soal pilihan ganda • 5 menit • Dikerjakan sebelum
-                pembelajaran
+                10 soal pilihan ganda (5 Flowchart + 5 Pseudocode) • 5 menit •
+                Dikerjakan sebelum pembelajaran
               </p>
               <p class="text-xs text-slate-500 mt-1 font-medium">
-                Mengukur pemahaman awal tentang definisi algoritma, ciri
-                algoritma, dan simbol diagram alir
+                Mengukur pemahaman awal tentang simbol flowchart, alur
+                flowchart, dan notasi dasar pseudocode
               </p>
             </div>
             <div
@@ -6226,8 +6227,12 @@ largest ← elemen pertama L
                 Asesmen Akhir (Post-Test)
               </h3>
               <p class="text-sm text-slate-600 font-medium">
-                10 soal pilihan ganda • 5 menit • Dikerjakan setelah
-                pembelajaran
+                10 soal pilihan ganda (5 Flowchart + 5 Pseudocode) • 5 menit •
+                Dikerjakan setelah pembelajaran
+              </p>
+              <p class="text-xs text-slate-500 mt-1 font-medium">
+                Mengukur ketercapaian TP dengan bobot yang setara dengan
+                pre-test
               </p>
             </div>
             <div
@@ -6309,10 +6314,11 @@ largest ← elemen pertama L
                 Tes Tertulis (Sumatif)
               </h3>
               <p class="text-sm text-slate-600 font-medium">
-                10 Soal Pilihan Ganda + 2 Soal Esai • Alokasi 20 menit
+                10 Soal Pilihan Ganda Berbasis Kasus &amp; Penalaran • Alokasi
+                20 menit
               </p>
               <p class="text-xs text-slate-500 mt-2 font-medium">
-                Pedoman Skor: PG maksimal 60 + Esai maksimal 40 = 100
+                Pedoman Skor: 10 soal × 10 poin = 100
               </p>
             </div>
             <div
@@ -9443,305 +9449,325 @@ largest ← elemen pertama L
         localStorage.getItem("apps_script_url") ||
         "https://script.google.com/macros/s/AKfycbxqUrcBqk3A0h9Mh8cCs8fxEVYk0p5AVHqiaK6O2KGSFPqN8SjXtWPn4yhaAlLZyLfw7A/exec";
 
+      // ==================================================
+      // ===== SOAL PRE-TEST (5 Flowchart + 5 Pseudocode) =====
+      // ==================================================
       const soalAwal = [
+        // ===== 5 SOAL FLOWCHART =====
         {
           no: 1,
-          teks: "Apa pengertian dari algoritma?",
+          teks: "Apa yang dimaksud dengan flowchart (diagram alir)?",
           pilihan: [
-            "Kumpulan data yang disimpan dalam komputer",
-            "Urutan langkah-langkah logis dan terstruktur untuk menyelesaikan masalah",
-            "Bahasa pemrograman untuk membuat aplikasi",
-            "Perangkat keras yang ada di dalam komputer",
+            "Kode program yang siap dijalankan oleh komputer",
+            "Diagram visual yang menggambarkan alur program menggunakan simbol-simbol geometris",
+            "Kumpulan data yang tersimpan dalam basis data",
+            "Bahasa pemrograman tingkat tinggi untuk membuat aplikasi",
           ],
           kunci: "B",
         },
         {
           no: 2,
-          teks: "Menurut Donald E. Knuth, ciri algoritma yang baik yang berarti program tahu kapan harus berhenti adalah…",
-          pilihan: ["Input", "Output", "Finiteness", "Effectiveness"],
-          kunci: "C",
+          teks: "Simbol berbentuk oval (terminator) pada flowchart digunakan untuk melambangkan…",
+          pilihan: [
+            "Proses perhitungan aritmatika",
+            "Titik awal (Start) atau titik akhir (End) suatu program",
+            "Percabangan kondisi Ya/Tidak",
+            "Proses input dan output data",
+          ],
+          kunci: "B",
         },
         {
           no: 3,
-          teks: "Apa pengertian dari diagram alir (flowchart)?",
+          teks: "Simbol persegi panjang pada flowchart melambangkan…",
           pilihan: [
-            "Kode program yang siap dijalankan di komputer",
-            "Gambar visual berupa bentuk geometris yang menggambarkan alur program",
-            "Teks naratif berisi cara memasak makanan",
-            "Kumpulan rumus matematika sederhana",
+            "Keputusan atau percabangan kondisi",
+            "Proses komputasi seperti perhitungan atau pengolahan data",
+            "Titik awal program dimulai",
+            "Penerimaan input dari pengguna",
           ],
           kunci: "B",
         },
         {
           no: 4,
-          teks: "Apa nama dari simbol berbentuk oval pada flowchart?",
-          pilihan: ["Process", "Decision", "Terminator", "Flowline"],
-          kunci: "C",
-        },
-        {
-          no: 5,
-          teks: "Apa fungsi dari simbol persegi panjang pada flowchart?",
+          teks: "Simbol belah ketupat (diamond) pada flowchart berfungsi untuk…",
           pilihan: [
-            "Menandakan titik awal atau akhir program",
-            "Menandakan titik percabangan pilihan",
-            "Melakukan perhitungan aritmatika atau proses komputasi",
-            "Menerima masukan (input) atau menampilkan hasil (output)",
+            "Menyimpan data ke dalam variabel",
+            "Menampilkan hasil ke layar",
+            "Menandakan keputusan atau percabangan berdasarkan kondisi tertentu",
+            "Mengakhiri jalannya program",
           ],
           kunci: "C",
         },
         {
-          no: 6,
-          teks: "Simbol belah ketupat pada flowchart berfungsi untuk…",
+          no: 5,
+          teks: "Simbol jajar genjang pada flowchart melambangkan…",
           pilihan: [
-            "Menandakan awal program",
-            "Menandakan keputusan atau percabangan kondisi",
-            "Menghubungkan garis alur",
-            "Menampilkan teks ke layar",
+            "Proses aritmatika dan perhitungan",
+            "Menerima masukan (input) atau menampilkan hasil (output)",
+            "Titik terminasi (Start/End)",
+            "Penghubung antar halaman flowchart",
+          ],
+          kunci: "B",
+        },
+        {
+          no: 6,
+          teks: "Apa yang dimaksud dengan pseudocode?",
+          pilihan: [
+            "Bahasa pemrograman yang dapat langsung dijalankan komputer",
+            "Deskripsi informal algoritma yang menyerupai bahasa pemrograman dan mudah dibaca manusia",
+            "Diagram visual alur program",
+            "Kumpulan data yang tersimpan dalam komputer",
           ],
           kunci: "B",
         },
         {
           no: 7,
-          teks: "Simbol jajar genjang pada flowchart digunakan untuk melambangkan…",
+          teks: "Notasi '←' (tanda panah kiri) dalam pseudocode berfungsi untuk…",
           pilihan: [
-            "Proses komputasi atau perhitungan data",
-            "Menerima input dari pengguna atau menampilkan output",
-            "Titik Selesai/End",
-            "Garis penunjuk alur",
+            "Membandingkan dua buah nilai",
+            "Assignment, yaitu memberi nilai ke sebuah variabel",
+            "Menampilkan output ke layar",
+            "Membaca input dari pengguna",
           ],
           kunci: "B",
         },
         {
           no: 8,
-          teks: "Alur algoritma yang dikerjakan secara lurus dan berurutan dari atas ke bawah dinamakan…",
-          pilihan: ["Sequence", "Branching", "Looping", "Debugging"],
-          kunci: "A",
+          teks: "Perintah 'input sisi' dalam pseudocode berfungsi untuk…",
+          pilihan: [
+            "Menampilkan nilai variabel sisi ke layar",
+            "Membaca nilai dari pengguna dan menyimpannya ke variabel sisi",
+            "Menghapus variabel sisi dari memori",
+            "Menggandakan nilai variabel sisi",
+          ],
+          kunci: "B",
         },
         {
           no: 9,
-          teks: "Apa yang dimaksud dengan pseudocode?",
+          teks: "Perintah 'print luas' dalam pseudocode berfungsi untuk…",
           pilihan: [
-            "Bahasa pemrograman yang dapat dijalankan komputer",
-            "Deskripsi informal algoritma yang menyerupai bahasa pemrograman",
-            "Kumpulan data yang disimpan dalam komputer",
-            "Perangkat yang digunakan untuk menjalankan program",
+            "Membaca nilai variabel luas",
+            "Menampilkan nilai variabel luas ke layar",
+            "Menghapus variabel luas",
+            "Mengubah nilai variabel luas",
           ],
           kunci: "B",
         },
         {
           no: 10,
-          teks: "Struktur dasar pseudocode yang kita pelajari pada tahap ini adalah…",
+          teks: "Struktur keputusan (percabangan) dalam pseudocode dituliskan menggunakan kata kunci…",
           pilihan: [
-            "Input – Proses – Output",
-            "Hanya Output",
-            "Hanya Input",
-            "Hanya Proses",
+            "input ... print",
+            "if ... then ... else",
+            "while ... do",
+            "begin ... end",
           ],
-          kunci: "A",
+          kunci: "B",
         },
       ];
+
+      // ==================================================
+      // ===== SOAL POST-TEST (5 Flowchart + 5 Pseudocode) =====
+      // ===== Bobot sama dengan Pre-Test (100) =====
+      // ==================================================
       const soalAkhir = [
+        // ===== 5 SOAL FLOWCHART =====
         {
           no: 1,
-          teks: "Apa pengertian dari algoritma?",
+          teks: "Apa yang dimaksud dengan flowchart (diagram alir)?",
           pilihan: [
-            "Kumpulan data yang disimpan dalam komputer",
-            "Urutan langkah-langkah logis dan terstruktur untuk menyelesaikan masalah",
-            "Bahasa pemrograman untuk membuat aplikasi",
-            "Perangkat keras yang ada di dalam komputer",
+            "Kode program yang siap dijalankan oleh komputer",
+            "Diagram visual yang menggambarkan alur program menggunakan simbol-simbol geometris",
+            "Kumpulan data yang tersimpan dalam basis data",
+            "Bahasa pemrograman tingkat tinggi untuk membuat aplikasi",
           ],
           kunci: "B",
         },
         {
           no: 2,
-          teks: "Menurut Donald E. Knuth, ciri algoritma yang baik yang berarti program tahu kapan harus berhenti adalah…",
-          pilihan: ["Input", "Output", "Finiteness", "Effectiveness"],
-          kunci: "C",
+          teks: "Simbol berbentuk oval (terminator) pada flowchart digunakan untuk melambangkan…",
+          pilihan: [
+            "Proses perhitungan aritmatika",
+            "Titik awal (Start) atau titik akhir (End) suatu program",
+            "Percabangan kondisi Ya/Tidak",
+            "Proses input dan output data",
+          ],
+          kunci: "B",
         },
         {
           no: 3,
-          teks: "Apa pengertian dari diagram alir (flowchart)?",
+          teks: "Simbol persegi panjang pada flowchart melambangkan…",
           pilihan: [
-            "Kode program yang siap dijalankan di komputer",
-            "Gambar visual berupa bentuk geometris yang menggambarkan alur program",
-            "Teks naratif berisi cara memasak makanan",
-            "Kumpulan rumus matematika sederhana",
+            "Keputusan atau percabangan kondisi",
+            "Proses komputasi seperti perhitungan atau pengolahan data",
+            "Titik awal program dimulai",
+            "Penerimaan input dari pengguna",
           ],
           kunci: "B",
         },
         {
           no: 4,
-          teks: "Apa nama dari simbol berbentuk oval pada flowchart?",
-          pilihan: ["Process", "Decision", "Terminator", "Flowline"],
-          kunci: "C",
-        },
-        {
-          no: 5,
-          teks: "Apa fungsi dari simbol persegi panjang pada flowchart?",
+          teks: "Simbol belah ketupat (diamond) pada flowchart berfungsi untuk…",
           pilihan: [
-            "Menandakan titik awal atau akhir program",
-            "Menandakan titik percabangan pilihan",
-            "Melakukan perhitungan aritmatika atau proses komputasi",
-            "Menerima masukan (input) atau menampilkan hasil (output)",
+            "Menyimpan data ke dalam variabel",
+            "Menampilkan hasil ke layar",
+            "Menandakan keputusan atau percabangan berdasarkan kondisi tertentu",
+            "Mengakhiri jalannya program",
           ],
           kunci: "C",
         },
         {
-          no: 6,
-          teks: "Simbol belah ketupat pada flowchart berfungsi untuk…",
+          no: 5,
+          teks: "Simbol jajar genjang pada flowchart melambangkan…",
           pilihan: [
-            "Menandakan awal program",
-            "Menandakan keputusan atau percabangan kondisi",
-            "Menghubungkan garis alur",
-            "Menampilkan teks ke layar",
+            "Proses aritmatika dan perhitungan",
+            "Menerima masukan (input) atau menampilkan hasil (output)",
+            "Titik terminasi (Start/End)",
+            "Penghubung antar halaman flowchart",
+          ],
+          kunci: "B",
+        },
+        {
+          no: 6,
+          teks: "Apa yang dimaksud dengan pseudocode?",
+          pilihan: [
+            "Bahasa pemrograman yang dapat langsung dijalankan komputer",
+            "Deskripsi informal algoritma yang menyerupai bahasa pemrograman dan mudah dibaca manusia",
+            "Diagram visual alur program",
+            "Kumpulan data yang tersimpan dalam komputer",
           ],
           kunci: "B",
         },
         {
           no: 7,
-          teks: "Simbol jajar genjang pada flowchart digunakan untuk melambangkan…",
+          teks: "Notasi '←' (tanda panah kiri) dalam pseudocode berfungsi untuk…",
           pilihan: [
-            "Proses komputasi atau perhitungan data",
-            "Menerima input dari pengguna atau menampilkan output",
-            "Titik Selesai/End",
-            "Garis penunjuk alur",
+            "Membandingkan dua buah nilai",
+            "Assignment, yaitu memberi nilai ke sebuah variabel",
+            "Menampilkan output ke layar",
+            "Membaca input dari pengguna",
           ],
           kunci: "B",
         },
         {
           no: 8,
-          teks: "Alur algoritma yang memiliki pemilihan berdasarkan kondisi tertentu dinamakan…",
-          pilihan: ["Sequence", "Branching", "Looping", "Debugging"],
+          teks: "Perintah 'input sisi' dalam pseudocode berfungsi untuk…",
+          pilihan: [
+            "Menampilkan nilai variabel sisi ke layar",
+            "Membaca nilai dari pengguna dan menyimpannya ke variabel sisi",
+            "Menghapus variabel sisi dari memori",
+            "Menggandakan nilai variabel sisi",
+          ],
           kunci: "B",
         },
         {
           no: 9,
-          teks: "Apa yang dimaksud dengan pseudocode?",
+          teks: "Perintah 'print luas' dalam pseudocode berfungsi untuk…",
           pilihan: [
-            "Bahasa pemrograman yang dapat dijalankan komputer",
-            "Deskripsi informal algoritma yang menyerupai bahasa pemrograman",
-            "Kumpulan data yang disimpan dalam komputer",
-            "Perangkat yang digunakan untuk menjalankan program",
+            "Membaca nilai variabel luas",
+            "Menampilkan nilai variabel luas ke layar",
+            "Menghapus variabel luas",
+            "Mengubah nilai variabel luas",
           ],
           kunci: "B",
         },
         {
           no: 10,
-          teks: "Notasi ← dalam pseudocode digunakan untuk…",
+          teks: "Struktur keputusan (percabangan) dalam pseudocode dituliskan menggunakan kata kunci…",
           pilihan: [
-            "Assignment atau pemberian nilai",
-            "Perbandingan",
-            "Input",
-            "Output",
+            "input ... print",
+            "if ... then ... else",
+            "while ... do",
+            "begin ... end",
           ],
-          kunci: "A",
+          kunci: "B",
         },
       ];
+
+      // ==================================================
+      // ===== SOAL TES TERTULIS (Berbasis Kasus & Penalaran) =====
+      // ===== Tanpa Esai — 10 soal PG × 10 poin = 100 =====
+      // ==================================================
       const soalTertulis = [
         {
           no: 1,
-          teks: "Urutan langkah-langkah logis dan terstruktur yang disusun untuk memecahkan suatu masalah dinamakan…",
+          teks: "Sebuah restoran memiliki aturan: jika total belanja ≥ Rp100.000 maka pelanggan mendapat diskon 10%, jika tidak maka tidak ada diskon. Simbol flowchart yang paling tepat untuk merepresentasikan aturan diskon tersebut adalah…",
           pilihan: [
-            "Struktur data",
-            "Algoritma",
-            "Bahasa pemrograman",
-            "Diagram alir",
+            "Persegi panjang (Process)",
+            "Jajar genjang (Input/Output)",
+            "Belah ketupat (Decision)",
+            "Oval (Terminator)",
           ],
-          kunci: "B",
+          kunci: "C",
         },
         {
           no: 2,
-          teks: "Pada sebuah sistem mesin kasir toko, variabel Harga_Barang dan Jumlah_Beli termasuk ke dalam komponen…",
+          teks: "Pada kasus restoran di atas, variabel Total_Belanja yang diinputkan pelanggan termasuk komponen…",
           pilihan: ["Process", "Output", "Input", "Decision"],
           kunci: "C",
         },
         {
           no: 3,
-          teks: "Proses perhitungan Total_Bayar = Total_Belanja - Diskon dalam analisis algoritma dikategorikan sebagai…",
-          pilihan: ["Input", "Output", "Process", "Terminal"],
+          teks: "Proses perhitungan Total_Bayar = Total_Belanja - Diskon dalam analisis algoritma dikategorikan sebagai komponen…",
+          pilihan: ["Input", "Output", "Process", "Terminator"],
           kunci: "C",
         },
         {
           no: 4,
-          teks: "Simbol flowchart berbentuk persegi panjang digunakan khusus untuk menggambarkan…",
+          teks: "Sebuah sistem kasir ingin menampilkan struk pembayaran berisi total yang harus dibayar pelanggan. Simbol flowchart yang tepat untuk menampilkan struk tersebut adalah…",
           pilihan: [
-            "Titik awal atau akhir program",
-            "Proses komputasi atau perhitungan matematika",
-            "Pilihan kondisi/percabangan",
-            "Menerima masukan (input) data",
-          ],
-          kunci: "B",
-        },
-        {
-          no: 5,
-          teks: "Apabila sebuah program membutuhkan percabangan untuk mengecek kondisi Total_Belanja >= 100.000, maka simbol yang wajib digunakan adalah…",
-          pilihan: [
+            "Persegi panjang (Process)",
+            "Belah ketupat (Decision)",
+            "Jajar genjang (Input/Output)",
             "Oval (Terminator)",
-            "Jajar Genjang (Input/Output)",
-            "Belah Ketupat (Decision)",
-            "Persegi Panjang (Process)",
           ],
           kunci: "C",
         },
         {
+          no: 5,
+          teks: "Perhatikan pseudocode berikut: input usia; if usia ≥ 17 then print 'Dewasa' else print 'Anak-anak'. Jika pengguna memasukkan usia = 15, output yang dihasilkan adalah…",
+          pilihan: ["Dewasa", "Anak-anak", "Usia tidak valid", "15"],
+          kunci: "B",
+        },
+        {
           no: 6,
-          teks: "Fungsi dari simbol jajar genjang dalam perancangan flowchart adalah untuk…",
-          pilihan: [
-            "Memulai alur program",
-            "Melakukan keputusan kondisi",
-            "Menghubungkan antar halaman",
-            "Menerima input atau menampilkan output",
-          ],
-          kunci: "D",
+          teks: "Perhatikan pseudocode berikut: input N; total ← 0; while N > 0; total ← total + N; N ← N - 1; print total. Jika N = 3, berapa nilai total yang tercetak?",
+          pilihan: ["3", "6", "5", "0"],
+          kunci: "B",
         },
         {
           no: 7,
-          teks: "Perbedaan utama antara alur sequence (berurutan) dan branching (percabangan) terletak pada…",
+          teks: "Dalam sebuah program kasir, kasir perlu memeriksa apakah stok barang masih tersedia sebelum melakukan transaksi. Struktur pseudocode yang paling tepat untuk situasi ini adalah…",
           pilihan: [
-            "Adanya pemilihan jalur berdasarkan kondisi tertentu (Ya/Tidak) pada branching",
-            "Penggunaan simbol Terminator yang berbeda",
-            "Sequence selalu memerlukan input dari pengguna",
-            "Branching tidak membutuhkan titik Start dan End",
+            "Sequence (berurutan) tanpa percabangan",
+            "Percabangan if-else berdasarkan kondisi stok",
+            "Perulangan while tanpa kondisi",
+            "Deklarasi variabel saja",
           ],
-          kunci: "A",
+          kunci: "B",
         },
         {
           no: 8,
-          teks: "Pada garis alur yang keluar dari simbol keputusan (Decision / Belah Ketupat), hal wajib yang harus dicantumkan adalah…",
-          pilihan: [
-            "Angka dan huruf",
-            "Label kondisi (Ya / Tidak)",
-            "Nama variabel input",
-            "Tanda panah ganda",
-          ],
+          teks: "Sistem parkir memiliki aturan tarif: 1 jam pertama Rp5.000, setiap jam berikutnya Rp3.000. Jika sebuah motor parkir selama 3 jam, total biaya yang harus dibayar adalah…",
+          pilihan: ["Rp8.000", "Rp11.000", "Rp15.000", "Rp9.000"],
           kunci: "B",
         },
         {
           no: 9,
-          teks: "Perhatikan pseudocode berikut! luas ← sisi * sisi; print luas. Jika sisi = 5, berapa output yang dihasilkan?",
-          pilihan: ["10", "15", "20", "25"],
-          kunci: "D",
+          teks: "Perhatikan pseudocode berikut: input sisi; luas_permukaan ← 6 * sisi * sisi; print luas_permukaan. Jika sisi = 4, output yang dihasilkan adalah…",
+          pilihan: ["24", "48", "96", "128"],
+          kunci: "C",
         },
         {
           no: 10,
-          teks: 'Perhatikan pseudocode berikut! input pembilang, penyebut; if penyebut = 0; print "Penyebut tidak boleh nol"; else; hasil ← pembilang / penyebut; print hasil. Jika penyebut = 0, output yang dihasilkan adalah…',
+          teks: "Sebuah program ingin mengecek apakah bilangan yang diinput termasuk bilangan positif, negatif, atau nol. Struktur pseudocode yang paling tepat digunakan adalah…",
           pilihan: [
-            "Hasil pembagian",
-            '"Penyebut tidak boleh nol"',
-            "Error",
-            "0",
+            "Sequence (berurutan) saja",
+            "Percabangan bertingkat (nested if-else)",
+            "Perulangan while tanpa kondisi berhenti",
+            "Deklarasi variabel tanpa input",
           ],
           kunci: "B",
-        },
-      ];
-      const esaiTertulis = [
-        {
-          no: 1,
-          teks: "Perhatikan studi kasus berikut! Sebuah toko memberikan diskon 10% jika total belanja pelanggan ≥ Rp100.000. Jika kurang dari Rp100.000, tidak ada diskon. Berdasarkan studi kasus tersebut: Tentukan komponen Input, Proses, dan Output dengan kondisi Ya dan Tidak pada cabang keputusan.",
-        },
-        {
-          no: 2,
-          teks: "Buatlah pseudocode sederhana untuk menghitung luas persegi panjang! Input yang dibutuhkan adalah panjang dan lebar. Output yang dihasilkan adalah luas persegi panjang.",
         },
       ];
 
@@ -9772,12 +9798,6 @@ largest ← elemen pertama L
           const card = document.createElement("div");
           card.className = "asesmen-card";
           card.innerHTML = `<p class="font-bold text-dark mb-4 text-base">${s.no}. ${s.teks}</p><div class="space-y-2">${s.pilihan.map((p, i) => `<label class="option-label"><input type="radio" name="jawaban_tertulis_${s.no}" value="${String.fromCharCode(65 + i)}" /><span class="text-sm text-slate-700 font-medium">${String.fromCharCode(65 + i)}. ${p}</span></label>`).join("")}</div>`;
-          c.appendChild(card);
-        });
-        esaiTertulis.forEach((s) => {
-          const card = document.createElement("div");
-          card.className = "asesmen-card";
-          card.innerHTML = `<p class="font-bold text-dark mb-3 text-base">Esai ${s.no}. ${s.teks}</p><textarea id="jawaban_tertulis_esai_${s.no}" rows="6" class="w-full p-4 border border-slate-200 rounded-xl bg-slate-50 focus:border-primary outline-none focus:bg-white transition font-mono text-sm" placeholder="Tuliskan jawaban esai di sini..."></textarea>`;
           c.appendChild(card);
         });
       }
@@ -9865,24 +9885,18 @@ largest ← elemen pertama L
         let payload;
 
         if (type === "tertulis") {
-          const esai1 = (
-            document.getElementById("jawaban_tertulis_esai_1")?.value || ""
-          ).trim();
-          const esai2 = (
-            document.getElementById("jawaban_tertulis_esai_2")?.value || ""
-          ).trim();
-
-          if (jawabanPG.some((j) => j === "") || !esai1 || !esai2) {
+          if (jawabanPG.some((j) => j === "")) {
             statusEl.className = "text-sm status-error w-full md:w-auto";
-            statusEl.innerText = "❌ Semua soal PG dan Esai harus diisi.";
+            statusEl.innerText = "❌ Semua soal harus dijawab.";
             btn.disabled = false;
             btn.innerHTML =
               'Kirim Jawaban <i class="fa-solid fa-paper-plane ml-2"></i>';
             return;
           }
 
+          const nilai = Math.round((skorPG / 60) * 100);
           statusEl.className = "text-sm status-success w-full md:w-auto";
-          statusEl.innerText = `✅ Terkirim! Skor PG: ${skorPG}/60 (Esai akan dinilai guru)`;
+          statusEl.innerText = `✅ Terkirim! Nilai: ${nilai}/100`;
 
           payload = {
             type: "asesmen_tertulis",
@@ -9900,11 +9914,8 @@ largest ← elemen pertama L
             PG8: jawabanPG[7],
             PG9: jawabanPG[8],
             PG10: jawabanPG[9],
-            Skor_PG: skorPG,
-            Esai1: esai1,
-            Esai2: esai2,
-            Skor_Esai: "",
-            Skor_Total: skorPG,
+            Skor_PG: nilai,
+            Skor_Total: nilai,
             Catatan_Guru: "",
           };
         } else {
