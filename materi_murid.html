@@ -1,1831 +1,2111 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Materi Pembelajaran - KomputasiKita</title>
-    <meta
-      name="description"
-      content="Daftar materi Berpikir Komputasional SMA Fase E - KomputasiKita. 4 sub-bab interaktif dengan video, simulasi, dan latihan soal."
-    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materi Pembelajaran - KomputasiKita</title>
+  <meta name="description"
+    content="Daftar materi Berpikir Komputasional SMA Fase E - KomputasiKita. 5 bab interaktif dengan video, simulasi, dan latihan soal." />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { sans: ["'Plus Jakarta Sans'", "sans-serif"] },
-          },
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["'Plus Jakarta Sans'", "sans-serif"] },
         },
-        corePlugins: { container: false },
-      };
-    </script>
+      },
+      corePlugins: { container: false },
+    };
+  </script>
 
-    <style>
-      :root {
-        --primary: #5842e3;
-        --primary-gradient: linear-gradient(
-          135deg,
+  <style>
+    :root {
+      --primary: #5842e3;
+      --primary-gradient: linear-gradient(135deg,
           #635bff 0%,
           #4f46e5 50%,
-          #4338ca 100%
-        );
-        --primary-light: #eef2ff;
-        --accent-yellow: #fde047;
-        --accent-yellow-hover: #facc15;
+          #4338ca 100%);
+      --primary-light: #eef2ff;
+      --accent-yellow: #fde047;
+      --accent-yellow-hover: #facc15;
 
-        /* Topic Colors */
-        --card-purple-gradient: linear-gradient(
-          135deg,
+      /* Topic Colors */
+      --card-purple-gradient: linear-gradient(135deg,
           #6d61fd 0%,
-          #5142f5 100%
-        );
-        --card-orange-gradient: linear-gradient(
-          135deg,
+          #5142f5 100%);
+      --card-orange-gradient: linear-gradient(135deg,
           #ff7e60 0%,
-          #f95738 100%
-        );
-        --card-green-gradient: linear-gradient(
-          135deg,
+          #f95738 100%);
+      --card-green-gradient: linear-gradient(135deg,
           #22c55e 0%,
-          #059669 100%
-        );
-        --card-violet-gradient: linear-gradient(
-          135deg,
+          #059669 100%);
+      --card-violet-gradient: linear-gradient(135deg,
           #a855f7 0%,
-          #7c3aed 100%
-        );
+          #7c3aed 100%);
+      --card-blue-gradient: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
 
-        --bg-page: #f8fafc;
-        --text-dark: #0f172a;
-        --text-muted: #64748b;
-        --border-color: #e2e8f0;
-        --shadow-sm: 0 4px 12px rgba(99, 102, 241, 0.05);
-        --shadow-md: 0 12px 30px rgba(99, 102, 241, 0.08);
-        --shadow-lg: 0 20px 40px rgba(79, 70, 229, 0.14);
+      --bg-page: #f8fafc;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 4px 12px rgba(99, 102, 241, 0.05);
+      --shadow-md: 0 12px 30px rgba(99, 102, 241, 0.08);
+      --shadow-lg: 0 20px 40px rgba(79, 70, 229, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .kk-container {
+      max-width: 1240px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+      width: 100%;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .section-tag {
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    /* ===== SKIP LINK ===== */
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      z-index: 999;
+      transition: top 0.2s;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+      outline: 2px solid var(--accent-yellow);
+      outline-offset: 2px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2.5px solid var(--accent-yellow);
+      outline-offset: 3px;
+      border-radius: 10px;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      background: #ffffff;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .brand-icon {
+      background: var(--primary-gradient);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      flex-shrink: 0;
+    }
+
+    .navbar-brand .highlight {
+      color: var(--primary);
+    }
+
+    .navbar-menu {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .navbar-menu a {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      padding: 8px 14px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .navbar-menu a:hover,
+    .navbar-menu a.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .navbar-menu a.active {
+      font-weight: 800;
+    }
+
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .navbar-toggle {
+      display: none;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 10px;
+      transition: background 0.2s;
+    }
+
+    .navbar-toggle:hover {
+      background: var(--primary-light);
+    }
+
+    .btn-guru {
+      background: #f8fafc;
+      color: var(--primary);
+      border: 1.5px solid var(--border-color);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-guru:hover {
+      background: var(--primary-light);
+      border-color: #c7d2fe;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(88, 66, 227, 0.12);
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .btn-yellow {
+      background: var(--accent-yellow);
+      color: #1e1b4b;
+      box-shadow: 0 8px 20px rgba(250, 204, 21, 0.4);
+    }
+
+    .btn-yellow:hover {
+      background: var(--accent-yellow-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(250, 204, 21, 0.5);
+    }
+
+    .btn-lg {
+      padding: 15px 34px;
+      font-size: 1.05rem;
+    }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      padding: 40px 0 20px;
+    }
+
+    .hero-box {
+      background: var(--primary-gradient);
+      border-radius: 36px;
+      padding: 56px 52px;
+      color: #ffffff;
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(79, 70, 229, 0.28);
+      min-height: 480px;
+    }
+
+    .hero-box::before {
+      content: "";
+      position: absolute;
+      top: -180px;
+      right: -160px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle,
+          rgba(255, 255, 255, 0.22) 0%,
+          rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-box::after {
+      content: "";
+      position: absolute;
+      bottom: -140px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-badge i {
+      color: var(--accent-yellow);
+    }
+
+    .hero-content h1 {
+      font-size: 2.9rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.2px;
+      margin-bottom: 18px;
+      color: #ffffff;
+    }
+
+    .hero-content h1 .hero-highlight {
+      color: var(--accent-yellow);
+      display: block;
+    }
+
+    .hero-content>p {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1.02rem;
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: 26px;
+    }
+
+    .hero-content>p strong {
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    /* Hero Quick Stats Row */
+    .hero-stats-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      max-width: fit-content;
+    }
+
+    .h-stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .h-stat-num {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--accent-yellow);
+      line-height: 1.1;
+    }
+
+    .h-stat-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+
+    .h-stat-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent-yellow);
+      color: #1e1b4b;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 12px 28px rgba(250, 204, 21, 0.4);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-hero-primary:hover {
+      background: var(--accent-yellow-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(250, 204, 21, 0.5);
+      gap: 14px;
+    }
+
+    .btn-hero-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      padding: 14px 26px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.5px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-hero-outline:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* ===== HERO VISUAL — MODERN MISSION NAVIGATOR ===== */
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-dashboard-card {
+      background: rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      border-radius: 28px;
+      padding: 22px 20px;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.22);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hdc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .hdc-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hdc-pulse-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .hdc-title {
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      color: #ffffff;
+    }
+
+    .hdc-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.18);
+      padding: 4px 10px;
+      border-radius: 20px;
+      color: #ffffff;
+    }
+
+    .hdc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hdc-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #ffffff;
+    }
+
+    .hdc-item:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: rgba(255, 255, 255, 0.45);
+      transform: translateX(4px);
+    }
+
+    .hdc-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+
+    .item-purple .hdc-icon {
+      background: var(--card-purple-gradient);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    }
+
+    .item-orange .hdc-icon {
+      background: var(--card-orange-gradient);
+      box-shadow: 0 4px 12px rgba(255, 107, 74, 0.4);
+    }
+
+    .item-green .hdc-icon {
+      background: var(--card-green-gradient);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    .item-violet .hdc-icon {
+      background: var(--card-violet-gradient);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+    }
+
+    .item-blue .hdc-icon {
+      background: var(--card-blue-gradient);
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+    }
+
+    .hdc-content {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hdc-step {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: var(--accent-yellow);
+      text-transform: uppercase;
+    }
+
+    .hdc-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #ffffff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .hdc-arrow {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      transition: transform 0.2s;
+    }
+
+    .hdc-item:hover .hdc-arrow {
+      color: var(--accent-yellow);
+      transform: translateX(3px);
+    }
+
+    .hdc-footer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 6px;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 600;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
       }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Plus Jakarta Sans", sans-serif;
+      50% {
+        transform: scale(1.3);
+        opacity: 0.7;
       }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background-color: var(--bg-page);
-        color: var(--text-dark);
-        line-height: 1.6;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-      }
-      main {
-        flex: 1;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      img {
-        max-width: 100%;
-        display: block;
-      }
+    }
 
-      .kk-container {
-        max-width: 1240px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 24px;
-        padding-right: 24px;
-        width: 100%;
-      }
+    /* ===== SECTION HEADER ===== */
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 44px;
+    }
 
-      .text-primary {
-        color: var(--primary);
-      }
+    .section-header h2 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.6px;
+      line-height: 1.25;
+    }
 
-      /* ===== SECTION TAG (label kecil di atas judul) ===== */
-      .section-tag {
-        color: var(--primary);
-        font-weight: 800;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 1.4px;
-        display: inline-block;
-        margin-bottom: 10px;
-      }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
 
-      /* ===== SKIP LINK ===== */
-      .skip-link {
-        position: absolute;
-        top: -60px;
-        left: 16px;
-        background: var(--primary);
-        color: #fff;
-        padding: 10px 18px;
-        border-radius: 10px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        z-index: 999;
-        transition: top 0.2s;
-      }
-      .skip-link:focus {
-        top: 12px;
-        outline: 2px solid var(--accent-yellow);
-        outline-offset: 2px;
-      }
+    /* ===== ALUR BELAJAR (5 TAHAP) ===== */
+    .path-section {
+      padding: 60px 0 40px;
+    }
 
-      /* ===== FOCUS-VISIBLE ===== */
-      a:focus-visible,
-      button:focus-visible {
-        outline: 2.5px solid var(--accent-yellow);
-        outline-offset: 3px;
-        border-radius: 10px;
-      }
+    .path-track {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      position: relative;
+    }
 
-      /* ===== NAVBAR ===== */
-      .navbar {
-        background: #ffffff;
-        padding: 16px 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        border-bottom: 1px solid var(--border-color);
-        backdrop-filter: blur(12px);
-      }
-      .navbar-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-      }
-      .navbar-brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 1.35rem;
-        font-weight: 800;
-        color: var(--text-dark);
-      }
-      .brand-icon {
-        background: var(--primary-gradient);
-        color: #fff;
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
-        flex-shrink: 0;
-      }
-      .navbar-brand .highlight {
-        color: var(--primary);
-      }
-      .navbar-menu {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-      }
-      .navbar-menu a {
-        color: var(--text-muted);
-        font-weight: 600;
-        font-size: 0.95rem;
-        transition: all 0.2s;
-        padding: 8px 14px;
-        border-radius: 10px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .navbar-menu a:hover,
-      .navbar-menu a.active {
-        color: var(--primary);
-        background: var(--primary-light);
-      }
-      .navbar-menu a.active {
-        font-weight: 800;
-      }
-      .navbar-actions {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-      .navbar-toggle {
-        display: none;
-        background: transparent;
-        border: none;
-        font-size: 1.5rem;
-        color: var(--text-dark);
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 10px;
-        transition: background 0.2s;
-      }
-      .navbar-toggle:hover {
-        background: var(--primary-light);
-      }
-      .btn-guru {
-        background: #f8fafc;
-        color: var(--primary);
-        border: 1.5px solid var(--border-color);
-        font-weight: 700;
-        font-size: 0.9rem;
-        padding: 10px 20px;
-        border-radius: 50px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.2s;
-        cursor: pointer;
-      }
-      .btn-guru:hover {
-        background: var(--primary-light);
-        border-color: #c7d2fe;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(88, 66, 227, 0.12);
-      }
-
-      /* ===== BUTTONS ===== */
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 12px 26px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 0.95rem;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
-        border: none;
-        font-family: inherit;
-        white-space: nowrap;
-      }
-      .btn-yellow {
-        background: var(--accent-yellow);
-        color: #1e1b4b;
-        box-shadow: 0 8px 20px rgba(250, 204, 21, 0.4);
-      }
-      .btn-yellow:hover {
-        background: var(--accent-yellow-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 12px 25px rgba(250, 204, 21, 0.5);
-      }
-      .btn-lg {
-        padding: 15px 34px;
-        font-size: 1.05rem;
-      }
-
-      /* ===== PAGE HERO ===== */
-      .page-hero {
-        padding: 40px 0 20px;
-      }
-
-      .hero-box {
-        background: var(--primary-gradient);
-        border-radius: 36px;
-        padding: 60px 60px;
-        color: #ffffff;
-        display: grid;
-        grid-template-columns: 1.15fr 1fr;
-        gap: 40px;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 30px 60px rgba(79, 70, 229, 0.28);
-        min-height: 460px;
-      }
-
-      .hero-box::before {
-        content: "";
-        position: absolute;
-        top: -180px;
-        right: -160px;
-        width: 520px;
-        height: 520px;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.18) 0%,
-          rgba(255, 255, 255, 0) 70%
-        );
-        border-radius: 50%;
-        pointer-events: none;
-      }
-      .hero-box::after {
-        content: "";
-        position: absolute;
-        bottom: -140px;
-        left: -100px;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.1) 0%,
-          rgba(255, 255, 255, 0) 70%
-        );
-        border-radius: 50%;
-        pointer-events: none;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 3;
-      }
-
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        color: #ffffff;
-        padding: 9px 20px;
-        border-radius: 40px;
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        margin-bottom: 22px;
-      }
-      .hero-badge i {
-        color: var(--accent-yellow);
-      }
-
-      .hero-content h1 {
-        font-size: 3.1rem;
-        font-weight: 900;
-        line-height: 1.05;
-        letter-spacing: -1.2px;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        color: #ffffff;
-      }
-      .hero-content h1 .hero-highlight {
-        color: var(--accent-yellow);
-        display: block;
-      }
-
-      .hero-content > p {
-        color: rgba(255, 255, 255, 0.92);
-        font-size: 1.05rem;
-        line-height: 1.7;
-        max-width: 560px;
-        margin-bottom: 30px;
-      }
-      .hero-content > p strong {
-        color: #ffffff;
-        font-weight: 700;
-      }
-
-      .hero-buttons {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-
-      .btn-hero-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: var(--accent-yellow);
-        color: #1e1b4b;
-        padding: 15px 30px;
-        border-radius: 50px;
-        font-weight: 800;
-        font-size: 0.9rem;
-        letter-spacing: 0.6px;
-        box-shadow: 0 12px 28px rgba(250, 204, 21, 0.4);
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        text-transform: uppercase;
-      }
-      .btn-hero-primary:hover {
-        background: var(--accent-yellow-hover);
-        transform: translateY(-2px);
-        box-shadow: 0 16px 34px rgba(250, 204, 21, 0.5);
-        gap: 14px;
-      }
-
-      .btn-hero-outline {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1.5px solid rgba(255, 255, 255, 0.35);
-        color: #ffffff;
-        padding: 15px 30px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        letter-spacing: 0.6px;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        text-transform: uppercase;
-        backdrop-filter: blur(10px);
-      }
-      .btn-hero-outline:hover {
-        background: rgba(255, 255, 255, 0.22);
-        border-color: rgba(255, 255, 255, 0.6);
-        transform: translateY(-2px);
-      }
-
-      /* ===== HERO VISUAL — FLOATING CARDS ===== */
-      .hero-visual {
-        position: relative;
-        z-index: 2;
-        min-height: 420px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .float-card {
-        position: absolute;
-        background: rgba(255, 255, 255, 0.14);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1.5px solid rgba(255, 255, 255, 0.28);
-        border-radius: 22px;
-        padding: 16px 18px;
-        color: #ffffff;
-        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        transition:
-          transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-          box-shadow 0.4s ease;
-        animation: floaty 6s ease-in-out infinite;
-        will-change: transform;
-      }
-      .float-card:hover {
-        animation-play-state: paused;
-        transform: translateY(-6px) scale(1.04);
-        box-shadow: 0 26px 48px rgba(0, 0, 0, 0.25);
-      }
-
-      .float-card .fc-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        flex-shrink: 0;
-        color: #ffffff;
-      }
-      .float-card .fc-text {
-        display: flex;
-        flex-direction: column;
-        line-height: 1.2;
-      }
-      .float-card .fc-label {
-        font-size: 0.62rem;
-        font-weight: 800;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        opacity: 0.8;
-      }
-      .float-card .fc-title {
-        font-size: 0.85rem;
-        font-weight: 800;
-        color: #ffffff;
-        margin-top: 2px;
-      }
-
-      .fc-1 {
-        top: 6%;
-        left: 2%;
-        animation-delay: 0s;
-      }
-      .fc-1 .fc-icon {
-        background: var(--card-purple-gradient);
-        box-shadow: 0 8px 18px rgba(99, 102, 241, 0.45);
-      }
-
-      .fc-2 {
-        top: 0;
-        right: 4%;
-        animation-delay: 0.8s;
-      }
-      .fc-2 .fc-icon {
-        background: var(--card-orange-gradient);
-        box-shadow: 0 8px 18px rgba(255, 107, 74, 0.45);
-      }
-
-      .fc-3 {
-        bottom: 8%;
-        left: 0;
-        animation-delay: 1.6s;
-      }
-      .fc-3 .fc-icon {
-        background: var(--card-green-gradient);
-        box-shadow: 0 8px 18px rgba(16, 185, 129, 0.45);
-      }
-
-      .fc-4 {
-        bottom: 0;
-        right: 2%;
-        animation-delay: 2.4s;
-      }
-      .fc-4 .fc-icon {
-        background: var(--card-violet-gradient);
-        box-shadow: 0 8px 18px rgba(139, 92, 246, 0.45);
-      }
-
-      .hero-center-card {
-        position: relative;
-        width: 190px;
-        height: 190px;
-        border-radius: 34px;
-        background: rgba(255, 255, 255, 0.18);
-        backdrop-filter: blur(22px);
-        -webkit-backdrop-filter: blur(22px);
-        border: 1.5px solid rgba(255, 255, 255, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--accent-yellow);
-        font-size: 4.6rem;
-        box-shadow:
-          0 22px 48px rgba(0, 0, 0, 0.22),
-          inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        z-index: 2;
-        animation: floatySlow 7s ease-in-out infinite;
-      }
-
-      .deco-dot {
-        position: absolute;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 1;
-      }
-      .dot-1 {
-        width: 12px;
-        height: 12px;
-        background: var(--accent-yellow);
-        top: 12%;
-        left: 48%;
-        box-shadow: 0 0 20px rgba(253, 224, 71, 0.8);
-        animation: pulse 3s ease-in-out infinite;
-      }
-      .dot-2 {
-        width: 8px;
-        height: 8px;
-        background: rgba(255, 255, 255, 0.75);
-        bottom: 22%;
-        left: 42%;
-        animation: pulse 3.4s ease-in-out infinite 0.6s;
-      }
-      .dot-3 {
-        width: 10px;
-        height: 10px;
-        background: var(--accent-yellow);
-        top: 44%;
-        right: 2%;
-        opacity: 0.85;
-        animation: pulse 3.6s ease-in-out infinite 1.2s;
-      }
-
-      @keyframes floaty {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
-      }
-      @keyframes floatySlow {
-        0%,
-        100% {
-          transform: translateY(0) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-10px) rotate(-2deg);
-        }
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: scale(1.4);
-          opacity: 0.6;
-        }
-      }
-
-      /* ===== SECTION HEADER ===== */
-      .section-header {
-        text-align: center;
-        max-width: 680px;
-        margin: 0 auto 44px;
-      }
-      .section-header h2 {
-        font-size: 2rem;
-        font-weight: 800;
-        color: var(--text-dark);
-        margin-bottom: 12px;
-        letter-spacing: -0.5px;
-        line-height: 1.25;
-      }
-      .section-header p {
-        color: var(--text-muted);
-        font-size: 1rem;
-      }
-
-      /* ===== ALUR BELAJAR ===== */
-      .path-section {
-        padding: 60px 0 40px;
-      }
-      .path-track {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        position: relative;
-      }
-      .path-track::before {
-        content: "";
-        position: absolute;
-        top: 32px;
-        left: 10%;
-        right: 10%;
-        height: 2px;
-        background: repeating-linear-gradient(
-          to right,
+    .path-track::before {
+      content: "";
+      position: absolute;
+      top: 32px;
+      left: 8%;
+      right: 8%;
+      height: 2px;
+      background: repeating-linear-gradient(to right,
           #c7d2fe 0,
           #c7d2fe 8px,
           transparent 8px,
-          transparent 16px
-        );
-        z-index: 0;
-      }
-      .path-step {
-        background: #ffffff;
-        border: 1px solid var(--border-color);
-        border-radius: 20px;
-        padding: 26px 22px 24px;
-        text-align: center;
-        box-shadow: var(--shadow-sm);
-        position: relative;
-        z-index: 1;
-        transition: all 0.3s;
-      }
-      .path-step:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
-        border-color: #c7d2fe;
-      }
-      .path-step-num {
-        width: 52px;
-        height: 52px;
-        border-radius: 50%;
-        background: var(--primary-gradient);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 800;
-        font-size: 1.15rem;
-        margin: 0 auto 16px;
-        box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
-      }
-      .path-step h3 {
-        font-size: 1rem;
-        font-weight: 800;
-        color: var(--text-dark);
-        margin-bottom: 8px;
-        line-height: 1.35;
-      }
-      .path-step p {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        line-height: 1.55;
-      }
-      .path-step .path-label {
-        position: absolute;
-        top: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--accent-yellow);
-        color: #1e1b4b;
-        font-size: 0.7rem;
-        font-weight: 800;
-        padding: 4px 12px;
-        border-radius: 40px;
-        letter-spacing: 0.4px;
-        white-space: nowrap;
+          transparent 16px);
+      z-index: 0;
+    }
+
+    .path-step {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 22px;
+      padding: 24px 18px 22px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .path-step:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: #c7d2fe;
+    }
+
+    .path-step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin: 0 auto 14px;
+      flex-shrink: 0;
+    }
+
+    .path-step:nth-child(1) .path-step-num {
+      background: var(--card-purple-gradient);
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .path-step:nth-child(2) .path-step-num {
+      background: var(--card-orange-gradient);
+      box-shadow: 0 8px 20px rgba(255, 107, 74, 0.4);
+    }
+
+    .path-step:nth-child(3) .path-step-num {
+      background: var(--card-green-gradient);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+    }
+
+    .path-step:nth-child(4) .path-step-num {
+      background: var(--card-violet-gradient);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+    }
+
+    .path-step:nth-child(5) .path-step-num {
+      background: var(--card-blue-gradient);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+    }
+
+    .path-step h3 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .path-step p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .path-step .path-label {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-yellow);
+      color: #1e1b4b;
+      font-size: 0.62rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 40px;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(250, 204, 21, 0.4);
+    }
+
+    /* ===== DAFTAR MATERI - PREMIUM CARDS REDESIGN ===== */
+    .daftar-section {
+      padding: 40px 0 70px;
+    }
+
+    .materi-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .materi-item {
+      background: #ffffff;
+      border-radius: 26px;
+      border: 1.5px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.06);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .materi-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.14);
+      border-color: #c7d2fe;
+    }
+
+    /* Card Top Border Line */
+    .materi-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 5px;
+      background: var(--card-purple-gradient);
+    }
+
+    .materi-item.accent-orange::before {
+      background: var(--card-orange-gradient);
+    }
+
+    .materi-item.accent-green::before {
+      background: var(--card-green-gradient);
+    }
+
+    .materi-item.accent-violet::before {
+      background: var(--card-violet-gradient);
+    }
+
+    .materi-item.accent-blue::before {
+      background: var(--card-blue-gradient);
+    }
+
+    .materi-card-inner {
+      padding: 32px 34px 28px;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    /* Thumb */
+    .materi-thumb {
+      width: 80px;
+      height: 80px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 1.85rem;
+      flex-shrink: 0;
+      background: var(--card-purple-gradient);
+      box-shadow: 0 12px 24px rgba(99, 102, 241, 0.32);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .materi-thumb::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .materi-thumb.thumb-orange {
+      background: var(--card-orange-gradient);
+      box-shadow: 0 12px 24px rgba(255, 107, 74, 0.32);
+    }
+
+    .materi-thumb.thumb-green {
+      background: var(--card-green-gradient);
+      box-shadow: 0 12px 24px rgba(16, 185, 129, 0.32);
+    }
+
+    .materi-thumb.thumb-violet {
+      background: var(--card-violet-gradient);
+      box-shadow: 0 12px 24px rgba(139, 92, 246, 0.32);
+    }
+
+    .materi-thumb.thumb-blue {
+      background: var(--card-blue-gradient);
+      box-shadow: 0 12px 24px rgba(14, 165, 233, 0.32);
+    }
+
+    .materi-info {
+      min-width: 0;
+    }
+
+    .materi-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .materi-badge-pill {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 40px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #eef2ff;
+      color: #4f46e5;
+    }
+
+    .accent-orange .materi-badge-pill {
+      background: #fff1ee;
+      color: #ea580c;
+    }
+
+    .accent-green .materi-badge-pill {
+      background: #ecfdf5;
+      color: #059669;
+    }
+
+    .accent-violet .materi-badge-pill {
+      background: #f5f3ff;
+      color: #7c3aed;
+    }
+
+    .accent-blue .materi-badge-pill {
+      background: #f0f9ff;
+      color: #0284c7;
+    }
+
+    .materi-time-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #64748b;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .materi-info h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.3;
+      letter-spacing: -0.3px;
+      transition: color 0.2s;
+    }
+
+    .materi-item:hover .materi-info h3 {
+      color: var(--primary);
+    }
+
+    .materi-item.accent-orange:hover .materi-info h3 {
+      color: #ea580c;
+    }
+
+    .materi-item.accent-green:hover .materi-info h3 {
+      color: #059669;
+    }
+
+    .materi-item.accent-violet:hover .materi-info h3 {
+      color: #7c3aed;
+    }
+
+    .materi-item.accent-blue:hover .materi-info h3 {
+      color: #0284c7;
+    }
+
+    .materi-info>p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      max-width: 720px;
+    }
+
+    .topik-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .topik-tags span {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 40px;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      color: #475569;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .topik-tags span:hover {
+      background: var(--primary-light);
+      border-color: #c7d2fe;
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .topik-tags span i {
+      font-size: 0.72rem;
+      color: var(--primary);
+    }
+
+    .accent-orange .topik-tags span i {
+      color: #ea580c;
+    }
+
+    .accent-green .topik-tags span i {
+      color: #059669;
+    }
+
+    .accent-violet .topik-tags span i {
+      color: #7c3aed;
+    }
+
+    .accent-blue .topik-tags span i {
+      color: #0284c7;
+    }
+
+    .materi-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .progress-hint {
+      font-size: 0.75rem;
+      color: #059669;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 5px 12px;
+      border-radius: 40px;
+      white-space: nowrap;
+    }
+
+    .btn-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary-gradient);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 13px 26px;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+    }
+
+    .btn-open:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(99, 102, 241, 0.45);
+      gap: 14px;
+    }
+
+    .materi-item.accent-orange .btn-open {
+      background: var(--card-orange-gradient);
+      box-shadow: 0 8px 20px rgba(255, 107, 74, 0.3);
+    }
+
+    .materi-item.accent-orange .btn-open:hover {
+      box-shadow: 0 12px 24px rgba(255, 107, 74, 0.45);
+    }
+
+    .materi-item.accent-green .btn-open {
+      background: var(--card-green-gradient);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .materi-item.accent-green .btn-open:hover {
+      box-shadow: 0 12px 24px rgba(16, 185, 129, 0.45);
+    }
+
+    .materi-item.accent-violet .btn-open {
+      background: var(--card-violet-gradient);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+    }
+
+    .materi-item.accent-violet .btn-open:hover {
+      box-shadow: 0 12px 24px rgba(139, 92, 246, 0.45);
+    }
+
+    .materi-item.accent-blue .btn-open {
+      background: var(--card-blue-gradient);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+    }
+
+    .materi-item.accent-blue .btn-open:hover {
+      box-shadow: 0 12px 24px rgba(14, 165, 233, 0.45);
+    }
+
+    /* ===== CARA BELAJAR ===== */
+    .how-section {
+      padding: 40px 0 60px;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .how-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .how-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: #c7d2fe;
+    }
+
+    .how-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      background: var(--card-purple-gradient);
+      box-shadow: 0 10px 22px rgba(99, 102, 241, 0.28);
+    }
+
+    .how-card:nth-child(2) .how-icon {
+      background: var(--card-orange-gradient);
+      box-shadow: 0 10px 22px rgba(255, 107, 74, 0.28);
+    }
+
+    .how-card:nth-child(3) .how-icon {
+      background: var(--card-green-gradient);
+      box-shadow: 0 10px 22px rgba(16, 185, 129, 0.28);
+    }
+
+    .how-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .how-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .how-step-label {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 40px;
+      letter-spacing: 0.4px;
+    }
+
+    /* ===== CTA BANNER ===== */
+    .cta-section {
+      padding: 20px 0 80px;
+    }
+
+    .cta-box {
+      background: var(--primary-gradient);
+      border-radius: 36px;
+      padding: 50px 60px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: var(--shadow-lg);
+      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0) 70%);
+      pointer-events: none;
+    }
+
+    .cta-text {
+      flex: 1 1 380px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .cta-text p {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1rem;
+    }
+
+    .cta-action {
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 30px;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      max-width: 340px;
+      margin-top: 12px;
+    }
+
+    .footer-col h5 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      transition:
+        color 0.2s,
+        transform 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--primary);
+      transform: translateX(3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .path-track {
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      /* ===== DAFTAR MATERI ===== */
-      .daftar-section {
-        padding: 40px 0 60px;
+      .path-track::before {
+        display: none;
       }
-      .materi-list {
-        display: flex;
-        flex-direction: column;
+    }
+
+    @media (max-width: 992px) {
+      .hero-box {
+        grid-template-columns: 1fr;
+        padding: 44px 32px;
+        gap: 32px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.3rem;
+      }
+
+      .path-track {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .materi-card-inner {
+        grid-template-columns: 70px 1fr;
         gap: 20px;
-      }
-      .materi-item {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        gap: 28px;
-        align-items: center;
-        background: #ffffff;
-        border-radius: 28px;
-        padding: 26px 32px;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow-sm);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-      }
-      .materi-item::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 5px;
-        background: var(--card-purple-gradient);
-      }
-      .materi-item.accent-orange::before {
-        background: var(--card-orange-gradient);
-      }
-      .materi-item.accent-green::before {
-        background: var(--card-green-gradient);
-      }
-      .materi-item.accent-violet::before {
-        background: var(--card-violet-gradient);
-      }
-      .materi-item:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
-        border-color: #c7d2fe;
-      }
-      .materi-thumb {
-        width: 92px;
-        height: 92px;
-        border-radius: 22px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        gap: 2px;
-        flex-shrink: 0;
-        background: var(--card-purple-gradient);
-        box-shadow: 0 10px 22px rgba(99, 102, 241, 0.28);
-        position: relative;
-      }
-      .materi-thumb.thumb-orange {
-        background: var(--card-orange-gradient);
-        box-shadow: 0 10px 22px rgba(255, 107, 74, 0.28);
-      }
-      .materi-thumb.thumb-green {
-        background: var(--card-green-gradient);
-        box-shadow: 0 10px 22px rgba(16, 185, 129, 0.28);
-      }
-      .materi-thumb.thumb-violet {
-        background: var(--card-violet-gradient);
-        box-shadow: 0 10px 22px rgba(139, 92, 246, 0.28);
-      }
-      .thumb-label {
-        font-size: 0.6rem;
-        font-weight: 800;
-        letter-spacing: 0.9px;
-        opacity: 0.85;
-      }
-      .thumb-num {
-        font-size: 2rem;
-        font-weight: 800;
-        line-height: 1;
-      }
-      .materi-info {
-        min-width: 0;
-      }
-
-      .materi-info h3 {
-        font-size: 1.3rem;
-        font-weight: 800;
-        color: var(--text-dark);
-        margin-bottom: 8px;
-        line-height: 1.3;
-      }
-      .materi-info > p {
-        font-size: 0.92rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-        margin-bottom: 14px;
-      }
-
-      .topik-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .topik-tags span {
-        font-size: 0.75rem;
-        font-weight: 700;
-        padding: 5px 12px;
-        border-radius: 40px;
-        background: #f8fafc;
-        border: 1px solid var(--border-color);
-        color: #475569;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .topik-tags span i {
-        font-size: 0.7rem;
-        color: var(--primary);
+        padding: 24px 22px;
       }
 
       .materi-action {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 10px;
-        flex-shrink: 0;
-      }
-      .materi-action .progress-hint {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .materi-action .progress-hint i {
-        color: #10b981;
-      }
-
-      .btn-open {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: var(--primary-gradient);
-        color: #ffffff;
-        font-weight: 700;
-        font-size: 0.9rem;
-        padding: 12px 24px;
-        border-radius: 50px;
-        box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
-        transition: all 0.25s;
-        white-space: nowrap;
-      }
-      .btn-open:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 24px rgba(99, 102, 241, 0.45);
-        gap: 14px;
-      }
-
-      /* ===== CARA BELAJAR ===== */
-      .how-section {
-        padding: 40px 0 60px;
-      }
-      .how-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-      .how-card {
-        background: #ffffff;
-        border: 1px solid var(--border-color);
-        border-radius: 28px;
-        padding: 32px 28px;
-        box-shadow: var(--shadow-sm);
-        transition: all 0.3s;
-        position: relative;
-        overflow: hidden;
-      }
-      .how-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
-        border-color: #c7d2fe;
-      }
-      .how-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        font-size: 1.4rem;
-        margin-bottom: 18px;
-        background: var(--card-purple-gradient);
-        box-shadow: 0 10px 22px rgba(99, 102, 241, 0.28);
-      }
-      .how-card:nth-child(2) .how-icon {
-        background: var(--card-orange-gradient);
-        box-shadow: 0 10px 22px rgba(255, 107, 74, 0.28);
-      }
-      .how-card:nth-child(3) .how-icon {
-        background: var(--card-green-gradient);
-        box-shadow: 0 10px 22px rgba(16, 185, 129, 0.28);
-      }
-      .how-card h3 {
-        font-size: 1.15rem;
-        font-weight: 800;
-        color: var(--text-dark);
-        margin-bottom: 10px;
-        line-height: 1.3;
-      }
-      .how-card p {
-        font-size: 0.92rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
-      .how-step-label {
-        position: absolute;
-        top: 24px;
-        right: 24px;
-        font-size: 0.72rem;
-        font-weight: 800;
-        color: var(--primary);
-        background: var(--primary-light);
-        padding: 4px 12px;
-        border-radius: 40px;
-        letter-spacing: 0.4px;
-      }
-
-      /* ===== CTA BANNER ===== */
-      .cta-section {
-        padding: 20px 0 80px;
-      }
-      .cta-box {
-        background: var(--primary-gradient);
-        border-radius: 36px;
-        padding: 50px 60px;
-        color: #ffffff;
-        display: flex;
+        grid-column: 1 / -1;
+        flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        gap: 30px;
-        box-shadow: var(--shadow-lg);
-        flex-wrap: wrap;
-        position: relative;
-        overflow: hidden;
-      }
-      .cta-box::before {
-        content: "";
-        position: absolute;
-        top: -120px;
-        right: -100px;
-        width: 450px;
-        height: 450px;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.15) 0%,
-          rgba(255, 255, 255, 0) 70%
-        );
-        pointer-events: none;
-      }
-      .cta-text {
-        flex: 1 1 380px;
-        position: relative;
-        z-index: 1;
-      }
-      .cta-text h2 {
-        font-size: 2rem;
-        font-weight: 800;
-        margin-bottom: 10px;
-        line-height: 1.3;
-      }
-      .cta-text p {
-        color: rgba(255, 255, 255, 0.88);
-        font-size: 1rem;
-      }
-      .cta-action {
-        flex-shrink: 0;
-        position: relative;
-        z-index: 1;
+        width: 100%;
+        margin-top: 10px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-color);
       }
 
-      /* ===== FOOTER ===== */
-      .footer {
-        background: #ffffff;
-        border-top: 1px solid var(--border-color);
-        padding: 60px 0 30px;
-        margin-top: auto;
-      }
       .footer-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 40px;
-        margin-bottom: 40px;
+        grid-template-columns: 1fr 1fr;
       }
-      .footer-brand p {
-        color: var(--text-muted);
-        font-size: 0.92rem;
-        line-height: 1.6;
-        max-width: 340px;
-        margin-top: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .kk-container {
+        padding-left: 18px;
+        padding-right: 18px;
       }
-      .footer-col h5 {
-        font-size: 1rem;
-        font-weight: 700;
-        color: var(--text-dark);
+
+      .navbar-menu {
+        display: none;
+      }
+
+      .navbar-toggle {
+        display: block;
+      }
+
+      .navbar-menu.active {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 16px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-md);
+        gap: 4px;
+      }
+
+      .navbar-menu.active a {
+        width: 100%;
+      }
+
+      .btn-guru span {
+        display: none;
+      }
+
+      .page-hero {
+        padding: 24px 0 12px;
+      }
+
+      .hero-box {
+        padding: 32px 20px 36px;
+        border-radius: 26px;
+        gap: 24px;
+        min-height: auto;
+      }
+
+      .hero-content h1 {
+        font-size: 1.85rem;
+        letter-spacing: -0.6px;
+      }
+
+      .hero-content>p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+      }
+
+      .hero-badge {
+        font-size: 0.74rem;
+        padding: 7px 14px;
         margin-bottom: 16px;
       }
-      .footer-col a {
-        display: block;
-        color: var(--text-muted);
-        font-size: 0.9rem;
-        margin-bottom: 10px;
-        transition:
-          color 0.2s,
-          transform 0.2s;
+
+      .hero-stats-row {
+        width: 100%;
+        justify-content: space-between;
+        padding: 12px 16px;
+        gap: 12px;
       }
-      .footer-col a:hover {
-        color: var(--primary);
-        transform: translateX(3px);
+
+      .h-stat-num {
+        font-size: 1.15rem;
       }
-      .footer-bottom {
-        text-align: center;
-        padding-top: 24px;
-        border-top: 1px solid var(--border-color);
-        color: var(--text-muted);
+
+      .h-stat-label {
+        font-size: 0.65rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-hero-primary,
+      .btn-hero-outline {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 22px;
         font-size: 0.88rem;
       }
 
-      /* ===== RESPONSIVE ===== */
-      @media (max-width: 992px) {
-        .hero-box {
-          grid-template-columns: 1fr;
-          padding: 48px 40px;
-          gap: 32px;
-        }
-        .hero-content h1 {
-          font-size: 2.4rem;
-        }
-        .hero-visual {
-          order: -1;
-          min-height: 340px;
-        }
-        .hero-center-card {
-          width: 150px;
-          height: 150px;
-          font-size: 3.6rem;
-          border-radius: 28px;
-        }
-        .float-card {
-          padding: 12px 14px;
-          border-radius: 18px;
-        }
-        .float-card .fc-icon {
-          width: 36px;
-          height: 36px;
-          font-size: 0.95rem;
-        }
-        .float-card .fc-title {
-          font-size: 0.78rem;
-        }
-        .path-track {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .path-track::before {
-          display: none;
-        }
-        .how-grid {
-          grid-template-columns: 1fr;
-        }
-        .materi-item {
-          grid-template-columns: auto 1fr;
-          gap: 22px;
-        }
-        .materi-action {
-          grid-column: 2 / -1;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
-          width: 100%;
-          margin-top: 6px;
-        }
-        .footer-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-      @media (max-width: 768px) {
-        .kk-container {
-          padding-left: 18px;
-          padding-right: 18px;
-        }
-        .navbar-menu {
-          display: none;
-        }
-        .navbar-toggle {
-          display: block;
-        }
-        .navbar-menu.active {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background: #fff;
-          padding: 16px;
-          border-bottom: 1px solid var(--border-color);
-          box-shadow: var(--shadow-md);
-          gap: 4px;
-        }
-        .navbar-menu.active a {
-          width: 100%;
-        }
-        .btn-guru span {
-          display: none;
-        }
-
-        .page-hero {
-          padding: 24px 0 12px;
-        }
-        .hero-box {
-          padding: 32px 22px 40px;
-          border-radius: 26px;
-          gap: 24px;
-          min-height: auto;
-        }
-        .hero-content h1 {
-          font-size: 1.85rem;
-          letter-spacing: -0.6px;
-        }
-        .hero-content > p {
-          font-size: 0.95rem;
-          margin-bottom: 24px;
-        }
-        .hero-badge {
-          font-size: 0.74rem;
-          padding: 7px 14px;
-          margin-bottom: 16px;
-        }
-        .hero-visual {
-          min-height: 280px;
-          margin-top: -10px;
-        }
-        .hero-center-card {
-          width: 120px;
-          height: 120px;
-          font-size: 3rem;
-          border-radius: 24px;
-        }
-        .float-card {
-          padding: 10px 12px;
-          border-radius: 16px;
-          gap: 9px;
-        }
-        .float-card .fc-icon {
-          width: 32px;
-          height: 32px;
-          font-size: 0.85rem;
-          border-radius: 10px;
-        }
-        .float-card .fc-label {
-          font-size: 0.55rem;
-        }
-        .float-card .fc-title {
-          font-size: 0.7rem;
-        }
-        .fc-1 {
-          top: 2%;
-          left: 0;
-        }
-        .fc-2 {
-          top: 0;
-          right: 0;
-        }
-        .fc-3 {
-          bottom: 4%;
-          left: 0;
-        }
-        .fc-4 {
-          bottom: 0;
-          right: 0;
-        }
-        .hero-buttons {
-          flex-direction: column;
-          align-items: stretch;
-        }
-        .btn-hero-primary,
-        .btn-hero-outline {
-          width: 100%;
-          justify-content: center;
-          padding: 14px 22px;
-          font-size: 0.85rem;
-        }
-
-        .section-header h2 {
-          font-size: 1.55rem;
-        }
-        .section-header p {
-          font-size: 0.92rem;
-        }
-        .path-track {
-          grid-template-columns: 1fr;
-        }
-        .path-section,
-        .daftar-section,
-        .how-section {
-          padding: 40px 0 20px;
-        }
-
-        .materi-item {
-          grid-template-columns: 1fr;
-          padding: 22px;
-          text-align: left;
-        }
-        .materi-thumb {
-          width: 74px;
-          height: 74px;
-          border-radius: 18px;
-        }
-        .thumb-num {
-          font-size: 1.55rem;
-        }
-        .materi-info h3 {
-          font-size: 1.12rem;
-        }
-        .materi-action {
-          grid-column: auto;
-          flex-direction: column;
-          align-items: stretch;
-          margin-top: 4px;
-        }
-        .materi-action .progress-hint {
-          justify-content: center;
-        }
-        .btn-open {
-          width: 100%;
-          justify-content: center;
-        }
-
-        .cta-box {
-          padding: 32px 22px;
-          text-align: center;
-          justify-content: center;
-        }
-        .cta-text h2 {
-          font-size: 1.55rem;
-        }
-        .cta-action {
-          width: 100%;
-        }
-        .cta-action .btn {
-          width: 100%;
-        }
-
-        .footer {
-          padding: 40px 0 24px;
-        }
-        .footer-grid {
-          grid-template-columns: 1fr;
-          gap: 28px;
-        }
-        .footer-col a:hover {
-          transform: none;
-        }
+      .section-header h2 {
+        font-size: 1.55rem;
       }
 
-      /* ===== REDUCED MOTION ===== */
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-          scroll-behavior: auto !important;
-        }
-        .float-card,
-        .hero-center-card {
-          animation: none;
-        }
-        .float-card:hover,
-        .hero-center-card:hover,
-        .materi-item:hover,
-        .path-step:hover,
-        .how-card:hover {
-          transform: none;
-        }
+      .section-header p {
+        font-size: 0.92rem;
       }
-    </style>
-  </head>
 
-  <body>
-    <a href="#konten-utama" class="skip-link">Lewati ke konten utama</a>
+      .path-track {
+        grid-template-columns: 1fr;
+      }
 
-    <!-- ========== NAVBAR ========== -->
-    <header class="navbar">
-      <div class="kk-container navbar-inner">
-        <a href="index.html" class="navbar-brand">
-          <div class="brand-icon"><i class="fas fa-brain"></i></div>
-          <span>Komputasi<span class="highlight">Kita</span></span>
+      .path-section,
+      .daftar-section,
+      .how-section {
+        padding: 40px 0 20px;
+      }
+
+      .materi-card-inner {
+        grid-template-columns: 1fr;
+        padding: 20px 18px;
+        gap: 16px;
+      }
+
+      .materi-thumb {
+        width: 64px;
+        height: 64px;
+        font-size: 1.5rem;
+        border-radius: 18px;
+      }
+
+      .materi-info h3 {
+        font-size: 1.15rem;
+      }
+
+      .materi-info>p {
+        font-size: 0.86rem;
+      }
+
+      .materi-action {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 6px;
+      }
+
+      .materi-action .progress-hint {
+        justify-content: center;
+      }
+
+      .btn-open {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .cta-box {
+        padding: 32px 22px;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .cta-text h2 {
+        font-size: 1.55rem;
+      }
+
+      .cta-action {
+        width: 100%;
+      }
+
+      .cta-action .btn {
+        width: 100%;
+      }
+
+      .footer {
+        padding: 40px 0 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-col a:hover {
+        transform: none;
+      }
+    }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .materi-item:hover,
+      .path-step:hover,
+      .how-card:hover,
+      .hdc-item:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#konten-utama" class="skip-link">Lewati ke konten utama</a>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar">
+    <div class="kk-container navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon"><i class="fas fa-brain"></i></div>
+        <span>Komputasi<span class="highlight">Kita</span></span>
+      </a>
+
+      <nav class="navbar-menu" id="navbarMenu">
+        <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+        <a href="materi_murid.html" class="active"><i class="fas fa-book-open"></i> Materi</a>
+        <a href="leaderboard_murid.html"><i class="fas fa-trophy"></i> Leaderboard</a>
+      </nav>
+
+      <div class="navbar-actions">
+        <a href="dashboard_guru.html" class="btn-guru" title="Masuk ke Panel Guru">
+          <i class="fas fa-chalkboard-user"></i> <span>Portal Guru</span>
         </a>
-
-        <nav class="navbar-menu" id="navbarMenu">
-          <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
-          <a href="materi_murid.html" class="active"
-            ><i class="fas fa-book-open"></i> Materi</a
-          >
-          <a href="leaderboard_murid.html"
-            ><i class="fas fa-trophy"></i> Leaderboard</a
-          >
-        </nav>
-
-        <div class="navbar-actions">
-          <a
-            href="dashboard_guru.html"
-            class="btn-guru"
-            title="Masuk ke Panel Guru"
-          >
-            <i class="fas fa-chalkboard-user"></i> <span>Portal Guru</span>
-          </a>
-        </div>
-
-        <button
-          class="navbar-toggle"
-          id="navbarToggle"
-          aria-label="Buka menu navigasi"
-          aria-controls="navbarMenu"
-          aria-expanded="false"
-        >
-          <i class="fas fa-bars"></i>
-        </button>
       </div>
-    </header>
 
-    <main id="konten-utama">
-      <!-- ========== PAGE HERO ========== -->
-      <section class="page-hero">
-        <div class="kk-container">
-          <div class="hero-box">
-            <div class="hero-content">
-              <span class="hero-badge">
-                <i class="fas fa-graduation-cap"></i>
-                Kurikulum Merdeka • Fase E
-              </span>
-              <h1>
-                Materi
-                <span class="hero-highlight">Berpikir Komputasional</span>
-              </h1>
-              <p>
-                Empat sub-bab materi Informatika SMA Fase E. Semua materi
-                terbuka dan dapat diakses bebas tanpa syarat penguncian progres,
-                dilengkapi <strong>simulasi interaktif</strong>,
-                <strong>LKPD digital</strong>, dan
-                <strong>asesmen bertingkat</strong>.
-              </p>
-              <div class="hero-buttons">
-                <a href="#daftar-materi" class="btn-hero-primary">
-                  Mulai Belajar <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#cara-belajar" class="btn-hero-outline">
-                  <i class="fas fa-compass"></i> Cara Belajar
-                </a>
+      <button class="navbar-toggle" id="navbarToggle" aria-label="Buka menu navigasi" aria-controls="navbarMenu"
+        aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="konten-utama">
+    <!-- ========== PAGE HERO ========== -->
+    <section class="page-hero">
+      <div class="kk-container">
+        <div class="hero-box">
+          <div class="hero-content">
+            <span class="hero-badge">
+              <i class="fas fa-sparkles"></i>
+              Kurikulum Merdeka • SMA Fase E
+            </span>
+            <h1>
+              Pusat Belajar
+              <span class="hero-highlight">Berpikir Komputasional</span>
+            </h1>
+            <p>
+              Eksplorasi <strong>5 bab materi komprehensif</strong> yang dirancang interaktif dengan visualisasi konsep
+              real-time, simulasi langsung, LKPD digital, dan asesmen bertingkat untuk membangun logika komputasi yang
+              kuat.
+            </p>
+
+            <div class="hero-stats-row">
+              <div class="h-stat-item">
+                <div class="h-stat-num">5</div>
+                <div class="h-stat-label">Bab Lengkap</div>
+              </div>
+              <div class="h-stat-divider"></div>
+              <div class="h-stat-item">
+                <div class="h-stat-num">10+</div>
+                <div class="h-stat-label">Simulasi Interaktif</div>
+              </div>
+              <div class="h-stat-divider"></div>
+              <div class="h-stat-item">
+                <div class="h-stat-num">100%</div>
+                <div class="h-stat-label">Akses Terbuka Bebas</div>
               </div>
             </div>
 
-            <div class="hero-visual" aria-hidden="true">
-              <div class="float-card fc-1">
-                <div class="fc-icon"><i class="fas fa-microchip"></i></div>
-                <div class="fc-text">
-                  <span class="fc-label">Sub-Bab 1</span>
-                  <span class="fc-title">Fondasi Sistem</span>
-                </div>
-              </div>
+            <div class="hero-buttons">
+              <a href="#daftar-materi" class="btn-hero-primary">
+                <i class="fas fa-compass"></i> Pilih Bab <i class="fas fa-arrow-right"></i>
+              </a>
+              <a href="#alur-belajar" class="btn-hero-outline">
+                <i class="fas fa-route"></i> Alur 5 Tahap
+              </a>
+            </div>
+          </div>
 
-              <div class="float-card fc-2">
-                <div class="fc-icon"><i class="fas fa-database"></i></div>
-                <div class="fc-text">
-                  <span class="fc-label">Sub-Bab 2</span>
-                  <span class="fc-title">Struktur Data</span>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-dashboard-card">
+              <div class="hdc-header">
+                <div class="hdc-title-wrap">
+                  <span class="hdc-pulse-dot"></span>
+                  <span class="hdc-title">Peta Navigasi Modul</span>
                 </div>
+                <span class="hdc-badge">5 Modul Aktif</span>
               </div>
-
-              <div class="float-card fc-3">
-                <div class="fc-icon">
-                  <i class="fas fa-magnifying-glass-chart"></i>
-                </div>
-                <div class="fc-text">
-                  <span class="fc-label">Sub-Bab 3</span>
-                  <span class="fc-title">Cari &amp; Urut</span>
-                </div>
+              <div class="hdc-list">
+                <a href="sub_materi_1.html" class="hdc-item item-purple">
+                  <div class="hdc-icon"><i class="fas fa-brain"></i></div>
+                  <div class="hdc-content">
+                    <span class="hdc-step">BAB 1 • FONDASI</span>
+                    <span class="hdc-name">Fondasi Berpikir Komputasional</span>
+                  </div>
+                  <i class="fas fa-chevron-right hdc-arrow"></i>
+                </a>
+                <a href="sub_materi_2.html" class="hdc-item item-orange">
+                  <div class="hdc-icon"><i class="fas fa-database"></i></div>
+                  <div class="hdc-content">
+                    <span class="hdc-step">BAB 2 • STRUKTUR DATA</span>
+                    <span class="hdc-name">Pengolahan &amp; Struktur Data</span>
+                  </div>
+                  <i class="fas fa-chevron-right hdc-arrow"></i>
+                </a>
+                <a href="sub_materi_3.html" class="hdc-item item-green">
+                  <div class="hdc-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+                  <div class="hdc-content">
+                    <span class="hdc-step">BAB 3 • ALGORITMA</span>
+                    <span class="hdc-name">Pencarian &amp; Pengurutan</span>
+                  </div>
+                  <i class="fas fa-chevron-right hdc-arrow"></i>
+                </a>
+                <a href="sub_materi_4.html" class="hdc-item item-violet">
+                  <div class="hdc-icon"><i class="fas fa-diagram-project"></i></div>
+                  <div class="hdc-content">
+                    <span class="hdc-step">BAB 4 • PERANCANGAN</span>
+                    <span class="hdc-name">Flowchart &amp; Pseudocode</span>
+                  </div>
+                  <i class="fas fa-chevron-right hdc-arrow"></i>
+                </a>
+                <a href="sub_materi_5.html" class="hdc-item item-blue">
+                  <div class="hdc-icon"><i class="fas fa-microchip"></i></div>
+                  <div class="hdc-content">
+                    <span class="hdc-step">BAB 5 • SISTEM</span>
+                    <span class="hdc-name">Sistem Operasi &amp; Von Neumann</span>
+                  </div>
+                  <i class="fas fa-chevron-right hdc-arrow"></i>
+                </a>
               </div>
-
-              <div class="float-card fc-4">
-                <div class="fc-icon">
-                  <i class="fas fa-diagram-project"></i>
-                </div>
-                <div class="fc-text">
-                  <span class="fc-label">Sub-Bab 4</span>
-                  <span class="fc-title">Flowchart</span>
-                </div>
+              <div class="hdc-footer">
+                <i class="fas fa-circle-check text-amber-300"></i>
+                <span>Seluruh materi dapat diakses tanpa syarat penguncian</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <div class="hero-center-card">
+    <!-- ========== ALUR BELAJAR (5 TAHAP) ========== -->
+    <section class="path-section" id="alur-belajar">
+      <div class="kk-container">
+        <div class="section-header">
+          <span class="section-tag">Alur Pembelajaran</span>
+          <h2>
+            Ikuti <span class="text-primary">5 Tahap</span> Belajar
+            Terstruktur
+          </h2>
+          <p>
+            Disusun berurutan secara pedagogis agar pemahaman berpikir komputasional terbangun dari 4 pilar dasar,
+            struktur data, algoritma, perancangan flowchart, hingga mekanisme sistem operasi.
+          </p>
+        </div>
+
+        <div class="path-track">
+          <div class="path-step">
+            <span class="path-label">MULAI DARI SINI</span>
+            <div class="path-step-num">1</div>
+            <h3>Fondasi Berpikir Komputasional</h3>
+            <p>
+              4 pilar Computational Thinking: Dekomposisi, Pengenalan Pola, Abstraksi, dan Algoritma.
+            </p>
+          </div>
+          <div class="path-step">
+            <div class="path-step-num">2</div>
+            <h3>Pengolahan &amp; Struktur Data</h3>
+            <p>
+              Pahami transformasi data mentah ke informasi, Array/List, Stack (LIFO), dan Queue (FIFO).
+            </p>
+          </div>
+          <div class="path-step">
+            <div class="path-step-num">3</div>
+            <h3>Algoritma Pencarian &amp; Pengurutan</h3>
+            <p>
+              Analisis Linear &amp; Binary Search serta Bubble, Insertion, dan Selection Sort.
+            </p>
+          </div>
+          <div class="path-step">
+            <div class="path-step-num">4</div>
+            <h3>Algoritma, Flowchart &amp; Pseudocode</h3>
+            <p>
+              Translasi masalah ke program, 6 simbol flowchart, dan pseudocode sekuensial.
+            </p>
+          </div>
+          <div class="path-step">
+            <div class="path-step-num">5</div>
+            <h3>Sistem Operasi &amp; Von Neumann</h3>
+            <p>
+              Arsitektur Von Neumann, siklus IPO, OS Model Bawang, Round Robin, dan simulasi Mr. ALGO.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DAFTAR MATERI ========== -->
+    <section class="daftar-section" id="daftar-materi">
+      <div class="kk-container">
+        <div class="section-header">
+          <span class="section-tag">Daftar Materi</span>
+          <h2>
+            Pilih <span class="text-primary">Bab</span> yang Ingin Kamu
+            Pelajari
+          </h2>
+          <p>
+            Setiap bab dilengkapi materi teks interaktif, media visual/video, simulasi live, lembar kerja (LKPD), serta
+            paket asesmen (Pre-Test, Post-Test, &amp; Tes Tertulis).
+          </p>
+        </div>
+
+        <div class="materi-list">
+          <!-- MATERI 1 -->
+          <article class="materi-item">
+            <div class="materi-card-inner">
+              <div class="materi-thumb">
                 <i class="fas fa-brain"></i>
               </div>
-
-              <span class="deco-dot dot-1"></span>
-              <span class="deco-dot dot-2"></span>
-              <span class="deco-dot dot-3"></span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========== ALUR BELAJAR ========== -->
-      <section class="path-section">
-        <div class="kk-container">
-          <div class="section-header">
-            <span class="section-tag">Alur Pembelajaran</span>
-            <h2>
-              Ikuti <span class="text-primary">4 Tahap</span> Belajar
-              Terstruktur
-            </h2>
-            <p>
-              Disusun berurutan agar konsep berpikir komputasional terbangun
-              dari dasar sistem komputer hingga perancangan algoritma dalam
-              flowchart dan pseudocode.
-            </p>
-          </div>
-
-          <div class="path-track">
-            <div class="path-step">
-              <span class="path-label">MULAI DARI SINI</span>
-              <div class="path-step-num">1</div>
-              <h3>Fondasi Sistem Komputasi</h3>
-              <p>
-                Kenali cara kerja komputer, siklus IPO, arsitektur Von Neumann,
-                dan 4 pilar berpikir komputasional.
-              </p>
-            </div>
-            <div class="path-step">
-              <div class="path-step-num">2</div>
-              <h3>Pengolahan &amp; Struktur Data</h3>
-              <p>
-                Pahami bagaimana data diolah menjadi informasi dan disimpan
-                dalam struktur List, Stack (LIFO), dan Queue (FIFO).
-              </p>
-            </div>
-            <div class="path-step">
-              <div class="path-step-num">3</div>
-              <h3>Algoritma Pencarian &amp; Pengurutan</h3>
-              <p>
-                Pelajari Linear &amp; Binary Search serta tiga algoritma
-                pengurutan dasar beserta efisiensinya.
-              </p>
-            </div>
-            <div class="path-step">
-              <div class="path-step-num">4</div>
-              <h3>Algoritma, Flowchart &amp; Pseudocode</h3>
-              <p>
-                Susun alur logika program dengan flowchart dan pseudocode
-                sebelum masuk ke bahasa pemrograman.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========== DAFTAR MATERI ========== -->
-      <section class="daftar-section" id="daftar-materi">
-        <div class="kk-container">
-          <div class="section-header">
-            <span class="section-tag">Daftar Materi</span>
-            <h2>
-              Pilih <span class="text-primary">Sub-Bab</span> yang Ingin Kamu
-              Pelajari
-            </h2>
-            <p>
-              Setiap sub-bab berisi materi bacaan, simulasi interaktif, LKPD,
-              dan asesmen (Pre-Test, Post-Test, Tes Tertulis). Semua bisa
-              diakses kapan saja.
-            </p>
-          </div>
-
-          <div class="materi-list">
-            <!-- MATERI 1 -->
-            <article class="materi-item">
-              <div class="materi-thumb">
-                <span class="thumb-label">SUB-BAB</span>
-                <span class="thumb-num">1</span>
-              </div>
               <div class="materi-info">
-                <h3>Fondasi Sistem Komputasi &amp; Berpikir</h3>
+                <div class="materi-meta-row">
+                  <span class="materi-badge-pill">BAB 1 • FONDASI</span>
+                  <span class="materi-time-pill"><i class="fas fa-clock"></i> 45 Menit</span>
+                  <span class="materi-time-pill"><i class="fas fa-layer-group"></i> Tingkat Dasar</span>
+                </div>
+                <h3>Fondasi Berpikir Komputasional</h3>
                 <p>
-                  Mengenal arsitektur Von Neumann, siklus Input-Proses-Output,
-                  lapisan Sistem Operasi (model bawang), serta 4 pilar
-                  Computational Thinking sebagai bekal awal berpikir sistematis.
+                  Mempelajari konsep fundamental berpikir komputasional dengan menguasai 4 pilar utama: Dekomposisi
+                  masalah, Pengenalan Pola, Abstraksi, dan Perancangan Algoritma sederhana untuk menyelesaikan masalah
+                  sehari-hari.
                 </p>
                 <div class="topik-tags">
-                  <span
-                    ><i class="fas fa-microchip"></i> Von Neumann &amp;
-                    IPO</span
-                  >
-                  <span
-                    ><i class="fas fa-layer-group"></i> OS Lapisan Bawang</span
-                  >
-                  <span><i class="fas fa-lightbulb"></i> 4 Pilar CT</span>
-                  <span><i class="fas fa-play"></i> Simulasi IPO &amp; OS</span>
+                  <span><i class="fas fa-sitemap"></i> Dekomposisi Masalah</span>
+                  <span><i class="fas fa-magnifying-glass"></i> Pengenalan Pola</span>
+                  <span><i class="fas fa-filter"></i> Abstraksi Data</span>
+                  <span><i class="fas fa-list-check"></i> Perancangan Algoritma</span>
                 </div>
               </div>
               <div class="materi-action">
-                <span class="progress-hint"
-                  ><i class="fas fa-circle-check"></i> Asesmen + LKPD</span
-                >
-                <a href="sub_materi_1.html" class="btn-open"
-                  >Buka Materi <i class="fas fa-arrow-right"></i
-                ></a>
+                <span class="progress-hint"><i class="fas fa-circle-check"></i> Asesmen + LKPD 1</span>
+                <a href="sub_materi_1.html" class="btn-open">
+                  Buka Materi <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <!-- MATERI 2 -->
-            <article class="materi-item accent-orange">
+          <!-- MATERI 2 -->
+          <article class="materi-item accent-orange">
+            <div class="materi-card-inner">
               <div class="materi-thumb thumb-orange">
-                <span class="thumb-label">SUB-BAB</span>
-                <span class="thumb-num">2</span>
+                <i class="fas fa-database"></i>
               </div>
               <div class="materi-info">
-                <h3>Pengolahan Data &amp; Struktur Data</h3>
+                <div class="materi-meta-row">
+                  <span class="materi-badge-pill">BAB 2 • STRUKTUR DATA</span>
+                  <span class="materi-time-pill"><i class="fas fa-clock"></i> 60 Menit</span>
+                  <span class="materi-time-pill"><i class="fas fa-layer-group"></i> Praktik Visual</span>
+                </div>
+                <h3>Pengolahan &amp; Struktur Data</h3>
                 <p>
-                  Memahami siklus pengolahan data mentah menjadi informasi serta
-                  konsep fundamental List, Stack (prinsip LIFO), dan Queue
-                  (prinsip FIFO) melalui simulasi visual interaktif.
+                  Memahami siklus pengolahan data mentah menjadi informasi serta konsep fundamental Array/List, Stack
+                  (prinsip LIFO - Tumpukan), dan Queue (prinsip FIFO - Antrean) melalui simulasi visual interaktif.
                 </p>
                 <div class="topik-tags">
-                  <span><i class="fas fa-database"></i> Pengolahan Data</span>
-                  <span><i class="fas fa-list"></i> List &amp; Array</span>
+                  <span><i class="fas fa-chart-pie"></i> Siklus Pengolahan Data</span>
+                  <span><i class="fas fa-list"></i> Array &amp; List</span>
                   <span><i class="fas fa-layer-group"></i> Stack (LIFO)</span>
                   <span><i class="fas fa-people-arrows"></i> Queue (FIFO)</span>
                 </div>
               </div>
               <div class="materi-action">
-                <span class="progress-hint"
-                  ><i class="fas fa-circle-check"></i> Simulasi Stack &amp;
-                  Queue</span
-                >
-                <a href="sub_materi_2.html" class="btn-open"
-                  >Buka Materi <i class="fas fa-arrow-right"></i
-                ></a>
+                <span class="progress-hint"><i class="fas fa-play-circle"></i> Simulasi Stack &amp; Queue</span>
+                <a href="sub_materi_2.html" class="btn-open">
+                  Buka Materi <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <!-- MATERI 3 -->
-            <article class="materi-item accent-green">
+          <!-- MATERI 3 -->
+          <article class="materi-item accent-green">
+            <div class="materi-card-inner">
               <div class="materi-thumb thumb-green">
-                <span class="thumb-label">SUB-BAB</span>
-                <span class="thumb-num">3</span>
+                <i class="fas fa-magnifying-glass-chart"></i>
               </div>
               <div class="materi-info">
+                <div class="materi-meta-row">
+                  <span class="materi-badge-pill">BAB 3 • ALGORITMA</span>
+                  <span class="materi-time-pill"><i class="fas fa-clock"></i> 60 Menit</span>
+                  <span class="materi-time-pill"><i class="fas fa-layer-group"></i> Analisis Algoritma</span>
+                </div>
                 <h3>Algoritma Pencarian &amp; Pengurutan</h3>
                 <p>
-                  Mendalami konsep dan efisiensi algoritma pencarian (Linear,
-                  Binary Search) serta pengurutan data (Bubble, Insertion,
-                  Selection Sort) dengan animasi langkah demi langkah.
+                  Mendalami konsep dan efisiensi algoritma pencarian (Linear vs Binary Search) serta tiga metode
+                  pengurutan data fundamental (Bubble Sort, Insertion Sort, dan Selection Sort) dengan visualisasi
+                  animasi komparatif.
                 </p>
                 <div class="topik-tags">
-                  <span
-                    ><i class="fas fa-magnifying-glass"></i> Linear Search</span
-                  >
-                  <span><i class="fas fa-bolt"></i> Binary Search</span>
-                  <span
-                    ><i class="fas fa-arrow-down-a-z"></i> Bubble, Insertion,
-                    Selection Sort</span
-                  >
-                  <span><i class="fas fa-film"></i> Simulasi Sorting</span>
+                  <span><i class="fas fa-magnifying-glass"></i> Linear Search</span>
+                  <span><i class="fas fa-bolt"></i> Binary Search (O(log n))</span>
+                  <span><i class="fas fa-arrow-down-a-z"></i> Bubble &amp; Insertion Sort</span>
+                  <span><i class="fas fa-arrow-down-short-wide"></i> Selection Sort</span>
                 </div>
               </div>
               <div class="materi-action">
-                <span class="progress-hint"
-                  ><i class="fas fa-circle-check"></i> Animasi Interaktif</span
-                >
-                <a href="sub_materi_3.html" class="btn-open"
-                  >Buka Materi <i class="fas fa-arrow-right"></i
-                ></a>
+                <span class="progress-hint"><i class="fas fa-play-circle"></i> Visualisasi Live Sorting</span>
+                <a href="sub_materi_3.html" class="btn-open">
+                  Buka Materi <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <!-- MATERI 4 -->
-            <article class="materi-item accent-violet">
+          <!-- MATERI 4 -->
+          <article class="materi-item accent-violet">
+            <div class="materi-card-inner">
               <div class="materi-thumb thumb-violet">
-                <span class="thumb-label">SUB-BAB</span>
-                <span class="thumb-num">4</span>
+                <i class="fas fa-diagram-project"></i>
               </div>
               <div class="materi-info">
+                <div class="materi-meta-row">
+                  <span class="materi-badge-pill">BAB 4 • PERANCANGAN</span>
+                  <span class="materi-time-pill"><i class="fas fa-clock"></i> 75 Menit</span>
+                  <span class="materi-time-pill"><i class="fas fa-layer-group"></i> Praktik Logika</span>
+                </div>
                 <h3>Algoritma, Flowchart &amp; Pseudocode</h3>
                 <p>
-                  Pelajari alur translasi dari masalah hingga program, simbol
-                  flowchart standar ANSI/ISO, dan penulisan pseudocode
-                  sekuensial melalui Flowchart Builder dan game susun
-                  pseudocode.
+                  Pelajari alur translasi dari masalah hingga kode program, 6 simbol diagram alir (flowchart) terstandar
+                  ANSI/ISO, dan penulisan pseudocode sekuensial melalui Flowchart Builder interaktif dan mini game
+                  logika.
                 </p>
                 <div class="topik-tags">
-                  <span
-                    ><i class="fas fa-route"></i> Alur Translasi Masalah ke
-                    Program</span
-                  >
-                  <span><i class="fas fa-shapes"></i> Simbol Flowchart</span>
-                  <span><i class="fas fa-file-code"></i> Pseudocode</span>
-                  <span
-                    ><i class="fas fa-gamepad"></i> Flowchart Builder &amp;
-                    Game</span
-                  >
+                  <span><i class="fas fa-route"></i> Alur Translasi Masalah ke Program</span>
+                  <span><i class="fas fa-shapes"></i> 6 Simbol Flowchart</span>
+                  <span><i class="fas fa-file-code"></i> Struktur Pseudocode</span>
+                  <span><i class="fas fa-gamepad"></i> Flowchart Builder &amp; Game</span>
                 </div>
               </div>
               <div class="materi-action">
-                <span class="progress-hint"
-                  ><i class="fas fa-circle-check"></i> Flowchart Builder +
-                  Game</span
-                >
-                <a href="sub_materi_4.html" class="btn-open"
-                  >Buka Materi <i class="fas fa-arrow-right"></i
-                ></a>
+                <span class="progress-hint"><i class="fas fa-gamepad"></i> Flowchart Builder + Game</span>
+                <a href="sub_materi_4.html" class="btn-open">
+                  Buka Materi <i class="fas fa-arrow-right"></i>
+                </a>
               </div>
-            </article>
-          </div>
-        </div>
-      </section>
+            </div>
+          </article>
 
-      <!-- ========== CARA BELAJAR ========== -->
-      <section class="how-section" id="cara-belajar">
-        <div class="kk-container">
-          <div class="section-header">
-            <span class="section-tag">Cara Belajar</span>
-            <h2>3 Langkah <span class="text-primary">Belajar Efektif</span></h2>
-            <p>
-              Ikuti alur sederhana ini agar pemahamanmu lebih maksimal dan poin
-              keaktifanmu bertambah.
-            </p>
-          </div>
-
-          <div class="how-grid">
-            <div class="how-card">
-              <span class="how-step-label">LANGKAH 1</span>
-              <div class="how-icon">
-                <i class="fas fa-book-open-reader"></i>
+          <!-- MATERI 5 -->
+          <article class="materi-item accent-blue">
+            <div class="materi-card-inner">
+              <div class="materi-thumb thumb-blue">
+                <i class="fas fa-microchip"></i>
               </div>
-              <h3>Baca &amp; Tonton Materi</h3>
-              <p>
-                Pelajari materi bacaan dan amati ilustrasi pada setiap sub-bab.
-                Catat poin penting agar mudah diingat kembali.
-              </p>
+              <div class="materi-info">
+                <div class="materi-meta-row">
+                  <span class="materi-badge-pill">BAB 5 • SISTEM KOMPUTER</span>
+                  <span class="materi-time-pill"><i class="fas fa-clock"></i> 60 Menit</span>
+                  <span class="materi-time-pill"><i class="fas fa-layer-group"></i> Arsitektur Sistem</span>
+                </div>
+                <h3>Sistem Operasi &amp; Model Von Neumann</h3>
+                <p>
+                  Menyelami arsitektur komputer Von Neumann, alur Input-Proses-Output, lapisan Sistem Operasi (model
+                  bawang), manajemen multitasking Round Robin, dan simulasi mesin konseptual Mr. ALGO.
+                </p>
+                <div class="topik-tags">
+                  <span><i class="fas fa-microchip"></i> Model Von Neumann &amp; IPO</span>
+                  <span><i class="fas fa-layer-group"></i> OS Model Lapisan Bawang</span>
+                  <span><i class="fas fa-clock-rotate-left"></i> Penjadwalan Round Robin</span>
+                  <span><i class="fas fa-robot"></i> Mesin Konseptual Mr. ALGO</span>
+                </div>
+              </div>
+              <div class="materi-action">
+                <span class="progress-hint"><i class="fas fa-play-circle"></i> Simulasi Round Robin</span>
+                <a href="sub_materi_5.html" class="btn-open">
+                  Buka Materi <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
             </div>
-
-            <div class="how-card">
-              <span class="how-step-label">LANGKAH 2</span>
-              <div class="how-icon"><i class="fas fa-flask-vial"></i></div>
-              <h3>Praktik &amp; Simulasi</h3>
-              <p>
-                Cobalah simulasi interaktif dan kerjakan LKPD yang tersedia
-                untuk mengasah pemahaman konsep secara langsung.
-              </p>
-            </div>
-
-            <div class="how-card">
-              <span class="how-step-label">LANGKAH 3</span>
-              <div class="how-icon"><i class="fas fa-medal"></i></div>
-              <h3>Uji Pemahaman &amp; Kumpulkan Poin</h3>
-              <p>
-                Selesaikan Pre-Test, Post-Test, dan Tes Tertulis di akhir
-                sub-bab. Setiap jawaban benar menambah poin keaktifanmu di
-                leaderboard kelas.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========== CTA BANNER ========== -->
-      <section class="cta-section">
-        <div class="kk-container">
-          <div class="cta-box">
-            <div class="cta-text">
-              <h2>Sudah Siap Memulai Petualangan Belajarmu? 🚀</h2>
-              <p>
-                Mulai dari Sub-Bab 1 dan lanjutkan secara berurutan. Setiap
-                progresmu akan terekam di leaderboard kelas.
-              </p>
-            </div>
-            <div class="cta-action">
-              <a href="sub_materi_1.html" class="btn btn-yellow btn-lg">
-                <i class="fas fa-play"></i> Mulai dari Sub-Bab 1
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-      <div class="kk-container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <a
-              href="index.html"
-              class="navbar-brand"
-              style="margin-bottom: 12px"
-            >
-              <div class="brand-icon"><i class="fas fa-brain"></i></div>
-              <span>Komputasi<span class="highlight">Kita</span></span>
-            </a>
-            <p>
-              Platform pembelajaran Berpikir Komputasional berbasis web untuk
-              siswa SMA Fase E Kurikulum Merdeka.
-            </p>
-          </div>
-
-          <div class="footer-col">
-            <h5>Materi Pembelajaran</h5>
-            <a href="sub_materi_1.html">Fondasi Sistem Komputasi</a>
-            <a href="sub_materi_2.html">Pengolahan &amp; Struktur Data</a>
-            <a href="sub_materi_3.html">Algoritma Pencarian &amp; Pengurutan</a>
-            <a href="sub_materi_4.html"
-              >Algoritma, Flowchart &amp; Pseudocode</a
-            >
-          </div>
-
-          <div class="footer-col">
-            <h5>Navigasi</h5>
-            <a href="index.html">Beranda</a>
-            <a href="materi_murid.html">Daftar Materi</a>
-            <a href="leaderboard_murid.html">Leaderboard Siswa</a>
-            <a href="dashboard_guru.html">Portal Guru</a>
-          </div>
-
-          <div class="footer-col">
-            <h5>Informasi</h5>
-            <a href="#">Kurikulum Merdeka SMA Fase E</a>
-            <a href="#">Pedoman Pembelajaran CT</a>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>
-            &copy; 2026 KomputasiKita. Dibuat untuk pembelajaran interaktif
-            kelas SMA.
-          </p>
+          </article>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <script>
-      (function () {
-        var toggle = document.getElementById("navbarToggle");
-        var menu = document.getElementById("navbarMenu");
+    <!-- ========== CARA BELAJAR ========== -->
+    <section class="how-section" id="cara-belajar">
+      <div class="kk-container">
+        <div class="section-header">
+          <span class="section-tag">Cara Belajar</span>
+          <h2>3 Langkah <span class="text-primary">Belajar Efektif</span></h2>
+          <p>
+            Ikuti alur sederhana ini agar pemahamanmu lebih maksimal dan poin keaktifanmu bertambah di kelas.
+          </p>
+        </div>
 
-        if (toggle && menu) {
-          var toggleIcon = toggle.querySelector("i");
+        <div class="how-grid">
+          <div class="how-card">
+            <span class="how-step-label">LANGKAH 1</span>
+            <div class="how-icon">
+              <i class="fas fa-book-open-reader"></i>
+            </div>
+            <h3>Baca &amp; Tonton Materi</h3>
+            <p>
+              Pelajari materi bacaan dan amati ilustrasi pada setiap bab. Catat poin penting agar mudah diingat kembali.
+            </p>
+          </div>
 
-          toggle.addEventListener("click", function () {
-            var isOpen = menu.classList.toggle("active");
-            toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-            toggle.setAttribute(
-              "aria-label",
-              isOpen ? "Tutup menu navigasi" : "Buka menu navigasi",
-            );
+          <div class="how-card">
+            <span class="how-step-label">LANGKAH 2</span>
+            <div class="how-icon"><i class="fas fa-flask-vial"></i></div>
+            <h3>Praktik &amp; Simulasi</h3>
+            <p>
+              Cobalah simulasi interaktif dan kerjakan LKPD digital yang tersedia untuk mengasah pemahaman konsep secara
+              langsung.
+            </p>
+          </div>
+
+          <div class="how-card">
+            <span class="how-step-label">LANGKAH 3</span>
+            <div class="how-icon"><i class="fas fa-medal"></i></div>
+            <h3>Uji Pemahaman &amp; Kumpulkan Poin</h3>
+            <p>
+              Selesaikan Pre-Test, Post-Test, dan Tes Tertulis di setiap bab. Setiap skor menambah perolehan poin di
+              leaderboard kelas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA BANNER ========== -->
+    <section class="cta-section">
+      <div class="kk-container">
+        <div class="cta-box">
+          <div class="cta-text">
+            <h2>Sudah Siap Memulai Petualangan Belajarmu? 🚀</h2>
+            <p>
+              Mulai dari Bab 1 atau pilih materi yang ingin kamu kuasai. Setiap progresmu akan terekam secara otomatis.
+            </p>
+          </div>
+          <div class="cta-action">
+            <a href="sub_materi_1.html" class="btn btn-yellow btn-lg">
+              <i class="fas fa-play"></i> Mulai dari Bab 1
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="kk-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="navbar-brand" style="margin-bottom: 12px">
+            <div class="brand-icon"><i class="fas fa-brain"></i></div>
+            <span>Komputasi<span class="highlight">Kita</span></span>
+          </a>
+          <p>
+            Platform pembelajaran Berpikir Komputasional berbasis web untuk
+            siswa SMA Fase E Kurikulum Merdeka.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Materi Pembelajaran</h5>
+          <a href="sub_materi_1.html">Fondasi Berpikir Komputasional</a>
+          <a href="sub_materi_2.html">Pengolahan &amp; Struktur Data</a>
+          <a href="sub_materi_3.html">Algoritma Pencarian &amp; Pengurutan</a>
+          <a href="sub_materi_4.html">Algoritma, Flowchart &amp; Pseudocode</a>
+          <a href="sub_materi_5.html">Sistem Operasi &amp; Von Neumann</a>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigasi</h5>
+          <a href="index.html">Beranda</a>
+          <a href="materi_murid.html">Daftar Materi</a>
+          <a href="leaderboard_murid.html">Leaderboard Siswa</a>
+          <a href="dashboard_guru.html">Portal Guru</a>
+        </div>
+
+        <div class="footer-col">
+          <h5>Informasi</h5>
+          <a href="#">Kurikulum Merdeka SMA Fase E</a>
+          <a href="#">Pedoman Pembelajaran CT</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 KomputasiKita. Dibuat untuk pembelajaran interaktif
+          kelas SMA.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById("navbarToggle");
+      var menu = document.getElementById("navbarMenu");
+
+      if (toggle && menu) {
+        var toggleIcon = toggle.querySelector("i");
+
+        toggle.addEventListener("click", function () {
+          var isOpen = menu.classList.toggle("active");
+          toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+          toggle.setAttribute(
+            "aria-label",
+            isOpen ? "Tutup menu navigasi" : "Buka menu navigasi",
+          );
+          if (toggleIcon) {
+            toggleIcon.classList.toggle("fa-bars", !isOpen);
+            toggleIcon.classList.toggle("fa-xmark", isOpen);
+          }
+        });
+
+        menu.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            menu.classList.remove("active");
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-label", "Buka menu navigasi");
             if (toggleIcon) {
-              toggleIcon.classList.toggle("fa-bars", !isOpen);
-              toggleIcon.classList.toggle("fa-xmark", isOpen);
+              toggleIcon.classList.add("fa-bars");
+              toggleIcon.classList.remove("fa-xmark");
             }
           });
+        });
+      }
+    })();
+  </script>
+</body>
 
-          menu.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-              menu.classList.remove("active");
-              toggle.setAttribute("aria-expanded", "false");
-              toggle.setAttribute("aria-label", "Buka menu navigasi");
-              if (toggleIcon) {
-                toggleIcon.classList.add("fa-bars");
-                toggleIcon.classList.remove("fa-xmark");
-              }
-            });
-          });
-        }
-      })();
-    </script>
-  </body>
 </html>
